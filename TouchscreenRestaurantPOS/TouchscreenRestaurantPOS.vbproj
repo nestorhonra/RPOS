@@ -1,0 +1,1912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{168E0615-3580-466C-90E5-5DA57BE8677B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>RestaurantPOS3.My.MyApplication</StartupObject>
+    <RootNamespace>RestaurantPOS3</RootNamespace>
+    <AssemblyName>RestaurantPOS3</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>RPOS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\TouchscreenRestaurantPOS.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\TouchscreenRestaurantPOS.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\TouchscreenRestaurantPOS.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>RestaurantPOS3.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\TouchscreenRestaurantPOS.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="TouchlessLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\TouchlessLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WebCamLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WebCamLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ConnectionString.vb" />
+    <Compile Include="Custom Dialog\frmCustomDialog12.Designer.vb">
+      <DependentUpon>frmCustomDialog12.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog12.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog11.Designer.vb">
+      <DependentUpon>frmCustomDialog11.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog11.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog10.Designer.vb">
+      <DependentUpon>frmCustomDialog10.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog10.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog9.Designer.vb">
+      <DependentUpon>frmCustomDialog9.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog9.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackOffice.Designer.vb">
+      <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantPOSKOTRecord.Designer.vb">
+      <DependentUpon>frmRestaurantPOSKOTRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSKOTRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockIn_StoreRecord.Designer.vb">
+      <DependentUpon>frmStockIn_StoreRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockIn_StoreRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockOUT_StoreRecord.Designer.vb">
+      <DependentUpon>frmStockOUT_StoreRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockOUT_StoreRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStock_StoreRecord.Designer.vb">
+      <DependentUpon>frmStock_StoreRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStock_StoreRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStock_Store.Designer.vb">
+      <DependentUpon>frmStock_Store.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStock_Store.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog8.Designer.vb">
+      <DependentUpon>frmCustomDialog8.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog8.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog7.Designer.vb">
+      <DependentUpon>frmCustomDialog7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog6.Designer.vb">
+      <DependentUpon>frmCustomDialog6.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog6.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog5.Designer.vb">
+      <DependentUpon>frmCustomDialog5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog5.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTablesList.Designer.vb">
+      <DependentUpon>frmTablesList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTablesList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptWorkPeriod.vb">
+      <DependentUpon>rptWorkPeriod.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmWorkPeriodReport.Designer.vb">
+      <DependentUpon>frmWorkPeriodReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWorkPeriodReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWorkPeriod_Del.Designer.vb">
+      <DependentUpon>frmWorkPeriod_Del.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWorkPeriod_Del.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpenTickets.Designer.vb">
+      <DependentUpon>frmOpenTickets.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpenTickets.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog4.Designer.vb">
+      <DependentUpon>frmCustomDialog4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog3.Designer.vb">
+      <DependentUpon>frmCustomDialog3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog2.Designer.vb">
+      <DependentUpon>frmCustomDialog2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog1.Designer.vb">
+      <DependentUpon>frmCustomDialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWorkPeriod.Designer.vb">
+      <DependentUpon>frmWorkPeriod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWorkPeriod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptRestaurantPOSKOTUpdatedInvoice.vb">
+      <DependentUpon>rptRestaurantPOSKOTUpdatedInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSKOTUpdatedInvoice_Kitchen.vb">
+      <DependentUpon>rptRestaurantPOSKOTUpdatedInvoice_Kitchen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="rptRecipe.vb">
+      <DependentUpon>rptRecipe.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmRecipeRecord.Designer.vb">
+      <DependentUpon>frmRecipeRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecipeRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecipe.Designer.vb">
+      <DependentUpon>frmRecipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecipe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptStockTransferInvoice.vb">
+      <DependentUpon>rptStockTransferInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptStockTransfer.vb">
+      <DependentUpon>rptStockTransfer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmExpiredProductsRecord.Designer.vb">
+      <DependentUpon>frmExpiredProductsRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmExpiredProductsRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockOutRecord.Designer.vb">
+      <DependentUpon>frmStockOutRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockOutRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLowStockItemsRecord.Designer.vb">
+      <DependentUpon>frmLowStockItemsRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLowStockItemsRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockInRecord.Designer.vb">
+      <DependentUpon>frmStockInRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockInRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockTransferRecord.Designer.vb">
+      <DependentUpon>frmStockTransferRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockTransferRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockTransfer.Designer.vb">
+      <DependentUpon>frmStockTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantPOSEBRecord_Unpaid.Designer.vb">
+      <DependentUpon>frmRestaurantPOSEBRecord_Unpaid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSEBRecord_Unpaid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWarehouse.Designer.vb">
+      <DependentUpon>frmWarehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWarehouse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWarehouseType.Designer.vb">
+      <DependentUpon>frmWarehouseType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWarehouseType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptRestaurantPOSEB.vb">
+      <DependentUpon>rptRestaurantPOSEB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSEBInvoice1.vb">
+      <DependentUpon>rptRestaurantPOSEBInvoice1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSEBInvoice_Kitchen.vb">
+      <DependentUpon>rptRestaurantPOSEBInvoice_Kitchen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSEBInvoice.vb">
+      <DependentUpon>rptRestaurantPOSEBInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmRestaurantPOSEBRecord.Designer.vb">
+      <DependentUpon>frmRestaurantPOSEBRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSEBRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCurrency.Designer.vb">
+      <DependentUpon>frmCurrency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCurrency.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpenTicketsRecord.Designer.vb">
+      <DependentUpon>frmOpenTicketsRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpenTicketsRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotes1.Designer.vb">
+      <DependentUpon>frmNotes1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotes1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptRestaurantPOSTAInvoice_Kitchen.vb">
+      <DependentUpon>rptRestaurantPOSTAInvoice_Kitchen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSKOTInvoice_Kitchen.vb">
+      <DependentUpon>rptRestaurantPOSKOTInvoice_Kitchen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSHDInvoice_Kitchen.vb">
+      <DependentUpon>rptRestaurantPOSHDInvoice_Kitchen.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmDeliveryPersonRecord.Designer.vb">
+      <DependentUpon>frmDeliveryPersonRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeliveryPersonRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOthersSetting.Designer.vb">
+      <DependentUpon>frmOthersSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOthersSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotesMaster.Designer.vb">
+      <DependentUpon>frmNotesMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotesMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCamera.Designer.vb">
+      <DependentUpon>frmCamera.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCamera.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeQty.Designer.vb">
+      <DependentUpon>frmChangeQty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangeQty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomersRecord.Designer.vb">
+      <DependentUpon>frmCustomersRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomersRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeRegistration.Designer.vb">
+      <DependentUpon>frmEmployeeRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeeRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeesRecord.Designer.vb">
+      <DependentUpon>frmEmployeesRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeesRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKitchen_Section.Designer.vb">
+      <DependentUpon>frmKitchen_Section.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKitchen_Section.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeRate.Designer.vb">
+      <DependentUpon>frmChangeRate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangeRate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModCashDrawer.vb" />
+    <Compile Include="rptRestaurantPOSHD.vb">
+      <DependentUpon>rptRestaurantPOSHD.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSTA.vb">
+      <DependentUpon>rptRestaurantPOSTA.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSHDInvoice.vb">
+      <DependentUpon>rptRestaurantPOSHDInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSTAInvoice.vb">
+      <DependentUpon>rptRestaurantPOSTAInvoice.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmRestaurantPOSHDRecord.Designer.vb">
+      <DependentUpon>frmRestaurantPOSHDRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSHDRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantPOSTARecord.Designer.vb">
+      <DependentUpon>frmRestaurantPOSTARecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSTARecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccountingReport.Designer.vb">
+      <DependentUpon>frmAccountingReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAccountingReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encryption.vb" />
+    <Compile Include="frmExpense.Designer.vb">
+      <DependentUpon>frmExpense.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmExpense.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExpenseType.Designer.vb">
+      <DependentUpon>frmExpenseType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmExpenseType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOption.Designer.vb">
+      <DependentUpon>frmOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplier.Designer.vb">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierRecord.Designer.vb">
+      <DependentUpon>frmSupplierRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplierRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayment.Designer.vb">
+      <DependentUpon>frmPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentRecord.Designer.vb">
+      <DependentUpon>frmPaymentRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduct.Designer.vb">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductRecord.Designer.vb">
+      <DependentUpon>frmProductRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurchase.Designer.vb">
+      <DependentUpon>frmPurchase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPurchase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurchaseRecord.Designer.vb">
+      <DependentUpon>frmPurchaseRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPurchaseRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActivation.Designer.vb">
+      <DependentUpon>frmActivation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmActivation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAvailableTables.Designer.vb">
+      <DependentUpon>frmAvailableTables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAvailableTables.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategory.Designer.vb">
+      <DependentUpon>frmCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItem.Designer.vb">
+      <DependentUpon>frmItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantMaster.Designer.vb">
+      <DependentUpon>frmRestaurantMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogs.Designer.vb">
+      <DependentUpon>frmLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotes.Designer.vb">
+      <DependentUpon>frmNotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosPrinterSetting.Designer.vb">
+      <DependentUpon>frmPosPrinterSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosPrinterSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistration.Designer.vb">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantPOSKOTFinalBillRecord.Designer.vb">
+      <DependentUpon>frmRestaurantPOSKOTFinalBillRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSKOTFinalBillRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestaurantPOSReport.Designer.vb">
+      <DependentUpon>frmRestaurantPOSReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRestaurantPOSReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSqlServerSetting.Designer.vb">
+      <DependentUpon>frmSqlServerSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSqlServerSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystemInfo.Designer.vb">
+      <DependentUpon>frmSystemInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystemInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTable.Designer.vb">
+      <DependentUpon>frmTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVoucher.Designer.vb">
+      <DependentUpon>frmVoucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVoucher.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVoucherRecord.Designer.vb">
+      <DependentUpon>frmVoucherRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVoucherRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModClasses.vb" />
+    <Compile Include="ModFunc.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="rptCreditors.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCreditors.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptExpenses.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptExpenses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptMenuItems.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMenuItems.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptGeneralDayBook.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGeneralDayBook.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptGeneralLedger.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGeneralLedger.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptPurchase.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPurchase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptPurchaseDayBook.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPurchaseDayBook.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOS.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRestaurantPOS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSFinalBillKOTInvoice.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRestaurantPOSFinalBillKOTInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptRestaurantPOSKOTInvoice.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRestaurantPOSKOTInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptSupplierLedger.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierLedger.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptTrialBalance.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTrialBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptVoucher.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog12.resx">
+      <DependentUpon>frmCustomDialog12.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog11.resx">
+      <DependentUpon>frmCustomDialog11.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog10.resx">
+      <DependentUpon>frmCustomDialog10.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog9.resx">
+      <DependentUpon>frmCustomDialog9.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackOffice.resx">
+      <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSKOTRecord.resx">
+      <DependentUpon>frmRestaurantPOSKOTRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockIn_StoreRecord.resx">
+      <DependentUpon>frmStockIn_StoreRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockOUT_StoreRecord.resx">
+      <DependentUpon>frmStockOUT_StoreRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStock_StoreRecord.resx">
+      <DependentUpon>frmStock_StoreRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStock_Store.resx">
+      <DependentUpon>frmStock_Store.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog8.resx">
+      <DependentUpon>frmCustomDialog8.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog7.resx">
+      <DependentUpon>frmCustomDialog7.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog6.resx">
+      <DependentUpon>frmCustomDialog6.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog5.resx">
+      <DependentUpon>frmCustomDialog5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTablesList.resx">
+      <DependentUpon>frmTablesList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="rptWorkPeriod.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWorkPeriod.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkPeriodReport.resx">
+      <DependentUpon>frmWorkPeriodReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkPeriod_Del.resx">
+      <DependentUpon>frmWorkPeriod_Del.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpenTickets.resx">
+      <DependentUpon>frmOpenTickets.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog4.resx">
+      <DependentUpon>frmCustomDialog4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog3.resx">
+      <DependentUpon>frmCustomDialog3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog2.resx">
+      <DependentUpon>frmCustomDialog2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog1.resx">
+      <DependentUpon>frmCustomDialog1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWorkPeriod.resx">
+      <DependentUpon>frmWorkPeriod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSKOTUpdatedInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSKOTUpdatedInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSKOTUpdatedInvoice_Kitchen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSKOTUpdatedInvoice_Kitchen.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRecipe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRecipe.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecipeRecord.resx">
+      <DependentUpon>frmRecipeRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecipe.resx">
+      <DependentUpon>frmRecipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptStockTransferInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStockTransferInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptStockTransfer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStockTransfer.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExpiredProductsRecord.resx">
+      <DependentUpon>frmExpiredProductsRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockOutRecord.resx">
+      <DependentUpon>frmStockOutRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLowStockItemsRecord.resx">
+      <DependentUpon>frmLowStockItemsRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockInRecord.resx">
+      <DependentUpon>frmStockInRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockTransferRecord.resx">
+      <DependentUpon>frmStockTransferRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStockTransfer.resx">
+      <DependentUpon>frmStockTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSEBRecord_Unpaid.resx">
+      <DependentUpon>frmRestaurantPOSEBRecord_Unpaid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWarehouse.resx">
+      <DependentUpon>frmWarehouse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWarehouseType.resx">
+      <DependentUpon>frmWarehouseType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSEB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSEB.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSEBInvoice1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSEBInvoice1.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSEBInvoice_Kitchen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSEBInvoice_Kitchen.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSEBInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSEBInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSEBRecord.resx">
+      <DependentUpon>frmRestaurantPOSEBRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCurrency.resx">
+      <DependentUpon>frmCurrency.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpenTicketsRecord.resx">
+      <DependentUpon>frmOpenTicketsRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotes1.resx">
+      <DependentUpon>frmNotes1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSTAInvoice_Kitchen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSTAInvoice_Kitchen.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSKOTInvoice_Kitchen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSKOTInvoice_Kitchen.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSHDInvoice_Kitchen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSHDInvoice_Kitchen.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeliveryPersonRecord.resx">
+      <DependentUpon>frmDeliveryPersonRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOthersSetting.resx">
+      <DependentUpon>frmOthersSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotesMaster.resx">
+      <DependentUpon>frmNotesMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCamera.resx">
+      <DependentUpon>frmCamera.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeQty.resx">
+      <DependentUpon>frmChangeQty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomersRecord.resx">
+      <DependentUpon>frmCustomersRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeeRegistration.resx">
+      <DependentUpon>frmEmployeeRegistration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeesRecord.resx">
+      <DependentUpon>frmEmployeesRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKitchen_Section.resx">
+      <DependentUpon>frmKitchen_Section.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeRate.resx">
+      <DependentUpon>frmChangeRate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSHD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSHD.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSTA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSTA.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSHDInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSHDInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSTAInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSTAInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSHDRecord.resx">
+      <DependentUpon>frmRestaurantPOSHDRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSTARecord.resx">
+      <DependentUpon>frmRestaurantPOSTARecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAccountingReport.resx">
+      <DependentUpon>frmAccountingReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmActivation.resx">
+      <DependentUpon>frmActivation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAvailableTables.resx">
+      <DependentUpon>frmAvailableTables.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategory.resx">
+      <DependentUpon>frmCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItem.resx">
+      <DependentUpon>frmItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExpense.resx">
+      <DependentUpon>frmExpense.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExpenseType.resx">
+      <DependentUpon>frmExpenseType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantMaster.resx">
+      <DependentUpon>frmRestaurantMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogs.resx">
+      <DependentUpon>frmLogs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotes.resx">
+      <DependentUpon>frmNotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOption.resx">
+      <DependentUpon>frmOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplier.resx">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierRecord.resx">
+      <DependentUpon>frmSupplierRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayment.resx">
+      <DependentUpon>frmPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentRecord.resx">
+      <DependentUpon>frmPaymentRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosPrinterSetting.resx">
+      <DependentUpon>frmPosPrinterSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduct.resx">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductRecord.resx">
+      <DependentUpon>frmProductRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurchase.resx">
+      <DependentUpon>frmPurchase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurchaseRecord.resx">
+      <DependentUpon>frmPurchaseRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistration.resx">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSKOTFinalBillRecord.resx">
+      <DependentUpon>frmRestaurantPOSKOTFinalBillRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestaurantPOSReport.resx">
+      <DependentUpon>frmRestaurantPOSReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSqlServerSetting.resx">
+      <DependentUpon>frmSqlServerSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSystemInfo.resx">
+      <DependentUpon>frmSystemInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTable.resx">
+      <DependentUpon>frmTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVoucher.resx">
+      <DependentUpon>frmVoucher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVoucherRecord.resx">
+      <DependentUpon>frmVoucherRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptCreditors.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCreditors.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptExpenses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptExpenses.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptMenuItems.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMenuItems.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptGeneralDayBook.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGeneralDayBook.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptGeneralLedger.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGeneralLedger.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPurchase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPurchase.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPurchaseDayBook.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPurchaseDayBook.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOS.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSFinalBillKOTInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSFinalBillKOTInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRestaurantPOSKOTInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRestaurantPOSKOTInvoice.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSupplierLedger.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierLedger.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptTrialBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTrialBalance.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVoucher.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\1 %282%29.png" />
+    <None Include="Resources\icon-restaurant.png" />
+    <None Include="RPOS_DBDataSet.xsc">
+      <DependentUpon>RPOS_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RPOS_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RPOS_DBDataSet.xss">
+      <DependentUpon>RPOS_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RPOS_DBDataSet1.xsc">
+      <DependentUpon>RPOS_DBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RPOS_DBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RPOS_DBDataSet1.xss">
+      <DependentUpon>RPOS_DBDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\0002992740595_Color_Sky-Blue_SW_60X60.gif" />
+    <Content Include="Resources\0088181331020_Color_Sky-Blue_SW_60X60.gif" />
+    <Content Include="Resources\033-512.png" />
+    <Content Include="Resources\079-512.png" />
+    <Content Include="Resources\1 %2810%29.png" />
+    <Content Include="Resources\1 %2812%29.png" />
+    <Content Include="Resources\1 %2816%29.png" />
+    <Content Include="Resources\1 %2819%29.png" />
+    <Content Include="Resources\1 %2826%29.png" />
+    <Content Include="Resources\1 %2829%29.png" />
+    <Content Include="Resources\1 %286%29.png" />
+    <Content Include="Resources\1.png" />
+    <Content Include="Resources\1001.png" />
+    <Content Include="Resources\115-512 %282%29.png" />
+    <Content Include="Resources\115-512.png" />
+    <Content Include="Resources\11949857921496995420hotel_icon_in_room_bagg_01.svg.med.png" />
+    <Content Include="Resources\11949857921496995420hotel_icon_in_room_bagg_01.svg.med1.png" />
+    <Content Include="Resources\12.jpg" />
+    <Content Include="Resources\1374.png" />
+    <Content Include="Resources\1425837994checkIcon.png" />
+    <Content Include="Resources\1448464348547.png" />
+    <Content Include="Resources\1452835475_Towel_2.png" />
+    <Content Include="Resources\1452835481_Towel_2.png" />
+    <Content Include="Resources\1452835493_Washer_2.png" />
+    <Content Include="Resources\1452835529_Newspaper_2.png" />
+    <Content Include="Resources\1452835554_Food_2.png" />
+    <Content Include="Resources\1452835584_Newspaper.png" />
+    <Content Include="Resources\1452835590_Newspaper.png" />
+    <Content Include="Resources\1466125.png" />
+    <Content Include="Resources\148-512.png" />
+    <Content Include="Resources\18-512.png" />
+    <Content Include="Resources\19-512.png" />
+    <Content Include="Resources\1bed reserv.png" />
+    <Content Include="Resources\2.jpg" />
+    <Content Include="Resources\2.png" />
+    <Content Include="Resources\21.jpg" />
+    <Content Include="Resources\22-512.png" />
+    <Content Include="Resources\256-256-007bcbfbd7c9d2c7d7b4b021ee745e22 %282%29.png" />
+    <Content Include="Resources\256-256-007bcbfbd7c9d2c7d7b4b021ee745e22 %283%29.png" />
+    <Content Include="Resources\256-256-007bcbfbd7c9d2c7d7b4b021ee745e22.png" />
+    <Content Include="Resources\2ka.com reception.jpg" />
+    <Content Include="Resources\3.jpg" />
+    <Content Include="Resources\3232.png" />
+    <Content Include="Resources\32payroll-mgmt-icon.png" />
+    <Content Include="Resources\390.png" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\4.png" />
+    <Content Include="Resources\5.jpg" />
+    <Content Include="Resources\58-512.png" />
+    <Content Include="Resources\6.jpg" />
+    <Content Include="Resources\64-128.png" />
+    <Content Include="Resources\9.png" />
+    <Content Include="Resources\96-512 %282%29.png" />
+    <Content Include="Resources\96-512.png" />
+    <Content Include="Resources\about.png" />
+    <Content Include="Resources\absent.png" />
+    <Content Include="Resources\abstract_dark_wood_textures_backgrounds_1280x720.jpg" />
+    <Content Include="Resources\accounting-128.png" />
+    <Content Include="Resources\Accounting-Calculatorssssssssss-icon.png" />
+    <Content Include="Resources\Actions-address-book-new-icon.png" />
+    <Content Include="Resources\Actions-contact-new-icon.png" />
+    <None Include="Resources\Actions-help-about-icon.png" />
+    <Content Include="Resources\Actions-list-add-user-icon.png" />
+    <Content Include="Resources\Actions-stock-save-as-icon.png" />
+    <None Include="Resources\Actions-view-refresh-icon.png" />
+    <None Include="Resources\Actions-view-refresh-icon1.png" />
+    <Content Include="Resources\Action_Security_ChangePassword.png" />
+    <Content Include="Resources\Action_Security_ChangePassword_32x32.png" />
+    <Content Include="Resources\Activate.png" />
+    <Content Include="Resources\Add User-50.png" />
+    <Content Include="Resources\AddFile_32x32.png" />
+    <Content Include="Resources\ALetter.jpg" />
+    <None Include="Resources\App-shutdown-icon.png" />
+    <Content Include="Resources\apple-icon.png" />
+    <Content Include="Resources\Apply_16x16.png" />
+    <Content Include="Resources\Apply_32x32.png" />
+    <None Include="Resources\Apps-preferences-system-login-icon.png" />
+    <None Include="Resources\Apps-preferences-desktop-user-password-icon.png" />
+    <None Include="Resources\Apps-session-logout-icon.png" />
+    <None Include="Resources\Apps-preferences-system-login-icon1.png" />
+    <None Include="Resources\Apps-Dialog-Shutdown-icon.png" />
+    <None Include="Resources\Apps-drawer-icon.png" />
+    <Content Include="Resources\argentorawrz_1326326908_87.png" />
+    <Content Include="Resources\AssignTo_16x16.png" />
+    <Content Include="Resources\AssignTo_32x32.png" />
+    <Content Include="Resources\attache camera.png" />
+    <Content Include="Resources\Attach_32x32.png" />
+    <Content Include="Resources\attendance_list_icon.png" />
+    <Content Include="Resources\AutoExpand_16x16.png" />
+    <Content Include="Resources\Background books entry4.jpg" />
+    <Content Include="Resources\bed-icon.png" />
+    <Content Include="Resources\bed.png" />
+    <Content Include="Resources\Biiling.jpg" />
+    <Content Include="Resources\blue-gradient-clean-sand-texture-background-hd-500x281.jpg" />
+    <Content Include="Resources\BOContact2_16x16.png" />
+    <Content Include="Resources\BOContact2_32x32.png" />
+    <Content Include="Resources\BOContact_16x16.png" />
+    <Content Include="Resources\BOContact_32x32.png" />
+    <Content Include="Resources\BODepartment_16x16.png" />
+    <Content Include="Resources\BODepartment_32x32.png" />
+    <Content Include="Resources\BOEmployee_16x16.png" />
+    <Content Include="Resources\BOEmployee_32x32.png" />
+    <Content Include="Resources\BONote_16x16.png" />
+    <Content Include="Resources\BONote_32x32.png" />
+    <Content Include="Resources\book-keeping-512.png" />
+    <Content Include="Resources\booking-icon.jpg" />
+    <Content Include="Resources\BOPermission_32x32.png" />
+    <Content Include="Resources\BOPosition2_16x16.png" />
+    <Content Include="Resources\BOPosition2_32x32.png" />
+    <Content Include="Resources\BOReport_16x16.png" />
+    <Content Include="Resources\BOReport_32x32.png" />
+    <Content Include="Resources\BOSale_16x16.png" />
+    <Content Include="Resources\BO_Attention_32x32.png" />
+    <Content Include="Resources\BO_Attention_72x72.png" />
+    <Content Include="Resources\BO_Order.png" />
+    <Content Include="Resources\BO_Order_32x32.png" />
+    <Content Include="Resources\BO_Phone_32x32.png" />
+    <Content Include="Resources\BO_Quote.png" />
+    <Content Include="Resources\BO_Quote_32x32.png" />
+    <None Include="Resources\Programming-Minimize-Window-icon.png" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\User-Interface-Restore-Window-icon.png" />
+    <None Include="Resources\User-Interface-Restore-Window-icon %281%29.png" />
+    <None Include="Resources\Programming-Minimize-Window-icon1.png" />
+    <None Include="Resources\Button-Delete-icon1.png" />
+    <None Include="Resources\Maximise-32X32.png" />
+    <None Include="Resources\Computer-Hardware-Keyboard-icon.png" />
+    <None Include="Resources\keyboard-icon.png" />
+    <None Include="Resources\keyboard-icon %281%29.png" />
+    <None Include="Resources\Programming-Maximize-Window-icon.png" />
+    <None Include="Resources\Programming-Maximize-Window-icon1.png" />
+    <None Include="Resources\User-Interface-Restore-Window-icon1.png" />
+    <None Include="Resources\Maximise 48X48.png" />
+    <None Include="Resources\Normal 48X48.png" />
+    <None Include="Resources\hotel-icon1.png" />
+    <None Include="Resources\keyboard-icon1.png" />
+    <None Include="Resources\Restaurant-icon1.png" />
+    <None Include="Resources\restaurant-icon2.png" />
+    <None Include="Resources\currency-icon.png" />
+    <None Include="Resources\currency-icon1.png" />
+    <None Include="Resources\category-icon.png" />
+    <None Include="Resources\dish-2-icon.png" />
+    <None Include="Resources\Crafting-Table-icon.png" />
+    <None Include="Resources\print-icon2.png" />
+    <None Include="Resources\Note-icon.png" />
+    <None Include="Resources\Database-Active-icon.png" />
+    <None Include="Resources\database-check-icon.png" />
+    <None Include="Resources\Programming-Sql-icon.png" />
+    <None Include="Resources\Settings-L-icon1.png" />
+    <None Include="Resources\sql-icon.png" />
+    <None Include="Resources\product-icon.png" />
+    <None Include="Resources\payment-icon1.png" />
+    <None Include="Resources\User-Group-icon1.png" />
+    <None Include="Resources\Reports-icon.png" />
+    <None Include="Resources\report-edit-icon.png" />
+    <None Include="Resources\Notebook-Recipe-icon.png" />
+    <None Include="Resources\log-icon.png" />
+    <None Include="Resources\icon_cert1.png" />
+    <None Include="Resources\Warehouse.png" />
+    <None Include="Resources\office-building.png" />
+    <None Include="Resources\images4HM95FIT.png" />
+    <None Include="Resources\warehouse_512.png" />
+    <None Include="Resources\purchase_order1.png" />
+    <None Include="Resources\Expense-Tool-icon.png" />
+    <None Include="Resources\voucher-icon.png" />
+    <None Include="Resources\warehouse_5121.png" />
+    <None Include="Resources\Building-icon.png" />
+    <None Include="Resources\Two-storied-house-icon.png" />
+    <None Include="Resources\shop-icon.png" />
+    <None Include="Resources\transfer-icon.png" />
+    <None Include="Resources\Money-icon1.png" />
+    <None Include="Resources\Money-icon22.png" />
+    <None Include="Resources\Document-Text-icon.png" />
+    <None Include="Resources\Order-history-icon.png" />
+    <None Include="Resources\Person-Male-Light-icon.png" />
+    <None Include="Resources\Household-Kitchen-icon.png" />
+    <None Include="Resources\Household-Kitchen-icon1.png" />
+    <None Include="Resources\calender-ics-icon.png" />
+    <None Include="Resources\Ecommerce-Pos-Terminal-icon.png" />
+    <None Include="Resources\Tickets-icon.png" />
+    <None Include="Resources\report-icon.png" />
+    <None Include="Resources\Logout-icon.png" />
+    <None Include="Resources\Log-Out-icon.png" />
+    <None Include="Resources\product-sales-report-icon.png" />
+    <None Include="Resources\Calendar-icon.png" />
+    <None Include="Resources\Calendar-iconPSB75GWN.png" />
+    <None Include="Resources\Calendar22-icon.png" />
+    <None Include="Resources\Button-Close-icon48X48.png" />
+    <None Include="Resources\Button-Close-icon32X32.png" />
+    <None Include="Resources\Reload-icon.png" />
+    <None Include="Resources\Finance-Pos-Terminal-icon.png" />
+    <None Include="Resources\icon-pos-point-of-sale-systems-clover-dinerware-compressor.png" />
+    <None Include="Resources\ModernXP-09-Keyboard-icon.png" />
+    <None Include="Resources\ModernXP-09-Keyboard-icon %281%29.png" />
+    <None Include="Resources\ModernXP-09-Keyboard-icon %281%291.png" />
+    <None Include="Resources\Register-icon.png" />
+    <None Include="Resources\Stocks-icon1.png" />
+    <None Include="Resources\Database-Active-icon1.png" />
+    <None Include="Resources\Restaurant-icon11.png" />
+    <None Include="Resources\drawer-archive-icon.png" />
+    <None Include="Resources\drawer-archive-icon1.png" />
+    <None Include="Resources\CP32X32.png" />
+    <None Include="Resources\CP.png" />
+    <Content Include="RPOS.ico" />
+    <None Include="Resources\Button-Ok-icon.png" />
+    <None Include="Resources\Button-Delete-icon.png" />
+    <Content Include="Resources\c5eea9b377ba.png" />
+    <Content Include="Resources\calen.png" />
+    <Content Include="Resources\cash.png" />
+    <Content Include="Resources\cd-rom-driver-icon.png" />
+    <Content Include="Resources\Changing_Room-256.png" />
+    <Content Include="Resources\chat.png" />
+    <Content Include="Resources\Check in.png" />
+    <Content Include="Resources\check out.png" />
+    <Content Include="Resources\Checked User-64.png" />
+    <Content Include="Resources\Clients back.jpg" />
+    <Content Include="Resources\Close_32x32.png" />
+    <Content Include="Resources\Coconut Cocktail-50.png" />
+    <Content Include="Resources\color-line.png" />
+    <Content Include="Resources\Colors_32x32.png" />
+    <Content Include="Resources\ColorTheoryMixture.jpg" />
+    <Content Include="Resources\Conference4.png" />
+    <Content Include="Resources\corp_employee_icon.png" />
+    <Content Include="Resources\Currency Exchange-50%281%29.png" />
+    <Content Include="Resources\Currency_32x32.png" />
+    <Content Include="Resources\Currency_32x322.png" />
+    <Content Include="Resources\Customer_16x16.png" />
+    <Content Include="Resources\Customer_32x32.png" />
+    <Content Include="Resources\cutcaster-vector-800923370-Icon-chef-restaurant.jpg" />
+    <Content Include="Resources\d12.png" />
+    <Content Include="Resources\data.png" />
+    <Content Include="Resources\database_icon.jpg" />
+    <Content Include="Resources\debt-burden_medium.jpg" />
+    <Content Include="Resources\Delete-group-icon.png" />
+    <Content Include="Resources\Delete.png" />
+    <Content Include="Resources\DeleteRed.png" />
+    <Content Include="Resources\Delete_32x32.png" />
+    <Content Include="Resources\Designer.png" />
+    <Content Include="Resources\DOC.jpg" />
+    <Content Include="Resources\document-print.png" />
+    <Content Include="Resources\Download_32x32.png" />
+    <Content Include="Resources\Ecommerce_Icons_Rose_Color-50-16.png" />
+    <Content Include="Resources\Ecommerce_Icons_Rose_Color-50-32.png" />
+    <Content Include="Resources\EditContact_32x32.png" />
+    <Content Include="Resources\Editing-Paint-Palette-icon.png" />
+    <Content Include="Resources\ellaa-hotels.jpg" />
+    <Content Include="Resources\employeesIcon200.jpg" />
+    <Content Include="Resources\employeesIcon200.png" />
+    <Content Include="Resources\Employee_16x16.png" />
+    <Content Include="Resources\Employee_32x32.png" />
+    <Content Include="Resources\employs-app-icon.png" />
+    <Content Include="Resources\Excel-icon.png" />
+    <Content Include="Resources\Export_32x32.png" />
+    <Content Include="Resources\Female-user-search-icon.png" />
+    <Content Include="Resources\Finance-Cash-Receiving-icon.png" />
+    <Content Include="Resources\Financial_16x16.png" />
+    <Content Include="Resources\Find User-64.png" />
+    <Content Include="Resources\Find_32x32.png" />
+    <Content Include="Resources\folder-search-icon.png" />
+    <Content Include="Resources\fonts.png" />
+    <Content Include="Resources\Food-50 [Converted].png" />
+    <Content Include="Resources\food.png" />
+    <Content Include="Resources\Fragile-50.png" />
+    <Content Include="Resources\gardden-128.png" />
+    <Content Include="Resources\garden-128.png" />
+    <Content Include="Resources\Generate-tables.png" />
+    <Content Include="Resources\GL-256.png" />
+    <Content Include="Resources\gnome_panel_force_quit.png" />
+    <Content Include="Resources\grey_new_seo3-04-512.png" />
+    <Content Include="Resources\Grid.png" />
+    <Content Include="Resources\guest.png" />
+    <Content Include="Resources\guest2 %282%29.png" />
+    <Content Include="Resources\guest2.png" />
+    <Content Include="Resources\GuestIcon_BIG.gif" />
+    <Content Include="Resources\guinness_bee6r-512.png" />
+    <Content Include="Resources\head.png" />
+    <Content Include="Resources\hmslogo.bmp" />
+    <Content Include="Resources\Home_32x32.png" />
+    <Content Include="Resources\hotel-2-2.png" />
+    <Content Include="Resources\Hotel-Bedroom-Interior-960x600-wide-wallpapers.net.jpg" />
+    <Content Include="Resources\hotel-icon-has-secure-storage-in-room-md.png" />
+    <Content Include="Resources\hotel-icon.png" />
+    <Content Include="Resources\hotel.jpg" />
+    <Content Include="Resources\hotel1.jpg" />
+    <Content Include="Resources\hotelier 16.png" />
+    <Content Include="Resources\Hotels_B-512.png" />
+    <Content Include="Resources\hotel_reception-512 %282%29.png" />
+    <Content Include="Resources\hotel_reception-512.png" />
+    <Content Include="Resources\Household-Room-icon.png" />
+    <Content Include="Resources\IC809338.png" />
+    <Content Include="Resources\IC809423.png" />
+    <Content Include="Resources\IC809424.png" />
+    <Content Include="Resources\Icon three.png" />
+    <Content Include="Resources\Icon three1.png" />
+    <Content Include="Resources\Icon three2.png" />
+    <Content Include="Resources\icon-cash.png" />
+    <Content Include="Resources\icon-documentation.png" />
+    <Content Include="Resources\icon-eps02.png" />
+    <Content Include="Resources\icon175x175.png" />
+    <Content Include="Resources\icon_-05 %281%29.png" />
+    <Content Include="Resources\icon_-05 %282%29.png" />
+    <Content Include="Resources\Icon_check-in.png" />
+    <Content Include="Resources\icon_ci_big.png" />
+    <Content Include="Resources\Icon_lRoom_Entry.png" />
+    <Content Include="Resources\icon_paper.png" />
+    <Content Include="Resources\image-of-a-person-in-bed.bmp" />
+    <Content Include="Resources\image-of-a-person-in-bed.png" />
+    <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\images.png" />
+    <Content Include="Resources\images1.jpg" />
+    <Content Include="Resources\images1.png" />
+    <Content Include="Resources\images11.jpg" />
+    <Content Include="Resources\images2.jpg" />
+    <Content Include="Resources\images2.png" />
+    <Content Include="Resources\images3.jpg" />
+    <Content Include="Resources\images3.png" />
+    <Content Include="Resources\images5.jpg" />
+    <Content Include="Resources\images51.jpg" />
+    <Content Include="Resources\images~1.png" />
+    <Content Include="Resources\images~2.png" />
+    <Content Include="Resources\images~3.png" />
+    <Content Include="Resources\images~5.png" />
+    <Content Include="Resources\images~6.png" />
+    <Content Include="Resources\ImportImage_32x32.png" />
+    <Content Include="Resources\Inbox_16x16.png" />
+    <Content Include="Resources\Info_16x16.png" />
+    <Content Include="Resources\Info_32x32.png" />
+    <Content Include="Resources\keio-plaxa-hotel-tokyo.jpg" />
+    <Content Include="Resources\key reserve.png" />
+    <Content Include="Resources\Keys-icon.png" />
+    <Content Include="Resources\KnowledgeBaseArticle_16x16.png" />
+    <Content Include="Resources\kvirc.png" />
+    <Content Include="Resources\kwrite.png" />
+    <Content Include="Resources\L307-512.png" />
+    <Content Include="Resources\L555-512.png" />
+    <Content Include="Resources\lassist.png" />
+    <Content Include="Resources\lassists.png" />
+    <Content Include="Resources\Laundry Biiling.png" />
+    <Content Include="Resources\LCD Room.jpg" />
+    <Content Include="Resources\Ledger.png" />
+    <Content Include="Resources\liquor menu.jpg" />
+    <Content Include="Resources\List manager.png" />
+    <Content Include="Resources\Load.png" />
+    <Content Include="Resources\LoadFrom_32x32.png" />
+    <Content Include="Resources\Lock-Lock-icon.png" />
+    <Content Include="Resources\lock.png" />
+    <Content Include="Resources\lock_go.png" />
+    <Content Include="Resources\Log Out.png" />
+    <Content Include="Resources\log-128.png" />
+    <Content Include="Resources\login-512.png" />
+    <Content Include="Resources\login-5121.png" />
+    <Content Include="Resources\login-icon.jpg" />
+    <Content Include="Resources\login_icon %281%29.gif" />
+    <Content Include="Resources\logout.png" />
+    <Content Include="Resources\logs.png" />
+    <Content Include="Resources\looknfeel.png" />
+    <Content Include="Resources\Mail-icon.png" />
+    <Content Include="Resources\mail2-send-icon.png" />
+    <Content Include="Resources\Menu-icon-300x300.jpg" />
+    <Content Include="Resources\Misc-Delete-Database-icon.png" />
+    <Content Include="Resources\Money-icon.png" />
+    <Content Include="Resources\money_icon.png" />
+    <Content Include="Resources\NewMail_32x32.png" />
+    <Content Include="Resources\Next_32x32.png" />
+    <Content Include="Resources\nice-hotel-room-photography-hd-wallpaper-1920x1080-12081.jpg" />
+    <Content Include="Resources\nice-hotel-room-photography-hd-wallpaper-1920x1080-12081.png" />
+    <Content Include="Resources\nice-hotel-room-photography-hd-wallpaper-1920x1080-120811.png" />
+    <Content Include="Resources\notepad-512.png" />
+    <Content Include="Resources\Notes_16x16.png" />
+    <Content Include="Resources\Notes_32x32.png" />
+    <Content Include="Resources\order-icon.png" />
+    <Content Include="Resources\order.png" />
+    <Content Include="Resources\ordering-iconssssssssssss.png" />
+    <Content Include="Resources\ordering.png" />
+    <Content Include="Resources\payment-icon.png" />
+    <Content Include="Resources\payment-methods_318-31881.png" />
+    <Content Include="Resources\Payment.png" />
+    <Content Include="Resources\payroll %281%29.png" />
+    <Content Include="Resources\payroll advance.jpg" />
+    <Content Include="Resources\payroll.jpg" />
+    <Content Include="Resources\payroll1.jpg" />
+    <Content Include="Resources\payroll_services.jpg" />
+    <Content Include="Resources\Pencil.png" />
+    <Content Include="Resources\photo.jpg" />
+    <Content Include="Resources\pictographs-ticket_purchase_inv.png" />
+    <Content Include="Resources\Pivot_32x32.png" />
+    <Content Include="Resources\Places-network-server-database-icon.png" />
+    <Content Include="Resources\plus-circle1.png" />
+    <Content Include="Resources\Preferences.png" />
+    <Content Include="Resources\Previous_32x32.png" />
+    <Content Include="Resources\Print-icon.png" />
+    <Content Include="Resources\print-icon1.png" />
+    <Content Include="Resources\Print_32x32.png" />
+    <Content Include="Resources\Programming-System-Task-icon.png" />
+    <Content Include="Resources\Purchase Order-64.png" />
+    <Content Include="Resources\purchase_order.png" />
+    <Content Include="Resources\Question_32x32.png" />
+    <Content Include="Resources\Reading_16x16.png" />
+    <Content Include="Resources\Receive -50.png" />
+    <Content Include="Resources\Remove User-48.png" />
+    <Content Include="Resources\Remove User-50.png" />
+    <Content Include="Resources\reports.png" />
+    <Content Include="Resources\reports1.png" />
+    <Content Include="Resources\Report_32x32.png" />
+    <Content Include="Resources\reservation %282%29.png" />
+    <Content Include="Resources\reservation %283%29.png" />
+    <Content Include="Resources\reservation.png" />
+    <Content Include="Resources\Reset2_32x32.png" />
+    <Content Include="Resources\Restaurant Pickup-50.png" />
+    <None Include="Resources\restaurant-hi.png" />
+    <Content Include="Resources\rest_icon.png" />
+    <Content Include="Resources\Role_32x32.png" />
+    <Content Include="Resources\room reserver.png" />
+    <Content Include="Resources\room_512pxGREY.png" />
+    <Content Include="Resources\Salaries-sml.png" />
+    <Content Include="Resources\salary_icon.png" />
+    <Content Include="Resources\Save-as-icon.png" />
+    <Content Include="Resources\Save-icon.png" />
+    <Content Include="Resources\Saver 1.jpg" />
+    <Content Include="Resources\Saver 2.jpg" />
+    <Content Include="Resources\Saver 3.jpg" />
+    <Content Include="Resources\Saver 6.jpg" />
+    <Content Include="Resources\Saver Back.jpg" />
+    <Content Include="Resources\Save_32x32.png" />
+    <Content Include="Resources\Search-Images-icon.png" />
+    <Content Include="Resources\Seminyak-Icon-Hotel-Two-Bedroom-Pool-Villa-Twin-Hollywood-Bed.jpg" />
+    <Content Include="Resources\Send_32x32.png" />
+    <Content Include="Resources\ServerMode_16x16.png" />
+    <Content Include="Resources\ServerMode_32x32.png" />
+    <Content Include="Resources\Settings-L-icon.png" />
+    <Content Include="Resources\shopping_cart_add.png" />
+    <Content Include="Resources\ShowTestReport_32x32.png" />
+    <Content Include="Resources\small-business-payroll-service.jpeg" />
+    <Content Include="Resources\sms.png" />
+    <Content Include="Resources\soon-873316_1280.png" />
+    <Content Include="Resources\space_icon1.png" />
+    <Content Include="Resources\space_icon2.png" />
+    <Content Include="Resources\Sql Server.png" />
+    <Content Include="Resources\sql2 %281%29.png" />
+    <Content Include="Resources\sssssssssssordering-icon.png" />
+    <Content Include="Resources\ssssssssssssAccounting-Calculator-icon.png" />
+    <Content Include="Resources\staff-16.png" />
+    <Content Include="Resources\Status-printer-error-icon.png" />
+    <Content Include="Resources\stock IN.jpg" />
+    <Content Include="Resources\stock out.jpg" />
+    <Content Include="Resources\stockmarkets.png" />
+    <Content Include="Resources\stock_icon_v.3.png" />
+    <Content Include="Resources\Streamline-94-128.png" />
+    <Content Include="Resources\supplierIcon2.png" />
+    <Content Include="Resources\System-Info-icon.png" />
+    <Content Include="Resources\table-xxl.png" />
+    <Content Include="Resources\Tag_16x16.png" />
+    <Content Include="Resources\Tag_32x32.png" />
+    <Content Include="Resources\TB.png" />
+    <Content Include="Resources\Team_16x16.png" />
+    <Content Include="Resources\ticket purchase.png" />
+    <Content Include="Resources\ticket_purchase1.png" />
+    <Content Include="Resources\time_1920x1200.jpg" />
+    <Content Include="Resources\time_1920x12001.jpg" />
+    <Content Include="Resources\Tools 1.jpg" />
+    <Content Include="Resources\Tools 2.jpg" />
+    <Content Include="Resources\Tools 3.jpg" />
+    <Content Include="Resources\tools-icon.jpg" />
+    <Content Include="Resources\top_image.jpg" />
+    <Content Include="Resources\TreeView_16x16.png" />
+    <Content Include="Resources\ugf.png" />
+    <Content Include="Resources\Up_32x32.png" />
+    <Content Include="Resources\url.png" />
+    <Content Include="Resources\User Group-50.png" />
+    <Content Include="Resources\User Groups Filled-50.png" />
+    <Content Include="Resources\user-group-icon.png" />
+    <Content Include="Resources\User-icon.png" />
+    <Content Include="Resources\UserGroup_16x16.png" />
+    <Content Include="Resources\UserGroup_32x32.png" />
+    <Content Include="Resources\Utilities.png" />
+    <Content Include="Resources\value-lease .png" />
+    <Content Include="Resources\videos_4_background.jpg" />
+    <Content Include="Resources\vto-icon2.png" />
+    <Content Include="Resources\vto-icon21.png" />
+    <Content Include="Resources\Waiter-50 %282%29.png" />
+    <Content Include="Resources\Waiter-50.png" />
+    <Content Include="Resources\Waiter.png" />
+    <Content Include="Resources\Walking_32x32.png" />
+    <Content Include="Resources\watapp.png" />
+    <Content Include="Resources\water-hotel-hd-wallpapers.jpg" />
+    <Content Include="Resources\wine.png" />
+    <Content Include="Resources\wood-floor-wallpaper.png" />
+    <Content Include="Resources\wood-floor-wallpaper1.png" />
+    <Content Include="Resources\wood_textures_1280x720.jpg" />
+    <Content Include="Resources\Word-icon.png" />
+    <Content Include="Resources\Word-icon1.png" />
+    <Content Include="Resources\Word-icon2.png" />
+    <Content Include="Resources\Yes.png" />
+    <Content Include="Resources\YUV color space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
