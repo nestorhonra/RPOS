@@ -84,7 +84,7 @@ Partial Class frmWarehouse
         'lblSet
         '
         Me.lblSet.AutoSize = True
-        Me.lblSet.Location = New System.Drawing.Point(263, 212)
+        Me.lblSet.Location = New System.Drawing.Point(410, 244)
         Me.lblSet.Name = "lblSet"
         Me.lblSet.Size = New System.Drawing.Size(23, 13)
         Me.lblSet.TabIndex = 47
@@ -99,9 +99,10 @@ Partial Class frmWarehouse
         Me.GroupBox3.Controls.Add(Me.btnSave)
         Me.GroupBox3.Location = New System.Drawing.Point(325, 39)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(99, 186)
+        Me.GroupBox3.Size = New System.Drawing.Size(103, 186)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Action Button"
         '
         'btnDelete
         '
@@ -109,7 +110,7 @@ Partial Class frmWarehouse
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(8, 141)
+        Me.btnDelete.Location = New System.Drawing.Point(12, 141)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(82, 37)
         Me.btnDelete.TabIndex = 3
@@ -123,7 +124,7 @@ Partial Class frmWarehouse
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(8, 99)
+        Me.btnUpdate.Location = New System.Drawing.Point(12, 99)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(82, 37)
         Me.btnUpdate.TabIndex = 2
@@ -137,7 +138,7 @@ Partial Class frmWarehouse
         Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
         Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 15)
+        Me.btnNew.Location = New System.Drawing.Point(12, 15)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(82, 37)
         Me.btnNew.TabIndex = 0
@@ -151,7 +152,7 @@ Partial Class frmWarehouse
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(8, 57)
+        Me.btnSave.Location = New System.Drawing.Point(12, 57)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(82, 37)
         Me.btnSave.TabIndex = 1
@@ -253,7 +254,7 @@ Partial Class frmWarehouse
         Me.GroupBox1.Controls.Add(Me.txtSearchByWarehouseName)
         Me.GroupBox1.Location = New System.Drawing.Point(4, 193)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(202, 68)
+        Me.GroupBox1.Size = New System.Drawing.Size(315, 68)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search By Warehouse Name :"
@@ -264,7 +265,7 @@ Partial Class frmWarehouse
         Me.txtSearchByWarehouseName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearchByWarehouseName.Location = New System.Drawing.Point(22, 29)
         Me.txtSearchByWarehouseName.Name = "txtSearchByWarehouseName"
-        Me.txtSearchByWarehouseName.Size = New System.Drawing.Size(172, 21)
+        Me.txtSearchByWarehouseName.Size = New System.Drawing.Size(277, 21)
         Me.txtSearchByWarehouseName.TabIndex = 0
         '
         'btnClose
@@ -273,11 +274,10 @@ Partial Class frmWarehouse
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(340, 3)
+        Me.btnClose.Location = New System.Drawing.Point(397, 3)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(82, 37)
+        Me.btnClose.Size = New System.Drawing.Size(39, 36)
         Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -378,7 +378,7 @@ Partial Class frmWarehouse
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(332, 28)
+        Me.Panel2.Size = New System.Drawing.Size(387, 28)
         Me.Panel2.TabIndex = 0
         '
         'Label1
