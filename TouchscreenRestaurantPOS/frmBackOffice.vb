@@ -93,42 +93,49 @@
 
     Private Sub btnOthers_Click(sender As Object, e As EventArgs) Handles btnOthers.Click
         With frmOthersSetting
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnWHType_Click(sender As Object, e As EventArgs) Handles btnWHType.Click
         With frmWarehouseType
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnWH_Click(sender As Object, e As EventArgs) Handles btnWH.Click
         With frmWarehouse
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnProduct_Click(sender As Object, e As EventArgs) Handles btnProduct.Click
         With frmProduct
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         With frmSupplier
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnPurchase_Click(sender As Object, e As EventArgs) Handles btnPurchase.Click
         With frmPurchase
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnPayment_Click(sender As Object, e As EventArgs) Handles btnPayment.Click
         With frmPayment
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
@@ -139,36 +146,42 @@
 
     Private Sub btnSTF_Click(sender As Object, e As EventArgs) Handles btnSTF.Click
         With frmStockTransfer
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnExpenseType_Click(sender As Object, e As EventArgs) Handles btnExpenseType.Click
         With frmExpenseType
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnExpense_Click(sender As Object, e As EventArgs) Handles btnExpense.Click
         With frmExpense
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnVoucher_Click(sender As Object, e As EventArgs) Handles btnVoucher.Click
         With frmVoucher
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnDelivery_Click(sender As Object, e As EventArgs) Handles btnDelivery.Click
         With frmDeliveryPersonRecord
+            '.lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
 
     Private Sub btnRecipe_Click(sender As Object, e As EventArgs) Handles btnRecipe.Click
         With frmRecipe
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub
@@ -192,7 +205,8 @@
     End Sub
 
     Private Sub btnRegistration_Click(sender As Object, e As EventArgs) Handles btnRegistration.Click
-        With frmActivation
+        With frmRegistration
+            .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With
     End Sub

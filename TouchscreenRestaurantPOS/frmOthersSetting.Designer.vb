@@ -57,11 +57,6 @@ Partial Class frmOthersSetting
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.dgw = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtID = New System.Windows.Forms.TextBox()
-        Me.lblUser = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -73,6 +68,11 @@ Partial Class frmOthersSetting
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.lblUser = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -102,9 +102,10 @@ Partial Class frmOthersSetting
         Me.GroupBox3.Controls.Add(Me.btnNew)
         Me.GroupBox3.Location = New System.Drawing.Point(361, 41)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(93, 181)
+        Me.GroupBox3.Size = New System.Drawing.Size(97, 207)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Action Button"
         '
         'btnDelete
         '
@@ -112,7 +113,7 @@ Partial Class frmOthersSetting
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnDelete.Location = New System.Drawing.Point(8, 136)
+        Me.btnDelete.Location = New System.Drawing.Point(9, 151)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(79, 37)
         Me.btnDelete.TabIndex = 3
@@ -126,7 +127,7 @@ Partial Class frmOthersSetting
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(8, 95)
+        Me.btnUpdate.Location = New System.Drawing.Point(9, 108)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(79, 37)
         Me.btnUpdate.TabIndex = 2
@@ -140,7 +141,7 @@ Partial Class frmOthersSetting
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnSave.Location = New System.Drawing.Point(8, 54)
+        Me.btnSave.Location = New System.Drawing.Point(9, 65)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(79, 37)
         Me.btnSave.TabIndex = 1
@@ -154,7 +155,7 @@ Partial Class frmOthersSetting
         Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
         Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 11)
+        Me.btnNew.Location = New System.Drawing.Point(9, 20)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(79, 39)
         Me.btnNew.TabIndex = 0
@@ -182,7 +183,7 @@ Partial Class frmOthersSetting
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 42)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(352, 270)
+        Me.GroupBox1.Size = New System.Drawing.Size(352, 243)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Setting :"
@@ -190,7 +191,7 @@ Partial Class frmOthersSetting
         'chkCashDrawer
         '
         Me.chkCashDrawer.AutoSize = True
-        Me.chkCashDrawer.Location = New System.Drawing.Point(19, 244)
+        Me.chkCashDrawer.Location = New System.Drawing.Point(19, 218)
         Me.chkCashDrawer.Name = "chkCashDrawer"
         Me.chkCashDrawer.Size = New System.Drawing.Size(87, 17)
         Me.chkCashDrawer.TabIndex = 9
@@ -358,11 +359,10 @@ Partial Class frmOthersSetting
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(379, 3)
+        Me.btnClose.Location = New System.Drawing.Point(421, 2)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 38)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -387,7 +387,7 @@ Partial Class frmOthersSetting
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgw.EnableHeadersVisualStyles = False
         Me.dgw.GridColor = System.Drawing.Color.White
-        Me.dgw.Location = New System.Drawing.Point(3, 318)
+        Me.dgw.Location = New System.Drawing.Point(3, 291)
         Me.dgw.MultiSelect = False
         Me.dgw.Name = "dgw"
         Me.dgw.ReadOnly = True
@@ -411,59 +411,8 @@ Partial Class frmOthersSetting
         Me.dgw.RowTemplate.Height = 18
         Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(451, 88)
+        Me.dgw.Size = New System.Drawing.Size(451, 115)
         Me.dgw.TabIndex = 1
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.txtID)
-        Me.Panel2.Controls.Add(Me.lblUser)
-        Me.Panel2.Location = New System.Drawing.Point(3, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(370, 31)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(125, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(142, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Others Setting"
-        '
-        'txtID
-        '
-        Me.txtID.Location = New System.Drawing.Point(3, 7)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(39, 20)
-        Me.txtID.TabIndex = 4
-        Me.txtID.Visible = False
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(26, 10)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(39, 13)
-        Me.lblUser.TabIndex = 5
-        Me.lblUser.Text = "Label8"
-        Me.lblUser.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(530, 82)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(0, 13)
-        Me.Label3.TabIndex = 0
         '
         'Column3
         '
@@ -542,6 +491,57 @@ Partial Class frmOthersSetting
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 83
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.txtID)
+        Me.Panel2.Controls.Add(Me.lblUser)
+        Me.Panel2.Location = New System.Drawing.Point(3, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(412, 31)
+        Me.Panel2.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(125, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(142, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Others Setting"
+        '
+        'txtID
+        '
+        Me.txtID.Location = New System.Drawing.Point(3, 7)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(39, 20)
+        Me.txtID.TabIndex = 4
+        Me.txtID.Visible = False
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Location = New System.Drawing.Point(26, 10)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(39, 13)
+        Me.lblUser.TabIndex = 5
+        Me.lblUser.Text = "Label8"
+        Me.lblUser.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(530, 82)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(0, 13)
+        Me.Label3.TabIndex = 0
         '
         'frmOthersSetting
         '
