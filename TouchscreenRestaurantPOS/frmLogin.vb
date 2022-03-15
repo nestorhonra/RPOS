@@ -33,7 +33,7 @@ Public Class frmLogin
                     If con.State = ConnectionState.Open Then
                         con.Close()
                     End If
-                  
+
                     If (UserType.Text = "Admin") Then
                         frm.lblUser.Text = UserID.Text
                         frm.lblUserType.Text = UserType.Text
@@ -43,7 +43,11 @@ Public Class frmLogin
                         Me.Hide()
                         frm.lblUser.Text = UserID.Text
                         frm.Show()
-
+                    Else
+                        frmPOS.lblUser.Text = UserID.Text
+                        frmPOS.lblUserType.Text = UserType.Text
+                        frmPOS.Show()
+                        Me.Hide()
                     End If
                 End If
             Else

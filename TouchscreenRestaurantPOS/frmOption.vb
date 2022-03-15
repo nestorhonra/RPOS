@@ -1,8 +1,19 @@
 ﻿
 Public Class frmOption
-  
+
     Private Sub btnClose_Click(sender As System.Object, e As System.EventArgs) Handles btnClose.Click
-        End
+        If MsgBox("Are you sure to logout?", vbQuestion + vbYesNo, "Confirm close") = vbYes Then
+            If (lblUserType.Text = "Admin") Then
+                Dim st As String = "Successfully logged out"
+                LogFunc(lblUser.Text, st)
+                frmLogin.Password.Text = ""
+                frmLogin.Show()
+                Me.Dispose()
+                Me.Close()
+            End If
+        Else
+            Exit Sub
+        End If
     End Sub
     Private Function HandleRegistry() As Boolean
         Dim firstRunDate As Date
@@ -36,6 +47,11 @@ Public Class frmOption
     End Sub
 
     Private Sub btnFrontOffice_Click(sender As Object, e As EventArgs) Handles btnFrontOffice.Click
-
+        With frmPOS
+            .lblUser.Text = Me.lblUser.Text
+            .lblUserType.Text = Me.lblUserType.Text
+            .Show()
+        End With
+        Me.Close()
     End Sub
 End Class
