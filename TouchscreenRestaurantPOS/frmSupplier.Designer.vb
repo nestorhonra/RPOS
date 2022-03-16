@@ -24,8 +24,22 @@ Partial Class frmSupplier
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSupplier))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnGetData = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txtPAN = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtTIN = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtCSTNo = New System.Windows.Forms.TextBox()
+        Me.txtSTNo = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.txtSupName = New System.Windows.Forms.TextBox()
         Me.cmbState = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -51,20 +65,6 @@ Partial Class frmSupplier
         Me.txtTransactionNo = New System.Windows.Forms.TextBox()
         Me.txtT_ID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnGetData = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtTIN = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtCSTNo = New System.Windows.Forms.TextBox()
-        Me.txtSTNo = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtPAN = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -84,6 +84,20 @@ Partial Class frmSupplier
         Me.Panel1.Size = New System.Drawing.Size(606, 493)
         Me.Panel1.TabIndex = 2
         '
+        'btnClose
+        '
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.btnClose.Location = New System.Drawing.Point(521, 7)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.TabIndex = 8
+        Me.btnClose.Text = "Close"
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.btnNew)
@@ -96,6 +110,78 @@ Partial Class frmSupplier
         Me.GroupBox2.Size = New System.Drawing.Size(108, 237)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
+        '
+        'btnNew
+        '
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(8, 14)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(92, 40)
+        Me.btnNew.TabIndex = 1
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnGetData
+        '
+        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
+        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGetData.Location = New System.Drawing.Point(8, 190)
+        Me.btnGetData.Name = "btnGetData"
+        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
+        Me.btnGetData.TabIndex = 5
+        Me.btnGetData.Text = "Get Data"
+        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGetData.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(9, 58)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(92, 40)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUpdate.Enabled = False
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
+        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUpdate.Location = New System.Drawing.Point(9, 102)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(92, 40)
+        Me.btnUpdate.TabIndex = 3
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(9, 146)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
+        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDelete.UseVisualStyleBackColor = True
         '
         'Panel4
         '
@@ -134,6 +220,78 @@ Partial Class frmSupplier
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(474, 434)
         Me.Panel4.TabIndex = 0
+        '
+        'txtPAN
+        '
+        Me.txtPAN.BackColor = System.Drawing.Color.White
+        Me.txtPAN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPAN.Location = New System.Drawing.Point(125, 308)
+        Me.txtPAN.Name = "txtPAN"
+        Me.txtPAN.Size = New System.Drawing.Size(166, 21)
+        Me.txtPAN.TabIndex = 11
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(10, 308)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(37, 15)
+        Me.Label14.TabIndex = 304
+        Me.Label14.Text = "PAN :"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(10, 227)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(54, 15)
+        Me.Label8.TabIndex = 302
+        Me.Label8.Text = "TIN No. :"
+        '
+        'txtTIN
+        '
+        Me.txtTIN.BackColor = System.Drawing.Color.White
+        Me.txtTIN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTIN.Location = New System.Drawing.Point(125, 227)
+        Me.txtTIN.Name = "txtTIN"
+        Me.txtTIN.Size = New System.Drawing.Size(166, 21)
+        Me.txtTIN.TabIndex = 8
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(10, 254)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(50, 15)
+        Me.Label11.TabIndex = 301
+        Me.Label11.Text = "ST No. :"
+        '
+        'txtCSTNo
+        '
+        Me.txtCSTNo.BackColor = System.Drawing.Color.White
+        Me.txtCSTNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCSTNo.Location = New System.Drawing.Point(125, 281)
+        Me.txtCSTNo.Name = "txtCSTNo"
+        Me.txtCSTNo.Size = New System.Drawing.Size(166, 21)
+        Me.txtCSTNo.TabIndex = 10
+        '
+        'txtSTNo
+        '
+        Me.txtSTNo.BackColor = System.Drawing.Color.White
+        Me.txtSTNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSTNo.Location = New System.Drawing.Point(125, 254)
+        Me.txtSTNo.Name = "txtSTNo"
+        Me.txtSTNo.Size = New System.Drawing.Size(166, 21)
+        Me.txtSTNo.TabIndex = 9
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(10, 281)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(58, 15)
+        Me.Label13.TabIndex = 300
+        Me.Label13.Text = "CST No. :"
         '
         'txtSupName
         '
@@ -329,7 +487,7 @@ Partial Class frmSupplier
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.txtTransactionNo)
         Me.Panel2.Controls.Add(Me.txtT_ID)
@@ -370,169 +528,11 @@ Partial Class frmSupplier
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Supplier Entry"
         '
-        'btnClose
-        '
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(521, 7)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
-        Me.btnClose.TabIndex = 8
-        Me.btnClose.Text = "Close"
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnNew
-        '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 14)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(92, 40)
-        Me.btnNew.TabIndex = 1
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
-        '
-        'btnGetData
-        '
-        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
-        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGetData.Location = New System.Drawing.Point(8, 190)
-        Me.btnGetData.Name = "btnGetData"
-        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
-        Me.btnGetData.TabIndex = 5
-        Me.btnGetData.Text = "Get Data"
-        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGetData.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(9, 58)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(92, 40)
-        Me.btnSave.TabIndex = 2
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUpdate.Enabled = False
-        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
-        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(9, 102)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(92, 40)
-        Me.btnUpdate.TabIndex = 3
-        Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnUpdate.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.Enabled = False
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(9, 146)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 227)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(54, 15)
-        Me.Label8.TabIndex = 302
-        Me.Label8.Text = "TIN No. :"
-        '
-        'txtTIN
-        '
-        Me.txtTIN.BackColor = System.Drawing.Color.White
-        Me.txtTIN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTIN.Location = New System.Drawing.Point(125, 227)
-        Me.txtTIN.Name = "txtTIN"
-        Me.txtTIN.Size = New System.Drawing.Size(166, 21)
-        Me.txtTIN.TabIndex = 8
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(10, 254)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(50, 15)
-        Me.Label11.TabIndex = 301
-        Me.Label11.Text = "ST No. :"
-        '
-        'txtCSTNo
-        '
-        Me.txtCSTNo.BackColor = System.Drawing.Color.White
-        Me.txtCSTNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCSTNo.Location = New System.Drawing.Point(125, 281)
-        Me.txtCSTNo.Name = "txtCSTNo"
-        Me.txtCSTNo.Size = New System.Drawing.Size(166, 21)
-        Me.txtCSTNo.TabIndex = 10
-        '
-        'txtSTNo
-        '
-        Me.txtSTNo.BackColor = System.Drawing.Color.White
-        Me.txtSTNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSTNo.Location = New System.Drawing.Point(125, 254)
-        Me.txtSTNo.Name = "txtSTNo"
-        Me.txtSTNo.Size = New System.Drawing.Size(166, 21)
-        Me.txtSTNo.TabIndex = 9
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(10, 281)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(58, 15)
-        Me.Label13.TabIndex = 300
-        Me.Label13.Text = "CST No. :"
-        '
-        'txtPAN
-        '
-        Me.txtPAN.BackColor = System.Drawing.Color.White
-        Me.txtPAN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPAN.Location = New System.Drawing.Point(125, 308)
-        Me.txtPAN.Name = "txtPAN"
-        Me.txtPAN.Size = New System.Drawing.Size(166, 21)
-        Me.txtPAN.TabIndex = 11
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(10, 308)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(37, 15)
-        Me.Label14.TabIndex = 304
-        Me.Label14.Text = "PAN :"
-        '
         'frmSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(619, 505)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

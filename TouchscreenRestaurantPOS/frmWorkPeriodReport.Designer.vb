@@ -83,7 +83,7 @@ Partial Class frmWorkPeriodReport
         '
         'btnViewReport
         '
-        Me.btnViewReport.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnViewReport.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnViewReport.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnViewReport.FlatAppearance.BorderSize = 0
         Me.btnViewReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -147,7 +147,7 @@ Partial Class frmWorkPeriodReport
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkViolet
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(5, 5)
@@ -189,7 +189,7 @@ Partial Class frmWorkPeriodReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkViolet
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(694, 185)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

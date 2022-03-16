@@ -22,6 +22,7 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRestaurantPOSKOTFinalBillRecord))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -33,16 +34,18 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRestaurantPOSKOTFinalBillRecord))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtpDateTo = New System.Windows.Forms.DateTimePicker()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmbBillNo = New System.Windows.Forms.ComboBox()
+        Me.btnExportExcel = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgw = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,9 +60,6 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnExportExcel = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -87,7 +87,7 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         '
         Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.BackColor = System.Drawing.Color.SlateBlue
+        Me.Label1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(8, 4)
@@ -142,6 +142,18 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Me.dtpDateTo.Size = New System.Drawing.Size(160, 33)
         Me.dtpDateTo.TabIndex = 107
         '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(382, 32)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(152, 64)
+        Me.Button1.TabIndex = 108
+        Me.Button1.Text = "Search"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -175,6 +187,34 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Me.cmbBillNo.Size = New System.Drawing.Size(182, 33)
         Me.cmbBillNo.TabIndex = 1
         '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExportExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportExcel.Image = CType(resources.GetObject("btnExportExcel.Image"), System.Drawing.Image)
+        Me.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnExportExcel.Location = New System.Drawing.Point(314, 32)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Me.btnExportExcel.Size = New System.Drawing.Size(129, 64)
+        Me.btnExportExcel.TabIndex = 5
+        Me.btnExportExcel.Text = "Export Excel"
+        Me.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnExportExcel.UseVisualStyleBackColor = True
+        '
+        'btnReset
+        '
+        Me.btnReset.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Image = CType(resources.GetObject("btnReset.Image"), System.Drawing.Image)
+        Me.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnReset.Location = New System.Drawing.Point(204, 32)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(106, 64)
+        Me.btnReset.TabIndex = 0
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -196,7 +236,7 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkViolet
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -334,51 +374,11 @@ Partial Class frmRestaurantPOSKOTFinalBillRecord
         Me.Column10.Name = "Column10"
         Me.Column10.ReadOnly = True
         '
-        'Button1
-        '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(382, 32)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(152, 64)
-        Me.Button1.TabIndex = 108
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnExportExcel
-        '
-        Me.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExportExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExportExcel.Image = CType(resources.GetObject("btnExportExcel.Image"), System.Drawing.Image)
-        Me.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnExportExcel.Location = New System.Drawing.Point(314, 32)
-        Me.btnExportExcel.Name = "btnExportExcel"
-        Me.btnExportExcel.Size = New System.Drawing.Size(129, 64)
-        Me.btnExportExcel.TabIndex = 5
-        Me.btnExportExcel.Text = "Export Excel"
-        Me.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnExportExcel.UseVisualStyleBackColor = True
-        '
-        'btnReset
-        '
-        Me.btnReset.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Image = CType(resources.GetObject("btnReset.Image"), System.Drawing.Image)
-        Me.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReset.Location = New System.Drawing.Point(204, 32)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(106, 64)
-        Me.btnReset.TabIndex = 0
-        Me.btnReset.Text = "Reset"
-        Me.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnReset.UseVisualStyleBackColor = True
-        '
         'frmRestaurantPOSKOTFinalBillRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Orange
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(1027, 588)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

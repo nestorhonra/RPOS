@@ -265,7 +265,7 @@ Partial Class frmVoucher
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.YellowGreen
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -561,7 +561,7 @@ Partial Class frmVoucher
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.YellowGreen
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 3)
@@ -588,7 +588,7 @@ Partial Class frmVoucher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Orange
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(677, 671)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

@@ -542,7 +542,7 @@ Partial Class frmAccountingReport
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.BlueViolet
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.txtSupplierID)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -591,7 +591,7 @@ Partial Class frmAccountingReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Orange
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(822, 600)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

@@ -206,4 +206,8 @@ Public Class frmWorkPeriod
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         End Try
     End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.Close()
+    End Sub
 End Class

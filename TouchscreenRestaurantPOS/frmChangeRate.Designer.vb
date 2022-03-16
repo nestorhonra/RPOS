@@ -50,7 +50,7 @@ Partial Class frmChangeRate
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label1.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(160, 30)
@@ -68,7 +68,7 @@ Partial Class frmChangeRate
         '
         'btnOkay
         '
-        Me.btnOkay.BackColor = System.Drawing.Color.DarkOrchid
+        Me.btnOkay.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnOkay.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnOkay.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOkay.ForeColor = System.Drawing.SystemColors.ButtonHighlight
@@ -122,7 +122,7 @@ Partial Class frmChangeRate
         Me.btnTAx.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTAx.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTAx.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTAx.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTAx.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTAx.ForeColor = System.Drawing.Color.White
@@ -138,7 +138,7 @@ Partial Class frmChangeRate
         Me.btnTA0.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA0.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA0.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA0.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA0.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA0.ForeColor = System.Drawing.Color.White
@@ -154,7 +154,7 @@ Partial Class frmChangeRate
         Me.btnTAComma.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTAComma.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTAComma.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTAComma.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTAComma.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTAComma.ForeColor = System.Drawing.Color.White
@@ -170,7 +170,7 @@ Partial Class frmChangeRate
         Me.btnTA9.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA9.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA9.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA9.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA9.ForeColor = System.Drawing.Color.White
@@ -186,7 +186,7 @@ Partial Class frmChangeRate
         Me.btnTA8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA8.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA8.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA8.ForeColor = System.Drawing.Color.White
@@ -202,7 +202,7 @@ Partial Class frmChangeRate
         Me.btnTA4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA4.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA4.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA4.ForeColor = System.Drawing.Color.White
@@ -218,7 +218,7 @@ Partial Class frmChangeRate
         Me.btnTA6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA6.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA6.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA6.ForeColor = System.Drawing.Color.White
@@ -234,7 +234,7 @@ Partial Class frmChangeRate
         Me.btnTA5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA5.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA5.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA5.ForeColor = System.Drawing.Color.White
@@ -250,7 +250,7 @@ Partial Class frmChangeRate
         Me.btnTA7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA7.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA7.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA7.ForeColor = System.Drawing.Color.White
@@ -266,7 +266,7 @@ Partial Class frmChangeRate
         Me.btnTA3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA3.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA3.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA3.ForeColor = System.Drawing.Color.White
@@ -282,7 +282,7 @@ Partial Class frmChangeRate
         Me.btnTA1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA1.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA1.ForeColor = System.Drawing.Color.White
@@ -298,7 +298,7 @@ Partial Class frmChangeRate
         Me.btnTA2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTA2.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTA2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTA2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnTA2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTA2.ForeColor = System.Drawing.Color.White
@@ -314,7 +314,7 @@ Partial Class frmChangeRate
         Me.btnClear.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnClear.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White

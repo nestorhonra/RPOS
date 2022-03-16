@@ -25,6 +25,11 @@ Partial Class frmPayment
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPayment))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnGetData = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.gbPartyInfo = New System.Windows.Forms.GroupBox()
         Me.btnSelection = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -57,15 +62,10 @@ Partial Class frmPayment
         Me.lblUserType = New System.Windows.Forms.Label()
         Me.lblSet = New System.Windows.Forms.Label()
         Me.lblUser = New System.Windows.Forms.Label()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.txtSup_ID = New System.Windows.Forms.TextBox()
         Me.txtT_ID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnGetData = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.gbPartyInfo.SuspendLayout()
@@ -100,6 +100,77 @@ Partial Class frmPayment
         Me.GroupBox2.Size = New System.Drawing.Size(108, 196)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
+        '
+        'btnNew
+        '
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(8, 14)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(92, 40)
+        Me.btnNew.TabIndex = 1
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnGetData
+        '
+        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
+        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGetData.Location = New System.Drawing.Point(10, 147)
+        Me.btnGetData.Name = "btnGetData"
+        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
+        Me.btnGetData.TabIndex = 5
+        Me.btnGetData.Text = "Get Data"
+        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGetData.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(9, 58)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(92, 40)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(10, 103)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
+        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.btnClose.Location = New System.Drawing.Point(720, 7)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.TabIndex = 9
+        Me.btnClose.Text = "Close"
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'gbPartyInfo
         '
@@ -359,7 +430,7 @@ Partial Class frmPayment
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.TextBox3)
         Me.Panel2.Controls.Add(Me.TextBox2)
@@ -430,6 +501,22 @@ Partial Class frmPayment
         Me.lblUser.Text = "User"
         Me.lblUser.Visible = False
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUpdate.Enabled = False
+        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
+        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUpdate.Location = New System.Drawing.Point(60, -1)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(35, 40)
+        Me.btnUpdate.TabIndex = 3
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.Visible = False
+        '
         'txtSup_ID
         '
         Me.txtSup_ID.Location = New System.Drawing.Point(60, 22)
@@ -458,98 +545,11 @@ Partial Class frmPayment
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Payment Entry"
         '
-        'btnNew
-        '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 14)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(92, 40)
-        Me.btnNew.TabIndex = 1
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
-        '
-        'btnGetData
-        '
-        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
-        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGetData.Location = New System.Drawing.Point(10, 147)
-        Me.btnGetData.Name = "btnGetData"
-        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
-        Me.btnGetData.TabIndex = 5
-        Me.btnGetData.Text = "Get Data"
-        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGetData.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(9, 58)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(92, 40)
-        Me.btnSave.TabIndex = 2
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.Enabled = False
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(10, 103)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnClose
-        '
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(720, 7)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
-        Me.btnClose.TabIndex = 9
-        Me.btnClose.Text = "Close"
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUpdate.Enabled = False
-        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
-        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(60, -1)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(35, 40)
-        Me.btnUpdate.TabIndex = 3
-        Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnUpdate.UseVisualStyleBackColor = True
-        Me.btnUpdate.Visible = False
-        '
         'frmPayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(815, 311)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

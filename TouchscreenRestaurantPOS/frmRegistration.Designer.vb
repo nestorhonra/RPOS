@@ -368,7 +368,7 @@ Partial Class frmRegistration
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.MediumPurple
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -469,7 +469,7 @@ Partial Class frmRegistration
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.MediumPurple
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.lblUser)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -513,7 +513,7 @@ Partial Class frmRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(980, 548)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

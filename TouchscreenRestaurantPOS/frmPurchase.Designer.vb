@@ -23,17 +23,22 @@ Partial Class frmPurchase
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim Label13 As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPurchase))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnGetData = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.gbPartyInfo = New System.Windows.Forms.GroupBox()
         Me.btnSelection = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -88,6 +93,8 @@ Partial Class frmPurchase
         Me.chkHasExpiryDate = New System.Windows.Forms.CheckBox()
         Me.cmbWarehouse = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbProductName = New System.Windows.Forms.ComboBox()
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
         Me.txtPricePerQty = New System.Windows.Forms.TextBox()
@@ -111,13 +118,6 @@ Partial Class frmPurchase
         Me.txtSup_ID = New System.Windows.Forms.TextBox()
         Me.txtST_ID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnGetData = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnRemove = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Label13 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -170,6 +170,77 @@ Partial Class frmPurchase
         Me.GroupBox3.Size = New System.Drawing.Size(108, 196)
         Me.GroupBox3.TabIndex = 314
         Me.GroupBox3.TabStop = False
+        '
+        'btnNew
+        '
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(8, 14)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(92, 40)
+        Me.btnNew.TabIndex = 1
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnGetData
+        '
+        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
+        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGetData.Location = New System.Drawing.Point(10, 148)
+        Me.btnGetData.Name = "btnGetData"
+        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
+        Me.btnGetData.TabIndex = 5
+        Me.btnGetData.Text = "Get Data"
+        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGetData.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(9, 58)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(92, 40)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(10, 104)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
+        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.btnClose.Location = New System.Drawing.Point(720, 6)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.TabIndex = 313
+        Me.btnClose.Text = "Close"
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'gbPartyInfo
         '
@@ -592,50 +663,50 @@ Partial Class frmPurchase
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle33.BackColor = System.Drawing.Color.FloralWhite
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle34.BackColor = System.Drawing.Color.CadetBlue
-        DataGridViewCellStyle34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeight = 24
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3, Me.Column2, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8})
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle38.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle38
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.GridColor = System.Drawing.Color.White
         Me.DataGridView1.Location = New System.Drawing.Point(9, 443)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle39.BackColor = System.Drawing.Color.CadetBlue
-        DataGridViewCellStyle39.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle39
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.CadetBlue
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.RowHeadersWidth = 25
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle40.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle40.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView1.RowTemplate.Height = 18
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -664,8 +735,8 @@ Partial Class frmPurchase
         '
         'Column4
         '
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Qty."
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -673,16 +744,16 @@ Partial Class frmPurchase
         '
         'Column5
         '
-        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Price Per Unit"
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
         'Column6
         '
-        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle37
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column6.HeaderText = "Total Amount"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
@@ -773,6 +844,33 @@ Partial Class frmPurchase
         Me.Label7.Size = New System.Drawing.Size(68, 13)
         Me.Label7.TabIndex = 317
         Me.Label7.Text = "Warehouse :"
+        '
+        'btnRemove
+        '
+        Me.btnRemove.Enabled = False
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
+        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRemove.Location = New System.Drawing.Point(409, 74)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(90, 34)
+        Me.btnRemove.TabIndex = 7
+        Me.btnRemove.Text = "&Remove"
+        Me.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRemove.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(409, 34)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(67, 34)
+        Me.btnAdd.TabIndex = 8
+        Me.btnAdd.Text = "&Add"
+        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'cmbProductName
         '
@@ -924,7 +1022,7 @@ Partial Class frmPurchase
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.txtProductID)
         Me.Panel2.Controls.Add(Me.lblUserType)
@@ -1004,109 +1102,11 @@ Partial Class frmPurchase
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Purchase Entry"
         '
-        'btnNew
-        '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 14)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(92, 40)
-        Me.btnNew.TabIndex = 1
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
-        '
-        'btnGetData
-        '
-        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
-        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGetData.Location = New System.Drawing.Point(10, 148)
-        Me.btnGetData.Name = "btnGetData"
-        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
-        Me.btnGetData.TabIndex = 5
-        Me.btnGetData.Text = "Get Data"
-        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGetData.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(9, 58)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(92, 40)
-        Me.btnSave.TabIndex = 2
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.Enabled = False
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(10, 104)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnClose
-        '
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(720, 6)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
-        Me.btnClose.TabIndex = 313
-        Me.btnClose.Text = "Close"
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnRemove
-        '
-        Me.btnRemove.Enabled = False
-        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
-        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemove.Location = New System.Drawing.Point(409, 74)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(90, 34)
-        Me.btnRemove.TabIndex = 7
-        Me.btnRemove.Text = "&Remove"
-        Me.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnRemove.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(409, 34)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(67, 34)
-        Me.btnAdd.TabIndex = 8
-        Me.btnAdd.Text = "&Add"
-        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
         'frmPurchase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(817, 660)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

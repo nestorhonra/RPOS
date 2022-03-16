@@ -42,9 +42,6 @@ Partial Class frmProductRecord
         Me.txtProductName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgw = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblSet = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,6 +50,9 @@ Partial Class frmProductRecord
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblSet = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -193,7 +193,7 @@ Partial Class frmProductRecord
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.CadetBlue
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -239,39 +239,6 @@ Partial Class frmProductRecord
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgw.Size = New System.Drawing.Size(851, 481)
         Me.dgw.TabIndex = 43
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.lblSet)
-        Me.Panel2.Location = New System.Drawing.Point(9, 7)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(772, 37)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(324, 7)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(156, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "List Of Products"
-        '
-        'lblSet
-        '
-        Me.lblSet.AutoSize = True
-        Me.lblSet.Location = New System.Drawing.Point(96, 15)
-        Me.lblSet.Name = "lblSet"
-        Me.lblSet.Size = New System.Drawing.Size(23, 13)
-        Me.lblSet.TabIndex = 44
-        Me.lblSet.Text = "Set"
-        Me.lblSet.Visible = False
         '
         'Column1
         '
@@ -330,11 +297,44 @@ Partial Class frmProductRecord
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.lblSet)
+        Me.Panel2.Location = New System.Drawing.Point(9, 7)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(772, 37)
+        Me.Panel2.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(324, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(156, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "List Of Products"
+        '
+        'lblSet
+        '
+        Me.lblSet.AutoSize = True
+        Me.lblSet.Location = New System.Drawing.Point(96, 15)
+        Me.lblSet.Name = "lblSet"
+        Me.lblSet.Size = New System.Drawing.Size(23, 13)
+        Me.lblSet.TabIndex = 44
+        Me.lblSet.Text = "Set"
+        Me.lblSet.Visible = False
+        '
         'frmProductRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(878, 624)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

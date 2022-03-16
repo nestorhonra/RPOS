@@ -22,21 +22,28 @@ Partial Class frmStock_Store
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStock_Store))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStock_Store))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnGetData = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.txtRemarks = New System.Windows.Forms.RichTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbItemName = New System.Windows.Forms.ComboBox()
         Me.txtQty = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -51,13 +58,6 @@ Partial Class frmStock_Store
         Me.lblSet = New System.Windows.Forms.Label()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnGetData = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnRemove = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,6 +94,77 @@ Partial Class frmStock_Store
         Me.GroupBox3.Size = New System.Drawing.Size(108, 196)
         Me.GroupBox3.TabIndex = 314
         Me.GroupBox3.TabStop = False
+        '
+        'btnNew
+        '
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(8, 14)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(92, 40)
+        Me.btnNew.TabIndex = 1
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnGetData
+        '
+        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
+        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGetData.Location = New System.Drawing.Point(10, 148)
+        Me.btnGetData.Name = "btnGetData"
+        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
+        Me.btnGetData.TabIndex = 5
+        Me.btnGetData.Text = "Get Data"
+        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnGetData.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(9, 58)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(92, 40)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.Enabled = False
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(10, 104)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
+        Me.btnDelete.TabIndex = 4
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.btnClose.Location = New System.Drawing.Point(446, 6)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.TabIndex = 313
+        Me.btnClose.Text = "Close"
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'txtRemarks
         '
@@ -198,6 +269,33 @@ Partial Class frmStock_Store
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Item Info"
         '
+        'btnRemove
+        '
+        Me.btnRemove.Enabled = False
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
+        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRemove.Location = New System.Drawing.Point(409, 74)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(90, 34)
+        Me.btnRemove.TabIndex = 3
+        Me.btnRemove.Text = "&Remove"
+        Me.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRemove.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(409, 34)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(67, 34)
+        Me.btnAdd.TabIndex = 2
+        Me.btnAdd.Text = "&Add"
+        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
         'cmbItemName
         '
         Me.cmbItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -286,7 +384,7 @@ Partial Class frmStock_Store
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.lblUserType)
         Me.Panel2.Controls.Add(Me.lblSet)
@@ -339,109 +437,11 @@ Partial Class frmStock_Store
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Stock Entry"
         '
-        'btnNew
-        '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(8, 14)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(92, 40)
-        Me.btnNew.TabIndex = 1
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
-        '
-        'btnGetData
-        '
-        Me.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGetData.Image = CType(resources.GetObject("btnGetData.Image"), System.Drawing.Image)
-        Me.btnGetData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGetData.Location = New System.Drawing.Point(10, 148)
-        Me.btnGetData.Name = "btnGetData"
-        Me.btnGetData.Size = New System.Drawing.Size(92, 40)
-        Me.btnGetData.TabIndex = 5
-        Me.btnGetData.Text = "Get Data"
-        Me.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnGetData.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(9, 58)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(92, 40)
-        Me.btnSave.TabIndex = 2
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.Enabled = False
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(10, 104)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(92, 40)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnClose
-        '
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(446, 6)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
-        Me.btnClose.TabIndex = 313
-        Me.btnClose.Text = "Close"
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'btnRemove
-        '
-        Me.btnRemove.Enabled = False
-        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
-        Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemove.Location = New System.Drawing.Point(409, 74)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(90, 34)
-        Me.btnRemove.TabIndex = 3
-        Me.btnRemove.Text = "&Remove"
-        Me.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnRemove.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(409, 34)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(67, 34)
-        Me.btnAdd.TabIndex = 2
-        Me.btnAdd.Text = "&Add"
-        Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
         'frmStock_Store
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(544, 660)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
