@@ -38,13 +38,13 @@ Partial Class frmPrinterSetting
         Me.cmbPrinterType = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgw = New System.Windows.Forms.DataGridView()
-        Me.cmbPrinter = New System.Windows.Forms.ComboBox()
-        Me.chkIsEnabled = New System.Windows.Forms.CheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IsEnabled = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmbPrinter = New System.Windows.Forms.ComboBox()
+        Me.chkIsEnabled = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -176,7 +176,7 @@ Partial Class frmPrinterSetting
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Orange
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -215,38 +215,6 @@ Partial Class frmPrinterSetting
         Me.dgw.Size = New System.Drawing.Size(367, 100)
         Me.dgw.TabIndex = 4
         '
-        'cmbPrinter
-        '
-        Me.cmbPrinter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmbPrinter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbPrinter.FormattingEnabled = True
-        Me.cmbPrinter.Location = New System.Drawing.Point(125, 68)
-        Me.cmbPrinter.Name = "cmbPrinter"
-        Me.cmbPrinter.Size = New System.Drawing.Size(257, 21)
-        Me.cmbPrinter.TabIndex = 1
-        '
-        'chkIsEnabled
-        '
-        Me.chkIsEnabled.AutoSize = True
-        Me.chkIsEnabled.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkIsEnabled.Location = New System.Drawing.Point(15, 92)
-        Me.chkIsEnabled.Name = "chkIsEnabled"
-        Me.chkIsEnabled.Size = New System.Drawing.Size(75, 17)
-        Me.chkIsEnabled.TabIndex = 2
-        Me.chkIsEnabled.Text = "IsEnabled"
-        Me.chkIsEnabled.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(12, 121)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(379, 45)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Note : If printer is shared on network then use network path of shared" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "printer a" & _
-    "s printer name" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "e.g. : \\ServerName\PrinterName"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "ID"
@@ -277,6 +245,38 @@ Partial Class frmPrinterSetting
         Me.IsEnabled.Name = "IsEnabled"
         Me.IsEnabled.ReadOnly = True
         Me.IsEnabled.Width = 70
+        '
+        'cmbPrinter
+        '
+        Me.cmbPrinter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cmbPrinter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbPrinter.FormattingEnabled = True
+        Me.cmbPrinter.Location = New System.Drawing.Point(125, 68)
+        Me.cmbPrinter.Name = "cmbPrinter"
+        Me.cmbPrinter.Size = New System.Drawing.Size(257, 21)
+        Me.cmbPrinter.TabIndex = 1
+        '
+        'chkIsEnabled
+        '
+        Me.chkIsEnabled.AutoSize = True
+        Me.chkIsEnabled.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkIsEnabled.Location = New System.Drawing.Point(15, 92)
+        Me.chkIsEnabled.Name = "chkIsEnabled"
+        Me.chkIsEnabled.Size = New System.Drawing.Size(75, 17)
+        Me.chkIsEnabled.TabIndex = 2
+        Me.chkIsEnabled.Text = "IsEnabled"
+        Me.chkIsEnabled.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(379, 45)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "Note : If printer is shared on network then use network path of shared" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "printer a" &
+    "s printer name" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "e.g. : \\ServerName\PrinterName"
         '
         'frmPrinterSetting
         '

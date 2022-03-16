@@ -54,7 +54,7 @@ Partial Class frmChangePassword
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label4.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label4.Location = New System.Drawing.Point(16, 25)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(81, 24)
@@ -63,7 +63,7 @@ Partial Class frmChangePassword
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.DarkViolet
+        Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Button1.FlatAppearance.BorderSize = 0
@@ -82,7 +82,7 @@ Partial Class frmChangePassword
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label3.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label3.Location = New System.Drawing.Point(16, 121)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(120, 24)
@@ -124,7 +124,7 @@ Partial Class frmChangePassword
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label2.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label2.Location = New System.Drawing.Point(16, 89)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(94, 24)
@@ -136,7 +136,7 @@ Partial Class frmChangePassword
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label1.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label1.Location = New System.Drawing.Point(16, 57)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(85, 24)
@@ -164,7 +164,7 @@ Partial Class frmChangePassword
         '
         Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.BackColor = System.Drawing.Color.DarkViolet
+        Me.Label5.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(1, -1)

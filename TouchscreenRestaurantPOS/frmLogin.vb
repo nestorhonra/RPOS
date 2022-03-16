@@ -41,12 +41,11 @@ Public Class frmLogin
                         Dim st As String = "Successfully logged in"
                         LogFunc(UserID.Text, st)
                         Me.Hide()
-                        frm.lblUser.Text = UserID.Text
                         frm.Show()
                     Else
-                        frmPOS.lblUser.Text = UserID.Text
-                        frmPOS.lblUserType.Text = UserType.Text
-                        frmPOS.Show()
+                        frmFrontOffice.lblUser.Text = UserID.Text
+                        frmFrontOffice.lblUserType.Text = UserType.Text
+                        frmFrontOffice.Show()
                         Me.Hide()
                     End If
                 End If
@@ -225,7 +224,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA1_MouseHover(sender As System.Object, e As System.EventArgs) Handles btnTA1.MouseHover
-        btnTA1.BackColor = Color.DarkViolet
+        btnTA1.BackColor = Color.LightSeaGreen
         btnTA1.ForeColor = Color.White
     End Sub
 
@@ -235,7 +234,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA0_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA0.MouseHover
-        btnTA0.BackColor = Color.DarkViolet
+        btnTA0.BackColor = Color.LightSeaGreen
         btnTA0.ForeColor = Color.White
     End Sub
 
@@ -245,7 +244,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA2_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA2.MouseHover
-        btnTA2.BackColor = Color.DarkViolet
+        btnTA2.BackColor = Color.LightSeaGreen
         btnTA2.ForeColor = Color.White
     End Sub
 
@@ -255,7 +254,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA3_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA3.MouseHover
-        btnTA3.BackColor = Color.DarkViolet
+        btnTA3.BackColor = Color.LightSeaGreen
         btnTA3.ForeColor = Color.White
     End Sub
 
@@ -265,7 +264,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA4_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA4.MouseHover
-        btnTA4.BackColor = Color.DarkViolet
+        btnTA4.BackColor = Color.LightSeaGreen
         btnTA4.ForeColor = Color.White
     End Sub
 
@@ -275,7 +274,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA5_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA5.MouseHover
-        btnTA5.BackColor = Color.DarkViolet
+        btnTA5.BackColor = Color.LightSeaGreen
         btnTA5.ForeColor = Color.White
     End Sub
 
@@ -285,7 +284,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA6_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA6.MouseHover
-        btnTA6.BackColor = Color.DarkViolet
+        btnTA6.BackColor = Color.LightSeaGreen
         btnTA6.ForeColor = Color.White
     End Sub
 
@@ -295,7 +294,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA7_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA7.MouseHover
-        btnTA7.BackColor = Color.DarkViolet
+        btnTA7.BackColor = Color.LightSeaGreen
         btnTA7.ForeColor = Color.White
     End Sub
 
@@ -305,7 +304,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA8_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA8.MouseHover
-        btnTA8.BackColor = Color.DarkViolet
+        btnTA8.BackColor = Color.LightSeaGreen
         btnTA8.ForeColor = Color.White
     End Sub
 
@@ -315,7 +314,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnTA9_MouseHover(sender As Object, e As System.EventArgs) Handles btnTA9.MouseHover
-        btnTA9.BackColor = Color.DarkViolet
+        btnTA9.BackColor = Color.LightSeaGreen
         btnTA9.ForeColor = Color.White
     End Sub
 
@@ -325,7 +324,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnX_MouseHover(sender As Object, e As System.EventArgs) Handles btnX.MouseHover
-        btnX.BackColor = Color.DarkViolet
+        btnX.BackColor = Color.LightSeaGreen
         btnX.ForeColor = Color.White
     End Sub
 

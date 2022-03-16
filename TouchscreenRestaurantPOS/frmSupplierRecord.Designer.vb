@@ -43,9 +43,6 @@ Partial Class frmSupplierRecord
         Me.txtSupplierName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dgw = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblSet = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,6 +57,9 @@ Partial Class frmSupplierRecord
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lblSet = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -276,39 +276,6 @@ Partial Class frmSupplierRecord
         Me.dgw.Size = New System.Drawing.Size(1028, 484)
         Me.dgw.TabIndex = 43
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.lblSet)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(9, 7)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(952, 34)
-        Me.Panel2.TabIndex = 0
-        '
-        'lblSet
-        '
-        Me.lblSet.AutoSize = True
-        Me.lblSet.Location = New System.Drawing.Point(250, 30)
-        Me.lblSet.Name = "lblSet"
-        Me.lblSet.Size = New System.Drawing.Size(23, 13)
-        Me.lblSet.TabIndex = 44
-        Me.lblSet.Text = "Set"
-        Me.lblSet.Visible = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(409, 6)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(162, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "List Of Suppliers"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "ID"
@@ -396,11 +363,44 @@ Partial Class frmSupplierRecord
         Me.Column11.Name = "Column11"
         Me.Column11.ReadOnly = True
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.lblSet)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Location = New System.Drawing.Point(9, 7)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(952, 34)
+        Me.Panel2.TabIndex = 0
+        '
+        'lblSet
+        '
+        Me.lblSet.AutoSize = True
+        Me.lblSet.Location = New System.Drawing.Point(250, 30)
+        Me.lblSet.Name = "lblSet"
+        Me.lblSet.Size = New System.Drawing.Size(23, 13)
+        Me.lblSet.TabIndex = 44
+        Me.lblSet.Text = "Set"
+        Me.lblSet.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(409, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(162, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "List Of Suppliers"
+        '
         'frmSupplierRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(1063, 632)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

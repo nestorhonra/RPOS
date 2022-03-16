@@ -90,7 +90,7 @@ Partial Class frmBackOffice
         '
         Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.BackColor = System.Drawing.Color.DarkViolet
+        Me.Label5.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(0, 0)
@@ -160,7 +160,7 @@ Partial Class frmBackOffice
         '
         'btnInfo
         '
-        Me.btnInfo.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnInfo.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInfo.FlatAppearance.BorderSize = 0
         Me.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -176,7 +176,7 @@ Partial Class frmBackOffice
         '
         'btnCurrency
         '
-        Me.btnCurrency.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnCurrency.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnCurrency.FlatAppearance.BorderSize = 0
         Me.btnCurrency.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCurrency.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -192,7 +192,7 @@ Partial Class frmBackOffice
         '
         'btnCategories
         '
-        Me.btnCategories.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnCategories.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnCategories.FlatAppearance.BorderSize = 0
         Me.btnCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCategories.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -208,7 +208,7 @@ Partial Class frmBackOffice
         '
         'btnKitchen
         '
-        Me.btnKitchen.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnKitchen.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnKitchen.FlatAppearance.BorderSize = 0
         Me.btnKitchen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnKitchen.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -224,7 +224,7 @@ Partial Class frmBackOffice
         '
         'btnItems
         '
-        Me.btnItems.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnItems.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnItems.FlatAppearance.BorderSize = 0
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnItems.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -240,7 +240,7 @@ Partial Class frmBackOffice
         '
         'btnItemStock
         '
-        Me.btnItemStock.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnItemStock.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnItemStock.FlatAppearance.BorderSize = 0
         Me.btnItemStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnItemStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -256,7 +256,7 @@ Partial Class frmBackOffice
         '
         'btnTables
         '
-        Me.btnTables.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnTables.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnTables.FlatAppearance.BorderSize = 0
         Me.btnTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnTables.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -272,7 +272,7 @@ Partial Class frmBackOffice
         '
         'btnNotes
         '
-        Me.btnNotes.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnNotes.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnNotes.FlatAppearance.BorderSize = 0
         Me.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -288,7 +288,7 @@ Partial Class frmBackOffice
         '
         'btnPrinterSetup
         '
-        Me.btnPrinterSetup.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnPrinterSetup.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPrinterSetup.FlatAppearance.BorderSize = 0
         Me.btnPrinterSetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrinterSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -304,7 +304,7 @@ Partial Class frmBackOffice
         '
         'btnDBSetup
         '
-        Me.btnDBSetup.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnDBSetup.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnDBSetup.FlatAppearance.BorderSize = 0
         Me.btnDBSetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDBSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -320,7 +320,7 @@ Partial Class frmBackOffice
         '
         'btnDBBackup
         '
-        Me.btnDBBackup.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnDBBackup.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnDBBackup.FlatAppearance.BorderSize = 0
         Me.btnDBBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDBBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -336,7 +336,7 @@ Partial Class frmBackOffice
         '
         'btnDBRestore
         '
-        Me.btnDBRestore.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnDBRestore.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnDBRestore.FlatAppearance.BorderSize = 0
         Me.btnDBRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDBRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -352,7 +352,7 @@ Partial Class frmBackOffice
         '
         'btnOthers
         '
-        Me.btnOthers.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnOthers.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnOthers.FlatAppearance.BorderSize = 0
         Me.btnOthers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOthers.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -368,7 +368,7 @@ Partial Class frmBackOffice
         '
         'btnWHType
         '
-        Me.btnWHType.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnWHType.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnWHType.FlatAppearance.BorderSize = 0
         Me.btnWHType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnWHType.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -384,7 +384,7 @@ Partial Class frmBackOffice
         '
         'btnWH
         '
-        Me.btnWH.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnWH.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnWH.FlatAppearance.BorderSize = 0
         Me.btnWH.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnWH.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -400,7 +400,7 @@ Partial Class frmBackOffice
         '
         'btnProduct
         '
-        Me.btnProduct.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnProduct.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnProduct.FlatAppearance.BorderSize = 0
         Me.btnProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -416,7 +416,7 @@ Partial Class frmBackOffice
         '
         'btnSupplier
         '
-        Me.btnSupplier.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnSupplier.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSupplier.FlatAppearance.BorderSize = 0
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -432,7 +432,7 @@ Partial Class frmBackOffice
         '
         'btnPurchase
         '
-        Me.btnPurchase.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnPurchase.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPurchase.FlatAppearance.BorderSize = 0
         Me.btnPurchase.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPurchase.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -448,7 +448,7 @@ Partial Class frmBackOffice
         '
         'btnPayment
         '
-        Me.btnPayment.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnPayment.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPayment.FlatAppearance.BorderSize = 0
         Me.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -464,7 +464,7 @@ Partial Class frmBackOffice
         '
         'btnStore
         '
-        Me.btnStore.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnStore.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnStore.FlatAppearance.BorderSize = 0
         Me.btnStore.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnStore.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -480,7 +480,7 @@ Partial Class frmBackOffice
         '
         'btnSTF
         '
-        Me.btnSTF.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnSTF.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSTF.FlatAppearance.BorderSize = 0
         Me.btnSTF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -496,7 +496,7 @@ Partial Class frmBackOffice
         '
         'btnExpenseType
         '
-        Me.btnExpenseType.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnExpenseType.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnExpenseType.FlatAppearance.BorderSize = 0
         Me.btnExpenseType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExpenseType.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -512,7 +512,7 @@ Partial Class frmBackOffice
         '
         'btnExpense
         '
-        Me.btnExpense.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnExpense.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnExpense.FlatAppearance.BorderSize = 0
         Me.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExpense.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -528,7 +528,7 @@ Partial Class frmBackOffice
         '
         'btnVoucher
         '
-        Me.btnVoucher.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnVoucher.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnVoucher.FlatAppearance.BorderSize = 0
         Me.btnVoucher.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVoucher.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -544,7 +544,7 @@ Partial Class frmBackOffice
         '
         'btnDelivery
         '
-        Me.btnDelivery.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnDelivery.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnDelivery.FlatAppearance.BorderSize = 0
         Me.btnDelivery.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelivery.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -560,7 +560,7 @@ Partial Class frmBackOffice
         '
         'btnRecipe
         '
-        Me.btnRecipe.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnRecipe.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnRecipe.FlatAppearance.BorderSize = 0
         Me.btnRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRecipe.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -576,7 +576,7 @@ Partial Class frmBackOffice
         '
         'btnWorkPeriod
         '
-        Me.btnWorkPeriod.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnWorkPeriod.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnWorkPeriod.FlatAppearance.BorderSize = 0
         Me.btnWorkPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnWorkPeriod.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -592,7 +592,7 @@ Partial Class frmBackOffice
         '
         'btnPOSRep
         '
-        Me.btnPOSRep.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnPOSRep.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPOSRep.FlatAppearance.BorderSize = 0
         Me.btnPOSRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPOSRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -608,7 +608,7 @@ Partial Class frmBackOffice
         '
         'btnAcctgRep
         '
-        Me.btnAcctgRep.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnAcctgRep.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAcctgRep.FlatAppearance.BorderSize = 0
         Me.btnAcctgRep.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAcctgRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -624,7 +624,7 @@ Partial Class frmBackOffice
         '
         'btnRegistration
         '
-        Me.btnRegistration.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnRegistration.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnRegistration.FlatAppearance.BorderSize = 0
         Me.btnRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRegistration.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -640,7 +640,7 @@ Partial Class frmBackOffice
         '
         'btnLogs
         '
-        Me.btnLogs.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnLogs.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnLogs.FlatAppearance.BorderSize = 0
         Me.btnLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -656,7 +656,7 @@ Partial Class frmBackOffice
         '
         'btnAbout
         '
-        Me.btnAbout.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnAbout.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAbout.FlatAppearance.BorderSize = 0
         Me.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAbout.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

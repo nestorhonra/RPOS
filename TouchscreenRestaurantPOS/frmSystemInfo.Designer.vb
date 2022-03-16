@@ -67,7 +67,7 @@ Partial Class frmSystemInfo
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Orange
+        Me.MenuStrip1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"

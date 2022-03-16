@@ -57,7 +57,7 @@ Partial Class frmWorkPeriod
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.DarkViolet
+        Me.Panel1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.lblDateTime)
         Me.Panel1.Location = New System.Drawing.Point(1, 1)
@@ -95,7 +95,7 @@ Partial Class frmWorkPeriod
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.DarkViolet
+        Me.Label2.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Label2.Location = New System.Drawing.Point(12, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(371, 32)
@@ -104,7 +104,7 @@ Partial Class frmWorkPeriod
         '
         'btnStartWP
         '
-        Me.btnStartWP.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnStartWP.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnStartWP.FlatAppearance.BorderSize = 0
         Me.btnStartWP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnStartWP.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -118,7 +118,7 @@ Partial Class frmWorkPeriod
         '
         'btnEndWP
         '
-        Me.btnEndWP.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnEndWP.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnEndWP.Enabled = False
         Me.btnEndWP.FlatAppearance.BorderSize = 0
         Me.btnEndWP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -192,7 +192,7 @@ Partial Class frmWorkPeriod
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkViolet
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
@@ -258,7 +258,7 @@ Partial Class frmWorkPeriod
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(274, 211)
+        Me.txtID.Location = New System.Drawing.Point(709, 53)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(28, 20)
         Me.txtID.TabIndex = 42
@@ -271,7 +271,7 @@ Partial Class frmWorkPeriod
         'lblUser
         '
         Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(444, 333)
+        Me.lblUser.Location = New System.Drawing.Point(661, 53)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Size = New System.Drawing.Size(29, 13)
         Me.lblUser.TabIndex = 110

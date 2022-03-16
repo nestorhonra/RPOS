@@ -346,7 +346,7 @@ Partial Class frmLogin
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkViolet
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.lblDateTime)
         Me.Panel2.Location = New System.Drawing.Point(1, 1)

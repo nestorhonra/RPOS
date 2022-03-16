@@ -28,25 +28,25 @@ Partial Class frmWarehouseType
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtType = New System.Windows.Forms.TextBox()
-        Me.lblUser = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnNew = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtWarehouseType = New System.Windows.Forms.TextBox()
+        Me.txtType = New System.Windows.Forms.TextBox()
+        Me.lblUser = New System.Windows.Forms.Label()
         Me.dgw = New System.Windows.Forms.DataGridView()
         Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtWarehouseType = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -64,23 +64,18 @@ Partial Class frmWarehouseType
         Me.Panel1.Size = New System.Drawing.Size(323, 324)
         Me.Panel1.TabIndex = 2
         '
-        'txtType
+        'GroupBox2
         '
-        Me.txtType.Location = New System.Drawing.Point(252, 237)
-        Me.txtType.Name = "txtType"
-        Me.txtType.Size = New System.Drawing.Size(56, 20)
-        Me.txtType.TabIndex = 44
-        Me.txtType.Visible = False
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(215, 240)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(39, 13)
-        Me.lblUser.TabIndex = 43
-        Me.lblUser.Text = "Label8"
-        Me.lblUser.Visible = False
+        Me.GroupBox2.Controls.Add(Me.btnDelete)
+        Me.GroupBox2.Controls.Add(Me.btnNew)
+        Me.GroupBox2.Controls.Add(Me.btnUpdate)
+        Me.GroupBox2.Controls.Add(Me.btnSave)
+        Me.GroupBox2.Location = New System.Drawing.Point(214, 41)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(100, 181)
+        Me.GroupBox2.TabIndex = 46
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Action Button"
         '
         'btnDelete
         '
@@ -96,6 +91,20 @@ Partial Class frmWarehouseType
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnNew
+        '
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(9, 20)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(83, 35)
+        Me.btnNew.TabIndex = 0
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
         '
         'btnUpdate
         '
@@ -126,19 +135,42 @@ Partial Class frmWarehouseType
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.UseVisualStyleBackColor = True
         '
-        'btnNew
+        'GroupBox1
         '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(9, 20)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(83, 35)
-        Me.btnNew.TabIndex = 0
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
+        Me.GroupBox1.Controls.Add(Me.txtWarehouseType)
+        Me.GroupBox1.Location = New System.Drawing.Point(5, 269)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(312, 51)
+        Me.GroupBox1.TabIndex = 45
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Warehouse Type"
+        '
+        'txtWarehouseType
+        '
+        Me.txtWarehouseType.BackColor = System.Drawing.Color.White
+        Me.txtWarehouseType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtWarehouseType.Location = New System.Drawing.Point(19, 19)
+        Me.txtWarehouseType.Name = "txtWarehouseType"
+        Me.txtWarehouseType.Size = New System.Drawing.Size(282, 21)
+        Me.txtWarehouseType.TabIndex = 0
+        '
+        'txtType
+        '
+        Me.txtType.Location = New System.Drawing.Point(252, 237)
+        Me.txtType.Name = "txtType"
+        Me.txtType.Size = New System.Drawing.Size(56, 20)
+        Me.txtType.TabIndex = 44
+        Me.txtType.Visible = False
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Location = New System.Drawing.Point(215, 240)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(39, 13)
+        Me.lblUser.TabIndex = 43
+        Me.lblUser.Text = "Label8"
+        Me.lblUser.Visible = False
         '
         'dgw
         '
@@ -195,18 +227,16 @@ Partial Class frmWarehouseType
         Me.Description.ReadOnly = True
         Me.Description.Width = 180
         '
-        'btnClose
+        'Panel2
         '
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(277, -4)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(39, 36)
-        Me.btnClose.TabIndex = 4
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.btnClose)
+        Me.Panel2.Location = New System.Drawing.Point(4, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(313, 28)
+        Me.Panel2.TabIndex = 0
         '
         'Label1
         '
@@ -220,55 +250,25 @@ Partial Class frmWarehouseType
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "List of Warehouse Types"
         '
-        'Panel2
+        'btnClose
         '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.btnClose)
-        Me.Panel2.Location = New System.Drawing.Point(4, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(313, 28)
-        Me.Panel2.TabIndex = 0
-        '
-        'txtWarehouseType
-        '
-        Me.txtWarehouseType.BackColor = System.Drawing.Color.White
-        Me.txtWarehouseType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtWarehouseType.Location = New System.Drawing.Point(19, 19)
-        Me.txtWarehouseType.Name = "txtWarehouseType"
-        Me.txtWarehouseType.Size = New System.Drawing.Size(282, 21)
-        Me.txtWarehouseType.TabIndex = 0
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.txtWarehouseType)
-        Me.GroupBox1.Location = New System.Drawing.Point(5, 269)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(312, 51)
-        Me.GroupBox1.TabIndex = 45
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Warehouse Type"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.btnDelete)
-        Me.GroupBox2.Controls.Add(Me.btnNew)
-        Me.GroupBox2.Controls.Add(Me.btnUpdate)
-        Me.GroupBox2.Controls.Add(Me.btnSave)
-        Me.GroupBox2.Location = New System.Drawing.Point(214, 41)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(100, 181)
-        Me.GroupBox2.TabIndex = 46
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Action Button"
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClose.Location = New System.Drawing.Point(277, -4)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(39, 36)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmWarehouseType
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Orange
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(330, 330)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -279,12 +279,12 @@ Partial Class frmWarehouseType
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

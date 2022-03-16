@@ -8,7 +8,7 @@ Public Class frmOption
                 LogFunc(lblUser.Text, st)
                 frmLogin.Password.Text = ""
                 frmLogin.Show()
-                Me.Dispose()
+                'Me.Dispose()
                 Me.Close()
             End If
         Else
@@ -47,7 +47,7 @@ Public Class frmOption
     End Sub
 
     Private Sub btnFrontOffice_Click(sender As Object, e As EventArgs) Handles btnFrontOffice.Click
-        With frmPOS
+        With frmFrontOffice
             .lblUser.Text = Me.lblUser.Text
             .lblUserType.Text = Me.lblUserType.Text
             .Show()

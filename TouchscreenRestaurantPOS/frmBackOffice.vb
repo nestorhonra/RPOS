@@ -10,6 +10,8 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         With frmOption
+            .lblUserType.Text = Me.lblUserType.Text
+            .lblUser.Text = Me.lblUser.Text
             .Show()
         End With
         Me.Close()
@@ -65,7 +67,7 @@
     End Sub
 
     Private Sub btnNotes_Click(sender As Object, e As EventArgs) Handles btnNotes.Click
-        With frmNotes
+        With frmNotesMaster
             .lblUser.Text = Me.lblUser.Text
             .ShowDialog()
         End With

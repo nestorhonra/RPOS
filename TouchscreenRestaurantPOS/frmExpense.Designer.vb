@@ -28,6 +28,8 @@ Partial Class frmExpense
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RibbonStatusBar1 = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
+        Me.XtraUserControl1 = New DevExpress.XtraEditors.XtraUserControl()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -48,21 +50,12 @@ Partial Class frmExpense
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.GridSplitContainer1 = New DevExpress.XtraGrid.GridSplitContainer()
-        Me.GridSplitContainer1Grid = New DevExpress.XtraGrid.GridControl()
-        Me.GridSplitContainer1View = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.XtraUserControl1 = New DevExpress.XtraEditors.XtraUserControl()
-        Me.RibbonStatusBar1 = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.GridSplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GridSplitContainer1.SuspendLayout()
-        CType(Me.GridSplitContainer1Grid, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridSplitContainer1View, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -71,7 +64,6 @@ Partial Class frmExpense
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.RibbonStatusBar1)
         Me.Panel1.Controls.Add(Me.XtraUserControl1)
-        Me.Panel1.Controls.Add(Me.GridSplitContainer1)
         Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.GroupBox1)
@@ -84,6 +76,19 @@ Partial Class frmExpense
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(427, 508)
         Me.Panel1.TabIndex = 2
+        '
+        'RibbonStatusBar1
+        '
+        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 486)
+        Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
+        Me.RibbonStatusBar1.Size = New System.Drawing.Size(425, 20)
+        '
+        'XtraUserControl1
+        '
+        Me.XtraUserControl1.Location = New System.Drawing.Point(159, 290)
+        Me.XtraUserControl1.Name = "XtraUserControl1"
+        Me.XtraUserControl1.Size = New System.Drawing.Size(150, 150)
+        Me.XtraUserControl1.TabIndex = 9
         '
         'GroupBox3
         '
@@ -338,53 +343,12 @@ Partial Class frmExpense
         Me.Label3.Size = New System.Drawing.Size(0, 13)
         Me.Label3.TabIndex = 0
         '
-        'GridSplitContainer1
-        '
-        Me.GridSplitContainer1.Grid = Me.GridSplitContainer1Grid
-        Me.GridSplitContainer1.Location = New System.Drawing.Point(259, 311)
-        Me.GridSplitContainer1.Name = "GridSplitContainer1"
-        Me.GridSplitContainer1.Panel1.Controls.Add(Me.GridSplitContainer1Grid)
-        Me.GridSplitContainer1.Panel1.Text = "Panel1"
-        Me.GridSplitContainer1.Panel2.Text = "Panel2"
-        Me.GridSplitContainer1.Size = New System.Drawing.Size(400, 400)
-        Me.GridSplitContainer1.TabIndex = 8
-        Me.GridSplitContainer1.Text = "GridSplitContainer1"
-        '
-        'GridSplitContainer1Grid
-        '
-        Me.GridSplitContainer1Grid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridSplitContainer1Grid.Location = New System.Drawing.Point(0, 0)
-        Me.GridSplitContainer1Grid.MainView = Me.GridSplitContainer1View
-        Me.GridSplitContainer1Grid.Name = "GridSplitContainer1Grid"
-        Me.GridSplitContainer1Grid.Size = New System.Drawing.Size(400, 400)
-        Me.GridSplitContainer1Grid.TabIndex = 0
-        Me.GridSplitContainer1Grid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridSplitContainer1View})
-        '
-        'GridSplitContainer1View
-        '
-        Me.GridSplitContainer1View.GridControl = Me.GridSplitContainer1Grid
-        Me.GridSplitContainer1View.Name = "GridSplitContainer1View"
-        '
-        'XtraUserControl1
-        '
-        Me.XtraUserControl1.Location = New System.Drawing.Point(159, 290)
-        Me.XtraUserControl1.Name = "XtraUserControl1"
-        Me.XtraUserControl1.Size = New System.Drawing.Size(150, 150)
-        Me.XtraUserControl1.TabIndex = 9
-        '
-        'RibbonStatusBar1
-        '
-        Me.RibbonStatusBar1.Location = New System.Drawing.Point(0, 486)
-        Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
-        Me.RibbonStatusBar1.Ribbon = Nothing
-        Me.RibbonStatusBar1.Size = New System.Drawing.Size(425, 20)
-        '
         'frmExpense
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Orange
+        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(433, 513)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label3)
@@ -404,15 +368,10 @@ Partial Class frmExpense
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.GridSplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GridSplitContainer1.ResumeLayout(False)
-        CType(Me.GridSplitContainer1Grid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridSplitContainer1View, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtExpense As System.Windows.Forms.TextBox
     Friend WithEvents btnDelete As System.Windows.Forms.Button
@@ -421,7 +380,6 @@ Partial Class frmExpense
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents btnNew As System.Windows.Forms.Button
     Friend WithEvents dgw As System.Windows.Forms.DataGridView
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtExpenseName As System.Windows.Forms.TextBox
@@ -435,8 +393,6 @@ Partial Class frmExpense
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RibbonStatusBar1 As DevExpress.XtraBars.Ribbon.RibbonStatusBar
     Friend WithEvents XtraUserControl1 As DevExpress.XtraEditors.XtraUserControl
-    Friend WithEvents GridSplitContainer1 As DevExpress.XtraGrid.GridSplitContainer
-    Friend WithEvents GridSplitContainer1Grid As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridSplitContainer1View As DevExpress.XtraGrid.Views.Grid.GridView
-
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
 End Class

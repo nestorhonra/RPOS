@@ -38,7 +38,7 @@ Partial Class frmOption
         '
         'btnBackOffice
         '
-        Me.btnBackOffice.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnBackOffice.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnBackOffice.FlatAppearance.BorderSize = 0
         Me.btnBackOffice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBackOffice.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -52,7 +52,7 @@ Partial Class frmOption
         '
         'btnFrontOffice
         '
-        Me.btnFrontOffice.BackColor = System.Drawing.Color.DarkOrchid
+        Me.btnFrontOffice.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnFrontOffice.FlatAppearance.BorderSize = 0
         Me.btnFrontOffice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFrontOffice.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -100,7 +100,7 @@ Partial Class frmOption
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(144, 17)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(175, 17)
         Me.ToolStripStatusLabel3.Spring = True
         Me.ToolStripStatusLabel3.Visible = False
         '
@@ -128,7 +128,7 @@ Partial Class frmOption
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(349, 217)
+        Me.Panel1.Size = New System.Drawing.Size(349, 239)
         Me.Panel1.TabIndex = 8
         '
         'frmOption
@@ -145,7 +145,6 @@ Partial Class frmOption
         Me.MinimizeBox = False
         Me.Name = "frmOption"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Operations"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
