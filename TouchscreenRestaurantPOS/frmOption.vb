@@ -31,10 +31,10 @@ Public Class frmOption
         BackColor = Color.Coral
         TransparencyKey = BackColor
         Dim result As Boolean = HandleRegistry()
-        If result = False Then 'something went wrong
-            MessageBox.Show("Trial expired" & vbCrLf & "for purchasing the full version of software call us at +919827858191", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End
-        End If
+        'If result = False Then 'something went wrong
+        '    MessageBox.Show("Trial expired" & vbCrLf & "for purchasing the full version of software call us at +919827858191", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    End
+        'End If
     End Sub
 
     Private Sub btnBackOffice_Click(sender As Object, e As EventArgs) Handles btnBackOffice.Click

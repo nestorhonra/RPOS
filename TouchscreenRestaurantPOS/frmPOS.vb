@@ -23,7 +23,10 @@ Public Class frmPOS
     End Sub
 
     Private Sub frmPOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        lblType.Text = ""
+        lblTypeID.Text = ""
+        txtTableNo.Text = ""
+        txtTicketNo.Text = ""
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -54,5 +57,47 @@ Public Class frmPOS
         Loop
         con.Close()
 
+    End Sub
+
+    Private Sub btnDinein_Click(sender As Object, e As EventArgs) Handles btnDinein.Click
+        If txtTicketNo.Text <> "" Then
+            lblTypeID.Text = "1"
+            lblType.Text = "Dine-In"
+            lblType.ForeColor = Color.SeaGreen
+        End If
+    End Sub
+
+    Private Sub btnTakeout_Click(sender As Object, e As EventArgs) Handles btnTakeout.Click
+        If txtTicketNo.Text <> "" Then
+            lblTypeID.Text = "0"
+            lblType.Text = "Take-Out"
+            lblType.ForeColor = Color.Crimson
+        End If
+    End Sub
+
+    Private Sub btnNewTicket_Click(sender As Object, e As EventArgs) Handles btnNewTicket.Click
+        If txtTicketNo.Text <> "" Then
+            MsgBox("Save the current ticket transaction or hold to create new ticket.", vbCritical + vbOKOnly, "Error create ticket")
+            Exit Sub
+        Else
+            Try
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim ct As String = "select MAX(ID) AS ID from RestaurantPOS_BillingInfoKOT"
+                cmd = New SqlCommand(ct)
+                cmd.Connection = con
+                rdr = cmd.ExecuteReader()
+
+                If rdr.Read() Then
+                    txtTicketNo.Text = Format(rdr(0).ToString + 1, "000000")
+                    If (rdr IsNot Nothing) Then
+                        rdr.Close()
+                    End If
+                    Return
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+            End Try
+        End If
     End Sub
 End Class

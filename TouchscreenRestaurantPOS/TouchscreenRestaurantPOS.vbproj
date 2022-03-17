@@ -1473,6 +1473,7 @@
     <Content Include="Resources\6.jpg" />
     <Content Include="Resources\64-128.png" />
     <Content Include="Resources\9.png" />
+    <None Include="Resources\91.png" />
     <Content Include="Resources\96-512 %282%29.png" />
     <Content Include="Resources\96-512.png" />
     <Content Include="Resources\about.png" />
@@ -1624,6 +1625,8 @@
     <None Include="Resources\drawer-archive-icon1.png" />
     <None Include="Resources\CP32X32.png" />
     <None Include="Resources\CP.png" />
+    <None Include="Resources\Next_32x321.png" />
+    <None Include="Resources\Previous_32x321.png" />
     <Content Include="RPOS.ico" />
     <None Include="Resources\Button-Ok-icon.png" />
     <None Include="Resources\Button-Delete-icon.png" />
