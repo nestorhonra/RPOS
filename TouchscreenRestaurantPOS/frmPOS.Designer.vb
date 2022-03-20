@@ -29,6 +29,9 @@ Partial Class frmPOS
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPOS))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnTable = New System.Windows.Forms.Button()
+        Me.btnMenu = New System.Windows.Forms.Button()
+        Me.btnCategory = New System.Windows.Forms.Button()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
@@ -43,9 +46,7 @@ Partial Class frmPOS
         Me.btnTableUp = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.btnMenu = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.btnCategory = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnDown = New System.Windows.Forms.Button()
         Me.btnUp = New System.Windows.Forms.Button()
@@ -76,7 +77,6 @@ Partial Class frmPOS
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.btnTable = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -100,6 +100,48 @@ Partial Class frmPOS
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1067, 39)
         Me.Panel1.TabIndex = 0
+        '
+        'btnTable
+        '
+        Me.btnTable.BackColor = System.Drawing.Color.Green
+        Me.btnTable.FlatAppearance.BorderSize = 0
+        Me.btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTable.ForeColor = System.Drawing.Color.White
+        Me.btnTable.Location = New System.Drawing.Point(601, 4)
+        Me.btnTable.Name = "btnTable"
+        Me.btnTable.Size = New System.Drawing.Size(29, 32)
+        Me.btnTable.TabIndex = 34
+        Me.btnTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnTable.UseVisualStyleBackColor = False
+        '
+        'btnMenu
+        '
+        Me.btnMenu.BackColor = System.Drawing.Color.Green
+        Me.btnMenu.FlatAppearance.BorderSize = 0
+        Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenu.ForeColor = System.Drawing.Color.White
+        Me.btnMenu.Location = New System.Drawing.Point(564, 4)
+        Me.btnMenu.Name = "btnMenu"
+        Me.btnMenu.Size = New System.Drawing.Size(29, 32)
+        Me.btnMenu.TabIndex = 32
+        Me.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenu.UseVisualStyleBackColor = False
+        '
+        'btnCategory
+        '
+        Me.btnCategory.BackColor = System.Drawing.Color.Green
+        Me.btnCategory.FlatAppearance.BorderSize = 0
+        Me.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCategory.ForeColor = System.Drawing.Color.White
+        Me.btnCategory.Location = New System.Drawing.Point(527, 4)
+        Me.btnCategory.Name = "btnCategory"
+        Me.btnCategory.Size = New System.Drawing.Size(29, 32)
+        Me.btnCategory.TabIndex = 25
+        Me.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCategory.UseVisualStyleBackColor = False
         '
         'lblUser
         '
@@ -284,20 +326,6 @@ Partial Class frmPOS
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(507, 451)
         Me.FlowLayoutPanel2.TabIndex = 2
         '
-        'btnMenu
-        '
-        Me.btnMenu.BackColor = System.Drawing.Color.Green
-        Me.btnMenu.FlatAppearance.BorderSize = 0
-        Me.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenu.ForeColor = System.Drawing.Color.White
-        Me.btnMenu.Location = New System.Drawing.Point(564, 4)
-        Me.btnMenu.Name = "btnMenu"
-        Me.btnMenu.Size = New System.Drawing.Size(29, 32)
-        Me.btnMenu.TabIndex = 32
-        Me.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenu.UseVisualStyleBackColor = False
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -306,20 +334,6 @@ Partial Class frmPOS
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 635)
         Me.FlowLayoutPanel1.TabIndex = 1
-        '
-        'btnCategory
-        '
-        Me.btnCategory.BackColor = System.Drawing.Color.Green
-        Me.btnCategory.FlatAppearance.BorderSize = 0
-        Me.btnCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCategory.ForeColor = System.Drawing.Color.White
-        Me.btnCategory.Location = New System.Drawing.Point(527, 4)
-        Me.btnCategory.Name = "btnCategory"
-        Me.btnCategory.Size = New System.Drawing.Size(29, 32)
-        Me.btnCategory.TabIndex = 25
-        Me.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCategory.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -793,20 +807,6 @@ Partial Class frmPOS
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Take-out"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'btnTable
-        '
-        Me.btnTable.BackColor = System.Drawing.Color.Green
-        Me.btnTable.FlatAppearance.BorderSize = 0
-        Me.btnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnTable.ForeColor = System.Drawing.Color.White
-        Me.btnTable.Location = New System.Drawing.Point(601, 4)
-        Me.btnTable.Name = "btnTable"
-        Me.btnTable.Size = New System.Drawing.Size(29, 32)
-        Me.btnTable.TabIndex = 34
-        Me.btnTable.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnTable.UseVisualStyleBackColor = False
         '
         'frmPOS
         '

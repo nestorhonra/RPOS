@@ -3,6 +3,7 @@ Public Class frmPOS
     Dim rowIndex As Integer
     Dim table As New DataTable("table")
     Dim UserButtons As List(Of Button) = New List(Of Button)
+    Dim is_edit As Boolean = False
     Private Sub frmPOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
     End Sub
@@ -12,6 +13,7 @@ Public Class frmPOS
         lblTypeID.Text = ""
         txtTableNo.Text = ""
         txtTicketNo.Text = ""
+        is_edit = False
         Call FillTables()
         Call FillCategory()
 
@@ -175,6 +177,7 @@ Public Class frmPOS
 
                 If rdr.Read() Then
                     txtTicketNo.Text = Format(rdr(0).ToString + 1, "000000")
+                    is_edit = False
                     If (rdr IsNot Nothing) Then
                         rdr.Close()
                     End If
@@ -197,12 +200,12 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnMenuUp_Click(sender As Object, e As EventArgs) Handles btnMenuUp.Click
-        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value - FlowLayoutPanel2.VerticalScroll.SmallChange * 30
+        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value - FlowLayoutPanel2.VerticalScroll.SmallChange * 100
         FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
     End Sub
 
     Private Sub btnMenuDown_Click(sender As Object, e As EventArgs) Handles btnMenuDown.Click
-        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value + FlowLayoutPanel2.VerticalScroll.SmallChange * 30
+        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value + FlowLayoutPanel2.VerticalScroll.SmallChange * 100
         FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
     End Sub
 
@@ -256,9 +259,31 @@ Public Class frmPOS
         End If
     End Sub
 
-    Private Sub btnCategory_Click(sender As Object, e As EventArgs) Handles btnCategory.Click
-        MsgBox(btnCategory.Name)
+    Private Sub btnCategory_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = DirectCast(sender, Button)
+        'MsgBox(btn.Text)
 
-        Call FillMenus(btnCategory.Text)
+        Call FillMenus(btn.Text)
+    End Sub
+
+    Private Sub btnTables_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = DirectCast(sender, Button)
+        'MsgBox(btn.Text)
+        If is_edit = True Then
+            If MsgBox("Are you sure you want to transfer this to a different table?", vbQuestion + vbYesNo, "Confirm change") = vbYes Then
+                'Update function here.
+
+                txtTableNo.Text = btn.Text
+            Else
+                Exit Sub
+            End If
+        Else
+            txtTableNo.Text = btn.Text
+        End If
+
+    End Sub
+
+    Private Sub btnChgTable_Click(sender As Object, e As EventArgs) Handles btnChgTable.Click
+        is_edit = True
     End Sub
 End Class
