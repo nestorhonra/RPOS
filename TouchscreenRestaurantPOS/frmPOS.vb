@@ -87,7 +87,7 @@ Public Class frmPOS
             btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             UserButtons.Add(btn)
             FlowLayoutPanel3.Controls.Add(btn)
-            ' AddHandler btn.Click, AddressOf Me.Button2_Click
+            AddHandler btn.Click, AddressOf Me.btnTables_Click
         Loop
         con.Close()
     End Sub
@@ -272,7 +272,16 @@ Public Class frmPOS
         If is_edit = True Then
             If MsgBox("Are you sure you want to transfer this to a different table?", vbQuestion + vbYesNo, "Confirm change") = vbYes Then
                 'Update function here.
-
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb As String = "Update RestaurantPOS_BillingInfoKOT set Table=@d2 where TicketNo=@d1 and Table=@d3"
+                cmd = New SqlCommand(cb)
+                cmd.Parameters.AddWithValue("@d1", Trim(txtTicketNo.Text))
+                cmd.Parameters.AddWithValue("@d2", btn.Text)
+                cmd.Parameters.AddWithValue("@d3", txtTableNo.Text)
+                cmd.Connection = con
+                cmd.ExecuteNonQuery()
+                con.Close()
                 txtTableNo.Text = btn.Text
             Else
                 Exit Sub
