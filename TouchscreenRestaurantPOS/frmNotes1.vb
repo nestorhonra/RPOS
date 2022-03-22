@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmNotes1
+    Public frm As String
+    Public rowIDs As Integer
     Declare Function Wow64DisableWow64FsRedirection Lib "kernel32" (ByRef oldvalue As Long) As Boolean
     Declare Function Wow64EnableWow64FsRedirection Lib "kernel32" (ByRef oldvalue As Long) As Boolean
 
@@ -22,7 +24,7 @@ Public Class frmNotes1
         End Try
     End Sub
     Private Sub btnGetData_Click(sender As System.Object, e As System.EventArgs) Handles btnOkay.Click
-      
+
     End Sub
     Sub Reset()
         txtNotes.Text = ""
@@ -36,6 +38,10 @@ Public Class frmNotes1
             If dgw.Rows.Count > 0 Then
                 Dim dr As DataGridViewRow = dgw.SelectedRows(0)
                 txtNotes.Text = dr.Cells(0).Value.ToString()
+                If frm = "frmPOS" Then
+                    frmPOS.dgw.SelectedCells.Item(3).Value = txtNotes.Text
+                End If
+
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

@@ -207,4 +207,26 @@ Module ModFunc
         cmd.ExecuteReader()
         con.Close()
     End Sub
+
+    Public Function toMoney(ByVal srcCurr As String) As String
+        toMoney = Format(toNumber(srcCurr), "#,##0.00")
+    End Function
+
+    Public Function toNumber(ByVal srcCurrency As String, Optional ByRef RetZeroIfNegative As Boolean = False) As Double
+        Dim retValue As Double
+        If srcCurrency = "" Then
+            toNumber = 0
+        Else
+            If InStr(1, srcCurrency, ",") > 0 Then
+                retValue = Val(Replace(srcCurrency, ",", "", , , CompareMethod.Text))
+            Else
+                retValue = Val(srcCurrency)
+            End If
+            If RetZeroIfNegative = True Then
+                If retValue < 1 Then retValue = 0
+            End If
+            toNumber = retValue
+            retValue = 0
+        End If
+    End Function
 End Module

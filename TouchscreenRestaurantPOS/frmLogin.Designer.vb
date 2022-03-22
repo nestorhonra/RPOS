@@ -73,7 +73,7 @@ Partial Class frmLogin
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.Color.White
-        Me.lblDateTime.Location = New System.Drawing.Point(164, 3)
+        Me.lblDateTime.Location = New System.Drawing.Point(170, 3)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Size = New System.Drawing.Size(134, 37)
         Me.lblDateTime.TabIndex = 14
@@ -133,7 +133,7 @@ Partial Class frmLogin
         Me.btnX.Location = New System.Drawing.Point(3, 219)
         Me.btnX.Name = "btnX"
         Me.btnX.Size = New System.Drawing.Size(107, 67)
-        Me.btnX.TabIndex = 31
+        Me.btnX.TabIndex = 14
         Me.btnX.Text = "x"
         Me.btnX.UseVisualStyleBackColor = False
         '
@@ -148,7 +148,7 @@ Partial Class frmLogin
         Me.btnTA9.Location = New System.Drawing.Point(229, 147)
         Me.btnTA9.Name = "btnTA9"
         Me.btnTA9.Size = New System.Drawing.Size(109, 66)
-        Me.btnTA9.TabIndex = 15
+        Me.btnTA9.TabIndex = 12
         Me.btnTA9.Text = "9"
         Me.btnTA9.UseVisualStyleBackColor = False
         '
@@ -163,7 +163,7 @@ Partial Class frmLogin
         Me.btnTA0.Location = New System.Drawing.Point(116, 219)
         Me.btnTA0.Name = "btnTA0"
         Me.btnTA0.Size = New System.Drawing.Size(107, 67)
-        Me.btnTA0.TabIndex = 17
+        Me.btnTA0.TabIndex = 13
         Me.btnTA0.Text = "0"
         Me.btnTA0.UseVisualStyleBackColor = False
         '
@@ -178,7 +178,7 @@ Partial Class frmLogin
         Me.btnTA8.Location = New System.Drawing.Point(116, 147)
         Me.btnTA8.Name = "btnTA8"
         Me.btnTA8.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA8.TabIndex = 14
+        Me.btnTA8.TabIndex = 11
         Me.btnTA8.Text = "8"
         Me.btnTA8.UseVisualStyleBackColor = False
         '
@@ -193,7 +193,7 @@ Partial Class frmLogin
         Me.btnTA4.Location = New System.Drawing.Point(3, 75)
         Me.btnTA4.Name = "btnTA4"
         Me.btnTA4.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA4.TabIndex = 30
+        Me.btnTA4.TabIndex = 7
         Me.btnTA4.Text = "4"
         Me.btnTA4.UseVisualStyleBackColor = False
         '
@@ -211,7 +211,7 @@ Partial Class frmLogin
         Me.btnLogin.Location = New System.Drawing.Point(229, 219)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(109, 67)
-        Me.btnLogin.TabIndex = 2
+        Me.btnLogin.TabIndex = 1
         Me.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnLogin.UseVisualStyleBackColor = False
         '
@@ -226,7 +226,7 @@ Partial Class frmLogin
         Me.btnTA6.Location = New System.Drawing.Point(229, 75)
         Me.btnTA6.Name = "btnTA6"
         Me.btnTA6.Size = New System.Drawing.Size(109, 66)
-        Me.btnTA6.TabIndex = 12
+        Me.btnTA6.TabIndex = 9
         Me.btnTA6.Text = "6"
         Me.btnTA6.UseVisualStyleBackColor = False
         '
@@ -241,7 +241,7 @@ Partial Class frmLogin
         Me.btnTA5.Location = New System.Drawing.Point(116, 75)
         Me.btnTA5.Name = "btnTA5"
         Me.btnTA5.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA5.TabIndex = 11
+        Me.btnTA5.TabIndex = 8
         Me.btnTA5.Text = "5"
         Me.btnTA5.UseVisualStyleBackColor = False
         '
@@ -256,7 +256,7 @@ Partial Class frmLogin
         Me.btnTA7.Location = New System.Drawing.Point(3, 147)
         Me.btnTA7.Name = "btnTA7"
         Me.btnTA7.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA7.TabIndex = 13
+        Me.btnTA7.TabIndex = 10
         Me.btnTA7.Text = "7"
         Me.btnTA7.UseVisualStyleBackColor = False
         '
@@ -271,7 +271,7 @@ Partial Class frmLogin
         Me.btnTA3.Location = New System.Drawing.Point(229, 3)
         Me.btnTA3.Name = "btnTA3"
         Me.btnTA3.Size = New System.Drawing.Size(109, 66)
-        Me.btnTA3.TabIndex = 9
+        Me.btnTA3.TabIndex = 6
         Me.btnTA3.Text = "3"
         Me.btnTA3.UseVisualStyleBackColor = False
         '
@@ -286,7 +286,7 @@ Partial Class frmLogin
         Me.btnTA1.Location = New System.Drawing.Point(3, 3)
         Me.btnTA1.Name = "btnTA1"
         Me.btnTA1.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA1.TabIndex = 7
+        Me.btnTA1.TabIndex = 4
         Me.btnTA1.Text = "1"
         Me.btnTA1.UseVisualStyleBackColor = False
         '
@@ -301,7 +301,7 @@ Partial Class frmLogin
         Me.btnTA2.Location = New System.Drawing.Point(116, 3)
         Me.btnTA2.Name = "btnTA2"
         Me.btnTA2.Size = New System.Drawing.Size(107, 66)
-        Me.btnTA2.TabIndex = 8
+        Me.btnTA2.TabIndex = 5
         Me.btnTA2.Text = "2"
         Me.btnTA2.UseVisualStyleBackColor = False
         '
@@ -314,7 +314,7 @@ Partial Class frmLogin
         Me.Password.Name = "Password"
         Me.Password.ReadOnly = True
         Me.Password.Size = New System.Drawing.Size(341, 35)
-        Me.Password.TabIndex = 1
+        Me.Password.TabIndex = 2
         Me.Password.Text = "ENTER PIN"
         Me.Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -330,7 +330,7 @@ Partial Class frmLogin
         Me.btnCancel.Location = New System.Drawing.Point(141, 372)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(95, 72)
-        Me.btnCancel.TabIndex = 0
+        Me.btnCancel.TabIndex = 3
         Me.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancel.UseVisualStyleBackColor = False
         '
@@ -390,6 +390,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.UserID)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmLogin"

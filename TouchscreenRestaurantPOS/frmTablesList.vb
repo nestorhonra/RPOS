@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmTablesList
+    Public frm As String
     Dim UserButtons As List(Of Button) = New List(Of Button)
     Sub FillAvailableTables()
         con = New SqlConnection(cs)
@@ -11,7 +12,7 @@ Public Class frmTablesList
         flpTables.Controls.Clear()
         Do While (rdr.Read())
             Dim btn As New Button
-            btn.Text = rdr.GetValue(0) & Environment.NewLine & rdr.GetValue(2)
+            btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
             btn.TextAlign = ContentAlignment.MiddleCenter
             Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
             btn.BackColor = btnColor
@@ -26,7 +27,11 @@ Public Class frmTablesList
         con.Close()
     End Sub
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-     
+        Dim btn As Button = DirectCast(sender, Button)
+        If frm = "frmPOS" Then
+            frmPOS.txtTableNo.Text = btn.Text
+        End If
+        Me.Close()
     End Sub
     Private Sub frmTables_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         FillAvailableTables()

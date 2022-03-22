@@ -351,4 +351,275 @@ Public Class frmLogin
     Private Sub Cancel_MouseLeave(sender As System.Object, e As System.EventArgs) Handles btnCancel.MouseLeave
         btnCancel.BackColor = Color.Transparent
     End Sub
+
+    Private Sub frmLogin_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.NumPad0
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(0)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(0)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad1
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(1)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(1)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad2
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(2)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(2)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad3
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(3)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(3)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad4
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(4)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(4)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad5
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(5)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(5)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad6
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(6)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(6)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad7
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(7)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(7)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad8
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(8)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(8)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.NumPad9
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(9)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(9)
+                    sign_Indicator = 0
+                End If
+                fl = True
+
+            Case Keys.D0
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(0)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(0)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D1
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(1)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(1)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D2
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(2)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(2)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D3
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(3)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(3)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D4
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(4)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(4)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D5
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(5)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(5)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D6
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(6)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(6)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D7
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(7)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(7)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D8
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(8)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(8)
+                    sign_Indicator = 0
+                End If
+                fl = True
+            Case Keys.D9
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                Password.PasswordChar = "•"
+                If sign_Indicator = 0 Then
+                    Password.Text = Password.Text + Convert.ToString(9)
+                ElseIf sign_Indicator = 1 Then
+                    Password.Text = Convert.ToString(9)
+                    sign_Indicator = 0
+                End If
+                fl = True
+
+            Case Keys.Delete
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                s = Password.Text
+                Dim l As Integer = s.Length
+                For i As Integer = 0 To l - 2
+                    x += s(i)
+                Next
+                Password.Text = x
+                x = ""
+            Case Keys.Back
+                If Password.Text = "ENTER PIN" Then
+                    Password.Text = ""
+                End If
+                s = Password.Text
+                Dim l As Integer = s.Length
+                For i As Integer = 0 To l - 2
+                    x += s(i)
+                Next
+                Password.Text = x
+                x = ""
+            Case Keys.Enter
+                btnLogin.PerformClick()
+        End Select
+    End Sub
 End Class

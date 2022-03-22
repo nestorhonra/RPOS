@@ -242,6 +242,12 @@
     <Compile Include="Custom Dialog\frmCustomDialog10.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog13.Designer.vb">
+      <DependentUpon>frmCustomDialog13.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog13.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Custom Dialog\frmCustomDialog9.Designer.vb">
       <DependentUpon>frmCustomDialog9.vb</DependentUpon>
     </Compile>
@@ -975,6 +981,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Dialog\frmCustomDialog10.resx">
       <DependentUpon>frmCustomDialog10.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog13.resx">
+      <DependentUpon>frmCustomDialog13.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Dialog\frmCustomDialog9.resx">
       <DependentUpon>frmCustomDialog9.vb</DependentUpon>

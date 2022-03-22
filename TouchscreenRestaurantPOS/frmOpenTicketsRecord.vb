@@ -6,7 +6,7 @@ Public Class frmOpenTicketsRecord
             Dim CN As New SqlConnection(cs)
             CN.Open()
             adp = New SqlDataAdapter()
-            adp.SelectCommand = New SqlCommand("SELECT distinct RTRIM(TicketNo) FROM TempRestaurantPOS_OrderInfoKOT order by 1", CN)
+            adp.SelectCommand = New SqlCommand("SELECT distinct RTRIM(TicketNo) FROM RestaurantPOS_OrderInfoKOT WHERE isPaid=0 order by 1", CN)
             ds = New DataSet("ds")
             adp.Fill(ds)
             dtable = ds.Tables(0)
@@ -22,7 +22,7 @@ Public Class frmOpenTicketsRecord
         Try
             con = New SqlConnection(cs)
             con.Open()
-            Dim sql As String = "Select RTRIM(TempRestaurantPOS_OrderInfoKOT.Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(TempRestaurantPOS_OrderInfoKOT.GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from TempRestaurantPOS_OrderInfoKOT  order by BillDate"
+            Dim sql As String = "Select RTRIM(Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from RestaurantPOS_OrderInfoKOT WHERE isPaid=0 order by BillDate"
             cmd = New SqlCommand(sql, con)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             dgw.Rows.Clear()
@@ -70,7 +70,7 @@ Public Class frmOpenTicketsRecord
         Try
             con = New SqlConnection(cs)
             con.Open()
-            Dim sql As String = "Select RTRIM(TempRestaurantPOS_OrderInfoKOT.Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(TempRestaurantPOS_OrderInfoKOT.GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from TempRestaurantPOS_OrderInfoKOT where BillDate >=@d1 and BillDate < @d2 order by BillDate"
+            Dim sql As String = "Select RTRIM(Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from RestaurantPOS_OrderInfoKOT WHERE isPaid=0 AND (BillDate >=@d1 and BillDate < @d2) order by BillDate"
             cmd = New SqlCommand(sql, con)
             cmd.Parameters.Add("@d1", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateFrom.Value.Date
             cmd.Parameters.Add("@d2", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateTo.Value.Date.AddDays(1)
@@ -89,7 +89,7 @@ Public Class frmOpenTicketsRecord
         Try
             con = New SqlConnection(cs)
             con.Open()
-            Dim sql As String = "Select RTRIM(TempRestaurantPOS_OrderInfoKOT.Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(TempRestaurantPOS_OrderInfoKOT.GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from TempRestaurantPOS_OrderInfoKOT where TicketNo=@d1 order by BillDate"
+            Dim sql As String = "Select RTRIM(Id), RTRIM(TicketNo),BillDate,RTRIM(TableNo),(GrandTotal),RTRIM(Operator),RTRIM(GroupName),RTRIM(TicketNote) from RestaurantPOS_OrderInfoKOT where TicketNo=@d1 order by BillDate"
             cmd = New SqlCommand(sql, con)
             cmd.Parameters.AddWithValue("@d1", cmbTicketNo.Text)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
