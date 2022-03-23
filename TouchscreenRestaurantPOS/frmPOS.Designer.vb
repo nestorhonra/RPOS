@@ -39,7 +39,6 @@ Partial Class frmPOS
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.txtQty = New System.Windows.Forms.TextBox()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.btn9 = New System.Windows.Forms.Button()
         Me.btn8 = New System.Windows.Forms.Button()
@@ -50,13 +49,13 @@ Partial Class frmPOS
         Me.btn3 = New System.Windows.Forms.Button()
         Me.btn2 = New System.Windows.Forms.Button()
         Me.btn1 = New System.Windows.Forms.Button()
-        Me.btnMenuDown = New System.Windows.Forms.Button()
-        Me.btnMenuUp = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnDown = New System.Windows.Forms.Button()
-        Me.btnUp = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.dgw = New System.Windows.Forms.DataGridView()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblTypeID = New System.Windows.Forms.Label()
         Me.lblType = New System.Windows.Forms.Label()
@@ -80,25 +79,38 @@ Partial Class frmPOS
         Me.btnNotes = New System.Windows.Forms.Button()
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.btnLess = New System.Windows.Forms.Button()
-        Me.dgw = New System.Windows.Forms.DataGridView()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.btnCatUp = New System.Windows.Forms.Button()
+        Me.btnCatDown = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnMenuDown = New System.Windows.Forms.Button()
+        Me.btnMenuUp = New System.Windows.Forms.Button()
+        Me.btnDown = New System.Windows.Forms.Button()
+        Me.btnUp = New System.Windows.Forms.Button()
+        Me.lblID = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnCatDown = New System.Windows.Forms.Button()
-        Me.btnCatUp = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.lblTotal = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -232,22 +244,6 @@ Partial Class frmPOS
         Me.txtQty.Size = New System.Drawing.Size(160, 35)
         Me.txtQty.TabIndex = 97
         Me.txtQty.Text = "99"
-        '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
-        Me.btnClear.FlatAppearance.BorderSize = 0
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
-        Me.btnClear.Location = New System.Drawing.Point(668, 3)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(106, 37)
-        Me.btnClear.TabIndex = 96
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnClear.UseVisualStyleBackColor = False
         '
         'btn0
         '
@@ -389,38 +385,6 @@ Partial Class frmPOS
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
         '
-        'btnMenuDown
-        '
-        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuDown.FlatAppearance.BorderSize = 0
-        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnMenuDown.Location = New System.Drawing.Point(958, 3)
-        Me.btnMenuDown.Name = "btnMenuDown"
-        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuDown.TabIndex = 85
-        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuDown.UseVisualStyleBackColor = False
-        '
-        'btnMenuUp
-        '
-        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuUp.FlatAppearance.BorderSize = 0
-        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnMenuUp.Location = New System.Drawing.Point(1012, 3)
-        Me.btnMenuUp.Name = "btnMenuUp"
-        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuUp.TabIndex = 84
-        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuUp.UseVisualStyleBackColor = False
-        '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -447,6 +411,7 @@ Partial Class frmPOS
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.lblID)
         Me.Panel2.Controls.Add(Me.Panel3)
         Me.Panel2.Controls.Add(Me.lblTotal)
         Me.Panel2.Controls.Add(Me.Label5)
@@ -481,35 +446,93 @@ Partial Class frmPOS
         Me.Panel2.Size = New System.Drawing.Size(381, 650)
         Me.Panel2.TabIndex = 0
         '
-        'btnDown
+        'Panel3
         '
-        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnDown.FlatAppearance.BorderSize = 0
-        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDown.ForeColor = System.Drawing.Color.Black
-        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnDown.Location = New System.Drawing.Point(55, 59)
-        Me.btnDown.Name = "btnDown"
-        Me.btnDown.Size = New System.Drawing.Size(40, 45)
-        Me.btnDown.TabIndex = 81
-        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnDown.UseVisualStyleBackColor = False
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel3.Controls.Add(Me.dgw)
+        Me.Panel3.Location = New System.Drawing.Point(101, 60)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(277, 446)
+        Me.Panel3.TabIndex = 84
         '
-        'btnUp
+        'dgw
         '
-        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnUp.FlatAppearance.BorderSize = 0
-        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUp.ForeColor = System.Drawing.Color.Black
-        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnUp.Location = New System.Drawing.Point(5, 59)
-        Me.btnUp.Name = "btnUp"
-        Me.btnUp.Size = New System.Drawing.Size(40, 45)
-        Me.btnUp.TabIndex = 80
-        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnUp.UseVisualStyleBackColor = False
+        Me.dgw.AllowUserToAddRows = False
+        Me.dgw.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite
+        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgw.BackgroundColor = System.Drawing.Color.White
+        Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgw.ColumnHeadersHeight = 20
+        Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15})
+        Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dgw.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgw.EnableHeadersVisualStyles = False
+        Me.dgw.GridColor = System.Drawing.Color.White
+        Me.dgw.Location = New System.Drawing.Point(0, 0)
+        Me.dgw.MultiSelect = False
+        Me.dgw.Name = "dgw"
+        Me.dgw.ReadOnly = True
+        Me.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgw.RowHeadersVisible = False
+        Me.dgw.RowHeadersWidth = 25
+        Me.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MediumTurquoise
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgw.RowTemplate.Height = 18
+        Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgw.Size = New System.Drawing.Size(277, 446)
+        Me.dgw.TabIndex = 5
+        '
+        'lblTotal
+        '
+        Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTotal.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.ForeColor = System.Drawing.Color.DarkOrange
+        Me.lblTotal.Location = New System.Drawing.Point(212, 506)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(163, 24)
+        Me.lblTotal.TabIndex = 83
+        Me.lblTotal.Text = "200.45"
+        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(101, 509)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(109, 20)
+        Me.Label5.TabIndex = 82
+        Me.Label5.Text = "Total Amount :"
         '
         'btnCancel
         '
@@ -844,58 +867,6 @@ Partial Class frmPOS
         Me.btnLess.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnLess.UseVisualStyleBackColor = False
         '
-        'dgw
-        '
-        Me.dgw.AllowUserToAddRows = False
-        Me.dgw.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite
-        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgw.BackgroundColor = System.Drawing.Color.White
-        Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgw.ColumnHeadersHeight = 20
-        Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4})
-        Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dgw.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgw.EnableHeadersVisualStyles = False
-        Me.dgw.GridColor = System.Drawing.Color.White
-        Me.dgw.Location = New System.Drawing.Point(0, 0)
-        Me.dgw.MultiSelect = False
-        Me.dgw.Name = "dgw"
-        Me.dgw.ReadOnly = True
-        Me.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Orange
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgw.RowHeadersVisible = False
-        Me.dgw.RowHeadersWidth = 25
-        Me.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MediumTurquoise
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgw.RowTemplate.Height = 18
-        Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(277, 446)
-        Me.dgw.TabIndex = 5
-        '
         'btnAdd
         '
         Me.btnAdd.BackColor = System.Drawing.Color.Green
@@ -931,6 +902,126 @@ Partial Class frmPOS
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Take-out"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'btnCatUp
+        '
+        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatUp.FlatAppearance.BorderSize = 0
+        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatUp.ForeColor = System.Drawing.Color.White
+        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnCatUp.Location = New System.Drawing.Point(450, 18)
+        Me.btnCatUp.Name = "btnCatUp"
+        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatUp.TabIndex = 99
+        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatUp.UseVisualStyleBackColor = False
+        '
+        'btnCatDown
+        '
+        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatDown.FlatAppearance.BorderSize = 0
+        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatDown.ForeColor = System.Drawing.Color.White
+        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnCatDown.Location = New System.Drawing.Point(393, 18)
+        Me.btnCatDown.Name = "btnCatDown"
+        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatDown.TabIndex = 98
+        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatDown.UseVisualStyleBackColor = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
+        Me.btnClear.FlatAppearance.BorderSize = 0
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.Black
+        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
+        Me.btnClear.Location = New System.Drawing.Point(668, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(106, 37)
+        Me.btnClear.TabIndex = 96
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'btnMenuDown
+        '
+        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuDown.FlatAppearance.BorderSize = 0
+        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnMenuDown.Location = New System.Drawing.Point(958, 3)
+        Me.btnMenuDown.Name = "btnMenuDown"
+        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuDown.TabIndex = 85
+        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuDown.UseVisualStyleBackColor = False
+        '
+        'btnMenuUp
+        '
+        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuUp.FlatAppearance.BorderSize = 0
+        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnMenuUp.Location = New System.Drawing.Point(1012, 3)
+        Me.btnMenuUp.Name = "btnMenuUp"
+        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuUp.TabIndex = 84
+        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuUp.UseVisualStyleBackColor = False
+        '
+        'btnDown
+        '
+        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnDown.FlatAppearance.BorderSize = 0
+        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDown.ForeColor = System.Drawing.Color.Black
+        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnDown.Location = New System.Drawing.Point(55, 59)
+        Me.btnDown.Name = "btnDown"
+        Me.btnDown.Size = New System.Drawing.Size(40, 45)
+        Me.btnDown.TabIndex = 81
+        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnDown.UseVisualStyleBackColor = False
+        '
+        'btnUp
+        '
+        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnUp.FlatAppearance.BorderSize = 0
+        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUp.ForeColor = System.Drawing.Color.Black
+        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnUp.Location = New System.Drawing.Point(5, 59)
+        Me.btnUp.Name = "btnUp"
+        Me.btnUp.Size = New System.Drawing.Size(40, 45)
+        Me.btnUp.TabIndex = 80
+        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnUp.UseVisualStyleBackColor = False
+        '
+        'lblID
+        '
+        Me.lblID.AutoSize = True
+        Me.lblID.BackColor = System.Drawing.Color.Transparent
+        Me.lblID.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblID.ForeColor = System.Drawing.Color.Black
+        Me.lblID.Location = New System.Drawing.Point(205, 10)
+        Me.lblID.Name = "lblID"
+        Me.lblID.Size = New System.Drawing.Size(12, 13)
+        Me.lblID.TabIndex = 85
+        Me.lblID.Text = "1"
         '
         'Column1
         '
@@ -970,71 +1061,71 @@ Partial Class frmPOS
         Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
-        'btnCatDown
+        'Column5
         '
-        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatDown.FlatAppearance.BorderSize = 0
-        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatDown.ForeColor = System.Drawing.Color.White
-        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnCatDown.Location = New System.Drawing.Point(393, 18)
-        Me.btnCatDown.Name = "btnCatDown"
-        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatDown.TabIndex = 98
-        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatDown.UseVisualStyleBackColor = False
+        Me.Column5.HeaderText = "ID"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         '
-        'btnCatUp
+        'Column6
         '
-        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatUp.FlatAppearance.BorderSize = 0
-        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatUp.ForeColor = System.Drawing.Color.White
-        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnCatUp.Location = New System.Drawing.Point(450, 18)
-        Me.btnCatUp.Name = "btnCatUp"
-        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatUp.TabIndex = 99
-        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatUp.UseVisualStyleBackColor = False
+        Me.Column6.HeaderText = "Amt"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         '
-        'Label5
+        'Column7
         '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(101, 509)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(109, 20)
-        Me.Label5.TabIndex = 82
-        Me.Label5.Text = "Total Amount :"
+        Me.Column7.HeaderText = "VatPer"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
         '
-        'lblTotal
+        'Column8
         '
-        Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTotal.BackColor = System.Drawing.Color.Transparent
-        Me.lblTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lblTotal.Location = New System.Drawing.Point(212, 506)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(163, 24)
-        Me.lblTotal.TabIndex = 83
-        Me.lblTotal.Text = "200.45"
-        Me.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Column8.HeaderText = "VatAmt"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
         '
-        'Panel3
+        'Column9
         '
-        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Panel3.Controls.Add(Me.dgw)
-        Me.Panel3.Location = New System.Drawing.Point(101, 60)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(277, 446)
-        Me.Panel3.TabIndex = 84
+        Me.Column9.HeaderText = "STPer"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "STAmt"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "SCPer"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        '
+        'Column12
+        '
+        Me.Column12.HeaderText = "SCAmt"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "DiscPer"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "DiscAmt"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        '
+        'Column15
+        '
+        Me.Column15.HeaderText = "TotAmt"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
         '
         'frmPOS
         '
@@ -1056,8 +1147,8 @@ Partial Class frmPOS
         Me.TabPage1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
+        CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1117,13 +1208,25 @@ Partial Class frmPOS
     Friend WithEvents btn3 As Button
     Friend WithEvents btn2 As Button
     Friend WithEvents btn1 As Button
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents btnCatUp As Button
     Friend WithEvents btnCatDown As Button
     Friend WithEvents lblTotal As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents lblID As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
 End Class

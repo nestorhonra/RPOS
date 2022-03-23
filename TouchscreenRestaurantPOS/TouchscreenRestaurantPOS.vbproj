@@ -266,6 +266,12 @@
     <Compile Include="frmFrontOffice.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmOpenTicketList.Designer.vb">
+      <DependentUpon>frmOpenTicketList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpenTicketList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPOS.Designer.vb">
       <DependentUpon>frmPOS.vb</DependentUpon>
     </Compile>
@@ -993,6 +999,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFrontOffice.resx">
       <DependentUpon>frmFrontOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpenTicketList.resx">
+      <DependentUpon>frmOpenTicketList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.vb</DependentUpon>

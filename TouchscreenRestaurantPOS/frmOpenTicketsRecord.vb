@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmOpenTicketsRecord
+    Dim rowIndex As Integer
     Sub fillTicketNo()
         Try
             Dim CN As New SqlConnection(cs)
@@ -53,7 +54,10 @@ Public Class frmOpenTicketsRecord
     End Sub
 
     Private Sub dgw_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles dgw.MouseClick
-       
+        If dgw.Rows.Count > 0 Then
+            rowIndex = dgw.SelectedCells(0).OwningRow.Index
+
+        End If
     End Sub
     Private Sub dgw_RowPostPaint(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles dgw.RowPostPaint
         Dim strRowNumber As String = (e.RowIndex + 1).ToString()
