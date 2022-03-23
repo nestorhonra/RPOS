@@ -15,9 +15,19 @@ Public Class frmPOS
         txtTableNo.Text = ""
         txtTicketNo.Text = ""
         txtQty.Text = ""
+        lblTotal.Text = ""
         is_edit = False
-        Call FillCategory()
+        'Call FillCategory()
 
+    End Sub
+
+    Private Sub frmPOS_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Up
+                dgw.Focus()
+            Case Keys.Down
+                dgw.Focus()
+        End Select
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -76,6 +86,126 @@ Public Class frmPOS
         con.Close()
     End Sub
 
+#Region "Button Nav"
+
+    Private Sub btnMenuUp_Click(sender As Object, e As EventArgs) Handles btnMenuUp.Click
+        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value - FlowLayoutPanel2.VerticalScroll.SmallChange * 100
+        FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
+    End Sub
+
+    Private Sub btnMenuDown_Click(sender As Object, e As EventArgs) Handles btnMenuDown.Click
+        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value + FlowLayoutPanel2.VerticalScroll.SmallChange * 100
+        FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
+    End Sub
+
+    Private Sub btnCatUp_Click(sender As Object, e As EventArgs) Handles btnCatUp.Click
+        Dim chnge As Integer = FlowLayoutPanel1.VerticalScroll.Value - FlowLayoutPanel1.VerticalScroll.SmallChange * 100
+        FlowLayoutPanel1.AutoScrollPosition = New Point(0, chnge)
+    End Sub
+
+    Private Sub btnCatDown_Click(sender As Object, e As EventArgs) Handles btnCatDown.Click
+        Dim chnge As Integer = FlowLayoutPanel1.VerticalScroll.Value + FlowLayoutPanel1.VerticalScroll.SmallChange * 100
+        FlowLayoutPanel1.AutoScrollPosition = New Point(0, chnge)
+    End Sub
+
+    Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles btnUp.Click
+        If dgw.Rows.Count > 0 Then
+            rowIndex = dgw.SelectedCells(0).OwningRow.Index
+            dgw.Rows(rowIndex - 1).Selected = True
+        End If
+    End Sub
+
+    Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles btnDown.Click
+        If dgw.Rows.Count > 0 Then
+            rowIndex = dgw.SelectedCells(0).OwningRow.Index
+            dgw.Rows(rowIndex + 1).Selected = True
+        End If
+    End Sub
+
+#End Region
+
+#Region "Handlers Buttons"
+
+    Private Sub btnCategory_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = DirectCast(sender, Button)
+        Call FillMenus(btn.Text)
+    End Sub
+
+    Private Sub btnTables_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = DirectCast(sender, Button)
+        If is_edit = True Then
+            If MsgBox("Are you sure you want to transfer this to a different table?", vbQuestion + vbYesNo, "Confirm change") = vbYes Then
+                'Update function here.
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb As String = "Update RestaurantPOS_OrderInfoKOT set TableNo=@d2 where TicketNo=@d1 and TableNo=@d3"
+                cmd = New SqlCommand(cb)
+                cmd.Parameters.AddWithValue("@d1", Trim(txtTicketNo.Text))
+                cmd.Parameters.AddWithValue("@d2", btn.Text)
+                cmd.Parameters.AddWithValue("@d3", txtTableNo.Text)
+                cmd.Connection = con
+                cmd.ExecuteNonQuery()
+                con.Close()
+                txtTableNo.Text = btn.Text
+            Else
+                Exit Sub
+            End If
+        Else
+            txtTableNo.Text = btn.Text
+        End If
+
+    End Sub
+
+
+    Private Sub btnAddMenu_Click(sender As Object, e As EventArgs)
+        Dim btn As Button = DirectCast(sender, Button)
+        If Trim(txtTicketNo.Text) <> "" Then
+            Try
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim sql As String = "Select * from Dish WHERE DishName=@d1"
+                cmd = New SqlCommand(sql)
+                cmd.Connection = con
+                cmd.Parameters.AddWithValue("@d1", btn.Text)
+                rdr = cmd.ExecuteReader()
+                If rdr.Read Then
+                    If Not rdr Is Nothing Then
+                        Dim rowId As Integer
+                        Dim d_qty As Integer = 0
+                        If Trim(txtQty.Text) = "" Then
+                            d_qty = 1
+                        Else
+                            d_qty = Val(txtQty.Text)
+                        End If
+                        rowId = dgw.Rows.Add(Trim(rdr(0)), Trim(rdr(2)), d_qty, "")
+                        dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
+                        dgw.Focus()
+
+                    Else
+                        rdr.Close()
+                        Exit Sub
+                    End If
+                End If
+                txtQty.Text = ""
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MsgBox("Please click new ticket to create an orders", vbCritical + vbOKOnly, "Error new order")
+            Exit Sub
+        End If
+        If is_edit = False Then
+
+        Else
+
+        End If
+    End Sub
+
+#End Region
+
+#Region "Button Cliked"
+
     Private Sub btnDinein_Click(sender As Object, e As EventArgs) Handles btnDinein.Click
         If txtTicketNo.Text <> "" Then
             lblTypeID.Text = "1"
@@ -108,6 +238,13 @@ Public Class frmPOS
                 If rdr.Read() Then
                     txtTicketNo.Text = Format(rdr(0).ToString + 1, "000000")
                     is_edit = False
+                    lblTotal.Text = toMoney("0")
+                    lblType.Text = ""
+                    lblTypeID.Text = ""
+                    txtTableNo.Text=  ""
+                    txtQty.Text = ""
+                    Call FillCategory()
+                    btnDinein.PerformClick()
                     If (rdr IsNot Nothing) Then
                         rdr.Close()
                     End If
@@ -117,165 +254,6 @@ Public Class frmPOS
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
             End Try
         End If
-    End Sub
-
-    Private Sub btnMenuUp_Click(sender As Object, e As EventArgs) Handles btnMenuUp.Click
-        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value - FlowLayoutPanel2.VerticalScroll.SmallChange * 100
-        FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
-    End Sub
-
-    Private Sub btnMenuDown_Click(sender As Object, e As EventArgs) Handles btnMenuDown.Click
-        Dim chnge As Integer = FlowLayoutPanel2.VerticalScroll.Value + FlowLayoutPanel2.VerticalScroll.SmallChange * 100
-        FlowLayoutPanel2.AutoScrollPosition = New Point(0, chnge)
-    End Sub
-
-    Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles btnUp.Click
-        If dgw.Rows.Count > 0 Then
-            'rowIndex = dgw.SelectedCells(0).OwningRow.Index
-            ''create a new row
-            'Dim row As DataRow
-            'row = table.NewRow()
-
-            '' add data to the row 
-
-            'row(0) = dgw.Rows(rowIndex).Cells(0).Value.ToString()
-            'row(1) = dgw.Rows(rowIndex).Cells(1).Value.ToString()
-            'row(2) = Integer.Parse(dgw.Rows(rowIndex).Cells(2).Value.ToString())
-            'row(3) = dgw.Rows(rowIndex).Cells(3).Value.ToString()
-
-            'If rowIndex > 0 Then
-            '    ' remove the selected row
-            '    table.Rows.RemoveAt(rowIndex)
-
-            '    ' insert the new row at a new position
-            '    table.Rows.InsertAt(row, rowIndex - 1)
-            '    dgw.ClearSelection()
-
-            '    dgw.Rows(rowIndex - 1).Selected = True
-            'End If
-        End If
-    End Sub
-
-    Private Sub btnDown_Click(sender As Object, e As EventArgs) Handles btnDown.Click
-        If dgw.Rows.Count > 0 Then
-            'rowIndex = dgw.SelectedCells(0).OwningRow.Index
-
-            'Dim row As DataRow
-            'row = table.NewRow()
-
-            'row(0) = dgw.Rows(rowIndex).Cells(0).Value.ToString()
-            'row(1) = dgw.Rows(rowIndex).Cells(1).Value.ToString()
-            'row(2) = Integer.Parse(dgw.Rows(rowIndex).Cells(2).Value.ToString())
-            'row(3) = dgw.Rows(rowIndex).Cells(3).Value.ToString()
-
-
-            'If rowIndex < dgw.Rows.Count - 2 Then
-            '    table.Rows.RemoveAt(rowIndex)
-
-            '    table.Rows.InsertAt(row, rowIndex + 1)
-            '    dgw.ClearSelection()
-
-            '    dgw.Rows(rowIndex + 1).Selected = True
-            'End If
-        End If
-    End Sub
-
-    Private Sub btnCategory_Click(sender As Object, e As EventArgs)
-        Dim btn As Button = DirectCast(sender, Button)
-        'MsgBox(btn.Text)
-
-        Call FillMenus(btn.Text)
-    End Sub
-
-    Private Sub btnTables_Click(sender As Object, e As EventArgs)
-        Dim btn As Button = DirectCast(sender, Button)
-        'MsgBox(btn.Text)
-        If is_edit = True Then
-            If MsgBox("Are you sure you want to transfer this to a different table?", vbQuestion + vbYesNo, "Confirm change") = vbYes Then
-                'Update function here.
-                con = New SqlConnection(cs)
-                con.Open()
-                Dim cb As String = "Update RestaurantPOS_OrderInfoKOT set TableNo=@d2 where TicketNo=@d1 and TableNo=@d3"
-                cmd = New SqlCommand(cb)
-                cmd.Parameters.AddWithValue("@d1", Trim(txtTicketNo.Text))
-                cmd.Parameters.AddWithValue("@d2", btn.Text)
-                cmd.Parameters.AddWithValue("@d3", txtTableNo.Text)
-                cmd.Connection = con
-                cmd.ExecuteNonQuery()
-                con.Close()
-                txtTableNo.Text = btn.Text
-            Else
-                Exit Sub
-            End If
-        Else
-            txtTableNo.Text = btn.Text
-        End If
-
-    End Sub
-
-
-    Private Sub btnAddMenu_Click(sender As Object, e As EventArgs)
-        Dim btn As Button = DirectCast(sender, Button)
-        Try
-            con = New SqlConnection(cs)
-            con.Open()
-            Dim sql As String = "Select * from Dish WHERE DishName=@d1"
-            cmd = New SqlCommand(sql)
-            cmd.Connection = con
-            cmd.Parameters.AddWithValue("@d1", btn.Text)
-            rdr = cmd.ExecuteReader()
-            If rdr.Read Then
-                If Not rdr Is Nothing Then
-                    Dim rowId As Integer
-                    Dim d_qty As Integer = 0
-                    If Trim(txtQty.Text) = "" Then
-                        d_qty = 1
-                    Else
-                        d_qty = Val(txtQty.Text)
-                    End If
-                    rowId = dgw.Rows.Add(Trim(rdr(0)), Trim(rdr(2)), d_qty, "")
-                    dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
-                    'table.Rows.Add(Trim(rdr(0)), Trim(rdr(2)), "1", "")
-                    dgw.Focus()
-
-                Else
-                    rdr.Close()
-                    Exit Sub
-                End If
-            End If
-            txtQty.Text = ""
-            con.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-
-        If is_edit = False Then
-
-        Else
-
-        End If
-    End Sub
-
-    Private Sub btnChgTable_Click(sender As Object, e As EventArgs) Handles btnChgTable.Click
-        With frmTablesList
-            .frm = "frmPOS"
-            .ShowDialog()
-        End With
-    End Sub
-
-    Private Sub btnOpenTicket_Click(sender As Object, e As EventArgs) Handles btnOpenTicket.Click
-        If is_edit = False Then
-            With frmOpenTicketsRecord
-                .ShowDialog()
-            End With
-        End If
-    End Sub
-
-    Private Sub frmPOS_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Select Case e.KeyCode
-            Case Keys.Up
-                dgw.Focus()
-        End Select
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -357,6 +335,80 @@ Public Class frmPOS
         End If
     End Sub
 
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        If is_edit = True Then
+
+        Else
+            If MsgBox("Are you sure you want to cancel this order?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
+                txtQty.Text = ""
+                txtTableNo.Text = ""
+                txtTicketNo.Text = ""
+                lblType.Text = ""
+                lblTypeID.Text = ""
+                dgw.Rows.Clear()
+                is_edit = False
+            Else
+                Exit Sub
+            End If
+        End If
+    End Sub
+
+    Private Sub btnChgTable_Click(sender As Object, e As EventArgs) Handles btnChgTable.Click
+        With frmTablesList
+            .frm = "frmPOS"
+            .ShowDialog()
+        End With
+    End Sub
+
+    Private Sub btnOpenTicket_Click(sender As Object, e As EventArgs) Handles btnOpenTicket.Click
+        If is_edit = False Then
+            With frmOpenTicketsRecord
+                .ShowDialog()
+            End With
+        End If
+    End Sub
+
+    Private Sub btnHold_Click(sender As Object, e As EventArgs) Handles btnHold.Click
+        If is_edit = False Then
+            If txtTicketNo.Text <> "" Then
+                If txtTableNo.Text <> "" Then
+                    If dgw.Rows.Count > 0 Then
+                        If MsgBox("Are you sure you want to temporary hold this order list?", vbQuestion + vbYesNo, "Confirm hold") = vbYes Then
+                            'Insert function
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb As String = "insert into Kitchen(KitchenName,Printer,IsEnabled) VALUES (@d1,@d2,@d3)"
+                                cmd = New SqlCommand(cb)
+                                cmd.Connection = con
+                                'cmd.Parameters.AddWithValue("@d1", txtKitchenName.Text)
+                                'cmd.Parameters.AddWithValue("@d2", cmbPrinter.Text)
+                                'cmd.Parameters.AddWithValue("@d3", st2)
+                                cmd.ExecuteReader()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+                        Else
+                            Exit Sub
+                        End If
+                    Else
+                        Exit Sub
+                    End If
+                Else
+                    MsgBox("Please select table no to hold the orders", vbInformation + vbOKOnly, "Error hold")
+                    Exit Sub
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub btnRecall_Click(sender As Object, e As EventArgs) Handles btnRecall.Click
+
+    End Sub
+
+#End Region
+
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         txtQty.Text = txtQty.Text + Convert.ToString(0)
     End Sub
@@ -397,8 +449,6 @@ Public Class frmPOS
         txtQty.Text = txtQty.Text + Convert.ToString(9)
     End Sub
 
-
-
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         s = txtQty.Text
         Dim l As Integer = s.Length
@@ -409,21 +459,4 @@ Public Class frmPOS
         x = ""
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        If is_edit = True Then
-
-        Else
-            If MsgBox("Are you sure you want to cancel this order?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
-                txtQty.Text = ""
-                txtTableNo.Text = ""
-                txtTicketNo.Text = ""
-                lblType.Text = ""
-                lblTypeID.Text = ""
-                dgw.Rows.Clear()
-                is_edit = False
-            Else
-                Exit Sub
-            End If
-        End If
-    End Sub
 End Class
