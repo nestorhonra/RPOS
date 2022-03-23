@@ -129,11 +129,10 @@ Partial Class frmSupplierRecord
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(967, 7)
+        Me.btnClose.Location = New System.Drawing.Point(1001, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 39)
+        Me.btnClose.Size = New System.Drawing.Size(39, 36)
         Me.btnClose.TabIndex = 51
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -369,9 +368,9 @@ Partial Class frmSupplierRecord
         Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel2.Controls.Add(Me.lblSet)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(9, 7)
+        Me.Panel2.Location = New System.Drawing.Point(6, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(952, 34)
+        Me.Panel2.Size = New System.Drawing.Size(988, 34)
         Me.Panel2.TabIndex = 0
         '
         'lblSet
