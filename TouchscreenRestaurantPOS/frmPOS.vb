@@ -3,7 +3,7 @@ Public Class frmPOS
     Dim rowIndex As Integer
     Dim table As New DataTable("table")
     Dim UserButtons As List(Of Button) = New List(Of Button)
-    Dim is_edit As Boolean = False
+    Public is_edit As Boolean = False
     Dim s, x As String
     Dim srvTax, srvChrge, srvVat As Double
     Private Sub frmPOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -49,6 +49,10 @@ Public Class frmPOS
         lblDateTime.Text = Now.ToString("dddd, dd MMMM yyyy hh:mm:ss tt")
     End Sub
 
+    Private Sub AutoSizeRow()
+        dgw.AutoSizeRowsMode = DataGridViewAutoSizeRowMode.AllCells
+    End Sub
+
     Public Sub GetOrders(ByVal ids As String)
         If ids <> "" Then
             Try
@@ -90,6 +94,7 @@ Public Class frmPOS
                     dgw.Rows.Add(rdr(2), rdr(3), rdr(4), rdr(15), toNumber(rdr(0)), toNumber(rdr(5)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(14)))
                 Loop
                 con.Close()
+                Call ComputeTotal()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -146,6 +151,20 @@ Public Class frmPOS
             AddHandler btn.Click, AddressOf Me.btnCategory_Click
         Loop
         con.Close()
+    End Sub
+
+    Private Sub ComputeTotal()
+        If dgw.Rows.Count > 0 Then
+            Dim totalamt As Double = 0
+            Try
+                For i As Integer = 0 To dgw.Rows.Count - 1
+                    totalamt += toNumber(dgw.Rows(i).Cells(14).Value.ToString)
+                Next
+                lblTotal.Text = toMoney(totalamt)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 
 #Region "Button Nav"
@@ -263,6 +282,7 @@ Public Class frmPOS
                         rdr.Close()
                         Exit Sub
                     End If
+                    Call ComputeTotal()
                 End If
                 txtQty.Text = ""
                 con.Close()
@@ -357,6 +377,7 @@ Public Class frmPOS
             dgw.SelectedCells.Item(12).Value = toNumber(disc)
             dgw.SelectedCells.Item(13).Value = toNumber(discamt)
             dgw.SelectedCells.Item(14).Value = toNumber(totamt)
+            Call ComputeTotal()
 
             If is_edit = True Then
                 'Update value qty here
@@ -389,6 +410,7 @@ Public Class frmPOS
                 dgw.SelectedCells.Item(12).Value = toNumber(disc)
                 dgw.SelectedCells.Item(13).Value = toNumber(discamt)
                 dgw.SelectedCells.Item(14).Value = toNumber(totamt)
+                Call ComputeTotal()
 
                 If is_edit = True Then
                     'Update value qty here
@@ -403,13 +425,39 @@ Public Class frmPOS
         If dgw.Rows.Count > 0 Then
             rowIndex = dgw.SelectedCells(0).OwningRow.Index
             If is_edit = True Then
-                'Update value qty here
+                If MsgBox("Are you sure you want to remove this item in current order?", vbQuestion + vbYesNo, "Confirm remove") = vbYes Then
+                    'Update value qty here
+                    Dim RowsAffected As Integer = 0
+                    Dim op_id As Integer = toNumber(dgw.SelectedCells(4).Value.ToString)
+                    Dim itemname As String = Trim(dgw.SelectedCells(0).Value.ToString)
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim cq As String = "delete from RestaurantPOS_OrderedProductKOT where OP_ID=@d1 AND TicketID=@d2"
+                    cmd = New SqlCommand(cq)
+                    cmd.Connection = con
+                    cmd.Parameters.AddWithValue("@d1", op_id)
+                    cmd.Parameters.AddWithValue("@d2", toNumber(lblID.Text))
+                    RowsAffected = cmd.ExecuteNonQuery()
+                    If RowsAffected > 0 Then
+                        Dim st As String = "deleted the item '" & itemname & "'"
+                        LogFunc(lblUser.Text, st)
+                        MessageBox.Show("Successfully deleted", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        dgw.Rows.RemoveAt(rowIndex)
+                    Else
+                        MessageBox.Show("No Record found", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                    If con.State = ConnectionState.Open Then
+                        con.Close()
 
+                    End If
 
-                dgw.Rows.RemoveAt(rowIndex)
+                Else
+                    Exit Sub
+                End If
             Else
                 dgw.Rows.RemoveAt(rowIndex)
             End If
+            Call ComputeTotal()
         End If
     End Sub
 
@@ -433,6 +481,7 @@ Public Class frmPOS
                 .rowIDs = rowIndex
                 .ShowDialog()
             End With
+            Call ComputeTotal()
         End If
     End Sub
 
@@ -445,6 +494,7 @@ Public Class frmPOS
                 .rowIDs = rowIndex
                 .ShowDialog()
             End With
+            Call ComputeTotal()
         End If
     End Sub
 
@@ -555,6 +605,7 @@ Public Class frmPOS
         txtQty.Text = txtQty.Text + Convert.ToString(7)
     End Sub
 
+
     Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
         txtQty.Text = txtQty.Text + Convert.ToString(8)
     End Sub
@@ -571,6 +622,38 @@ Public Class frmPOS
         Next
         txtQty.Text = x
         x = ""
+    End Sub
+
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        Dim selTab As Integer = toNumber(TabControl1.SelectedIndex.ToString)
+        If selTab = 1 Then
+            GetBilling()
+        End If
+    End Sub
+
+    Private Sub GetBilling()
+        con = New SqlConnection(cs)
+        con.Open()
+        Dim cmdText1 As String = "SELECT TableNo, TicketNo, GrandTotal from RestaurantPOS_OrderInfoKOT WHERE isPaid=0"
+        cmd = New SqlCommand(cmdText1)
+        cmd.Connection = con
+        rdr = cmd.ExecuteReader()
+        FlowLayoutPanel3.Controls.Clear()
+        Do While (rdr.Read())
+            Dim btn As New CheckBox
+            btn.Text = rdr.GetValue(0) & Environment.NewLine & rdr.GetValue(2)
+            btn.TextAlign = ContentAlignment.MiddleCenter
+            'Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(4)))
+            'btn.BackColor = btnColor
+            btn.FlatStyle = FlatStyle.Flat
+            btn.Width = 100
+            btn.Height = 50
+            btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            'UserButtons.Add(btn)
+            FlowLayoutPanel3.Controls.Add(btn)
+            AddHandler btn.Click, AddressOf Me.btnCategory_Click
+        Loop
+        con.Close()
     End Sub
 
 End Class

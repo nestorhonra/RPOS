@@ -19,7 +19,7 @@ Public Class frmOpenTicketList
             btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
             btn.TextAlign = ContentAlignment.MiddleCenter
             Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
-            btn.BackColor = btnColor
+            btn.BackColor = Color.LightSalmon
             btn.FlatStyle = FlatStyle.Popup
             btn.Width = 180
             btn.Height = 80
@@ -36,6 +36,7 @@ Public Class frmOpenTicketList
         If frm = "frmPOS" Then
             frmPOS.txtTableNo.Text = btn.Text
             frmPOS.GetOrders(btn.Text)
+            frmPOS.is_edit = True
         End If
         Me.Close()
     End Sub

@@ -158,7 +158,7 @@ Partial Class frmFrontOffice
         Me.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPOS.ForeColor = System.Drawing.Color.White
-        Me.btnPOS.Image = Global.RestaurantPOS3.My.Resources.Resources.Finance_Pos_Terminal_icon
+        Me.btnPOS.Image = Global.RestaurantPOS3.My.Resources.Resources.cash_machine
         Me.btnPOS.Location = New System.Drawing.Point(209, 3)
         Me.btnPOS.Name = "btnPOS"
         Me.btnPOS.Size = New System.Drawing.Size(200, 200)
