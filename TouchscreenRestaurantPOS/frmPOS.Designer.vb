@@ -53,10 +53,7 @@ Partial Class frmPOS
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.btnCatUp = New System.Windows.Forms.Button()
-        Me.btnCatDown = New System.Windows.Forms.Button()
         Me.txtQty = New System.Windows.Forms.TextBox()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.btn9 = New System.Windows.Forms.Button()
         Me.btn8 = New System.Windows.Forms.Button()
@@ -67,8 +64,6 @@ Partial Class frmPOS
         Me.btn3 = New System.Windows.Forms.Button()
         Me.btn2 = New System.Windows.Forms.Button()
         Me.btn1 = New System.Windows.Forms.Button()
-        Me.btnMenuDown = New System.Windows.Forms.Button()
-        Me.btnMenuUp = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -92,8 +87,6 @@ Partial Class frmPOS
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnDown = New System.Windows.Forms.Button()
-        Me.btnUp = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblTypeID = New System.Windows.Forms.Label()
         Me.lblType = New System.Windows.Forms.Label()
@@ -119,46 +112,6 @@ Partial Class frmPOS
         Me.btnLess = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btnPX = New System.Windows.Forms.Button()
-        Me.btnPDot = New System.Windows.Forms.Button()
-        Me.btnP0 = New System.Windows.Forms.Button()
-        Me.btnP9 = New System.Windows.Forms.Button()
-        Me.btnP8 = New System.Windows.Forms.Button()
-        Me.btnP7 = New System.Windows.Forms.Button()
-        Me.btnP6 = New System.Windows.Forms.Button()
-        Me.btnP5 = New System.Windows.Forms.Button()
-        Me.btnP4 = New System.Windows.Forms.Button()
-        Me.btnP3 = New System.Windows.Forms.Button()
-        Me.btnP2 = New System.Windows.Forms.Button()
-        Me.btnP1 = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Button19 = New System.Windows.Forms.Button()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.dgwList = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -171,6 +124,56 @@ Partial Class frmPOS
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtChange = New System.Windows.Forms.TextBox()
+        Me.txtCash = New System.Windows.Forms.TextBox()
+        Me.txtGrandTot = New System.Windows.Forms.TextBox()
+        Me.txtDiscAmt = New System.Windows.Forms.TextBox()
+        Me.txtDiscPer = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnPX = New System.Windows.Forms.Button()
+        Me.btnPDot = New System.Windows.Forms.Button()
+        Me.btnP0 = New System.Windows.Forms.Button()
+        Me.btnP9 = New System.Windows.Forms.Button()
+        Me.btnP8 = New System.Windows.Forms.Button()
+        Me.btnP7 = New System.Windows.Forms.Button()
+        Me.btnP6 = New System.Windows.Forms.Button()
+        Me.btnP5 = New System.Windows.Forms.Button()
+        Me.btnP4 = New System.Windows.Forms.Button()
+        Me.btnP3 = New System.Windows.Forms.Button()
+        Me.btnP2 = New System.Windows.Forms.Button()
+        Me.btnP1 = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.pnlPayment = New System.Windows.Forms.Panel()
+        Me.btnCatUp = New System.Windows.Forms.Button()
+        Me.btnCatDown = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnMenuDown = New System.Windows.Forms.Button()
+        Me.btnMenuUp = New System.Windows.Forms.Button()
+        Me.btnDown = New System.Windows.Forms.Button()
+        Me.btnUp = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnSettleUpdate = New System.Windows.Forms.Button()
+        Me.btnSettle = New System.Windows.Forms.Button()
+        Me.btnGuest = New System.Windows.Forms.Button()
+        Me.btnWallet = New System.Windows.Forms.Button()
+        Me.btnCard = New System.Windows.Forms.Button()
+        Me.btnCash = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -178,10 +181,10 @@ Partial Class frmPOS
         Me.Panel3.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.Panel5.SuspendLayout()
         CType(Me.dgwList, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.pnlPayment.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -265,15 +268,17 @@ Partial Class frmPOS
         '
         'TabControl1
         '
+        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 39)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 75)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1068, 699)
+        Me.TabControl1.Size = New System.Drawing.Size(1068, 663)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -300,40 +305,10 @@ Partial Class frmPOS
         Me.TabPage1.Location = New System.Drawing.Point(4, 30)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1060, 665)
+        Me.TabPage1.Size = New System.Drawing.Size(1060, 629)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Orders"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'btnCatUp
-        '
-        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatUp.FlatAppearance.BorderSize = 0
-        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatUp.ForeColor = System.Drawing.Color.White
-        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnCatUp.Location = New System.Drawing.Point(450, 18)
-        Me.btnCatUp.Name = "btnCatUp"
-        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatUp.TabIndex = 99
-        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatUp.UseVisualStyleBackColor = False
-        '
-        'btnCatDown
-        '
-        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatDown.FlatAppearance.BorderSize = 0
-        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatDown.ForeColor = System.Drawing.Color.White
-        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnCatDown.Location = New System.Drawing.Point(393, 18)
-        Me.btnCatDown.Name = "btnCatDown"
-        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatDown.TabIndex = 98
-        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatDown.UseVisualStyleBackColor = False
         '
         'txtQty
         '
@@ -345,22 +320,6 @@ Partial Class frmPOS
         Me.txtQty.Size = New System.Drawing.Size(160, 35)
         Me.txtQty.TabIndex = 97
         Me.txtQty.Text = "99"
-        '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
-        Me.btnClear.FlatAppearance.BorderSize = 0
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
-        Me.btnClear.Location = New System.Drawing.Point(668, 3)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(106, 37)
-        Me.btnClear.TabIndex = 96
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnClear.UseVisualStyleBackColor = False
         '
         'btn0
         '
@@ -502,38 +461,6 @@ Partial Class frmPOS
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
         '
-        'btnMenuDown
-        '
-        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuDown.FlatAppearance.BorderSize = 0
-        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnMenuDown.Location = New System.Drawing.Point(954, 3)
-        Me.btnMenuDown.Name = "btnMenuDown"
-        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuDown.TabIndex = 85
-        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuDown.UseVisualStyleBackColor = False
-        '
-        'btnMenuUp
-        '
-        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuUp.FlatAppearance.BorderSize = 0
-        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnMenuUp.Location = New System.Drawing.Point(1008, 3)
-        Me.btnMenuUp.Name = "btnMenuUp"
-        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuUp.TabIndex = 84
-        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuUp.UseVisualStyleBackColor = False
-        '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -543,7 +470,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(498, 94)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(559, 571)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(559, 535)
         Me.FlowLayoutPanel2.TabIndex = 2
         '
         'FlowLayoutPanel1
@@ -555,7 +482,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(386, 62)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 603)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 567)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Panel2
@@ -594,7 +521,7 @@ Partial Class frmPOS
         Me.Panel2.Controls.Add(Me.btnAdd)
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(381, 662)
+        Me.Panel2.Size = New System.Drawing.Size(381, 626)
         Me.Panel2.TabIndex = 0
         '
         'lblID
@@ -616,7 +543,7 @@ Partial Class frmPOS
         Me.Panel3.Controls.Add(Me.dgw)
         Me.Panel3.Location = New System.Drawing.Point(101, 60)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(277, 469)
+        Me.Panel3.Size = New System.Drawing.Size(277, 433)
         Me.Panel3.TabIndex = 84
         '
         'dgw
@@ -677,7 +604,7 @@ Partial Class frmPOS
         Me.dgw.RowTemplate.Height = 25
         Me.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(277, 469)
+        Me.dgw.Size = New System.Drawing.Size(277, 433)
         Me.dgw.TabIndex = 5
         '
         'Column1
@@ -790,7 +717,7 @@ Partial Class frmPOS
         Me.lblTotal.BackColor = System.Drawing.Color.Transparent
         Me.lblTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lblTotal.Location = New System.Drawing.Point(212, 532)
+        Me.lblTotal.Location = New System.Drawing.Point(212, 496)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(163, 24)
         Me.lblTotal.TabIndex = 83
@@ -804,41 +731,11 @@ Partial Class frmPOS
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(101, 535)
+        Me.Label5.Location = New System.Drawing.Point(101, 499)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(109, 20)
         Me.Label5.TabIndex = 82
         Me.Label5.Text = "Total Amount :"
-        '
-        'btnDown
-        '
-        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnDown.FlatAppearance.BorderSize = 0
-        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDown.ForeColor = System.Drawing.Color.Black
-        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnDown.Location = New System.Drawing.Point(55, 59)
-        Me.btnDown.Name = "btnDown"
-        Me.btnDown.Size = New System.Drawing.Size(40, 45)
-        Me.btnDown.TabIndex = 81
-        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnDown.UseVisualStyleBackColor = False
-        '
-        'btnUp
-        '
-        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnUp.FlatAppearance.BorderSize = 0
-        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUp.ForeColor = System.Drawing.Color.Black
-        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnUp.Location = New System.Drawing.Point(5, 59)
-        Me.btnUp.Name = "btnUp"
-        Me.btnUp.Size = New System.Drawing.Size(40, 45)
-        Me.btnUp.TabIndex = 80
-        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnUp.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
@@ -848,11 +745,11 @@ Partial Class frmPOS
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Black
-        Me.btnCancel.Location = New System.Drawing.Point(5, 559)
+        Me.btnCancel.Location = New System.Drawing.Point(5, 523)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(90, 45)
         Me.btnCancel.TabIndex = 79
-        Me.btnCancel.Text = "Cancel Ticket"
+        Me.btnCancel.Text = "Cancel"
         Me.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnCancel.UseVisualStyleBackColor = False
         '
@@ -964,7 +861,7 @@ Partial Class frmPOS
         Me.btnGetData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGetData.ForeColor = System.Drawing.Color.White
-        Me.btnGetData.Location = New System.Drawing.Point(5, 610)
+        Me.btnGetData.Location = New System.Drawing.Point(5, 574)
         Me.btnGetData.Name = "btnGetData"
         Me.btnGetData.Size = New System.Drawing.Size(90, 45)
         Me.btnGetData.TabIndex = 20
@@ -980,7 +877,7 @@ Partial Class frmPOS
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(98, 610)
+        Me.btnUpdate.Location = New System.Drawing.Point(98, 574)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(90, 45)
         Me.btnUpdate.TabIndex = 18
@@ -996,7 +893,7 @@ Partial Class frmPOS
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(98, 559)
+        Me.btnSave.Location = New System.Drawing.Point(98, 523)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(90, 45)
         Me.btnSave.TabIndex = 17
@@ -1012,7 +909,7 @@ Partial Class frmPOS
         Me.btnChgTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnChgTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgTable.ForeColor = System.Drawing.Color.Black
-        Me.btnChgTable.Location = New System.Drawing.Point(191, 610)
+        Me.btnChgTable.Location = New System.Drawing.Point(191, 574)
         Me.btnChgTable.Name = "btnChgTable"
         Me.btnChgTable.Size = New System.Drawing.Size(90, 45)
         Me.btnChgTable.TabIndex = 16
@@ -1028,7 +925,7 @@ Partial Class frmPOS
         Me.btnHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHold.ForeColor = System.Drawing.Color.White
-        Me.btnHold.Location = New System.Drawing.Point(191, 559)
+        Me.btnHold.Location = New System.Drawing.Point(191, 523)
         Me.btnHold.Name = "btnHold"
         Me.btnHold.Size = New System.Drawing.Size(90, 45)
         Me.btnHold.TabIndex = 15
@@ -1044,7 +941,7 @@ Partial Class frmPOS
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(285, 610)
+        Me.btnPrint.Location = New System.Drawing.Point(285, 574)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(90, 45)
         Me.btnPrint.TabIndex = 14
@@ -1060,7 +957,7 @@ Partial Class frmPOS
         Me.btnRecall.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRecall.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecall.ForeColor = System.Drawing.Color.White
-        Me.btnRecall.Location = New System.Drawing.Point(285, 559)
+        Me.btnRecall.Location = New System.Drawing.Point(285, 523)
         Me.btnRecall.Name = "btnRecall"
         Me.btnRecall.Size = New System.Drawing.Size(90, 45)
         Me.btnRecall.TabIndex = 13
@@ -1191,8 +1088,6 @@ Partial Class frmPOS
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.dgwList)
-        Me.TabPage2.Controls.Add(Me.Panel4)
-        Me.TabPage2.Controls.Add(Me.GroupBox1)
         Me.TabPage2.Controls.Add(Me.FlowLayoutPanel3)
         Me.TabPage2.Controls.Add(Me.Label8)
         Me.TabPage2.Controls.Add(Me.Button1)
@@ -1206,544 +1101,10 @@ Partial Class frmPOS
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1060, 665)
+        Me.TabPage2.Size = New System.Drawing.Size(1060, 629)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Billing"
         Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Panel4
-        '
-        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel4.Controls.Add(Me.Panel5)
-        Me.Panel4.Controls.Add(Me.btnPX)
-        Me.Panel4.Controls.Add(Me.btnPDot)
-        Me.Panel4.Controls.Add(Me.btnP0)
-        Me.Panel4.Controls.Add(Me.btnP9)
-        Me.Panel4.Controls.Add(Me.btnP8)
-        Me.Panel4.Controls.Add(Me.btnP7)
-        Me.Panel4.Controls.Add(Me.btnP6)
-        Me.Panel4.Controls.Add(Me.btnP5)
-        Me.Panel4.Controls.Add(Me.btnP4)
-        Me.Panel4.Controls.Add(Me.btnP3)
-        Me.Panel4.Controls.Add(Me.btnP2)
-        Me.Panel4.Controls.Add(Me.btnP1)
-        Me.Panel4.Location = New System.Drawing.Point(762, 1)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(297, 417)
-        Me.Panel4.TabIndex = 86
-        '
-        'btnPX
-        '
-        Me.btnPX.BackColor = System.Drawing.Color.Crimson
-        Me.btnPX.FlatAppearance.BorderSize = 0
-        Me.btnPX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPX.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPX.ForeColor = System.Drawing.Color.White
-        Me.btnPX.Location = New System.Drawing.Point(193, 368)
-        Me.btnPX.Name = "btnPX"
-        Me.btnPX.Size = New System.Drawing.Size(85, 43)
-        Me.btnPX.TabIndex = 107
-        Me.btnPX.Text = "X"
-        Me.btnPX.UseVisualStyleBackColor = False
-        '
-        'btnPDot
-        '
-        Me.btnPDot.BackColor = System.Drawing.Color.Crimson
-        Me.btnPDot.FlatAppearance.BorderSize = 0
-        Me.btnPDot.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPDot.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPDot.ForeColor = System.Drawing.Color.White
-        Me.btnPDot.Location = New System.Drawing.Point(11, 368)
-        Me.btnPDot.Name = "btnPDot"
-        Me.btnPDot.Size = New System.Drawing.Size(85, 43)
-        Me.btnPDot.TabIndex = 106
-        Me.btnPDot.Text = "."
-        Me.btnPDot.UseVisualStyleBackColor = False
-        '
-        'btnP0
-        '
-        Me.btnP0.BackColor = System.Drawing.Color.Crimson
-        Me.btnP0.FlatAppearance.BorderSize = 0
-        Me.btnP0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP0.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP0.ForeColor = System.Drawing.Color.White
-        Me.btnP0.Location = New System.Drawing.Point(102, 368)
-        Me.btnP0.Name = "btnP0"
-        Me.btnP0.Size = New System.Drawing.Size(85, 43)
-        Me.btnP0.TabIndex = 105
-        Me.btnP0.Text = "0"
-        Me.btnP0.UseVisualStyleBackColor = False
-        '
-        'btnP9
-        '
-        Me.btnP9.BackColor = System.Drawing.Color.Crimson
-        Me.btnP9.FlatAppearance.BorderSize = 0
-        Me.btnP9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP9.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP9.ForeColor = System.Drawing.Color.White
-        Me.btnP9.Location = New System.Drawing.Point(193, 319)
-        Me.btnP9.Name = "btnP9"
-        Me.btnP9.Size = New System.Drawing.Size(85, 43)
-        Me.btnP9.TabIndex = 104
-        Me.btnP9.Text = "9"
-        Me.btnP9.UseVisualStyleBackColor = False
-        '
-        'btnP8
-        '
-        Me.btnP8.BackColor = System.Drawing.Color.Crimson
-        Me.btnP8.FlatAppearance.BorderSize = 0
-        Me.btnP8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP8.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP8.ForeColor = System.Drawing.Color.White
-        Me.btnP8.Location = New System.Drawing.Point(102, 319)
-        Me.btnP8.Name = "btnP8"
-        Me.btnP8.Size = New System.Drawing.Size(85, 43)
-        Me.btnP8.TabIndex = 103
-        Me.btnP8.Text = "8"
-        Me.btnP8.UseVisualStyleBackColor = False
-        '
-        'btnP7
-        '
-        Me.btnP7.BackColor = System.Drawing.Color.Crimson
-        Me.btnP7.FlatAppearance.BorderSize = 0
-        Me.btnP7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP7.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP7.ForeColor = System.Drawing.Color.White
-        Me.btnP7.Location = New System.Drawing.Point(11, 319)
-        Me.btnP7.Name = "btnP7"
-        Me.btnP7.Size = New System.Drawing.Size(85, 43)
-        Me.btnP7.TabIndex = 102
-        Me.btnP7.Text = "7"
-        Me.btnP7.UseVisualStyleBackColor = False
-        '
-        'btnP6
-        '
-        Me.btnP6.BackColor = System.Drawing.Color.Crimson
-        Me.btnP6.FlatAppearance.BorderSize = 0
-        Me.btnP6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP6.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP6.ForeColor = System.Drawing.Color.White
-        Me.btnP6.Location = New System.Drawing.Point(193, 270)
-        Me.btnP6.Name = "btnP6"
-        Me.btnP6.Size = New System.Drawing.Size(85, 43)
-        Me.btnP6.TabIndex = 101
-        Me.btnP6.Text = "6"
-        Me.btnP6.UseVisualStyleBackColor = False
-        '
-        'btnP5
-        '
-        Me.btnP5.BackColor = System.Drawing.Color.Crimson
-        Me.btnP5.FlatAppearance.BorderSize = 0
-        Me.btnP5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP5.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP5.ForeColor = System.Drawing.Color.White
-        Me.btnP5.Location = New System.Drawing.Point(102, 270)
-        Me.btnP5.Name = "btnP5"
-        Me.btnP5.Size = New System.Drawing.Size(85, 43)
-        Me.btnP5.TabIndex = 100
-        Me.btnP5.Text = "5"
-        Me.btnP5.UseVisualStyleBackColor = False
-        '
-        'btnP4
-        '
-        Me.btnP4.BackColor = System.Drawing.Color.Crimson
-        Me.btnP4.FlatAppearance.BorderSize = 0
-        Me.btnP4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP4.ForeColor = System.Drawing.Color.White
-        Me.btnP4.Location = New System.Drawing.Point(11, 270)
-        Me.btnP4.Name = "btnP4"
-        Me.btnP4.Size = New System.Drawing.Size(85, 43)
-        Me.btnP4.TabIndex = 99
-        Me.btnP4.Text = "4"
-        Me.btnP4.UseVisualStyleBackColor = False
-        '
-        'btnP3
-        '
-        Me.btnP3.BackColor = System.Drawing.Color.Crimson
-        Me.btnP3.FlatAppearance.BorderSize = 0
-        Me.btnP3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP3.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP3.ForeColor = System.Drawing.Color.White
-        Me.btnP3.Location = New System.Drawing.Point(193, 221)
-        Me.btnP3.Name = "btnP3"
-        Me.btnP3.Size = New System.Drawing.Size(85, 43)
-        Me.btnP3.TabIndex = 98
-        Me.btnP3.Text = "3"
-        Me.btnP3.UseVisualStyleBackColor = False
-        '
-        'btnP2
-        '
-        Me.btnP2.BackColor = System.Drawing.Color.Crimson
-        Me.btnP2.FlatAppearance.BorderSize = 0
-        Me.btnP2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP2.ForeColor = System.Drawing.Color.White
-        Me.btnP2.Location = New System.Drawing.Point(102, 221)
-        Me.btnP2.Name = "btnP2"
-        Me.btnP2.Size = New System.Drawing.Size(85, 43)
-        Me.btnP2.TabIndex = 97
-        Me.btnP2.Text = "2"
-        Me.btnP2.UseVisualStyleBackColor = False
-        '
-        'btnP1
-        '
-        Me.btnP1.BackColor = System.Drawing.Color.Crimson
-        Me.btnP1.FlatAppearance.BorderSize = 0
-        Me.btnP1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnP1.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnP1.ForeColor = System.Drawing.Color.White
-        Me.btnP1.Location = New System.Drawing.Point(11, 221)
-        Me.btnP1.Name = "btnP1"
-        Me.btnP1.Size = New System.Drawing.Size(85, 43)
-        Me.btnP1.TabIndex = 96
-        Me.btnP1.Text = "1"
-        Me.btnP1.UseVisualStyleBackColor = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Button17)
-        Me.GroupBox1.Controls.Add(Me.Button18)
-        Me.GroupBox1.Controls.Add(Me.Button19)
-        Me.GroupBox1.Controls.Add(Me.Button20)
-        Me.GroupBox1.Location = New System.Drawing.Point(619, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(139, 237)
-        Me.GroupBox1.TabIndex = 85
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Payment Mode"
-        '
-        'FlowLayoutPanel3
-        '
-        Me.FlowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(102, 64)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(514, 354)
-        Me.FlowLayoutPanel3.TabIndex = 84
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.DarkOrange
-        Me.Label8.Location = New System.Drawing.Point(110, 34)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(119, 25)
-        Me.Label8.TabIndex = 83
-        Me.Label8.Text = "List of Tables"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(6, 217)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 45)
-        Me.Button1.TabIndex = 82
-        Me.Button1.Text = "Change Qty"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.DarkOrchid
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(6, 166)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 45)
-        Me.Button2.TabIndex = 81
-        Me.Button2.Text = "Change Rate"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.DarkCyan
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(6, 115)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 45)
-        Me.Button3.TabIndex = 80
-        Me.Button3.Text = "Add Notes"
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.DarkRed
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(6, 64)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(90, 45)
-        Me.Button4.TabIndex = 79
-        Me.Button4.Text = "Remove"
-        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(325, 8)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(103, 21)
-        Me.TextBox1.TabIndex = 78
-        Me.TextBox1.Text = "99"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(200, 8)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 20)
-        Me.Label6.TabIndex = 77
-        Me.Label6.Text = "Payment Mode :"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(74, 8)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(86, 21)
-        Me.TextBox2.TabIndex = 76
-        Me.TextBox2.Text = "1234567890"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.Black
-        Me.Label7.Location = New System.Drawing.Point(8, 8)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(63, 20)
-        Me.Label7.TabIndex = 75
-        Me.Label7.Text = "Bill No :"
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabPage3.Location = New System.Drawing.Point(4, 30)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1328, 665)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Take-out"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Button17
-        '
-        Me.Button17.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Button17.FlatAppearance.BorderSize = 0
-        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button17.ForeColor = System.Drawing.Color.White
-        Me.Button17.Location = New System.Drawing.Point(11, 181)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(113, 45)
-        Me.Button17.TabIndex = 86
-        Me.Button17.Text = "Change Qty"
-        Me.Button17.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button17.UseVisualStyleBackColor = False
-        '
-        'Button18
-        '
-        Me.Button18.BackColor = System.Drawing.Color.DarkOrchid
-        Me.Button18.FlatAppearance.BorderSize = 0
-        Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button18.ForeColor = System.Drawing.Color.White
-        Me.Button18.Location = New System.Drawing.Point(11, 130)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(113, 45)
-        Me.Button18.TabIndex = 85
-        Me.Button18.Text = "Change Rate"
-        Me.Button18.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button18.UseVisualStyleBackColor = False
-        '
-        'Button19
-        '
-        Me.Button19.BackColor = System.Drawing.Color.DarkCyan
-        Me.Button19.FlatAppearance.BorderSize = 0
-        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button19.ForeColor = System.Drawing.Color.White
-        Me.Button19.Location = New System.Drawing.Point(11, 79)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(113, 45)
-        Me.Button19.TabIndex = 84
-        Me.Button19.Text = "Add Notes"
-        Me.Button19.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button19.UseVisualStyleBackColor = False
-        '
-        'Button20
-        '
-        Me.Button20.BackColor = System.Drawing.Color.DarkRed
-        Me.Button20.FlatAppearance.BorderSize = 0
-        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button20.ForeColor = System.Drawing.Color.White
-        Me.Button20.Location = New System.Drawing.Point(11, 28)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(113, 45)
-        Me.Button20.TabIndex = 83
-        Me.Button20.Text = "Remove"
-        Me.Button20.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button20.UseVisualStyleBackColor = False
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel5.Controls.Add(Me.Label13)
-        Me.Panel5.Controls.Add(Me.Label12)
-        Me.Panel5.Controls.Add(Me.Label11)
-        Me.Panel5.Controls.Add(Me.Label10)
-        Me.Panel5.Controls.Add(Me.TextBox7)
-        Me.Panel5.Controls.Add(Me.TextBox6)
-        Me.Panel5.Controls.Add(Me.TextBox5)
-        Me.Panel5.Controls.Add(Me.TextBox4)
-        Me.Panel5.Controls.Add(Me.TextBox3)
-        Me.Panel5.Controls.Add(Me.Label9)
-        Me.Panel5.Location = New System.Drawing.Point(4, 3)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(290, 212)
-        Me.Panel5.TabIndex = 108
-        '
-        'TextBox3
-        '
-        Me.TextBox3.BackColor = System.Drawing.Color.White
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(138, 7)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(145, 35)
-        Me.TextBox3.TabIndex = 78
-        Me.TextBox3.Text = "1234567890"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(17, 12)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(119, 25)
-        Me.Label9.TabIndex = 77
-        Me.Label9.Text = "Discount % :"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.BackColor = System.Drawing.Color.White
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(138, 48)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ReadOnly = True
-        Me.TextBox4.Size = New System.Drawing.Size(145, 35)
-        Me.TextBox4.TabIndex = 79
-        Me.TextBox4.Text = "1234567890"
-        '
-        'TextBox5
-        '
-        Me.TextBox5.BackColor = System.Drawing.Color.White
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(138, 89)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(145, 35)
-        Me.TextBox5.TabIndex = 80
-        Me.TextBox5.Text = "1234567890"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.BackColor = System.Drawing.Color.White
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(138, 130)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(145, 35)
-        Me.TextBox6.TabIndex = 81
-        Me.TextBox6.Text = "1234567890"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.BackColor = System.Drawing.Color.White
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(138, 171)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(145, 35)
-        Me.TextBox7.TabIndex = 82
-        Me.TextBox7.Text = "1234567890"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(3, 54)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(133, 25)
-        Me.Label10.TabIndex = 83
-        Me.Label10.Text = "Disc Amount :"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(16, 95)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(120, 25)
-        Me.Label11.TabIndex = 84
-        Me.Label11.Text = "Grand Total :"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(15, 136)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(121, 25)
-        Me.Label12.TabIndex = 85
-        Me.Label12.Text = "Cash / Card :"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(49, 177)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(87, 25)
-        Me.Label13.TabIndex = 86
-        Me.Label13.Text = "Change :"
         '
         'dgwList
         '
@@ -1778,7 +1139,7 @@ Partial Class frmPOS
         Me.dgwList.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgwList.EnableHeadersVisualStyles = False
         Me.dgwList.GridColor = System.Drawing.Color.White
-        Me.dgwList.Location = New System.Drawing.Point(3, 424)
+        Me.dgwList.Location = New System.Drawing.Point(3, 388)
         Me.dgwList.MultiSelect = False
         Me.dgwList.Name = "dgwList"
         Me.dgwList.ReadOnly = True
@@ -1921,6 +1282,709 @@ Partial Class frmPOS
         Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.btnPX)
+        Me.Panel4.Controls.Add(Me.btnPDot)
+        Me.Panel4.Controls.Add(Me.btnP0)
+        Me.Panel4.Controls.Add(Me.btnP9)
+        Me.Panel4.Controls.Add(Me.btnP8)
+        Me.Panel4.Controls.Add(Me.btnP7)
+        Me.Panel4.Controls.Add(Me.btnP6)
+        Me.Panel4.Controls.Add(Me.btnP5)
+        Me.Panel4.Controls.Add(Me.btnP4)
+        Me.Panel4.Controls.Add(Me.btnP3)
+        Me.Panel4.Controls.Add(Me.btnP2)
+        Me.Panel4.Controls.Add(Me.btnP1)
+        Me.Panel4.Location = New System.Drawing.Point(143, 214)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(420, 295)
+        Me.Panel4.TabIndex = 86
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel5.Controls.Add(Me.Label13)
+        Me.Panel5.Controls.Add(Me.Label12)
+        Me.Panel5.Controls.Add(Me.Label11)
+        Me.Panel5.Controls.Add(Me.Label10)
+        Me.Panel5.Controls.Add(Me.txtChange)
+        Me.Panel5.Controls.Add(Me.txtCash)
+        Me.Panel5.Controls.Add(Me.txtGrandTot)
+        Me.Panel5.Controls.Add(Me.txtDiscAmt)
+        Me.Panel5.Controls.Add(Me.txtDiscPer)
+        Me.Panel5.Controls.Add(Me.Label9)
+        Me.Panel5.Location = New System.Drawing.Point(3, 3)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(698, 212)
+        Me.Panel5.TabIndex = 108
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.Location = New System.Drawing.Point(190, 177)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(87, 25)
+        Me.Label13.TabIndex = 86
+        Me.Label13.Text = "Change :"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(156, 136)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(121, 25)
+        Me.Label12.TabIndex = 85
+        Me.Label12.Text = "Cash / Card :"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(157, 95)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(120, 25)
+        Me.Label11.TabIndex = 84
+        Me.Label11.Text = "Grand Total :"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(144, 54)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(133, 25)
+        Me.Label10.TabIndex = 83
+        Me.Label10.Text = "Disc Amount :"
+        '
+        'txtChange
+        '
+        Me.txtChange.BackColor = System.Drawing.Color.White
+        Me.txtChange.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtChange.Location = New System.Drawing.Point(279, 171)
+        Me.txtChange.Name = "txtChange"
+        Me.txtChange.ReadOnly = True
+        Me.txtChange.Size = New System.Drawing.Size(242, 35)
+        Me.txtChange.TabIndex = 82
+        Me.txtChange.Text = "1234567890"
+        Me.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCash
+        '
+        Me.txtCash.BackColor = System.Drawing.Color.White
+        Me.txtCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCash.Location = New System.Drawing.Point(279, 130)
+        Me.txtCash.Name = "txtCash"
+        Me.txtCash.ReadOnly = True
+        Me.txtCash.Size = New System.Drawing.Size(242, 35)
+        Me.txtCash.TabIndex = 81
+        Me.txtCash.Text = "1234567890"
+        Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtGrandTot
+        '
+        Me.txtGrandTot.BackColor = System.Drawing.Color.White
+        Me.txtGrandTot.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGrandTot.Location = New System.Drawing.Point(279, 89)
+        Me.txtGrandTot.Name = "txtGrandTot"
+        Me.txtGrandTot.ReadOnly = True
+        Me.txtGrandTot.Size = New System.Drawing.Size(242, 35)
+        Me.txtGrandTot.TabIndex = 80
+        Me.txtGrandTot.Text = "1234567890"
+        Me.txtGrandTot.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtDiscAmt
+        '
+        Me.txtDiscAmt.BackColor = System.Drawing.Color.White
+        Me.txtDiscAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscAmt.Location = New System.Drawing.Point(279, 48)
+        Me.txtDiscAmt.Name = "txtDiscAmt"
+        Me.txtDiscAmt.ReadOnly = True
+        Me.txtDiscAmt.Size = New System.Drawing.Size(242, 35)
+        Me.txtDiscAmt.TabIndex = 79
+        Me.txtDiscAmt.Text = "1234567890"
+        Me.txtDiscAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtDiscPer
+        '
+        Me.txtDiscPer.BackColor = System.Drawing.Color.White
+        Me.txtDiscPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscPer.Location = New System.Drawing.Point(279, 7)
+        Me.txtDiscPer.Name = "txtDiscPer"
+        Me.txtDiscPer.ReadOnly = True
+        Me.txtDiscPer.Size = New System.Drawing.Size(242, 35)
+        Me.txtDiscPer.TabIndex = 78
+        Me.txtDiscPer.Text = "1234567890"
+        Me.txtDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(158, 12)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(119, 25)
+        Me.Label9.TabIndex = 77
+        Me.Label9.Text = "Discount % :"
+        '
+        'btnPX
+        '
+        Me.btnPX.BackColor = System.Drawing.Color.Crimson
+        Me.btnPX.FlatAppearance.BorderSize = 0
+        Me.btnPX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPX.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPX.ForeColor = System.Drawing.Color.White
+        Me.btnPX.Location = New System.Drawing.Point(282, 223)
+        Me.btnPX.Name = "btnPX"
+        Me.btnPX.Size = New System.Drawing.Size(131, 66)
+        Me.btnPX.TabIndex = 107
+        Me.btnPX.Text = "X"
+        Me.btnPX.UseVisualStyleBackColor = False
+        '
+        'btnPDot
+        '
+        Me.btnPDot.BackColor = System.Drawing.Color.Crimson
+        Me.btnPDot.FlatAppearance.BorderSize = 0
+        Me.btnPDot.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPDot.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPDot.ForeColor = System.Drawing.Color.White
+        Me.btnPDot.Location = New System.Drawing.Point(8, 223)
+        Me.btnPDot.Name = "btnPDot"
+        Me.btnPDot.Size = New System.Drawing.Size(131, 66)
+        Me.btnPDot.TabIndex = 106
+        Me.btnPDot.Text = "."
+        Me.btnPDot.UseVisualStyleBackColor = False
+        '
+        'btnP0
+        '
+        Me.btnP0.BackColor = System.Drawing.Color.Crimson
+        Me.btnP0.FlatAppearance.BorderSize = 0
+        Me.btnP0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP0.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP0.ForeColor = System.Drawing.Color.White
+        Me.btnP0.Location = New System.Drawing.Point(145, 223)
+        Me.btnP0.Name = "btnP0"
+        Me.btnP0.Size = New System.Drawing.Size(131, 66)
+        Me.btnP0.TabIndex = 105
+        Me.btnP0.Text = "0"
+        Me.btnP0.UseVisualStyleBackColor = False
+        '
+        'btnP9
+        '
+        Me.btnP9.BackColor = System.Drawing.Color.Crimson
+        Me.btnP9.FlatAppearance.BorderSize = 0
+        Me.btnP9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP9.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP9.ForeColor = System.Drawing.Color.White
+        Me.btnP9.Location = New System.Drawing.Point(281, 151)
+        Me.btnP9.Name = "btnP9"
+        Me.btnP9.Size = New System.Drawing.Size(131, 66)
+        Me.btnP9.TabIndex = 104
+        Me.btnP9.Text = "9"
+        Me.btnP9.UseVisualStyleBackColor = False
+        '
+        'btnP8
+        '
+        Me.btnP8.BackColor = System.Drawing.Color.Crimson
+        Me.btnP8.FlatAppearance.BorderSize = 0
+        Me.btnP8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP8.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP8.ForeColor = System.Drawing.Color.White
+        Me.btnP8.Location = New System.Drawing.Point(144, 151)
+        Me.btnP8.Name = "btnP8"
+        Me.btnP8.Size = New System.Drawing.Size(131, 66)
+        Me.btnP8.TabIndex = 103
+        Me.btnP8.Text = "8"
+        Me.btnP8.UseVisualStyleBackColor = False
+        '
+        'btnP7
+        '
+        Me.btnP7.BackColor = System.Drawing.Color.Crimson
+        Me.btnP7.FlatAppearance.BorderSize = 0
+        Me.btnP7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP7.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP7.ForeColor = System.Drawing.Color.White
+        Me.btnP7.Location = New System.Drawing.Point(7, 151)
+        Me.btnP7.Name = "btnP7"
+        Me.btnP7.Size = New System.Drawing.Size(131, 66)
+        Me.btnP7.TabIndex = 102
+        Me.btnP7.Text = "7"
+        Me.btnP7.UseVisualStyleBackColor = False
+        '
+        'btnP6
+        '
+        Me.btnP6.BackColor = System.Drawing.Color.Crimson
+        Me.btnP6.FlatAppearance.BorderSize = 0
+        Me.btnP6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP6.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP6.ForeColor = System.Drawing.Color.White
+        Me.btnP6.Location = New System.Drawing.Point(281, 79)
+        Me.btnP6.Name = "btnP6"
+        Me.btnP6.Size = New System.Drawing.Size(131, 66)
+        Me.btnP6.TabIndex = 101
+        Me.btnP6.Text = "6"
+        Me.btnP6.UseVisualStyleBackColor = False
+        '
+        'btnP5
+        '
+        Me.btnP5.BackColor = System.Drawing.Color.Crimson
+        Me.btnP5.FlatAppearance.BorderSize = 0
+        Me.btnP5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP5.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP5.ForeColor = System.Drawing.Color.White
+        Me.btnP5.Location = New System.Drawing.Point(144, 79)
+        Me.btnP5.Name = "btnP5"
+        Me.btnP5.Size = New System.Drawing.Size(131, 66)
+        Me.btnP5.TabIndex = 100
+        Me.btnP5.Text = "5"
+        Me.btnP5.UseVisualStyleBackColor = False
+        '
+        'btnP4
+        '
+        Me.btnP4.BackColor = System.Drawing.Color.Crimson
+        Me.btnP4.FlatAppearance.BorderSize = 0
+        Me.btnP4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP4.ForeColor = System.Drawing.Color.White
+        Me.btnP4.Location = New System.Drawing.Point(7, 79)
+        Me.btnP4.Name = "btnP4"
+        Me.btnP4.Size = New System.Drawing.Size(131, 66)
+        Me.btnP4.TabIndex = 99
+        Me.btnP4.Text = "4"
+        Me.btnP4.UseVisualStyleBackColor = False
+        '
+        'btnP3
+        '
+        Me.btnP3.BackColor = System.Drawing.Color.Crimson
+        Me.btnP3.FlatAppearance.BorderSize = 0
+        Me.btnP3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP3.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP3.ForeColor = System.Drawing.Color.White
+        Me.btnP3.Location = New System.Drawing.Point(281, 7)
+        Me.btnP3.Name = "btnP3"
+        Me.btnP3.Size = New System.Drawing.Size(131, 66)
+        Me.btnP3.TabIndex = 98
+        Me.btnP3.Text = "3"
+        Me.btnP3.UseVisualStyleBackColor = False
+        '
+        'btnP2
+        '
+        Me.btnP2.BackColor = System.Drawing.Color.Crimson
+        Me.btnP2.FlatAppearance.BorderSize = 0
+        Me.btnP2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP2.ForeColor = System.Drawing.Color.White
+        Me.btnP2.Location = New System.Drawing.Point(144, 7)
+        Me.btnP2.Name = "btnP2"
+        Me.btnP2.Size = New System.Drawing.Size(131, 66)
+        Me.btnP2.TabIndex = 97
+        Me.btnP2.Text = "2"
+        Me.btnP2.UseVisualStyleBackColor = False
+        '
+        'btnP1
+        '
+        Me.btnP1.BackColor = System.Drawing.Color.Crimson
+        Me.btnP1.FlatAppearance.BorderSize = 0
+        Me.btnP1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnP1.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnP1.ForeColor = System.Drawing.Color.White
+        Me.btnP1.Location = New System.Drawing.Point(7, 7)
+        Me.btnP1.Name = "btnP1"
+        Me.btnP1.Size = New System.Drawing.Size(131, 66)
+        Me.btnP1.TabIndex = 96
+        Me.btnP1.Text = "1"
+        Me.btnP1.UseVisualStyleBackColor = False
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(102, 64)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(955, 318)
+        Me.FlowLayoutPanel3.TabIndex = 84
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.DarkOrange
+        Me.Label8.Location = New System.Drawing.Point(110, 34)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(119, 25)
+        Me.Label8.TabIndex = 83
+        Me.Label8.Text = "List of Tables"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(6, 217)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 45)
+        Me.Button1.TabIndex = 82
+        Me.Button1.Text = "Print"
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.DarkOrchid
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(6, 166)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 45)
+        Me.Button2.TabIndex = 81
+        Me.Button2.Text = "Get Data"
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.DarkCyan
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(6, 115)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(90, 45)
+        Me.Button3.TabIndex = 80
+        Me.Button3.Text = "Settle"
+        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.DarkRed
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.White
+        Me.Button4.Location = New System.Drawing.Point(6, 64)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(90, 45)
+        Me.Button4.TabIndex = 79
+        Me.Button4.Text = "New Bill"
+        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.White
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(325, 8)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(103, 21)
+        Me.TextBox1.TabIndex = 78
+        Me.TextBox1.Text = "99"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(200, 8)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 20)
+        Me.Label6.TabIndex = 77
+        Me.Label6.Text = "Payment Mode :"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(74, 8)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(86, 21)
+        Me.TextBox2.TabIndex = 76
+        Me.TextBox2.Text = "1234567890"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(8, 8)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(63, 20)
+        Me.Label7.TabIndex = 75
+        Me.Label7.Text = "Bill No :"
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPage3.Location = New System.Drawing.Point(4, 30)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1060, 659)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Take-out"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'pnlPayment
+        '
+        Me.pnlPayment.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.pnlPayment.Controls.Add(Me.btnClose)
+        Me.pnlPayment.Controls.Add(Me.btnSettleUpdate)
+        Me.pnlPayment.Controls.Add(Me.btnSettle)
+        Me.pnlPayment.Controls.Add(Me.btnGuest)
+        Me.pnlPayment.Controls.Add(Me.Panel5)
+        Me.pnlPayment.Controls.Add(Me.btnWallet)
+        Me.pnlPayment.Controls.Add(Me.btnCard)
+        Me.pnlPayment.Controls.Add(Me.Panel4)
+        Me.pnlPayment.Controls.Add(Me.btnCash)
+        Me.pnlPayment.Location = New System.Drawing.Point(208, 45)
+        Me.pnlPayment.Name = "pnlPayment"
+        Me.pnlPayment.Size = New System.Drawing.Size(704, 512)
+        Me.pnlPayment.TabIndex = 73
+        '
+        'btnCatUp
+        '
+        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatUp.FlatAppearance.BorderSize = 0
+        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatUp.ForeColor = System.Drawing.Color.White
+        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnCatUp.Location = New System.Drawing.Point(450, 18)
+        Me.btnCatUp.Name = "btnCatUp"
+        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatUp.TabIndex = 99
+        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatUp.UseVisualStyleBackColor = False
+        '
+        'btnCatDown
+        '
+        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatDown.FlatAppearance.BorderSize = 0
+        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatDown.ForeColor = System.Drawing.Color.White
+        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnCatDown.Location = New System.Drawing.Point(393, 18)
+        Me.btnCatDown.Name = "btnCatDown"
+        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatDown.TabIndex = 98
+        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatDown.UseVisualStyleBackColor = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
+        Me.btnClear.FlatAppearance.BorderSize = 0
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.Black
+        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
+        Me.btnClear.Location = New System.Drawing.Point(668, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(106, 37)
+        Me.btnClear.TabIndex = 96
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'btnMenuDown
+        '
+        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuDown.FlatAppearance.BorderSize = 0
+        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnMenuDown.Location = New System.Drawing.Point(954, 3)
+        Me.btnMenuDown.Name = "btnMenuDown"
+        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuDown.TabIndex = 85
+        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuDown.UseVisualStyleBackColor = False
+        '
+        'btnMenuUp
+        '
+        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuUp.FlatAppearance.BorderSize = 0
+        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnMenuUp.Location = New System.Drawing.Point(1008, 3)
+        Me.btnMenuUp.Name = "btnMenuUp"
+        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuUp.TabIndex = 84
+        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuUp.UseVisualStyleBackColor = False
+        '
+        'btnDown
+        '
+        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnDown.FlatAppearance.BorderSize = 0
+        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDown.ForeColor = System.Drawing.Color.Black
+        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnDown.Location = New System.Drawing.Point(55, 59)
+        Me.btnDown.Name = "btnDown"
+        Me.btnDown.Size = New System.Drawing.Size(40, 45)
+        Me.btnDown.TabIndex = 81
+        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnDown.UseVisualStyleBackColor = False
+        '
+        'btnUp
+        '
+        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnUp.FlatAppearance.BorderSize = 0
+        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUp.ForeColor = System.Drawing.Color.Black
+        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnUp.Location = New System.Drawing.Point(5, 59)
+        Me.btnUp.Name = "btnUp"
+        Me.btnUp.Size = New System.Drawing.Size(40, 45)
+        Me.btnUp.TabIndex = 80
+        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnUp.UseVisualStyleBackColor = False
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Brown
+        Me.btnClose.FlatAppearance.BorderSize = 0
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.White
+        Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Button_Close_icon32X321
+        Me.btnClose.Location = New System.Drawing.Point(569, 420)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(127, 84)
+        Me.btnClose.TabIndex = 111
+        Me.btnClose.Text = "CLOSE"
+        Me.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnClose.UseVisualStyleBackColor = False
+        '
+        'btnSettleUpdate
+        '
+        Me.btnSettleUpdate.BackColor = System.Drawing.SystemColors.Highlight
+        Me.btnSettleUpdate.FlatAppearance.BorderSize = 0
+        Me.btnSettleUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettleUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSettleUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnSettleUpdate.Image = Global.RestaurantPOS3.My.Resources.Resources.report_edit_icon1
+        Me.btnSettleUpdate.Location = New System.Drawing.Point(569, 320)
+        Me.btnSettleUpdate.Name = "btnSettleUpdate"
+        Me.btnSettleUpdate.Size = New System.Drawing.Size(127, 84)
+        Me.btnSettleUpdate.TabIndex = 110
+        Me.btnSettleUpdate.Text = "UPDATE + PRINT"
+        Me.btnSettleUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnSettleUpdate.UseVisualStyleBackColor = False
+        '
+        'btnSettle
+        '
+        Me.btnSettle.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnSettle.FlatAppearance.BorderSize = 0
+        Me.btnSettle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSettle.ForeColor = System.Drawing.Color.White
+        Me.btnSettle.Image = Global.RestaurantPOS3.My.Resources.Resources.Print_32x32
+        Me.btnSettle.Location = New System.Drawing.Point(569, 221)
+        Me.btnSettle.Name = "btnSettle"
+        Me.btnSettle.Size = New System.Drawing.Size(127, 84)
+        Me.btnSettle.TabIndex = 109
+        Me.btnSettle.Text = "SAVE + PRINT"
+        Me.btnSettle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnSettle.UseVisualStyleBackColor = False
+        '
+        'btnGuest
+        '
+        Me.btnGuest.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnGuest.FlatAppearance.BorderSize = 0
+        Me.btnGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuest.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuest.ForeColor = System.Drawing.Color.White
+        Me.btnGuest.Image = Global.RestaurantPOS3.My.Resources.Resources.AssignTo_32x32
+        Me.btnGuest.Location = New System.Drawing.Point(6, 437)
+        Me.btnGuest.Name = "btnGuest"
+        Me.btnGuest.Size = New System.Drawing.Size(127, 66)
+        Me.btnGuest.TabIndex = 86
+        Me.btnGuest.Text = "GUEST"
+        Me.btnGuest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnGuest.UseVisualStyleBackColor = False
+        '
+        'btnWallet
+        '
+        Me.btnWallet.BackColor = System.Drawing.Color.DarkOrange
+        Me.btnWallet.FlatAppearance.BorderSize = 0
+        Me.btnWallet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnWallet.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWallet.ForeColor = System.Drawing.Color.White
+        Me.btnWallet.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
+        Me.btnWallet.Location = New System.Drawing.Point(6, 365)
+        Me.btnWallet.Name = "btnWallet"
+        Me.btnWallet.Size = New System.Drawing.Size(127, 66)
+        Me.btnWallet.TabIndex = 85
+        Me.btnWallet.Text = "WALLET"
+        Me.btnWallet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnWallet.UseVisualStyleBackColor = False
+        '
+        'btnCard
+        '
+        Me.btnCard.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnCard.FlatAppearance.BorderSize = 0
+        Me.btnCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCard.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCard.ForeColor = System.Drawing.Color.White
+        Me.btnCard.Image = Global.RestaurantPOS3.My.Resources.Resources.credit_card_32
+        Me.btnCard.Location = New System.Drawing.Point(6, 293)
+        Me.btnCard.Name = "btnCard"
+        Me.btnCard.Size = New System.Drawing.Size(127, 66)
+        Me.btnCard.TabIndex = 84
+        Me.btnCard.Text = "CARD"
+        Me.btnCard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCard.UseVisualStyleBackColor = False
+        '
+        'btnCash
+        '
+        Me.btnCash.BackColor = System.Drawing.Color.Green
+        Me.btnCash.FlatAppearance.BorderSize = 0
+        Me.btnCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCash.ForeColor = System.Drawing.Color.White
+        Me.btnCash.Image = Global.RestaurantPOS3.My.Resources.Resources.payment_icon
+        Me.btnCash.Location = New System.Drawing.Point(6, 221)
+        Me.btnCash.Name = "btnCash"
+        Me.btnCash.Size = New System.Drawing.Size(127, 66)
+        Me.btnCash.TabIndex = 83
+        Me.btnCash.Text = "CASH"
+        Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCash.UseVisualStyleBackColor = False
+        '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1929,6 +1993,7 @@ Partial Class frmPOS
         Me.ClientSize = New System.Drawing.Size(1068, 738)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlPayment)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "frmPOS"
@@ -1945,11 +2010,11 @@ Partial Class frmPOS
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlPayment.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2043,7 +2108,6 @@ Partial Class frmPOS
     Friend WithEvents btnP3 As Button
     Friend WithEvents btnP2 As Button
     Friend WithEvents btnP1 As Button
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Label8 As Label
     Friend WithEvents Button1 As Button
@@ -2059,16 +2123,16 @@ Partial Class frmPOS
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtChange As TextBox
+    Friend WithEvents txtCash As TextBox
+    Friend WithEvents txtGrandTot As TextBox
+    Friend WithEvents txtDiscAmt As TextBox
+    Friend WithEvents txtDiscPer As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents Button17 As Button
-    Friend WithEvents Button18 As Button
-    Friend WithEvents Button19 As Button
-    Friend WithEvents Button20 As Button
+    Friend WithEvents btnGuest As Button
+    Friend WithEvents btnWallet As Button
+    Friend WithEvents btnCard As Button
+    Friend WithEvents btnCash As Button
     Friend WithEvents dgwList As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
@@ -2081,4 +2145,8 @@ Partial Class frmPOS
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents pnlPayment As Panel
+    Friend WithEvents btnClose As Button
+    Friend WithEvents btnSettleUpdate As Button
+    Friend WithEvents btnSettle As Button
 End Class

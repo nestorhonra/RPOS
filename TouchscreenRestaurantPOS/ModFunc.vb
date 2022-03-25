@@ -229,4 +229,17 @@ Module ModFunc
             retValue = 0
         End If
     End Function
+
+    Public Function changeOneZeroValue(ByVal srcStr As String) As String
+        changeOneZeroValue = "0"
+        Select Case srcStr
+            Case "Y" : changeOneZeroValue = "1"
+            Case "N" : changeOneZeroValue = "0"
+            Case "True" : changeOneZeroValue = "1"
+            Case "False" : changeOneZeroValue = "0"
+            Case "1" : changeOneZeroValue = "1"
+            Case "0" : changeOneZeroValue = "0"
+        End Select
+    End Function
+
 End Module

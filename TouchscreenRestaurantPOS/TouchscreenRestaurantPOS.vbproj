@@ -1646,6 +1646,9 @@
     <None Include="Resources\Next_32x321.png" />
     <None Include="Resources\Previous_32x321.png" />
     <None Include="Resources\cash-machine.png" />
+    <None Include="Resources\credit-card.png" />
+    <None Include="Resources\credit-card_32.png" />
+    <None Include="Resources\wallet.png" />
     <Content Include="RPOS.ico" />
     <None Include="Resources\Button-Ok-icon.png" />
     <None Include="Resources\Button-Delete-icon.png" />
