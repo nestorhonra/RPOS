@@ -1158,20 +1158,20 @@ Public Class frmPOS
 
         Printer.NewPrint()
 
-        Printer.Print(Img, 250, 80)
+        Printer.Print(Img, 300, 80)
 
         'Setting Font
         Printer.SetFont("Courier New", 9, FontStyle.Bold)
-        Printer.Print(StoreName, {250}, {c.MidCenter}) 'Store Name | Nama Toko
+        Printer.Print(StoreName, {300}, {c.MidCenter}) 'Store Name | Nama Toko
 
         'Setting Font
-        Printer.SetFont("Courier New", 7, FontStyle.Regular)
-        Printer.Print(StoreAddress & ";", {250}, 0) 'Store Address | Alamat Toko
+        Printer.SetFont("Courier New", 8, FontStyle.Regular)
+        Printer.Print(StoreAddress & ";", {300}, 0) 'Store Address | Alamat Toko
 
         'spacing
-        Printer.Print(TINNo, {250}, {c.MidCenter})
-        Printer.Print(SNNo, {250}, {c.MidCenter})
-        Printer.Print(MIDNo, {250}, {c.MidCenter})
+        Printer.Print(TINNo, {300}, {c.MidCenter})
+        Printer.Print(SNNo, {300}, {c.MidCenter})
+        Printer.Print(MIDNo, {300}, {c.MidCenter})
 
         Printer.Print(" ") 'spacing
         Printer.Print(TransNo) ' Transaction No | Nomor transaksi
@@ -1179,13 +1179,13 @@ Public Class frmPOS
 
         Printer.Print(" ") 'spacing
         Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
-        arrWidth = {90, 40, 50, 70} 'array for column width | array untuk lebar kolom
+        arrWidth = {110, 30, 70, 70} 'array for column width | array untuk lebar kolom
         arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
 
         'column header split by ; | nama kolom dipisah dengan ;
         Printer.Print("Item;Qty;Price;Subtotal", arrWidth, arrFormat)
         Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
-        Printer.Print("------------------------------------") 'line
+        Printer.Print("----------------------------------------") 'line
 
         dblSubtotal = 0
         dblQty = 0
@@ -1198,13 +1198,13 @@ Public Class frmPOS
             dblSubtotal = dblSubtotal + (dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price"))
         Next
 
-        Printer.Print("------------------------------------")
-        arrWidth = {130, 120} 'array for column width | array untuk lebar kolom
+        Printer.Print("----------------------------------------")
+        arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
         arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
 
         Printer.Print("Total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
         Printer.Print("Payment;" & toMoney(dblPayment), arrWidth, arrFormat)
-        Printer.Print("------------------------------------")
+        Printer.Print("----------------------------------------")
         Printer.Print("Change;" & toMoney(dblPayment - dblSubtotal), arrWidth, arrFormat)
         Printer.Print(" ")
         Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
