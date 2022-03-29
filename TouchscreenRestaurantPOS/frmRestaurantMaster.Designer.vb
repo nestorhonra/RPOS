@@ -23,10 +23,10 @@ Partial Class frmRestaurantMaster
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRestaurantMaster))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -55,6 +55,19 @@ Partial Class frmRestaurantMaster
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtContactNo = New System.Windows.Forms.TextBox()
         Me.dgw = New System.Windows.Forms.DataGridView()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.chkIsEnabled = New System.Windows.Forms.CheckBox()
+        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,20 +79,15 @@ Partial Class frmRestaurantMaster
         Me.Column8 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Column12 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -87,10 +95,13 @@ Partial Class frmRestaurantMaster
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.btnClose)
+        Me.Panel1.Controls.Add(Me.lblUser)
         Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.txtcCode)
         Me.Panel1.Controls.Add(Me.dgw)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.txtID)
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(740, 436)
@@ -111,14 +122,15 @@ Partial Class frmRestaurantMaster
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.lblUser)
-        Me.GroupBox1.Controls.Add(Me.txtcCode)
+        Me.GroupBox1.Controls.Add(Me.chkIsEnabled)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.PictureBox2)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtCurrencyCode)
         Me.GroupBox1.Controls.Add(Me.txtBaseCurrency)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.txtID)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtTIN)
         Me.GroupBox1.Controls.Add(Me.btnBrowse)
@@ -145,7 +157,7 @@ Partial Class frmRestaurantMaster
         'lblUser
         '
         Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(479, 184)
+        Me.lblUser.Location = New System.Drawing.Point(656, 289)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Size = New System.Drawing.Size(39, 13)
         Me.lblUser.TabIndex = 5
@@ -154,7 +166,7 @@ Partial Class frmRestaurantMaster
         '
         'txtcCode
         '
-        Me.txtcCode.Location = New System.Drawing.Point(454, 152)
+        Me.txtcCode.Location = New System.Drawing.Point(631, 257)
         Me.txtcCode.Name = "txtcCode"
         Me.txtcCode.Size = New System.Drawing.Size(31, 20)
         Me.txtcCode.TabIndex = 20
@@ -163,17 +175,17 @@ Partial Class frmRestaurantMaster
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(312, 280)
+        Me.Label11.Location = New System.Drawing.Point(279, 283)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(111, 13)
+        Me.Label11.Size = New System.Drawing.Size(79, 13)
         Me.Label11.TabIndex = 10
-        Me.Label11.Text = "e.g. - USD, INR, AUD"
+        Me.Label11.Text = "e.g. PHP, USD"
         '
         'txtCurrencyCode
         '
         Me.txtCurrencyCode.AsciiOnly = True
         Me.txtCurrencyCode.BeepOnError = True
-        Me.txtCurrencyCode.Location = New System.Drawing.Point(247, 277)
+        Me.txtCurrencyCode.Location = New System.Drawing.Point(226, 279)
         Me.txtCurrencyCode.Mask = "???"
         Me.txtCurrencyCode.Name = "txtCurrencyCode"
         Me.txtCurrencyCode.Size = New System.Drawing.Size(49, 20)
@@ -183,15 +195,15 @@ Partial Class frmRestaurantMaster
         '
         Me.txtBaseCurrency.BackColor = System.Drawing.Color.White
         Me.txtBaseCurrency.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBaseCurrency.Location = New System.Drawing.Point(247, 246)
+        Me.txtBaseCurrency.Location = New System.Drawing.Point(226, 248)
         Me.txtBaseCurrency.Name = "txtBaseCurrency"
-        Me.txtBaseCurrency.Size = New System.Drawing.Size(159, 21)
+        Me.txtBaseCurrency.Size = New System.Drawing.Size(114, 21)
         Me.txtBaseCurrency.TabIndex = 7
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(149, 277)
+        Me.Label10.Location = New System.Drawing.Point(139, 284)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(83, 13)
         Me.Label10.TabIndex = 19
@@ -200,7 +212,7 @@ Partial Class frmRestaurantMaster
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(149, 246)
+        Me.Label9.Location = New System.Drawing.Point(140, 253)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(82, 13)
         Me.Label9.TabIndex = 18
@@ -208,7 +220,7 @@ Partial Class frmRestaurantMaster
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(454, 180)
+        Me.txtID.Location = New System.Drawing.Point(631, 285)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(19, 20)
         Me.txtID.TabIndex = 4
@@ -217,7 +229,7 @@ Partial Class frmRestaurantMaster
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(149, 16)
+        Me.Label3.Location = New System.Drawing.Point(126, 137)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(96, 13)
         Me.Label3.TabIndex = 0
@@ -227,9 +239,9 @@ Partial Class frmRestaurantMaster
         '
         Me.txtTIN.BackColor = System.Drawing.Color.White
         Me.txtTIN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTIN.Location = New System.Drawing.Point(247, 152)
+        Me.txtTIN.Location = New System.Drawing.Point(440, 218)
         Me.txtTIN.Name = "txtTIN"
-        Me.txtTIN.Size = New System.Drawing.Size(159, 21)
+        Me.txtTIN.Size = New System.Drawing.Size(146, 21)
         Me.txtTIN.TabIndex = 4
         '
         'btnBrowse
@@ -240,7 +252,7 @@ Partial Class frmRestaurantMaster
         Me.btnBrowse.Location = New System.Drawing.Point(15, 128)
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.Size = New System.Drawing.Size(99, 31)
-        Me.btnBrowse.TabIndex = 9
+        Me.btnBrowse.TabIndex = 11
         Me.btnBrowse.Text = "&Browse..."
         Me.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnBrowse.UseVisualStyleBackColor = True
@@ -249,9 +261,9 @@ Partial Class frmRestaurantMaster
         '
         Me.txtSTNo.BackColor = System.Drawing.Color.White
         Me.txtSTNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSTNo.Location = New System.Drawing.Point(247, 183)
+        Me.txtSTNo.Location = New System.Drawing.Point(440, 248)
         Me.txtSTNo.Name = "txtSTNo"
-        Me.txtSTNo.Size = New System.Drawing.Size(159, 21)
+        Me.txtSTNo.Size = New System.Drawing.Size(146, 21)
         Me.txtSTNo.TabIndex = 5
         '
         'PictureBox1
@@ -268,7 +280,7 @@ Partial Class frmRestaurantMaster
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(149, 81)
+        Me.Label4.Location = New System.Drawing.Point(152, 222)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(70, 13)
         Me.Label4.TabIndex = 6
@@ -278,51 +290,51 @@ Partial Class frmRestaurantMaster
         '
         Me.txtEmailID.BackColor = System.Drawing.Color.White
         Me.txtEmailID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmailID.Location = New System.Drawing.Point(247, 116)
+        Me.txtEmailID.Location = New System.Drawing.Point(226, 190)
         Me.txtEmailID.Name = "txtEmailID"
-        Me.txtEmailID.Size = New System.Drawing.Size(352, 21)
-        Me.txtEmailID.TabIndex = 3
+        Me.txtEmailID.Size = New System.Drawing.Size(360, 21)
+        Me.txtEmailID.TabIndex = 2
         '
         'txtHotelName
         '
         Me.txtHotelName.BackColor = System.Drawing.Color.White
         Me.txtHotelName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHotelName.Location = New System.Drawing.Point(246, 16)
+        Me.txtHotelName.Location = New System.Drawing.Point(226, 132)
         Me.txtHotelName.Name = "txtHotelName"
-        Me.txtHotelName.Size = New System.Drawing.Size(353, 21)
+        Me.txtHotelName.Size = New System.Drawing.Size(361, 21)
         Me.txtHotelName.TabIndex = 0
         '
         'txtCIN
         '
         Me.txtCIN.BackColor = System.Drawing.Color.White
         Me.txtCIN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCIN.Location = New System.Drawing.Point(247, 214)
+        Me.txtCIN.Location = New System.Drawing.Point(440, 279)
         Me.txtCIN.Name = "txtCIN"
-        Me.txtCIN.Size = New System.Drawing.Size(159, 21)
+        Me.txtCIN.Size = New System.Drawing.Size(146, 21)
         Me.txtCIN.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(149, 183)
+        Me.Label7.Location = New System.Drawing.Point(377, 251)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(47, 13)
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
         Me.Label7.TabIndex = 13
-        Me.Label7.Text = "ST No. :"
+        Me.Label7.Text = "Serial No. :"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(149, 214)
+        Me.Label8.Location = New System.Drawing.Point(368, 282)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(31, 13)
+        Me.Label8.Size = New System.Drawing.Size(68, 13)
         Me.Label8.TabIndex = 14
-        Me.Label8.Text = "CIN :"
+        Me.Label8.Text = "Machine ID :"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(149, 152)
+        Me.Label6.Location = New System.Drawing.Point(405, 222)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(31, 13)
         Me.Label6.TabIndex = 12
@@ -331,7 +343,7 @@ Partial Class frmRestaurantMaster
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(149, 115)
+        Me.Label5.Location = New System.Drawing.Point(170, 194)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 13)
         Me.Label5.TabIndex = 11
@@ -341,15 +353,15 @@ Partial Class frmRestaurantMaster
         '
         Me.txtAddress.BackColor = System.Drawing.Color.White
         Me.txtAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(246, 47)
+        Me.txtAddress.Location = New System.Drawing.Point(226, 163)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(353, 21)
+        Me.txtAddress.Size = New System.Drawing.Size(361, 21)
         Me.txtAddress.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(149, 47)
+        Me.Label2.Location = New System.Drawing.Point(171, 168)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 5
@@ -359,29 +371,29 @@ Partial Class frmRestaurantMaster
         '
         Me.txtContactNo.BackColor = System.Drawing.Color.White
         Me.txtContactNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNo.Location = New System.Drawing.Point(246, 81)
+        Me.txtContactNo.Location = New System.Drawing.Point(226, 218)
         Me.txtContactNo.Name = "txtContactNo"
-        Me.txtContactNo.Size = New System.Drawing.Size(353, 21)
-        Me.txtContactNo.TabIndex = 2
+        Me.txtContactNo.Size = New System.Drawing.Size(114, 21)
+        Me.txtContactNo.TabIndex = 3
         '
         'dgw
         '
         Me.dgw.AllowUserToAddRows = False
         Me.dgw.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite
-        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FloralWhite
+        Me.dgw.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgw.BackgroundColor = System.Drawing.Color.White
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.LightSteelBlue
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgw.ColumnHeadersHeight = 24
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column10, Me.Column11})
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column10, Me.Column11, Me.Column12, Me.Column13})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgw.EnableHeadersVisualStyles = False
         Me.dgw.GridColor = System.Drawing.Color.White
@@ -390,95 +402,27 @@ Partial Class frmRestaurantMaster
         Me.dgw.Name = "dgw"
         Me.dgw.ReadOnly = True
         Me.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Orange
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Orange
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
         Me.dgw.RowHeadersWidth = 25
         Me.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumTurquoise
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.MediumTurquoise
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White
+        Me.dgw.RowsDefaultCellStyle = DataGridViewCellStyle16
         Me.dgw.RowTemplate.Height = 18
         Me.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgw.Size = New System.Drawing.Size(729, 72)
         Me.dgw.TabIndex = 1
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "ID"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Visible = False
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Restaurant Name"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Address"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Contact No."
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Email ID"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "TIN"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "ST No."
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "CIN"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Logo"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        Me.Column8.Visible = False
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Base Currency"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Currency Code"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
         '
         'GroupBox2
         '
@@ -575,6 +519,133 @@ Partial Class frmRestaurantMaster
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox2.Image = Global.RestaurantPOS3.My.Resources.Resources.hotel_icon
+        Me.PictureBox2.Location = New System.Drawing.Point(226, 16)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(300, 80)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 21
+        Me.PictureBox2.TabStop = False
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(148, 21)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(77, 13)
+        Me.Label12.TabIndex = 22
+        Me.Label12.Text = "Receipt Logo :"
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(532, 65)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(54, 31)
+        Me.Button1.TabIndex = 10
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'chkIsEnabled
+        '
+        Me.chkIsEnabled.AutoSize = True
+        Me.chkIsEnabled.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkIsEnabled.Location = New System.Drawing.Point(226, 104)
+        Me.chkIsEnabled.Name = "chkIsEnabled"
+        Me.chkIsEnabled.Size = New System.Drawing.Size(75, 17)
+        Me.chkIsEnabled.TabIndex = 9
+        Me.chkIsEnabled.Text = "IsEnabled"
+        Me.chkIsEnabled.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog2
+        '
+        Me.OpenFileDialog2.FileName = "OpenFileDialog1"
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "ID"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Visible = False
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Restaurant Name"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Address"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Contact No."
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Email ID"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "TIN"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Serial No."
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "MachineID"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Logo"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Base Currency"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "Currency Code"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        '
+        'Column12
+        '
+        Me.Column12.HeaderText = "Rpt Logo"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "EN"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        '
         'frmRestaurantMaster
         '
         Me.AcceptButton = Me.btnSave
@@ -590,6 +661,7 @@ Partial Class frmRestaurantMaster
         Me.Name = "frmRestaurantMaster"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -597,6 +669,7 @@ Partial Class frmRestaurantMaster
         Me.GroupBox2.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -636,16 +709,22 @@ Partial Class frmRestaurantMaster
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents txtCurrencyCode As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txtcCode As System.Windows.Forms.TextBox
-    Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewImageColumn
-    Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As System.Windows.Forms.DataGridViewTextBoxColumn
-
+    Friend WithEvents PictureBox2 As PictureBox
+    Public WithEvents Button1 As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents chkIsEnabled As CheckBox
+    Friend WithEvents OpenFileDialog2 As OpenFileDialog
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewImageColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewImageColumn
+    Friend WithEvents Column13 As DataGridViewCheckBoxColumn
 End Class

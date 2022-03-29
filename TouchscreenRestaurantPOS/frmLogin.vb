@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Public Class frmLogin
     Dim frm As New frmOption
     Dim sign_Indicator As Integer = 0
@@ -6,6 +7,7 @@ Public Class frmLogin
     Dim variable2 As Double
     Dim fl As Boolean = False
     Dim s, x As String
+    Dim Img As Image
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
         Try
             con = New SqlConnection(cs)
@@ -69,12 +71,32 @@ Public Class frmLogin
         Panel1.Location = New Point(Me.ClientSize.Width / 2 - Panel1.Size.Width / 2, Me.ClientSize.Height / 2 - Panel1.Size.Height / 2)
         Panel1.Anchor = AnchorStyles.None
         Panel2.Width = Me.Width
+        Call Getdata()
     End Sub
 
     Private Sub frmLogin_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         End
     End Sub
 
+    Public Sub Getdata()
+        Try
+            con = New SqlConnection(cs)
+            con.Open()
+            cmd = New SqlCommand("SELECT RTRIM(ID), RTRIM(HotelName), RTRIM(Address), RTRIM(ContactNo), RTRIM(EmailID), RTRIM(TIN), RTRIM(STNo), RTRIM(CIN), Logo,RTRIM(BaseCurrency),RTRIM(CurrencyCode) from Hotel", con)
+            rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+            If rdr.Read Then
+
+                Dim data As Byte() = DirectCast(rdr(8), Byte())
+                Dim ms As New MemoryStream(data)
+                Img = Image.FromStream(ms)
+                PictureBox1.Image = Img
+            End If
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         lblDateTime.Text = Now.ToString("dddd, dd MMMM yyyy hh:mm:ss tt")

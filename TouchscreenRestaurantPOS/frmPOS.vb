@@ -17,6 +17,7 @@ Public Class frmPOS
     Dim TINNo As String = ""
     Dim SNNo As String = ""
     Dim MIDNo As String = ""
+    Dim is_en As Boolean = False
     'for item sales | untuk item penjualan
     Public dtItem As DataTable
     Dim arrWidth() As Integer
@@ -29,6 +30,7 @@ Public Class frmPOS
     Dim dblSubtotal As Double = 0
     Dim dblQty As Double = 0
     Dim dblPayment As Double = 50000
+    Dim FocusText As TextBox
 
     Private Sub frmPOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
@@ -41,6 +43,9 @@ Public Class frmPOS
         txtTicketNo.Text = ""
         txtQty.Text = ""
         lblTotal.Text = ""
+        lblTotalBill.Text = ""
+        txtBillNo.Text = ""
+        txtPaymentMode.Text = ""
         lblID.Text = ""
         txtDiscPer.Text = ""
         txtDiscAmt.Text = ""
@@ -70,7 +75,7 @@ Public Class frmPOS
         Try
             con = New SqlConnection(cs)
             con.Open()
-            cmd = New SqlCommand("SELECT RTRIM(ID), RTRIM(HotelName), RTRIM(Address), RTRIM(ContactNo), RTRIM(EmailID), RTRIM(TIN), RTRIM(STNo), RTRIM(CIN), Logo,RTRIM(BaseCurrency),RTRIM(CurrencyCode) from Hotel", con)
+            cmd = New SqlCommand("SELECT RTRIM(ID), RTRIM(HotelName), RTRIM(Address), RTRIM(ContactNo), RTRIM(EmailID), RTRIM(TIN), RTRIM(STNo), RTRIM(CIN), ReceiptLogo, isEnabled from Hotel", con)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             If rdr.Read Then
                 StoreName = rdr(1).ToString
@@ -81,6 +86,7 @@ Public Class frmPOS
                 TINNo = "VAT REG TIN:" & rdr(5).ToString
                 SNNo = "SERIAL NO:" & rdr(6).ToString
                 MIDNo = "MIN:" & rdr(7).ToString
+                is_en = rdr(9)
             End If
             con.Close()
         Catch ex As Exception
@@ -218,6 +224,24 @@ Public Class frmPOS
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+        Else
+            lblTotal.Text = "0.00"
+        End If
+    End Sub
+
+    Private Sub ComputeTotalBill()
+        If dgwList.Rows.Count > 0 Then
+            Dim totalamt As Double = 0
+            Try
+                For i As Integer = 0 To dgwList.Rows.Count - 1
+                    totalamt += toNumber(dgwList.Rows(i).Cells(9).Value.ToString)
+                Next
+                lblTotalBill.Text = toMoney(totalamt)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            lblTotalBill.Text = "0.00"
         End If
     End Sub
 
@@ -237,7 +261,6 @@ Public Class frmPOS
                 ItemRow("Price") = dgw.Rows(i).Cells(14).Value.ToString
                 dtItem.Rows.Add(ItemRow)
             Next
-
         End If
 
     End Sub
@@ -288,6 +311,60 @@ Public Class frmPOS
 #End Region
 
 #Region "Handlers Buttons"
+
+    Private Sub chkBill_CheckedChanged(sender As Object, e As EventArgs)
+        Dim chkbill As CheckBox = DirectCast(sender, CheckBox)
+        If chkbill.Checked = True Then
+            If Trim(chkbill.Text) <> "" Then
+                Try
+                    Dim ticketID As Integer = 0
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim sql As String = "Select ID from RestaurantPOS_OrderInfoKOT WHERE TableNo=@d1 and isPaid=0"
+                    cmd = New SqlCommand(sql)
+                    cmd.Connection = con
+                    cmd.Parameters.AddWithValue("@d1", chkbill.Text)
+                    rdr = cmd.ExecuteReader()
+                    If rdr.Read Then
+                        If Not rdr Is Nothing Then
+                            ticketID = toNumber(rdr(0).ToString)
+                            rdr.Close()
+                            If ticketID > 0 Then
+                                Dim sqldet As String = "Select * from RestaurantPOS_OrderedProductKOT WHERE TicketID=@d1"
+                                cmd = New SqlCommand(sqldet)
+                                cmd.Connection = con
+                                cmd.Parameters.AddWithValue("@d1", ticketID)
+                                rdr = cmd.ExecuteReader()
+                                Do While (rdr.Read())
+                                    dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)), toNumber(rdr(5)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)), chkbill.Text)
+                                Loop
+
+                            End If
+                        End If
+                    Else
+                        ticketID = 0
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+
+            End If
+        Else
+            If dgwList.Rows.Count > 0 Then
+                Dim rowcount As Integer = Me.dgwList.RowCount - 1
+                Dim chkval As String
+                With Me.dgwList
+                    For i = rowcount To 0 Step -1
+                        chkval = .Rows(i).Cells(10).Value
+                        If chkval.Contains(chkbill.Text) Then
+                            .Rows.Remove(.Rows(i))
+                        End If
+                    Next
+                End With
+            End If
+        End If
+        Call ComputeTotalBill()
+    End Sub
 
     Private Sub btnCategory_Click(sender As Object, e As EventArgs)
         Dim btn As Button = DirectCast(sender, Button)
@@ -350,11 +427,12 @@ Public Class frmPOS
                         Dim newID As Integer = 0
                         Dim totamt As Double = amt + stamt + scamt + vatamat
                         Dim dishname As String = Trim(rdr(0))
+                        Dim kitsec As String = Trim(rdr(5))
                         If toNumber(lblID.Text) > 0 And is_edit = True Then
                             con = New SqlConnection(cs)
                             con.Open()
 
-                            Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT(TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
+                            Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT(TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16)"
                             cmd = New SqlCommand(cb)
                             cmd.Connection = con
                             cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
@@ -372,6 +450,7 @@ Public Class frmPOS
                             cmd.Parameters.AddWithValue("@d13", toNumber(discamt))
                             cmd.Parameters.AddWithValue("@d14", toNumber(totamt))
                             cmd.Parameters.AddWithValue("@d15", Trim(""))
+                            cmd.Parameters.AddWithValue("@d16", Trim(kitsec))
                             cmd.ExecuteReader()
                             con.Close()
                             Dim st As String = "added the new item '" & Trim(rdr(0)) & "' to ticket no " & Trim(txtTicketNo.Text)
@@ -406,12 +485,12 @@ Public Class frmPOS
                             cmd.ExecuteReader()
                             con.Close()
 
-                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt)
+                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec)
                             dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                             dgw.Focus()
 
                         ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
-                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt)
+                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec)
                             dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                             dgw.Focus()
 
@@ -431,11 +510,7 @@ Public Class frmPOS
             MsgBox("Please click new ticket to create an orders", vbCritical + vbOKOnly, "Error new order")
             Exit Sub
         End If
-        If is_edit = False Then
 
-        Else
-
-        End If
     End Sub
 
 #End Region
@@ -538,7 +613,7 @@ Public Class frmPOS
                 Try
                     con = New SqlConnection(cs)
                     con.Open()
-                    Dim ct As String = "select MAX(ID) AS ID from RestaurantPOS_BillingInfoKOT"
+                    Dim ct As String = "select MAX(ID) AS ID from RestaurantPOS_OrderInfoKOT"
                     cmd = New SqlCommand(ct)
                     cmd.Connection = con
                     rdr = cmd.ExecuteReader()
@@ -625,6 +700,9 @@ Public Class frmPOS
             lblTypeID.Text = ""
             lblID.Text = ""
             lblTotal.Text = "0.00"
+            lblTotalBill.Text = "0.00"
+            txtPaymentMode.Text = ""
+            txtBillNo.Text = ""
             dgw.Rows.Clear()
             is_edit = False
             FlowLayoutPanel1.Controls.Clear()
@@ -638,6 +716,7 @@ Public Class frmPOS
                 lblTypeID.Text = ""
                 lblID.Text = ""
                 lblTotal.Text = "0.00"
+                lblTotalBill.Text = "0.00"
                 dgw.Rows.Clear()
                 is_edit = False
                 FlowLayoutPanel1.Controls.Clear()
@@ -1088,6 +1167,8 @@ Public Class frmPOS
 
 #End Region
 
+#Region "Number Buttons"
+
     Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
         txtQty.Text = txtQty.Text + Convert.ToString(0)
     End Sub
@@ -1128,9 +1209,88 @@ Public Class frmPOS
         txtQty.Text = txtQty.Text + Convert.ToString(9)
     End Sub
 
+    Private Sub btnP1_Click(sender As Object, e As EventArgs) Handles btnP1.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(1)
+        End If
+    End Sub
+
+    Private Sub btnP2_Click(sender As Object, e As EventArgs) Handles btnP2.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(2)
+        End If
+    End Sub
+
+    Private Sub btnP3_Click(sender As Object, e As EventArgs) Handles btnP3.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(3)
+        End If
+    End Sub
+
+    Private Sub btnP4_Click(sender As Object, e As EventArgs) Handles btnP4.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(4)
+        End If
+    End Sub
+
+    Private Sub btnP5_Click(sender As Object, e As EventArgs) Handles btnP5.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(5)
+        End If
+    End Sub
+
+    Private Sub btnP6_Click(sender As Object, e As EventArgs) Handles btnP6.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(6)
+        End If
+    End Sub
+
+    Private Sub btnP7_Click(sender As Object, e As EventArgs) Handles btnP7.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(7)
+        End If
+    End Sub
+
+    Private Sub btnP8_Click(sender As Object, e As EventArgs) Handles btnP8.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(8)
+        End If
+    End Sub
+
+    Private Sub btnP9_Click(sender As Object, e As EventArgs) Handles btnP9.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(9)
+        End If
+    End Sub
+
+    Private Sub btnP0_Click(sender As Object, e As EventArgs) Handles btnP0.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(0)
+        End If
+    End Sub
+
+    Private Sub btnPX_Click(sender As Object, e As EventArgs) Handles btnPX.Click
+        s = FocusText.Text
+        Dim l As Integer = s.Length
+        For i As Integer = 0 To l - 2
+            x += s(i)
+        Next
+        FocusText.Text = x
+        x = ""
+    End Sub
+
+    Private Sub btnPDot_Click(sender As Object, e As EventArgs) Handles btnPDot.Click
+        If FocusText IsNot Nothing Then
+            FocusText.Text = FocusText.Text + Convert.ToString(".")
+        End If
+    End Sub
+
+#End Region
+
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If dgw.Rows.Count > 0 Then
             If toNumber(lblTypeID.Text) > 0 Then
+                'Dine In
                 If Trim(txtTableNo.Text) = "" Then
                     MsgBox("Please select table to save this order list.", vbInformation + vbOKOnly, "Error table no")
                     Exit Sub
@@ -1138,15 +1298,31 @@ Public Class frmPOS
                     MsgBox("Please create new ticket to save this order list.", vbInformation + vbOKOnly, "Error ticket no")
                     Exit Sub
                 Else
+                    If is_edit = False And toNumber(lblID.Text) = 0 Then
+                        'New save order
 
-
+                    End If
                 End If
             Else
+                'Take-out
                 If Trim(txtTicketNo.Text) = "" Then
                     MsgBox("Please create new ticket to settle this order list.", vbInformation + vbOKOnly, "Error ticket no")
                     Exit Sub
                 Else
-
+                    txtDiscPer.Text = ""
+                    txtDiscAmt.Text = ""
+                    txtDiscPer.ReadOnly = False
+                    txtCash.ReadOnly = False
+                    txtGrandTot.Text = toMoney(lblTotal.Text)
+                    lblGrandTotal.Text = toMoney(lblTotal.Text)
+                    txtCash.Text = ""
+                    pnlPayment.BringToFront()
+                    object_center(Me, pnlPayment)
+                    pnlPayment.Show()
+                    TabControl1.Enabled = False
+                    txtCash.SelectionStart = 0
+                    txtCash.SelectionLength = Len(txtCash.Text)
+                    txtCash.SelectAll()
                 End If
 
             End If
@@ -1158,7 +1334,9 @@ Public Class frmPOS
 
         Printer.NewPrint()
 
-        Printer.Print(Img, 300, 80)
+        If is_en = True Then
+            Printer.Print(Img, 300, 80)
+        End If
 
         'Setting Font
         Printer.SetFont("Courier New", 9, FontStyle.Bold)
@@ -1179,7 +1357,7 @@ Public Class frmPOS
 
         Printer.Print(" ") 'spacing
         Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
-        arrWidth = {110, 30, 70, 70} 'array for column width | array untuk lebar kolom
+        arrWidth = {100, 40, 70, 70} 'array for column width | array untuk lebar kolom
         arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
 
         'column header split by ; | nama kolom dipisah dengan ;
@@ -1201,16 +1379,30 @@ Public Class frmPOS
         Printer.Print("----------------------------------------")
         arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
         arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
-
+        Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
         Printer.Print("Total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
-        Printer.Print("Payment;" & toMoney(dblPayment), arrWidth, arrFormat)
+        Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+        Printer.Print("Payment;" & toMoney(txtCash.Text), arrWidth, arrFormat)
         Printer.Print("----------------------------------------")
-        Printer.Print("Change;" & toMoney(dblPayment - dblSubtotal), arrWidth, arrFormat)
+        Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
+        Printer.Print("Change;" & toMoney(txtCash.Text - dblSubtotal), arrWidth, arrFormat)
+        Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
         Printer.Print(" ")
         Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
 
         'Release the job for actual printing
         Printer.DoPrint()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        txtDiscPer.Text = ""
+        txtDiscAmt.Text = ""
+        txtGrandTot.Text = ""
+        txtCash.Text = ""
+        txtChange.Text = ""
+        pnlPayment.SendToBack()
+        pnlPayment.Hide()
+        TabControl1.Enabled = True
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -1230,6 +1422,7 @@ Public Class frmPOS
         End If
     End Sub
 
+
     Private Sub GetBilling()
         con = New SqlConnection(cs)
         con.Open()
@@ -1240,19 +1433,163 @@ Public Class frmPOS
         FlowLayoutPanel3.Controls.Clear()
         Do While (rdr.Read())
             Dim btn As New CheckBox
-            btn.Text = rdr.GetValue(0) & Environment.NewLine & rdr.GetValue(2)
-            btn.TextAlign = ContentAlignment.MiddleCenter
+            btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
+            btn.AutoSize = True
+            'btn.TextAlign = ContentAlignment.MiddleCenter
             'Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(4)))
             'btn.BackColor = btnColor
-            btn.FlatStyle = FlatStyle.Flat
-            btn.Width = 100
-            btn.Height = 50
-            btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            btn.FlatStyle = FlatStyle.Standard
+            'btn.Width = 50
+            'btn.Height = 25
+            btn.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             'UserButtons.Add(btn)
             FlowLayoutPanel3.Controls.Add(btn)
-            AddHandler btn.Click, AddressOf Me.btnCategory_Click
+            AddHandler btn.Click, AddressOf Me.chkBill_CheckedChanged
         Loop
         con.Close()
     End Sub
+
+#Region "Billing Buttons"
+
+    Private Sub btnSettleBill_Click(sender As Object, e As EventArgs) Handles btnSettleBill.Click
+        If dgwList.Rows.Count > 0 Then
+            txtDiscPer.Text = ""
+            txtDiscAmt.Text = ""
+            txtDiscPer.ReadOnly = False
+            txtCash.ReadOnly = False
+            txtGrandTot.Text = toMoney(lblTotalBill.Text)
+            lblGrandTotal.Text = toMoney(lblTotalBill.Text)
+            txtCash.Text = ""
+            pnlPayment.BringToFront()
+            object_center(Me, pnlPayment)
+            pnlPayment.Show()
+            TabControl1.Enabled = False
+            txtCash.SelectionStart = 0
+            txtCash.SelectionLength = Len(txtCash.Text)
+            txtCash.SelectAll()
+
+        End If
+    End Sub
+
+    Private Sub btnNewBill_Click(sender As Object, e As EventArgs) Handles btnNewBill.Click
+        dgwList.Rows.Clear()
+        Try
+            con = New SqlConnection(cs)
+            con.Open()
+            Dim ct As String = "select MAX(ID) AS ID from RestaurantPOS_BillingInfoKOT"
+            cmd = New SqlCommand(ct)
+            cmd.Connection = con
+            rdr = cmd.ExecuteReader()
+
+            If rdr.Read() Then
+                txtBillNo.Text = Format(rdr(0).ToString + 1, "000000")
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub btnGetDataBill_Click(sender As Object, e As EventArgs) Handles btnGetDataBill.Click
+
+    End Sub
+
+    Private Sub btnCancelBill_Click(sender As Object, e As EventArgs) Handles btnCancelBill.Click
+
+    End Sub
+
+#End Region
+
+#Region "Payment Buttons"
+
+    Private Sub btnCash_Click(sender As Object, e As EventArgs) Handles btnCash.Click
+        txtPaymentMode.Text = "Cash"
+    End Sub
+
+    Private Sub btnCard_Click(sender As Object, e As EventArgs) Handles btnCard.Click
+        txtPaymentMode.Text = "Card"
+    End Sub
+
+    Private Sub btnWallet_Click(sender As Object, e As EventArgs) Handles btnWallet.Click
+
+    End Sub
+
+    Private Sub btnGuest_Click(sender As Object, e As EventArgs) Handles btnGuest.Click
+
+    End Sub
+
+
+#End Region
+
+#Region "KeyEvents Focus"
+
+    Private Sub txtDiscPer_GotFocus(sender As Object, e As EventArgs) Handles txtDiscPer.GotFocus
+        FocusText = txtDiscPer
+    End Sub
+
+    Private Sub txtDiscAmt_GotFocus(sender As Object, e As EventArgs) Handles txtDiscAmt.GotFocus
+        FocusText = Nothing
+    End Sub
+
+    Private Sub txtGrandTot_GotFocus(sender As Object, e As EventArgs) Handles txtGrandTot.GotFocus
+        FocusText = Nothing
+    End Sub
+
+    Private Sub txtChange_GotFocus(sender As Object, e As EventArgs) Handles txtChange.GotFocus
+        FocusText = Nothing
+    End Sub
+
+    Private Sub txtDiscPer_TextChanged(sender As Object, e As EventArgs) Handles txtDiscPer.TextChanged
+        If toNumber(txtGrandTot.Text) >= 0 Then
+            If Val(txtDiscPer.Text) > 0 Then
+                Dim dicper As Double = toNumber(txtDiscPer.Text) / 100
+                Dim dschk As Double = toNumber(toNumber(lblGrandTotal.Text) * dicper)
+                If dschk <= toNumber(lblGrandTotal.Text) Then
+                    txtDiscAmt.Text = toMoney(dschk)
+                End If
+                Dim grnd As Double = toNumber(toNumber(lblGrandTotal.Text) - toNumber(txtDiscAmt.Text))
+                If toNumber(grnd) < 0 Then
+
+                Else
+                    txtGrandTot.Text = toMoney(grnd)
+                End If
+                If Trim(txtCash.Text) <> "" Then
+                    txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+                Else
+                    txtChange.Text = ""
+                End If
+            Else
+                txtDiscAmt.Text = ""
+                txtGrandTot.Text = toMoney(lblGrandTotal.Text)
+                If Trim(txtCash.Text) <> "" Then
+                    txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+                Else
+                    txtChange.Text = ""
+                End If
+            End If
+        Else
+
+        End If
+    End Sub
+
+    Private Sub txtCash_TextChanged(sender As Object, e As EventArgs) Handles txtCash.TextChanged
+        If toNumber(txtGrandTot.Text) >= 0 Then
+            If Trim(txtCash.Text) <> "" Then
+                txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text) - toNumber(txtDiscAmt.Text)))
+            Else
+                txtChange.Text = ""
+            End If
+
+        End If
+    End Sub
+
+    Private Sub txtCash_GotFocus(sender As Object, e As EventArgs) Handles txtCash.GotFocus
+        txtCash.SelectionStart = 0
+        txtCash.SelectionLength = Len(txtCash.Text)
+        txtCash.SelectAll()
+        FocusText = txtCash
+    End Sub
+
+#End Region
 
 End Class

@@ -242,4 +242,20 @@ Module ModFunc
         End Select
     End Function
 
+    Public Sub CenterForm(ByVal srcForm As Form)
+        Dim sw As Integer = My.Computer.Screen.Bounds.Width / 2
+        Dim sh As Integer = My.Computer.Screen.Bounds.Height / 2
+        Dim fw As Integer = srcForm.Size.Width / 2
+        Dim fh As Integer = srcForm.Size.Height / 2
+        Dim lw As Integer = sw - fw
+        Dim lh As Integer = sh - fh
+        Dim pnt As New Point(lw, lh)
+        srcForm.Location = pnt
+    End Sub
+
+    Public Sub object_center(ByVal srcForm As Form, ByVal obj As Object)
+        obj.location = New Point(srcForm.Width / 2 - obj.width / 2, srcForm.Height / 2 - obj.height / 2)
+        obj.Anchor = AnchorStyles.None
+    End Sub
+
 End Module

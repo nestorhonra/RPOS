@@ -31,9 +31,9 @@ Partial Class frmPOS
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -43,6 +43,8 @@ Partial Class frmPOS
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPOS))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblUser = New System.Windows.Forms.Label()
@@ -90,6 +92,7 @@ Partial Class frmPOS
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnDown = New System.Windows.Forms.Button()
@@ -119,6 +122,8 @@ Partial Class frmPOS
         Me.btnLess = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.lblTotalBill = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.dgwList = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -133,13 +138,13 @@ Partial Class frmPOS
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnCancelBill = New System.Windows.Forms.Button()
+        Me.btnGetDataBill = New System.Windows.Forms.Button()
+        Me.btnSettleBill = New System.Windows.Forms.Button()
+        Me.btnNewBill = New System.Windows.Forms.Button()
+        Me.txtPaymentMode = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtBillNo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -156,6 +161,7 @@ Partial Class frmPOS
         Me.btnP2 = New System.Windows.Forms.Button()
         Me.btnP1 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblGrandTotal = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -644,7 +650,7 @@ Partial Class frmPOS
         Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgw.ColumnHeadersHeight = 25
         Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15})
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
@@ -788,6 +794,14 @@ Partial Class frmPOS
         Me.Column15.HeaderText = "TotAmt"
         Me.Column15.Name = "Column15"
         Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "KS"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        Me.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'lblTotal
         '
@@ -1195,16 +1209,18 @@ Partial Class frmPOS
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.lblTotalBill)
+        Me.TabPage2.Controls.Add(Me.Label15)
         Me.TabPage2.Controls.Add(Me.dgwList)
         Me.TabPage2.Controls.Add(Me.FlowLayoutPanel3)
         Me.TabPage2.Controls.Add(Me.Label8)
-        Me.TabPage2.Controls.Add(Me.Button1)
-        Me.TabPage2.Controls.Add(Me.Button2)
-        Me.TabPage2.Controls.Add(Me.Button3)
-        Me.TabPage2.Controls.Add(Me.Button4)
-        Me.TabPage2.Controls.Add(Me.TextBox1)
+        Me.TabPage2.Controls.Add(Me.btnCancelBill)
+        Me.TabPage2.Controls.Add(Me.btnGetDataBill)
+        Me.TabPage2.Controls.Add(Me.btnSettleBill)
+        Me.TabPage2.Controls.Add(Me.btnNewBill)
+        Me.TabPage2.Controls.Add(Me.txtPaymentMode)
         Me.TabPage2.Controls.Add(Me.Label6)
-        Me.TabPage2.Controls.Add(Me.TextBox2)
+        Me.TabPage2.Controls.Add(Me.txtBillNo)
         Me.TabPage2.Controls.Add(Me.Label7)
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
@@ -1213,6 +1229,30 @@ Partial Class frmPOS
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Billing"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'lblTotalBill
+        '
+        Me.lblTotalBill.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalBill.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalBill.ForeColor = System.Drawing.Color.DarkOrange
+        Me.lblTotalBill.Location = New System.Drawing.Point(573, 6)
+        Me.lblTotalBill.Name = "lblTotalBill"
+        Me.lblTotalBill.Size = New System.Drawing.Size(157, 24)
+        Me.lblTotalBill.TabIndex = 89
+        Me.lblTotalBill.Text = "200.45"
+        Me.lblTotalBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Black
+        Me.Label15.Location = New System.Drawing.Point(462, 9)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(109, 20)
+        Me.Label15.TabIndex = 88
+        Me.Label15.Text = "Total Amount :"
         '
         'dgwList
         '
@@ -1224,7 +1264,6 @@ Partial Class frmPOS
         Me.dgwList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgwList.BackgroundColor = System.Drawing.Color.White
         Me.dgwList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
@@ -1236,14 +1275,14 @@ Partial Class frmPOS
         Me.dgwList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgwList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn12})
         Me.dgwList.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwList.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwList.DefaultCellStyle = DataGridViewCellStyle20
         Me.dgwList.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgwList.EnableHeadersVisualStyles = False
         Me.dgwList.GridColor = System.Drawing.Color.White
@@ -1252,22 +1291,22 @@ Partial Class frmPOS
         Me.dgwList.Name = "dgwList"
         Me.dgwList.ReadOnly = True
         Me.dgwList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Orange
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwList.RowHeadersDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.LightSeaGreen
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Orange
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwList.RowHeadersDefaultCellStyle = DataGridViewCellStyle21
         Me.dgwList.RowHeadersVisible = False
         Me.dgwList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Tahoma", 12.0!)
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.MediumTurquoise
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgwList.RowsDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle22.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Tahoma", 12.0!)
+        DataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.MediumTurquoise
+        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgwList.RowsDefaultCellStyle = DataGridViewCellStyle22
         Me.dgwList.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgwList.RowTemplate.Height = 25
         Me.dgwList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -1311,6 +1350,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn3
         '
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn3.HeaderText = "Qty"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
@@ -1320,8 +1361,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn6.HeaderText = "Amount"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -1331,8 +1372,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn13
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewTextBoxColumn13.HeaderText = "Disc %"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
@@ -1342,8 +1383,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn14
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridViewTextBoxColumn14.HeaderText = "Disc Amt"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
@@ -1352,8 +1393,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridViewTextBoxColumn7.HeaderText = "Vat %"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -1363,8 +1404,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn8.HeaderText = "Vat Amt"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
@@ -1373,8 +1414,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn15
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridViewTextBoxColumn15.HeaderText = "Total"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.ReadOnly = True
@@ -1384,6 +1425,8 @@ Partial Class frmPOS
         '
         'DataGridViewTextBoxColumn12
         '
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridViewTextBoxColumn12.HeaderText = "TableNo"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -1414,76 +1457,76 @@ Partial Class frmPOS
         Me.Label8.Text = "List of Tables"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button1
+        'btnCancelBill
         '
-        Me.Button1.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(6, 217)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 45)
-        Me.Button1.TabIndex = 82
-        Me.Button1.Text = "Print"
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnCancelBill.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.btnCancelBill.FlatAppearance.BorderSize = 0
+        Me.btnCancelBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancelBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelBill.ForeColor = System.Drawing.Color.White
+        Me.btnCancelBill.Location = New System.Drawing.Point(6, 217)
+        Me.btnCancelBill.Name = "btnCancelBill"
+        Me.btnCancelBill.Size = New System.Drawing.Size(90, 45)
+        Me.btnCancelBill.TabIndex = 82
+        Me.btnCancelBill.Text = "Cancel"
+        Me.btnCancelBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCancelBill.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnGetDataBill
         '
-        Me.Button2.BackColor = System.Drawing.Color.DarkOrchid
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(6, 166)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 45)
-        Me.Button2.TabIndex = 81
-        Me.Button2.Text = "Get Data"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnGetDataBill.BackColor = System.Drawing.Color.DarkOrchid
+        Me.btnGetDataBill.FlatAppearance.BorderSize = 0
+        Me.btnGetDataBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGetDataBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetDataBill.ForeColor = System.Drawing.Color.White
+        Me.btnGetDataBill.Location = New System.Drawing.Point(6, 166)
+        Me.btnGetDataBill.Name = "btnGetDataBill"
+        Me.btnGetDataBill.Size = New System.Drawing.Size(90, 45)
+        Me.btnGetDataBill.TabIndex = 81
+        Me.btnGetDataBill.Text = "Get Data"
+        Me.btnGetDataBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnGetDataBill.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btnSettleBill
         '
-        Me.Button3.BackColor = System.Drawing.Color.DarkCyan
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(6, 115)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 45)
-        Me.Button3.TabIndex = 80
-        Me.Button3.Text = "Settle"
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnSettleBill.BackColor = System.Drawing.Color.DarkCyan
+        Me.btnSettleBill.FlatAppearance.BorderSize = 0
+        Me.btnSettleBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSettleBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSettleBill.ForeColor = System.Drawing.Color.White
+        Me.btnSettleBill.Location = New System.Drawing.Point(6, 115)
+        Me.btnSettleBill.Name = "btnSettleBill"
+        Me.btnSettleBill.Size = New System.Drawing.Size(90, 45)
+        Me.btnSettleBill.TabIndex = 80
+        Me.btnSettleBill.Text = "Settle"
+        Me.btnSettleBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnSettleBill.UseVisualStyleBackColor = False
         '
-        'Button4
+        'btnNewBill
         '
-        Me.Button4.BackColor = System.Drawing.Color.DarkRed
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(6, 64)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(90, 45)
-        Me.Button4.TabIndex = 79
-        Me.Button4.Text = "New Bill"
-        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btnNewBill.BackColor = System.Drawing.Color.DarkRed
+        Me.btnNewBill.FlatAppearance.BorderSize = 0
+        Me.btnNewBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNewBill.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNewBill.ForeColor = System.Drawing.Color.White
+        Me.btnNewBill.Location = New System.Drawing.Point(6, 64)
+        Me.btnNewBill.Name = "btnNewBill"
+        Me.btnNewBill.Size = New System.Drawing.Size(90, 45)
+        Me.btnNewBill.TabIndex = 79
+        Me.btnNewBill.Text = "New Bill"
+        Me.btnNewBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnNewBill.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'txtPaymentMode
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(325, 8)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(103, 21)
-        Me.TextBox1.TabIndex = 78
-        Me.TextBox1.Text = "99"
+        Me.txtPaymentMode.BackColor = System.Drawing.Color.White
+        Me.txtPaymentMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPaymentMode.Location = New System.Drawing.Point(325, 8)
+        Me.txtPaymentMode.Name = "txtPaymentMode"
+        Me.txtPaymentMode.ReadOnly = True
+        Me.txtPaymentMode.Size = New System.Drawing.Size(103, 21)
+        Me.txtPaymentMode.TabIndex = 78
+        Me.txtPaymentMode.Text = "99"
         '
         'Label6
         '
@@ -1497,16 +1540,16 @@ Partial Class frmPOS
         Me.Label6.TabIndex = 77
         Me.Label6.Text = "Payment Mode :"
         '
-        'TextBox2
+        'txtBillNo
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(74, 8)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(86, 21)
-        Me.TextBox2.TabIndex = 76
-        Me.TextBox2.Text = "1234567890"
+        Me.txtBillNo.BackColor = System.Drawing.Color.White
+        Me.txtBillNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBillNo.Location = New System.Drawing.Point(74, 8)
+        Me.txtBillNo.Name = "txtBillNo"
+        Me.txtBillNo.ReadOnly = True
+        Me.txtBillNo.Size = New System.Drawing.Size(86, 21)
+        Me.txtBillNo.TabIndex = 76
+        Me.txtBillNo.Text = "1234567890"
         '
         'Label7
         '
@@ -1560,7 +1603,7 @@ Partial Class frmPOS
         Me.btnPX.Location = New System.Drawing.Point(282, 223)
         Me.btnPX.Name = "btnPX"
         Me.btnPX.Size = New System.Drawing.Size(131, 66)
-        Me.btnPX.TabIndex = 107
+        Me.btnPX.TabIndex = 117
         Me.btnPX.Text = "X"
         Me.btnPX.UseVisualStyleBackColor = False
         '
@@ -1574,7 +1617,7 @@ Partial Class frmPOS
         Me.btnPDot.Location = New System.Drawing.Point(8, 223)
         Me.btnPDot.Name = "btnPDot"
         Me.btnPDot.Size = New System.Drawing.Size(131, 66)
-        Me.btnPDot.TabIndex = 106
+        Me.btnPDot.TabIndex = 115
         Me.btnPDot.Text = "."
         Me.btnPDot.UseVisualStyleBackColor = False
         '
@@ -1588,7 +1631,7 @@ Partial Class frmPOS
         Me.btnP0.Location = New System.Drawing.Point(145, 223)
         Me.btnP0.Name = "btnP0"
         Me.btnP0.Size = New System.Drawing.Size(131, 66)
-        Me.btnP0.TabIndex = 105
+        Me.btnP0.TabIndex = 116
         Me.btnP0.Text = "0"
         Me.btnP0.UseVisualStyleBackColor = False
         '
@@ -1602,7 +1645,7 @@ Partial Class frmPOS
         Me.btnP9.Location = New System.Drawing.Point(281, 151)
         Me.btnP9.Name = "btnP9"
         Me.btnP9.Size = New System.Drawing.Size(131, 66)
-        Me.btnP9.TabIndex = 104
+        Me.btnP9.TabIndex = 114
         Me.btnP9.Text = "9"
         Me.btnP9.UseVisualStyleBackColor = False
         '
@@ -1616,7 +1659,7 @@ Partial Class frmPOS
         Me.btnP8.Location = New System.Drawing.Point(144, 151)
         Me.btnP8.Name = "btnP8"
         Me.btnP8.Size = New System.Drawing.Size(131, 66)
-        Me.btnP8.TabIndex = 103
+        Me.btnP8.TabIndex = 113
         Me.btnP8.Text = "8"
         Me.btnP8.UseVisualStyleBackColor = False
         '
@@ -1630,7 +1673,7 @@ Partial Class frmPOS
         Me.btnP7.Location = New System.Drawing.Point(7, 151)
         Me.btnP7.Name = "btnP7"
         Me.btnP7.Size = New System.Drawing.Size(131, 66)
-        Me.btnP7.TabIndex = 102
+        Me.btnP7.TabIndex = 112
         Me.btnP7.Text = "7"
         Me.btnP7.UseVisualStyleBackColor = False
         '
@@ -1644,7 +1687,7 @@ Partial Class frmPOS
         Me.btnP6.Location = New System.Drawing.Point(281, 79)
         Me.btnP6.Name = "btnP6"
         Me.btnP6.Size = New System.Drawing.Size(131, 66)
-        Me.btnP6.TabIndex = 101
+        Me.btnP6.TabIndex = 110
         Me.btnP6.Text = "6"
         Me.btnP6.UseVisualStyleBackColor = False
         '
@@ -1658,7 +1701,7 @@ Partial Class frmPOS
         Me.btnP5.Location = New System.Drawing.Point(144, 79)
         Me.btnP5.Name = "btnP5"
         Me.btnP5.Size = New System.Drawing.Size(131, 66)
-        Me.btnP5.TabIndex = 100
+        Me.btnP5.TabIndex = 109
         Me.btnP5.Text = "5"
         Me.btnP5.UseVisualStyleBackColor = False
         '
@@ -1672,7 +1715,7 @@ Partial Class frmPOS
         Me.btnP4.Location = New System.Drawing.Point(7, 79)
         Me.btnP4.Name = "btnP4"
         Me.btnP4.Size = New System.Drawing.Size(131, 66)
-        Me.btnP4.TabIndex = 99
+        Me.btnP4.TabIndex = 108
         Me.btnP4.Text = "4"
         Me.btnP4.UseVisualStyleBackColor = False
         '
@@ -1686,7 +1729,7 @@ Partial Class frmPOS
         Me.btnP3.Location = New System.Drawing.Point(281, 7)
         Me.btnP3.Name = "btnP3"
         Me.btnP3.Size = New System.Drawing.Size(131, 66)
-        Me.btnP3.TabIndex = 98
+        Me.btnP3.TabIndex = 107
         Me.btnP3.Text = "3"
         Me.btnP3.UseVisualStyleBackColor = False
         '
@@ -1700,7 +1743,7 @@ Partial Class frmPOS
         Me.btnP2.Location = New System.Drawing.Point(144, 7)
         Me.btnP2.Name = "btnP2"
         Me.btnP2.Size = New System.Drawing.Size(131, 66)
-        Me.btnP2.TabIndex = 97
+        Me.btnP2.TabIndex = 106
         Me.btnP2.Text = "2"
         Me.btnP2.UseVisualStyleBackColor = False
         '
@@ -1714,13 +1757,14 @@ Partial Class frmPOS
         Me.btnP1.Location = New System.Drawing.Point(7, 7)
         Me.btnP1.Name = "btnP1"
         Me.btnP1.Size = New System.Drawing.Size(131, 66)
-        Me.btnP1.TabIndex = 96
+        Me.btnP1.TabIndex = 105
         Me.btnP1.Text = "1"
         Me.btnP1.UseVisualStyleBackColor = False
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel5.Controls.Add(Me.lblGrandTotal)
         Me.Panel5.Controls.Add(Me.Label13)
         Me.Panel5.Controls.Add(Me.Label12)
         Me.Panel5.Controls.Add(Me.Label11)
@@ -1735,6 +1779,18 @@ Partial Class frmPOS
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(698, 212)
         Me.Panel5.TabIndex = 108
+        '
+        'lblGrandTotal
+        '
+        Me.lblGrandTotal.AutoSize = True
+        Me.lblGrandTotal.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotal.ForeColor = System.Drawing.Color.Black
+        Me.lblGrandTotal.Location = New System.Drawing.Point(527, 104)
+        Me.lblGrandTotal.Name = "lblGrandTotal"
+        Me.lblGrandTotal.Size = New System.Drawing.Size(12, 13)
+        Me.lblGrandTotal.TabIndex = 106
+        Me.lblGrandTotal.Text = "1"
         '
         'Label13
         '
@@ -1792,7 +1848,7 @@ Partial Class frmPOS
         Me.txtChange.Name = "txtChange"
         Me.txtChange.ReadOnly = True
         Me.txtChange.Size = New System.Drawing.Size(242, 35)
-        Me.txtChange.TabIndex = 82
+        Me.txtChange.TabIndex = 105
         Me.txtChange.Text = "1234567890"
         Me.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1802,9 +1858,8 @@ Partial Class frmPOS
         Me.txtCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCash.Location = New System.Drawing.Point(279, 130)
         Me.txtCash.Name = "txtCash"
-        Me.txtCash.ReadOnly = True
         Me.txtCash.Size = New System.Drawing.Size(242, 35)
-        Me.txtCash.TabIndex = 81
+        Me.txtCash.TabIndex = 103
         Me.txtCash.Text = "1234567890"
         Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1816,7 +1871,7 @@ Partial Class frmPOS
         Me.txtGrandTot.Name = "txtGrandTot"
         Me.txtGrandTot.ReadOnly = True
         Me.txtGrandTot.Size = New System.Drawing.Size(242, 35)
-        Me.txtGrandTot.TabIndex = 80
+        Me.txtGrandTot.TabIndex = 102
         Me.txtGrandTot.Text = "1234567890"
         Me.txtGrandTot.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1828,7 +1883,7 @@ Partial Class frmPOS
         Me.txtDiscAmt.Name = "txtDiscAmt"
         Me.txtDiscAmt.ReadOnly = True
         Me.txtDiscAmt.Size = New System.Drawing.Size(242, 35)
-        Me.txtDiscAmt.TabIndex = 79
+        Me.txtDiscAmt.TabIndex = 101
         Me.txtDiscAmt.Text = "1234567890"
         Me.txtDiscAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1840,7 +1895,7 @@ Partial Class frmPOS
         Me.txtDiscPer.Name = "txtDiscPer"
         Me.txtDiscPer.ReadOnly = True
         Me.txtDiscPer.Size = New System.Drawing.Size(242, 35)
-        Me.txtDiscPer.TabIndex = 78
+        Me.txtDiscPer.TabIndex = 104
         Me.txtDiscPer.Text = "1234567890"
         Me.txtDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1884,7 +1939,7 @@ Partial Class frmPOS
         Me.btnClose.Location = New System.Drawing.Point(569, 420)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(127, 84)
-        Me.btnClose.TabIndex = 111
+        Me.btnClose.TabIndex = 125
         Me.btnClose.Text = "CLOSE"
         Me.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnClose.UseVisualStyleBackColor = False
@@ -1900,7 +1955,7 @@ Partial Class frmPOS
         Me.btnSettleUpdate.Location = New System.Drawing.Point(569, 320)
         Me.btnSettleUpdate.Name = "btnSettleUpdate"
         Me.btnSettleUpdate.Size = New System.Drawing.Size(127, 84)
-        Me.btnSettleUpdate.TabIndex = 110
+        Me.btnSettleUpdate.TabIndex = 124
         Me.btnSettleUpdate.Text = "UPDATE + PRINT"
         Me.btnSettleUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnSettleUpdate.UseVisualStyleBackColor = False
@@ -1916,7 +1971,7 @@ Partial Class frmPOS
         Me.btnSettle.Location = New System.Drawing.Point(569, 221)
         Me.btnSettle.Name = "btnSettle"
         Me.btnSettle.Size = New System.Drawing.Size(127, 84)
-        Me.btnSettle.TabIndex = 109
+        Me.btnSettle.TabIndex = 123
         Me.btnSettle.Text = "SAVE + PRINT"
         Me.btnSettle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnSettle.UseVisualStyleBackColor = False
@@ -1932,7 +1987,7 @@ Partial Class frmPOS
         Me.btnGuest.Location = New System.Drawing.Point(6, 437)
         Me.btnGuest.Name = "btnGuest"
         Me.btnGuest.Size = New System.Drawing.Size(127, 66)
-        Me.btnGuest.TabIndex = 86
+        Me.btnGuest.TabIndex = 122
         Me.btnGuest.Text = "GUEST"
         Me.btnGuest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnGuest.UseVisualStyleBackColor = False
@@ -1948,7 +2003,7 @@ Partial Class frmPOS
         Me.btnWallet.Location = New System.Drawing.Point(6, 365)
         Me.btnWallet.Name = "btnWallet"
         Me.btnWallet.Size = New System.Drawing.Size(127, 66)
-        Me.btnWallet.TabIndex = 85
+        Me.btnWallet.TabIndex = 121
         Me.btnWallet.Text = "WALLET"
         Me.btnWallet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnWallet.UseVisualStyleBackColor = False
@@ -1964,7 +2019,7 @@ Partial Class frmPOS
         Me.btnCard.Location = New System.Drawing.Point(6, 293)
         Me.btnCard.Name = "btnCard"
         Me.btnCard.Size = New System.Drawing.Size(127, 66)
-        Me.btnCard.TabIndex = 84
+        Me.btnCard.TabIndex = 120
         Me.btnCard.Text = "CARD"
         Me.btnCard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCard.UseVisualStyleBackColor = False
@@ -1980,7 +2035,7 @@ Partial Class frmPOS
         Me.btnCash.Location = New System.Drawing.Point(6, 221)
         Me.btnCash.Name = "btnCash"
         Me.btnCash.Size = New System.Drawing.Size(127, 66)
-        Me.btnCash.TabIndex = 83
+        Me.btnCash.TabIndex = 119
         Me.btnCash.Text = "CASH"
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
@@ -1991,9 +2046,9 @@ Partial Class frmPOS
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1068, 738)
+        Me.Controls.Add(Me.pnlPayment)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pnlPayment)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "frmPOS"
@@ -2080,21 +2135,6 @@ Partial Class frmPOS
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblID As Label
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnPX As Button
     Friend WithEvents btnPDot As Button
@@ -2110,13 +2150,13 @@ Partial Class frmPOS
     Friend WithEvents btnP1 As Button
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Label8 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btnCancelBill As Button
+    Friend WithEvents btnGetDataBill As Button
+    Friend WithEvents btnSettleBill As Button
+    Friend WithEvents btnNewBill As Button
+    Friend WithEvents txtPaymentMode As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtBillNo As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label13 As Label
@@ -2134,6 +2174,26 @@ Partial Class frmPOS
     Friend WithEvents btnCard As Button
     Friend WithEvents btnCash As Button
     Friend WithEvents dgwList As DataGridView
+    Friend WithEvents pnlPayment As Panel
+    Friend WithEvents btnClose As Button
+    Friend WithEvents btnSettleUpdate As Button
+    Friend WithEvents btnSettle As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -2145,8 +2205,7 @@ Partial Class frmPOS
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents pnlPayment As Panel
-    Friend WithEvents btnClose As Button
-    Friend WithEvents btnSettleUpdate As Button
-    Friend WithEvents btnSettle As Button
+    Friend WithEvents lblTotalBill As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents lblGrandTotal As Label
 End Class

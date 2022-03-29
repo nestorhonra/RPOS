@@ -11,6 +11,7 @@ Public Class frmRestaurantMaster
         txtCIN.Text = ""
         txtAddress.Text = ""
         PictureBox1.Image = My.Resources.hotel_icon
+        PictureBox2.Image = My.Resources.hotel_icon
         txtBaseCurrency.Text = ""
         txtCurrencyCode.Text = ""
         txtHotelName.Focus()
@@ -72,7 +73,7 @@ Public Class frmRestaurantMaster
             End If
             con = New SqlConnection(cs)
             con.Open()
-            Dim cb As String = "insert into Hotel( HotelName, Address, ContactNo, EmailID, TIN, STNo, CIN, Logo,BaseCurrency,CurrencyCode) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)"
+            Dim cb As String = "insert into Hotel( HotelName, Address, ContactNo, EmailID, TIN, STNo, CIN, Logo,BaseCurrency,CurrencyCode,ReceiptLogo,isEnabled) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)"
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", txtHotelName.Text)
@@ -91,6 +92,14 @@ Public Class frmRestaurantMaster
             Dim p As New SqlParameter("@d8", SqlDbType.Image)
             p.Value = data
             cmd.Parameters.Add(p)
+            Dim ms1 As New MemoryStream()
+            Dim bmpImage1 As New Bitmap(PictureBox2.Image)
+            bmpImage1.Save(ms1, System.Drawing.Imaging.ImageFormat.Jpeg)
+            Dim data1 As Byte() = ms1.GetBuffer()
+            Dim p1 As New SqlParameter("@d11", SqlDbType.Image)
+            p1.Value = data1
+            cmd.Parameters.Add(p1)
+            cmd.Parameters.AddWithValue("@d12", changeOneZeroValue(chkIsEnabled.CheckState))
             cmd.ExecuteNonQuery()
             con.Close()
             Dim st As String = "added the restaurant '" & txtHotelName.Text & "' info"
@@ -165,7 +174,7 @@ Public Class frmRestaurantMaster
             con.Close()
             con = New SqlConnection(cs)
             con.Open()
-            Dim cb As String = "Update Hotel set HotelName=@d1, Address=@d2, ContactNo=@d3, EmailID=@d4, TIN=@d5, STNo=@d6, CIN=@d7, Logo=@d8,BaseCurrency=@d9,CurrencyCode=@d10 where ID=" & txtID.Text & ""
+            Dim cb As String = "Update Hotel set HotelName=@d1, Address=@d2, ContactNo=@d3, EmailID=@d4, TIN=@d5, STNo=@d6, CIN=@d7, Logo=@d8,BaseCurrency=@d9,CurrencyCode=@d10, ReceiptLogo=@d11, isEnabled=@d12 where ID=" & txtID.Text & ""
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", txtHotelName.Text)
@@ -184,6 +193,14 @@ Public Class frmRestaurantMaster
             Dim p As New SqlParameter("@d8", SqlDbType.Image)
             p.Value = data
             cmd.Parameters.Add(p)
+            Dim ms1 As New MemoryStream()
+            Dim bmpImage1 As New Bitmap(PictureBox2.Image)
+            bmpImage1.Save(ms1, System.Drawing.Imaging.ImageFormat.Jpeg)
+            Dim data1 As Byte() = ms1.GetBuffer()
+            Dim p1 As New SqlParameter("@d11", SqlDbType.Image)
+            p1.Value = data1
+            cmd.Parameters.Add(p1)
+            cmd.Parameters.AddWithValue("@d12", changeOneZeroValue(chkIsEnabled.CheckState))
             cmd.ExecuteNonQuery()
             con.Close()
             Dim st As String = "updated the restaurant '" & txtHotelName.Text & "' info"
@@ -200,11 +217,11 @@ Public Class frmRestaurantMaster
         Try
             con = New SqlConnection(cs)
             con.Open()
-            cmd = New SqlCommand("SELECT RTRIM(ID), RTRIM(HotelName), RTRIM(Address), RTRIM(ContactNo), RTRIM(EmailID), RTRIM(TIN), RTRIM(STNo), RTRIM(CIN), Logo,RTRIM(BaseCurrency),RTRIM(CurrencyCode) from Hotel", con)
+            cmd = New SqlCommand("SELECT RTRIM(ID), RTRIM(HotelName), RTRIM(Address), RTRIM(ContactNo), RTRIM(EmailID), RTRIM(TIN), RTRIM(STNo), RTRIM(CIN), Logo,RTRIM(BaseCurrency),RTRIM(CurrencyCode), ReceiptLogo, isEnabled from Hotel", con)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             dgw.Rows.Clear()
             While (rdr.Read() = True)
-                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5), rdr(6), rdr(7), rdr(8), rdr(9), rdr(10))
+                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5), rdr(6), rdr(7), rdr(8), rdr(9), rdr(10), rdr(11), rdr(12))
             End While
             con.Close()
         Catch ex As Exception
@@ -248,7 +265,11 @@ Public Class frmRestaurantMaster
                 Me.PictureBox1.Image = Image.FromStream(ms)
                 txtBaseCurrency.Text = dr.Cells(9).Value.ToString()
                 txtCurrencyCode.Text = dr.Cells(10).Value.ToString()
-                txtCcode.Text = dr.Cells(10).Value.ToString()
+                txtcCode.Text = dr.Cells(10).Value.ToString()
+                Dim data1 As Byte() = DirectCast(dr.Cells(11).Value, Byte())
+                Dim ms1 As New MemoryStream(data1)
+                Me.PictureBox2.Image = Image.FromStream(ms1)
+                chkIsEnabled.Checked = dr.Cells(12).Value
                 btnUpdate.Enabled = True
                 btnSave.Enabled = False
                 btnDelete.Enabled = True
@@ -312,5 +333,22 @@ Public Class frmRestaurantMaster
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         End Try
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            With OpenFileDialog2
+                .Filter = ("Images |*.png; *.bmp; *.jpg;*.jpeg; *.gif;*.ico;")
+                .FilterIndex = 4
+            End With
+            'Clear the file name
+            OpenFileDialog2.FileName = ""
+            If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
+                PictureBox2.Image = Image.FromFile(OpenFileDialog2.FileName)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString())
+        End Try
+    End Sub
+
 
 End Class
