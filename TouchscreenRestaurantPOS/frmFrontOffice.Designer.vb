@@ -132,7 +132,7 @@ Partial Class frmFrontOffice
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 86)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(622, 415)
-        Me.FlowLayoutPanel1.TabIndex = 32
+        Me.FlowLayoutPanel1.TabIndex = 1
         '
         'btnWorkPeriod
         '
