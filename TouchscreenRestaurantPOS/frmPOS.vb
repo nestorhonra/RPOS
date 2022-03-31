@@ -37,6 +37,7 @@ Public Class frmPOS
     Dim FocusText As TextBox
     Dim tableTag As String = ""
     Dim ticketTag As String = ""
+    Dim cateTag As String = ""
 
     Private Sub frmPOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
@@ -55,16 +56,21 @@ Public Class frmPOS
         txtBillNo.Text = ""
         txtPaymentMode.Text = ""
         lblID.Text = ""
+        lblIDRecall.Text = ""
         txtDiscPer.Text = ""
         txtDiscAmt.Text = ""
         txtGrandTot.Text = ""
         txtCash.Text = ""
         txtChange.Text = ""
+        ticketTag = ""
+        tableTag = ""
+        cateTag = ""
         pnlPayment.Hide()
         is_edit = False
         FlowLayoutPanel1.Controls.Clear()
         FlowLayoutPanel2.Controls.Clear()
         FlowLayoutPanel3.Controls.Clear()
+        btnSave.Enabled = False
         Call Getdata()
         con = New SqlConnection(cs)
         con.Open()
@@ -123,46 +129,80 @@ Public Class frmPOS
         dgw.AutoSizeRowsMode = DataGridViewAutoSizeRowMode.AllCells
     End Sub
 
-    Public Sub GetOrders(ByVal ids As String)
+    Public Sub GetOrders(ByVal ids As String, ByVal tagf As Integer)
         If ids <> "" Then
             Try
                 con = New SqlConnection(cs)
                 con.Open()
-                Dim cl As String = "SELECT TOP 1 * FROM RestaurantPOS_OrderInfoKOT where TableNo=@d1 AND isPaid=0 ORDER BY ID DESC"
+                Dim cl As String = ""
+                If tagf > 0 Then
+                    cl = "SELECT TOP 1 * FROM TempRestaurantPOS_OrderInfoKOT where TableNo=@d1 AND isPaid=0 ORDER BY ID DESC"
+                Else
+                    cl = "SELECT TOP 1 * FROM RestaurantPOS_OrderInfoKOT where TableNo=@d1 AND isPaid=0 ORDER BY ID DESC"
+                End If
+
                 cmd = New SqlCommand(cl)
                 cmd.Connection = con
                 cmd.Parameters.AddWithValue("@d1", ids)
                 rdr = cmd.ExecuteReader()
                 If rdr.Read Then
-                    lblID.Text = toNumber(rdr(0))
-                    txtTicketNo.Text = rdr(1).ToString
-                    txtTableNo.Text = rdr(4).ToString
+                    If tagf > 0 Then
+                        lblIDRecall.Text = toNumber(rdr(0))
+                        txtTicketNo.Text = ""
+                        txtTableNo.Text = ""
+                    Else
+                        lblID.Text = toNumber(rdr(0))
+                        txtTicketNo.Text = rdr(1).ToString
+                        txtTableNo.Text = rdr(4).ToString
+                    End If
+
                     lblTotal.Text = toMoney(rdr(3).ToString)
                     lblType.Text = rdr(8).ToString
                     lblTypeID.Text = changeOneZeroValue(rdr(9))
                     'MsgBox(rdr(9) & " " & ids)
-                    Call GetOrderList(toNumber(rdr(0)).ToString)
+                    Call GetOrderList(toNumber(rdr(0)).ToString, tagf)
                 End If
                 con.Close()
+                If tagf > 0 Then
+                    Try
+                        con = New SqlConnection(cs)
+                        con.Open()
+                        Dim ct As String = "select MAX(ID) AS ID from RestaurantPOS_OrderInfoKOT"
+                        cmd = New SqlCommand(ct)
+                        cmd.Connection = con
+                        rdr = cmd.ExecuteReader()
+
+                        If rdr.Read() Then
+                            txtTicketNo.Text = Format(rdr(0).ToString + 1, "000000")
+                        End If
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
+                End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
     End Sub
 
-    Private Sub GetOrderList(ByVal ids As Integer)
+    Private Sub GetOrderList(ByVal ids As Integer, ByVal tagf As Integer)
         If ids > 0 Then
             dgw.Rows.Clear()
             Try
                 con = New SqlConnection(cs)
                 con.Open()
-                Dim cmdText1 As String = "SELECT * from RestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
+                Dim cmdText1 As String = ""
+                If tagf > 0 Then
+                    cmdText1 = "SELECT * from TempRestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
+                Else
+                    cmdText1 = "SELECT * from RestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
+                End If
                 cmd = New SqlCommand(cmdText1)
                 cmd.Connection = con
                 rdr = cmd.ExecuteReader()
                 FlowLayoutPanel2.Controls.Clear()
                 Do While (rdr.Read())
-                    dgw.Rows.Add(rdr(2), rdr(3), rdr(4), rdr(15), toNumber(rdr(0)), toNumber(rdr(5)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(14)))
+                    dgw.Rows.Add(Trim(rdr(2).ToString), toMoney(rdr(3).ToString), rdr(4), Trim(rdr(15).ToString), toNumber(rdr(0)), toNumber(rdr(5)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(14)), Trim(rdr(16).ToString))
                 Loop
                 con.Close()
                 Call FillCategory()
@@ -416,6 +456,7 @@ Public Class frmPOS
     Private Sub btnCategory_Click(sender As Object, e As EventArgs)
         Dim btn As Button = DirectCast(sender, Button)
         Call FillMenus(btn.Text)
+        cateTag = btn.Text
     End Sub
 
     Private Sub btnTables_Click(sender As Object, e As EventArgs)
@@ -448,9 +489,25 @@ Public Class frmPOS
         Dim btn As Button = DirectCast(sender, Button)
         If Trim(txtTicketNo.Text) <> "" Then
             Try
+                If cateTag <> "" Then
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim sql1 As String = "Select * from Dish WHERE DishName=@d1"
+                    cmd = New SqlCommand(sql1)
+                    cmd.Connection = con
+                    cmd.Parameters.AddWithValue("@d1", cateTag)
+                    rdr = cmd.ExecuteReader()
+                    If rdr.Read Then
+
+                    End If
+                    rdr.Close()
+                    con.Close()
+
+                End If
+
                 con = New SqlConnection(cs)
                 con.Open()
-                Dim sql As String = "Select * from Dish WHERE DishName=@d1"
+                Dim sql As String = "Select D.DishName, D.Category, D.Rate, D.Discount, D.BackColor, D.Kitchen, C.VAT, C.ST,C.SC from Dish AS D FULL OUTER JOIN Category AS C ON D.Category = C.CategoryName WHERE D.DishName =@d1"
                 cmd = New SqlCommand(sql)
                 cmd.Connection = con
                 cmd.Parameters.AddWithValue("@d1", btn.Text)
@@ -463,6 +520,15 @@ Public Class frmPOS
                             d_qty = 1
                         Else
                             d_qty = Val(txtQty.Text)
+                        End If
+                        If Not IsDBNull(rdr(6)) Then
+                            srvVat = toNumber(rdr(6).ToString)
+                        End If
+                        If Not IsDBNull(rdr(7)) Then
+                            srvTax = toNumber(rdr(7).ToString)
+                        End If
+                        If Not IsDBNull(rdr(8)) Then
+                            srvChrge = toNumber(rdr(8).ToString)
                         End If
                         Dim dishrate As Double = toNumber(rdr(2))
                         Dim amt As Double = toNumber(dishrate * d_qty)
@@ -538,12 +604,12 @@ Public Class frmPOS
 
                         ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
                             rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec)
-                            dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
-                            dgw.Focus()
-
-                        End If
-                    Else
-                        rdr.Close()
+                                dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
+                                dgw.Focus()
+                                btnSave.Enabled = True
+                            End If
+                        Else
+                            rdr.Close()
                         Exit Sub
                     End If
                     Call ComputeTotal()
@@ -572,7 +638,7 @@ Public Class frmPOS
                 lblType.ForeColor = Color.SeaGreen
                 'btnSave.Enabled = True
                 btnSave.Text = "Save + Print"
-                btnUpdate.Enabled = True
+                'btnUpdate.Enabled = True
                 btnChgTable.Enabled = True
             Else
                 If toNumber(lblTypeID.Text) = 0 And toNumber(lblID.Text) > 0 Then
@@ -582,7 +648,7 @@ Public Class frmPOS
                             lblType.Text = "Dine-In"
                             lblType.ForeColor = Color.SeaGreen
                             btnSave.Text = "Save + Print"
-                            btnUpdate.Enabled = True
+                            'btnUpdate.Enabled = True
                             btnChgTable.Enabled = True
                             con = New SqlConnection(cs)
                             con.Open()
@@ -616,7 +682,7 @@ Public Class frmPOS
                 lblType.Text = "Take-Out"
                 lblType.ForeColor = Color.Crimson
                 btnSave.Text = "Settle"
-                btnUpdate.Enabled = False
+                'btnUpdate.Enabled = False
                 btnChgTable.Enabled = False
                 txtTableNo.Text = ""
             Else
@@ -627,7 +693,7 @@ Public Class frmPOS
                             lblType.Text = "Take-Out"
                             lblType.ForeColor = Color.Crimson
                             btnSave.Text = "Settle"
-                            btnUpdate.Enabled = False
+                            'btnUpdate.Enabled = False
                             btnChgTable.Enabled = False
                             con = New SqlConnection(cs)
                             con.Open()
@@ -746,17 +812,22 @@ Public Class frmPOS
             lblType.Text = ""
             lblTypeID.Text = ""
             lblID.Text = ""
+            lblIDRecall.Text = ""
             lblTotal.Text = ""
             lblPayID.Text = ""
             lblTotalBill.Text = ""
             lblGrandTotal.Text = ""
             txtPaymentMode.Text = ""
             txtBillNo.Text = ""
+            ticketTag = ""
+            tableTag = ""
+            cateTag = ""
             dgw.Rows.Clear()
             is_edit = False
             FlowLayoutPanel1.Controls.Clear()
             FlowLayoutPanel2.Controls.Clear()
             FlowLayoutPanel3.Controls.Clear()
+            btnSave.Enabled = False
         Else
             If MsgBox("Are you sure you want to cancel this order?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
                 txtQty.Text = ""
@@ -765,6 +836,7 @@ Public Class frmPOS
                 lblType.Text = ""
                 lblTypeID.Text = ""
                 lblID.Text = ""
+                lblIDRecall.Text = ""
                 lblTotal.Text = ""
                 lblTotalBill.Text = ""
                 lblGrandTotal.Text = ""
@@ -774,6 +846,7 @@ Public Class frmPOS
                 FlowLayoutPanel1.Controls.Clear()
                 FlowLayoutPanel2.Controls.Clear()
                 FlowLayoutPanel3.Controls.Clear()
+                btnSave.Enabled = False
             Else
                 Exit Sub
             End If
@@ -782,6 +855,9 @@ Public Class frmPOS
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If dgw.Rows.Count > 0 Then
+            srvVat = dgw.SelectedCells.Item(6).Value
+            srvTax = dgw.SelectedCells.Item(8).Value
+            srvChrge = dgw.SelectedCells.Item(10).Value
             Dim OP_ID As Integer = toNumber(dgw.SelectedCells.Item(4).Value)
             Dim dishamt As Double = toNumber(dgw.SelectedCells.Item(1).Value)
             Dim d_qty As Integer = Val(dgw.SelectedCells.Item(2).Value) + 1
@@ -807,12 +883,17 @@ Public Class frmPOS
             dgw.SelectedCells.Item(14).Value = toNumber(totamt)
             Call ComputeTotal()
 
-            If toNumber(lblID.Text) > 0 And is_edit = True Then
+            If toNumber(lblID.Text) > 0 Or toNumber(lblIDRecall.Text) > 0 Then
                 'Update value qty here
                 Try
+                    Dim cb As String = ""
                     con = New SqlConnection(cs)
                     con.Open()
-                    Dim cb As String = "UPDATE RestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                    If toNumber(lblIDRecall.Text) > 0 Then
+                        cb = "UPDATE TempRestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                    Else
+                        cb = "UPDATE RestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                    End If
                     cmd = New SqlCommand(cb)
                     cmd.Connection = con
                     cmd.Parameters.AddWithValue("@d1", dishamt)
@@ -828,7 +909,11 @@ Public Class frmPOS
                     cmd.Parameters.AddWithValue("@d11", discamt)
                     cmd.Parameters.AddWithValue("@d12", totamt)
                     cmd.Parameters.AddWithValue("@d13", notes)
-                    cmd.Parameters.AddWithValue("@d14", toNumber(lblID.Text))
+                    If toNumber(lblIDRecall.Text) > 0 Then
+                        cmd.Parameters.AddWithValue("@d14", toNumber(lblIDRecall.Text))
+                    Else
+                        cmd.Parameters.AddWithValue("@d14", toNumber(lblID.Text))
+                    End If
                     cmd.Parameters.AddWithValue("@d15", OP_ID)
                     cmd.ExecuteReader()
                     con.Close()
@@ -839,10 +924,19 @@ Public Class frmPOS
                     con = New SqlConnection(cs)
                     con.Open()
 
-                    Dim cb1 As String = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                    Dim cb1 As String = ""
+                    If toNumber(lblIDRecall.Text) > 0 Then
+                        cb1 = "UPDATE TempRestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                    Else
+                        cb1 = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                    End If
                     cmd = New SqlCommand(cb1)
                     cmd.Connection = con
-                    cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                    If toNumber(lblIDRecall.Text) > 0 Then
+                        cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                    Else
+                        cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                    End If
                     cmd.Parameters.AddWithValue("@d2", toNumber(lblTotal.Text))
                     cmd.ExecuteReader()
                     con.Close()
@@ -857,6 +951,9 @@ Public Class frmPOS
     Private Sub btnLess_Click(sender As Object, e As EventArgs) Handles btnLess.Click
         If dgw.Rows.Count > 0 Then
             If Val(dgw.SelectedCells.Item(2).Value) > 1 Then
+                srvVat = dgw.SelectedCells.Item(6).Value
+                srvTax = dgw.SelectedCells.Item(8).Value
+                srvChrge = dgw.SelectedCells.Item(10).Value
                 Dim OP_ID As Integer = toNumber(dgw.SelectedCells.Item(4).Value)
                 Dim dishamt As Double = toNumber(dgw.SelectedCells.Item(1).Value)
                 Dim d_qty As Integer = Val(dgw.SelectedCells.Item(2).Value) - 1
@@ -882,12 +979,17 @@ Public Class frmPOS
                 dgw.SelectedCells.Item(14).Value = toNumber(totamt)
                 Call ComputeTotal()
 
-                If toNumber(lblID.Text) > 0 And is_edit = True Then
+                If toNumber(lblID.Text) > 0 Or toNumber(lblIDRecall.Text) > 0 Then
                     'Update value qty here
                     Try
+                        Dim cb As String = ""
                         con = New SqlConnection(cs)
                         con.Open()
-                        Dim cb As String = "UPDATE RestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                        If toNumber(lblIDRecall.Text) > 0 Then
+                            cb = "UPDATE TempRestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                        Else
+                            cb = "UPDATE RestaurantPOS_OrderedProductKOT set Rate=@d1,Quantity=@d2,Amount=@d3,VATPer=@d4,VATAmount=@d5,STPer=@d6,STAmount=@d7,SCPer=@d8,SCAmount=@d9,DiscountPer=@d10,DiscountAmount=@d11,TotalAmount=@d12,Notes=@d13 WHERE TicketID=@d14 AND OP_ID=@d15"
+                        End If
                         cmd = New SqlCommand(cb)
                         cmd.Connection = con
                         cmd.Parameters.AddWithValue("@d1", dishamt)
@@ -914,10 +1016,19 @@ Public Class frmPOS
                         con = New SqlConnection(cs)
                         con.Open()
 
-                        Dim cb1 As String = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                        Dim cb1 As String = ""
+                        If toNumber(lblIDRecall.Text) > 0 Then
+                            cb1 = "UPDATE TempRestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                        Else
+                            cb1 = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = @d2 WHERE ID=@d1"
+                        End If
                         cmd = New SqlCommand(cb1)
                         cmd.Connection = con
-                        cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                        If toNumber(lblIDRecall.Text) > 0 Then
+                            cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                        Else
+                            cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                        End If
                         cmd.Parameters.AddWithValue("@d2", toNumber(lblTotal.Text))
                         cmd.ExecuteReader()
                         con.Close()
@@ -1185,21 +1296,220 @@ Public Class frmPOS
                 If txtTableNo.Text <> "" Then
                     If dgw.Rows.Count > 0 Then
                         If MsgBox("Are you sure you want to temporary hold this order list?", vbQuestion + vbYesNo, "Confirm hold") = vbYes Then
-                            'Insert function
-                            Try
-                                con = New SqlConnection(cs)
-                                con.Open()
-                                Dim cb As String = "insert into Kitchen(KitchenName,Printer,IsEnabled) VALUES (@d1,@d2,@d3)"
-                                cmd = New SqlCommand(cb)
-                                cmd.Connection = con
-                                'cmd.Parameters.AddWithValue("@d1", txtKitchenName.Text)
-                                'cmd.Parameters.AddWithValue("@d2", cmbPrinter.Text)
-                                'cmd.Parameters.AddWithValue("@d3", st2)
-                                cmd.ExecuteReader()
-                                con.Close()
-                            Catch ex As Exception
-                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-                            End Try
+                            If toNumber(lblIDRecall.Text) > 0 Then
+                                'Update function
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim cb As String = "Update TempRestaurantPOS_OrderInfoKOT SET TicketNo=@d1,BillDate=@d2,GrandTotal=@d3,TableNo=@d4,Operator=@d5,GroupName=@d6,TicketNote=@d7,OrderType=@d8,OrderTypeID=@d9,isPaid=@d10 WHERE ID=@d11"
+                                    cmd = New SqlCommand(cb)
+                                    cmd.Connection = con
+                                    cmd.Parameters.AddWithValue("@d1", Trim(txtTicketNo.Text))
+                                    cmd.Parameters.AddWithValue("@d2", Format(Now, "yyyy-MM-dd HH:mm:ss"))
+                                    cmd.Parameters.AddWithValue("@d3", toNumber(lblTotal.Text))
+                                    cmd.Parameters.AddWithValue("@d4", Trim(txtTableNo.Text))
+                                    cmd.Parameters.AddWithValue("@d5", Trim(lblUser.Text))
+                                    cmd.Parameters.AddWithValue("@d6", "")
+                                    cmd.Parameters.AddWithValue("@d7", "")
+                                    cmd.Parameters.AddWithValue("@d8", Trim(lblType.Text))
+                                    cmd.Parameters.AddWithValue("@d9", toNumber(lblTypeID.Text))
+                                    cmd.Parameters.AddWithValue("@d10", toNumber("0"))
+                                    cmd.Parameters.AddWithValue("@d11", toNumber(lblIDRecall.Text))
+                                    cmd.ExecuteNonQuery()
+                                    con.Close()
+                                    Dim st As String = "Update Hold order of '" & txtTicketNo.Text & "' with TableNo " & txtTableNo.Text
+                                    LogFunc(lblUser.Text, st)
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                    Exit Sub
+                                End Try
+                                For i As Integer = 0 To dgw.Rows.Count - 1
+                                    Dim OP_ID As Integer = toNumber(dgw.Rows(i).Cells(4).Value.ToString)
+                                    If OP_ID > 0 Then
+                                        'Update Tran
+                                        Try
+                                            con = New SqlConnection(cs)
+                                            con.Open()
+                                            Dim cb As String = "UPDATE TempRestaurantPOS_OrderedProductKOT SET TicketID=@d1,Dish=@d2,Rate=@d3,Quantity=@d4,Amount=@d5,VATPer=@d6,VATAmount=@d7,STPer=@d8,STAmount=@d9,SCPer=@d10,SCAmount=@d11,DiscountPer=@d12,DiscountAmount=@d13,TotalAmount=@d14,Notes=@d15,Kitchen=@d16 WHERE OP_ID=@d17"
+                                            cmd = New SqlCommand(cb)
+                                            cmd.Connection = con
+                                            cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                                            cmd.Parameters.AddWithValue("@d2", dgw.Rows(i).Cells(0).Value.ToString)
+                                            cmd.Parameters.AddWithValue("@d3", toNumber(dgw.Rows(i).Cells(1).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d4", toNumber(dgw.Rows(i).Cells(2).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d5", toNumber(dgw.Rows(i).Cells(5).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d6", toNumber(dgw.Rows(i).Cells(6).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d7", toNumber(dgw.Rows(i).Cells(7).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d8", toNumber(dgw.Rows(i).Cells(8).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d9", toNumber(dgw.Rows(i).Cells(9).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d10", toNumber(dgw.Rows(i).Cells(10).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d11", toNumber(dgw.Rows(i).Cells(11).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d12", toNumber(dgw.Rows(i).Cells(12).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d13", toNumber(dgw.Rows(i).Cells(13).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d14", toNumber(dgw.Rows(i).Cells(14).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d15", dgw.Rows(i).Cells(3).Value.ToString)
+                                            cmd.Parameters.AddWithValue("@d16", dgw.Rows(i).Cells(15).Value.ToString)
+                                            cmd.Parameters.AddWithValue("@d17", toNumber(OP_ID))
+                                            cmd.ExecuteNonQuery()
+                                        Catch ex As Exception
+                                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                            Exit Sub
+                                        End Try
+                                    Else
+                                        'Add Tran
+                                        Try
+                                            con = New SqlConnection(cs)
+                                            con.Open()
+                                            Dim cb As String = "insert into TempRestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16)"
+                                            cmd = New SqlCommand(cb)
+                                            cmd.Connection = con
+                                            cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                                            cmd.Parameters.AddWithValue("@d2", dgw.Rows(i).Cells(0).Value.ToString)
+                                            cmd.Parameters.AddWithValue("@d3", toNumber(dgw.Rows(i).Cells(1).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d4", toNumber(dgw.Rows(i).Cells(2).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d5", toNumber(dgw.Rows(i).Cells(5).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d6", toNumber(dgw.Rows(i).Cells(6).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d7", toNumber(dgw.Rows(i).Cells(7).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d8", toNumber(dgw.Rows(i).Cells(8).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d9", toNumber(dgw.Rows(i).Cells(9).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d10", toNumber(dgw.Rows(i).Cells(10).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d11", toNumber(dgw.Rows(i).Cells(11).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d12", toNumber(dgw.Rows(i).Cells(12).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d13", toNumber(dgw.Rows(i).Cells(13).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d14", toNumber(dgw.Rows(i).Cells(14).Value.ToString))
+                                            cmd.Parameters.AddWithValue("@d15", dgw.Rows(i).Cells(3).Value.ToString)
+                                            cmd.Parameters.AddWithValue("@d16", dgw.Rows(i).Cells(15).Value.ToString)
+                                            cmd.ExecuteNonQuery()
+                                        Catch ex As Exception
+                                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                            Exit Sub
+                                        End Try
+                                    End If
+                                Next
+                                txtQty.Text = ""
+                                txtTableNo.Text = ""
+                                txtTicketNo.Text = ""
+                                lblType.Text = ""
+                                lblTypeID.Text = ""
+                                lblID.Text = ""
+                                lblTotal.Text = ""
+                                lblTotalBill.Text = ""
+                                lblGrandTotal.Text = ""
+                                lblPayID.Text = ""
+                                dgw.Rows.Clear()
+                                is_edit = False
+                                FlowLayoutPanel1.Controls.Clear()
+                                FlowLayoutPanel2.Controls.Clear()
+                                FlowLayoutPanel3.Controls.Clear()
+                                btnSave.Enabled = False
+                            Else
+                                'Insert function
+                                Dim newID As Integer = 0
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim ct As String = "select MAX(ID) AS ID from TempRestaurantPOS_OrderInfoKOT"
+                                    cmd = New SqlCommand(ct)
+                                    cmd.Connection = con
+                                    rdr = cmd.ExecuteReader()
+                                    If rdr.Read() Then
+                                        txtTicketNo.Text = Format(toNumber(rdr(0).ToString) + 1, "000000")
+                                        If (rdr IsNot Nothing) Then
+                                            rdr.Close()
+                                        End If
+                                    End If
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                    Exit Sub
+                                End Try
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim cb As String = "insert into TempRestaurantPOS_OrderInfoKOT (TicketNo,BillDate,GrandTotal,TableNo,Operator,GroupName,TicketNote,OrderType,OrderTypeID,isPaid) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)"
+                                    cmd = New SqlCommand(cb)
+                                    cmd.Connection = con
+                                    cmd.Parameters.AddWithValue("@d1", Trim(txtTicketNo.Text))
+                                    cmd.Parameters.AddWithValue("@d2", Format(Now, "yyyy-MM-dd HH:mm:ss"))
+                                    cmd.Parameters.AddWithValue("@d3", toNumber(lblTotal.Text))
+                                    cmd.Parameters.AddWithValue("@d4", Trim(txtTableNo.Text))
+                                    cmd.Parameters.AddWithValue("@d5", Trim(lblUser.Text))
+                                    cmd.Parameters.AddWithValue("@d6", "")
+                                    cmd.Parameters.AddWithValue("@d7", "")
+                                    cmd.Parameters.AddWithValue("@d8", Trim(lblType.Text))
+                                    cmd.Parameters.AddWithValue("@d9", toNumber(lblTypeID.Text))
+                                    cmd.Parameters.AddWithValue("@d10", toNumber("0"))
+                                    cmd.ExecuteNonQuery()
+                                    con.Close()
+                                    Dim st As String = "Hold order of '" & txtTicketNo.Text & "' with TableNo " & txtTableNo.Text
+                                    LogFunc(lblUser.Text, st)
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                    Exit Sub
+                                End Try
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim ct As String = "select MAX(ID) AS ID from TempRestaurantPOS_OrderInfoKOT "
+                                    cmd = New SqlCommand(ct)
+                                    cmd.Connection = con
+                                    rdr = cmd.ExecuteReader()
+                                    If rdr.Read() Then
+                                        newID = toNumber(rdr(0).ToString)
+                                        If (rdr IsNot Nothing) Then
+                                            rdr.Close()
+                                        End If
+                                    End If
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                    Exit Sub
+                                End Try
+                                For i As Integer = 0 To dgw.Rows.Count - 1
+                                    Try
+                                        con = New SqlConnection(cs)
+                                        con.Open()
+                                        Dim cb As String = "insert into TempRestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16)"
+                                        cmd = New SqlCommand(cb)
+                                        cmd.Connection = con
+                                        cmd.Parameters.AddWithValue("@d1", toNumber(newID))
+                                        cmd.Parameters.AddWithValue("@d2", dgw.Rows(i).Cells(0).Value.ToString)
+                                        cmd.Parameters.AddWithValue("@d3", toNumber(dgw.Rows(i).Cells(1).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d4", toNumber(dgw.Rows(i).Cells(2).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d5", toNumber(dgw.Rows(i).Cells(5).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d6", toNumber(dgw.Rows(i).Cells(6).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d7", toNumber(dgw.Rows(i).Cells(7).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d8", toNumber(dgw.Rows(i).Cells(8).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d9", toNumber(dgw.Rows(i).Cells(9).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d10", toNumber(dgw.Rows(i).Cells(10).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d11", toNumber(dgw.Rows(i).Cells(11).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d12", toNumber(dgw.Rows(i).Cells(12).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d13", toNumber(dgw.Rows(i).Cells(13).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d14", toNumber(dgw.Rows(i).Cells(14).Value.ToString))
+                                        cmd.Parameters.AddWithValue("@d15", dgw.Rows(i).Cells(3).Value.ToString)
+                                        cmd.Parameters.AddWithValue("@d16", dgw.Rows(i).Cells(15).Value.ToString)
+                                        cmd.ExecuteNonQuery()
+                                    Catch ex As Exception
+                                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                        Exit Sub
+                                    End Try
+                                Next
+                                txtQty.Text = ""
+                                txtTableNo.Text = ""
+                                txtTicketNo.Text = ""
+                                lblType.Text = ""
+                                lblTypeID.Text = ""
+                                lblID.Text = ""
+                                lblTotal.Text = ""
+                                lblTotalBill.Text = ""
+                                lblGrandTotal.Text = ""
+                                lblPayID.Text = ""
+                                dgw.Rows.Clear()
+                                is_edit = False
+                                FlowLayoutPanel1.Controls.Clear()
+                                FlowLayoutPanel2.Controls.Clear()
+                                FlowLayoutPanel3.Controls.Clear()
+                                btnSave.Enabled = False
+                            End If
+
                         Else
                             Exit Sub
                         End If
@@ -1215,7 +1525,19 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnRecall_Click(sender As Object, e As EventArgs) Handles btnRecall.Click
+        If toNumber(lblID.Text) > 0 Then
 
+        Else
+            If Trim(txtTicketNo.Text) <> "" And dgw.Rows.Count > 0 Then
+                MsgBox("Save the current ticket transaction or hold to recall hold ticket.", vbCritical + vbOKOnly, "Error recall ticket")
+                Exit Sub
+            ElseIf Trim(txtTicketNo.Text) = "" And dgw.Rows.Count = 0 Then
+                With frmRecallTicketList
+                    .frm = "frmPOS"
+                    .ShowDialog()
+                End With
+            End If
+        End If
     End Sub
 
 #End Region
@@ -1342,6 +1664,7 @@ Public Class frmPOS
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If dgw.Rows.Count > 0 Then
+            Dim RowsAffected As Integer = 0
             If toNumber(lblTypeID.Text) > 0 Then
                 'Dine In
                 If Trim(txtTableNo.Text) = "" Then
@@ -1362,7 +1685,7 @@ Public Class frmPOS
                             cmd.Connection = con
                             rdr = cmd.ExecuteReader()
                             If rdr.Read() Then
-                                txtTicketNo.Text = Format(rdr(0).ToString + 1, "000000")
+                                txtTicketNo.Text = Format(toNumber(rdr(0).ToString) + 1, "000000")
                                 If (rdr IsNot Nothing) Then
                                     rdr.Close()
                                 End If
@@ -1437,6 +1760,52 @@ Public Class frmPOS
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
                         Next
+                        If toNumber(lblIDRecall.Text) > 0 Then
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cq As String = "delete from TempRestaurantPOS_OrderedProductKOT where TicketID=@d1"
+                                cmd = New SqlCommand(cq)
+                                cmd.Connection = con
+                                cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                                RowsAffected = cmd.ExecuteNonQuery()
+                                If con.State = ConnectionState.Open Then
+                                    con.Close()
+                                End If
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cq1 As String = "delete from TempRestaurantPOS_OrderInfoKOT where ID=@d1"
+                                cmd = New SqlCommand(cq1)
+                                cmd.Connection = con
+                                cmd.Parameters.AddWithValue("@d1", toNumber(lblIDRecall.Text))
+                                RowsAffected = cmd.ExecuteNonQuery()
+                                If con.State = ConnectionState.Open Then
+                                    con.Close()
+                                End If
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+                        End If
+
+                        txtQty.Text = ""
+                        txtTableNo.Text = ""
+                        txtTicketNo.Text = ""
+                        lblType.Text = ""
+                        lblTypeID.Text = ""
+                        lblID.Text = ""
+                        lblTotal.Text = ""
+                        lblTotalBill.Text = ""
+                        lblGrandTotal.Text = ""
+                        lblPayID.Text = ""
+                        dgw.Rows.Clear()
+                        is_edit = False
+                        FlowLayoutPanel1.Controls.Clear()
+                        FlowLayoutPanel2.Controls.Clear()
+                        FlowLayoutPanel3.Controls.Clear()
+                        btnSave.Enabled = False
+
+                    Else
+                        MsgBox("Order list is already been saved", vbInformation + vbOKOnly, "Order saved")
                     End If
                 End If
             Else
@@ -1477,6 +1846,14 @@ Public Class frmPOS
                     txtCash.SelectAll()
                     txtCash.Focus()
                 End If
+
+            End If
+        End If
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If is_edit = True And toNumber(lblID.Text) > 0 Then
+            If dgw.Rows.Count > 0 Then
 
             End If
         End If
@@ -1576,7 +1953,6 @@ Public Class frmPOS
             txtBillNo.Text = ""
         End If
     End Sub
-
 
     Private Sub GetBilling()
         con = New SqlConnection(cs)
@@ -1872,6 +2248,12 @@ Public Class frmPOS
                 txtBillNo.Text = ""
                 txtPaymentMode.Text = ""
                 lblGrandTotal.Text = ""
+                lblTotalBill.Text = ""
+                txtGrandTot.Text = ""
+                txtCash.Text = ""
+                txtChange.Text = ""
+                txtDiscAmt.Text = ""
+                txtDiscPer.Text = ""
                 FlowLayoutPanel3.Controls.Clear()
                 TabControl1.Enabled = True
                 dgwList.Rows.Clear()

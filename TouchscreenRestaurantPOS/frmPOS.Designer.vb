@@ -55,10 +55,7 @@ Partial Class frmPOS
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.btnCatUp = New System.Windows.Forms.Button()
-        Me.btnCatDown = New System.Windows.Forms.Button()
         Me.txtQty = New System.Windows.Forms.TextBox()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.btn0 = New System.Windows.Forms.Button()
         Me.btn9 = New System.Windows.Forms.Button()
         Me.btn8 = New System.Windows.Forms.Button()
@@ -69,8 +66,6 @@ Partial Class frmPOS
         Me.btn3 = New System.Windows.Forms.Button()
         Me.btn2 = New System.Windows.Forms.Button()
         Me.btn1 = New System.Windows.Forms.Button()
-        Me.btnMenuDown = New System.Windows.Forms.Button()
-        Me.btnMenuUp = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -95,8 +90,6 @@ Partial Class frmPOS
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnDown = New System.Windows.Forms.Button()
-        Me.btnUp = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblTypeID = New System.Windows.Forms.Label()
         Me.lblType = New System.Windows.Forms.Label()
@@ -107,7 +100,6 @@ Partial Class frmPOS
         Me.txtTicketNo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnGetData = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnChgTable = New System.Windows.Forms.Button()
         Me.btnHold = New System.Windows.Forms.Button()
@@ -125,6 +117,19 @@ Partial Class frmPOS
         Me.lblTotalBill = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.dgwList = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnCancelBill = New System.Windows.Forms.Button()
@@ -150,6 +155,7 @@ Partial Class frmPOS
         Me.btnP2 = New System.Windows.Forms.Button()
         Me.btnP1 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblPayID = New System.Windows.Forms.Label()
         Me.lblGrandTotal = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -162,6 +168,13 @@ Partial Class frmPOS
         Me.txtDiscPer = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.pnlPayment = New System.Windows.Forms.Panel()
+        Me.btnCatUp = New System.Windows.Forms.Button()
+        Me.btnCatDown = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnMenuDown = New System.Windows.Forms.Button()
+        Me.btnMenuUp = New System.Windows.Forms.Button()
+        Me.btnDown = New System.Windows.Forms.Button()
+        Me.btnUp = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSettleUpdate = New System.Windows.Forms.Button()
         Me.btnSettle = New System.Windows.Forms.Button()
@@ -169,20 +182,7 @@ Partial Class frmPOS
         Me.btnWallet = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.btnCash = New System.Windows.Forms.Button()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblPayID = New System.Windows.Forms.Label()
+        Me.lblIDRecall = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -207,7 +207,7 @@ Partial Class frmPOS
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1068, 39)
+        Me.Panel1.Size = New System.Drawing.Size(1008, 39)
         Me.Panel1.TabIndex = 0
         '
         'lblUser
@@ -240,7 +240,7 @@ Partial Class frmPOS
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Font = New System.Drawing.Font("Segoe UI Semibold", 15.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblDateTime.Location = New System.Drawing.Point(671, 4)
+        Me.lblDateTime.Location = New System.Drawing.Point(611, 4)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lblDateTime.Size = New System.Drawing.Size(105, 30)
@@ -284,10 +284,10 @@ Partial Class frmPOS
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(0, 75)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 37)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1068, 663)
+        Me.TabControl1.Size = New System.Drawing.Size(1008, 692)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -314,40 +314,10 @@ Partial Class frmPOS
         Me.TabPage1.Location = New System.Drawing.Point(4, 30)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1060, 629)
+        Me.TabPage1.Size = New System.Drawing.Size(1000, 658)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Orders"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'btnCatUp
-        '
-        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatUp.FlatAppearance.BorderSize = 0
-        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatUp.ForeColor = System.Drawing.Color.White
-        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnCatUp.Location = New System.Drawing.Point(450, 18)
-        Me.btnCatUp.Name = "btnCatUp"
-        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatUp.TabIndex = 99
-        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatUp.UseVisualStyleBackColor = False
-        '
-        'btnCatDown
-        '
-        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnCatDown.FlatAppearance.BorderSize = 0
-        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCatDown.ForeColor = System.Drawing.Color.White
-        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnCatDown.Location = New System.Drawing.Point(393, 18)
-        Me.btnCatDown.Name = "btnCatDown"
-        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnCatDown.TabIndex = 98
-        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnCatDown.UseVisualStyleBackColor = False
         '
         'txtQty
         '
@@ -360,22 +330,6 @@ Partial Class frmPOS
         Me.txtQty.TabIndex = 97
         Me.txtQty.Text = "99"
         '
-        'btnClear
-        '
-        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
-        Me.btnClear.FlatAppearance.BorderSize = 0
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
-        Me.btnClear.Location = New System.Drawing.Point(668, 3)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(106, 37)
-        Me.btnClear.TabIndex = 96
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnClear.UseVisualStyleBackColor = False
-        '
         'btn0
         '
         Me.btn0.BackColor = System.Drawing.Color.Crimson
@@ -383,9 +337,9 @@ Partial Class frmPOS
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.ForeColor = System.Drawing.Color.White
-        Me.btn0.Location = New System.Drawing.Point(1004, 45)
+        Me.btn0.Location = New System.Drawing.Point(950, 45)
         Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(50, 43)
+        Me.btn0.Size = New System.Drawing.Size(45, 43)
         Me.btn0.TabIndex = 95
         Me.btn0.Text = "0"
         Me.btn0.UseVisualStyleBackColor = False
@@ -397,9 +351,9 @@ Partial Class frmPOS
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.ForeColor = System.Drawing.Color.White
-        Me.btn9.Location = New System.Drawing.Point(948, 45)
+        Me.btn9.Location = New System.Drawing.Point(900, 45)
         Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(50, 43)
+        Me.btn9.Size = New System.Drawing.Size(45, 43)
         Me.btn9.TabIndex = 94
         Me.btn9.Text = "9"
         Me.btn9.UseVisualStyleBackColor = False
@@ -411,9 +365,9 @@ Partial Class frmPOS
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.ForeColor = System.Drawing.Color.White
-        Me.btn8.Location = New System.Drawing.Point(892, 45)
+        Me.btn8.Location = New System.Drawing.Point(850, 45)
         Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(50, 43)
+        Me.btn8.Size = New System.Drawing.Size(45, 43)
         Me.btn8.TabIndex = 93
         Me.btn8.Text = "8"
         Me.btn8.UseVisualStyleBackColor = False
@@ -425,9 +379,9 @@ Partial Class frmPOS
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.ForeColor = System.Drawing.Color.White
-        Me.btn7.Location = New System.Drawing.Point(836, 45)
+        Me.btn7.Location = New System.Drawing.Point(800, 45)
         Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(50, 43)
+        Me.btn7.Size = New System.Drawing.Size(45, 43)
         Me.btn7.TabIndex = 92
         Me.btn7.Text = "7"
         Me.btn7.UseVisualStyleBackColor = False
@@ -439,9 +393,9 @@ Partial Class frmPOS
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.ForeColor = System.Drawing.Color.White
-        Me.btn6.Location = New System.Drawing.Point(780, 45)
+        Me.btn6.Location = New System.Drawing.Point(750, 45)
         Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(50, 43)
+        Me.btn6.Size = New System.Drawing.Size(45, 43)
         Me.btn6.TabIndex = 91
         Me.btn6.Text = "6"
         Me.btn6.UseVisualStyleBackColor = False
@@ -453,9 +407,9 @@ Partial Class frmPOS
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.ForeColor = System.Drawing.Color.White
-        Me.btn5.Location = New System.Drawing.Point(724, 45)
+        Me.btn5.Location = New System.Drawing.Point(700, 45)
         Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(50, 43)
+        Me.btn5.Size = New System.Drawing.Size(45, 43)
         Me.btn5.TabIndex = 90
         Me.btn5.Text = "5"
         Me.btn5.UseVisualStyleBackColor = False
@@ -467,9 +421,9 @@ Partial Class frmPOS
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.ForeColor = System.Drawing.Color.White
-        Me.btn4.Location = New System.Drawing.Point(668, 45)
+        Me.btn4.Location = New System.Drawing.Point(650, 45)
         Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(50, 43)
+        Me.btn4.Size = New System.Drawing.Size(45, 43)
         Me.btn4.TabIndex = 89
         Me.btn4.Text = "4"
         Me.btn4.UseVisualStyleBackColor = False
@@ -481,9 +435,9 @@ Partial Class frmPOS
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.ForeColor = System.Drawing.Color.White
-        Me.btn3.Location = New System.Drawing.Point(612, 45)
+        Me.btn3.Location = New System.Drawing.Point(600, 45)
         Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(50, 43)
+        Me.btn3.Size = New System.Drawing.Size(45, 43)
         Me.btn3.TabIndex = 88
         Me.btn3.Text = "3"
         Me.btn3.UseVisualStyleBackColor = False
@@ -495,9 +449,9 @@ Partial Class frmPOS
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.ForeColor = System.Drawing.Color.White
-        Me.btn2.Location = New System.Drawing.Point(556, 45)
+        Me.btn2.Location = New System.Drawing.Point(550, 45)
         Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(50, 43)
+        Me.btn2.Size = New System.Drawing.Size(45, 43)
         Me.btn2.TabIndex = 87
         Me.btn2.Text = "2"
         Me.btn2.UseVisualStyleBackColor = False
@@ -511,42 +465,10 @@ Partial Class frmPOS
         Me.btn1.ForeColor = System.Drawing.Color.White
         Me.btn1.Location = New System.Drawing.Point(500, 45)
         Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(50, 43)
+        Me.btn1.Size = New System.Drawing.Size(45, 43)
         Me.btn1.TabIndex = 86
         Me.btn1.Text = "1"
         Me.btn1.UseVisualStyleBackColor = False
-        '
-        'btnMenuDown
-        '
-        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuDown.FlatAppearance.BorderSize = 0
-        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnMenuDown.Location = New System.Drawing.Point(954, 3)
-        Me.btnMenuDown.Name = "btnMenuDown"
-        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuDown.TabIndex = 85
-        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuDown.UseVisualStyleBackColor = False
-        '
-        'btnMenuUp
-        '
-        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnMenuUp.FlatAppearance.BorderSize = 0
-        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
-        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnMenuUp.Location = New System.Drawing.Point(1008, 3)
-        Me.btnMenuUp.Name = "btnMenuUp"
-        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
-        Me.btnMenuUp.TabIndex = 84
-        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnMenuUp.UseVisualStyleBackColor = False
         '
         'FlowLayoutPanel2
         '
@@ -557,7 +479,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(498, 94)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(559, 535)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(499, 564)
         Me.FlowLayoutPanel2.TabIndex = 2
         '
         'FlowLayoutPanel1
@@ -567,15 +489,16 @@ Partial Class frmPOS
         Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(386, 62)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(386, 94)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 567)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 564)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.lblIDRecall)
         Me.Panel2.Controls.Add(Me.lblID)
         Me.Panel2.Controls.Add(Me.Panel3)
         Me.Panel2.Controls.Add(Me.lblTotal)
@@ -592,7 +515,6 @@ Partial Class frmPOS
         Me.Panel2.Controls.Add(Me.txtTicketNo)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.btnGetData)
-        Me.Panel2.Controls.Add(Me.btnUpdate)
         Me.Panel2.Controls.Add(Me.btnSave)
         Me.Panel2.Controls.Add(Me.btnChgTable)
         Me.Panel2.Controls.Add(Me.btnHold)
@@ -608,7 +530,7 @@ Partial Class frmPOS
         Me.Panel2.Controls.Add(Me.btnAdd)
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(381, 626)
+        Me.Panel2.Size = New System.Drawing.Size(381, 655)
         Me.Panel2.TabIndex = 0
         '
         'lblID
@@ -628,9 +550,9 @@ Partial Class frmPOS
         Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Panel3.Controls.Add(Me.dgw)
-        Me.Panel3.Location = New System.Drawing.Point(101, 60)
+        Me.Panel3.Location = New System.Drawing.Point(101, 58)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(277, 433)
+        Me.Panel3.Size = New System.Drawing.Size(277, 464)
         Me.Panel3.TabIndex = 84
         '
         'dgw
@@ -691,7 +613,7 @@ Partial Class frmPOS
         Me.dgw.RowTemplate.Height = 25
         Me.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgw.Size = New System.Drawing.Size(277, 433)
+        Me.dgw.Size = New System.Drawing.Size(277, 464)
         Me.dgw.TabIndex = 5
         '
         'Column1
@@ -812,7 +734,7 @@ Partial Class frmPOS
         Me.lblTotal.BackColor = System.Drawing.Color.Transparent
         Me.lblTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lblTotal.Location = New System.Drawing.Point(212, 496)
+        Me.lblTotal.Location = New System.Drawing.Point(212, 525)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(163, 24)
         Me.lblTotal.TabIndex = 83
@@ -826,41 +748,11 @@ Partial Class frmPOS
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(101, 499)
+        Me.Label5.Location = New System.Drawing.Point(101, 528)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(109, 20)
         Me.Label5.TabIndex = 82
         Me.Label5.Text = "Total Amount :"
-        '
-        'btnDown
-        '
-        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
-        Me.btnDown.FlatAppearance.BorderSize = 0
-        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDown.ForeColor = System.Drawing.Color.Black
-        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnDown.Location = New System.Drawing.Point(55, 59)
-        Me.btnDown.Name = "btnDown"
-        Me.btnDown.Size = New System.Drawing.Size(40, 45)
-        Me.btnDown.TabIndex = 81
-        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnDown.UseVisualStyleBackColor = False
-        '
-        'btnUp
-        '
-        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
-        Me.btnUp.FlatAppearance.BorderSize = 0
-        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUp.ForeColor = System.Drawing.Color.Black
-        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnUp.Location = New System.Drawing.Point(5, 59)
-        Me.btnUp.Name = "btnUp"
-        Me.btnUp.Size = New System.Drawing.Size(40, 45)
-        Me.btnUp.TabIndex = 80
-        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnUp.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
@@ -870,7 +762,7 @@ Partial Class frmPOS
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Black
-        Me.btnCancel.Location = New System.Drawing.Point(5, 523)
+        Me.btnCancel.Location = New System.Drawing.Point(5, 603)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(90, 45)
         Me.btnCancel.TabIndex = 79
@@ -893,9 +785,9 @@ Partial Class frmPOS
         'lblType
         '
         Me.lblType.BackColor = System.Drawing.Color.Transparent
-        Me.lblType.Font = New System.Drawing.Font("Segoe UI Semibold", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblType.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblType.ForeColor = System.Drawing.Color.DarkOrange
-        Me.lblType.Location = New System.Drawing.Point(9, 30)
+        Me.lblType.Location = New System.Drawing.Point(8, 29)
         Me.lblType.Name = "lblType"
         Me.lblType.Size = New System.Drawing.Size(112, 25)
         Me.lblType.TabIndex = 77
@@ -986,29 +878,13 @@ Partial Class frmPOS
         Me.btnGetData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGetData.ForeColor = System.Drawing.Color.White
-        Me.btnGetData.Location = New System.Drawing.Point(5, 574)
+        Me.btnGetData.Location = New System.Drawing.Point(98, 603)
         Me.btnGetData.Name = "btnGetData"
         Me.btnGetData.Size = New System.Drawing.Size(90, 45)
         Me.btnGetData.TabIndex = 20
         Me.btnGetData.Text = "Get Data"
         Me.btnGetData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnGetData.UseVisualStyleBackColor = False
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnUpdate.BackColor = System.Drawing.Color.Magenta
-        Me.btnUpdate.FlatAppearance.BorderSize = 0
-        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(98, 574)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(90, 45)
-        Me.btnUpdate.TabIndex = 18
-        Me.btnUpdate.Text = "Update + Print"
-        Me.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnSave
         '
@@ -1018,7 +894,7 @@ Partial Class frmPOS
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(98, 523)
+        Me.btnSave.Location = New System.Drawing.Point(98, 552)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(90, 45)
         Me.btnSave.TabIndex = 17
@@ -1034,7 +910,7 @@ Partial Class frmPOS
         Me.btnChgTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnChgTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgTable.ForeColor = System.Drawing.Color.Black
-        Me.btnChgTable.Location = New System.Drawing.Point(191, 574)
+        Me.btnChgTable.Location = New System.Drawing.Point(191, 603)
         Me.btnChgTable.Name = "btnChgTable"
         Me.btnChgTable.Size = New System.Drawing.Size(90, 45)
         Me.btnChgTable.TabIndex = 16
@@ -1050,7 +926,7 @@ Partial Class frmPOS
         Me.btnHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHold.ForeColor = System.Drawing.Color.White
-        Me.btnHold.Location = New System.Drawing.Point(191, 523)
+        Me.btnHold.Location = New System.Drawing.Point(191, 552)
         Me.btnHold.Name = "btnHold"
         Me.btnHold.Size = New System.Drawing.Size(90, 45)
         Me.btnHold.TabIndex = 15
@@ -1066,7 +942,7 @@ Partial Class frmPOS
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.White
-        Me.btnPrint.Location = New System.Drawing.Point(285, 574)
+        Me.btnPrint.Location = New System.Drawing.Point(285, 603)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(90, 45)
         Me.btnPrint.TabIndex = 14
@@ -1082,7 +958,7 @@ Partial Class frmPOS
         Me.btnRecall.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRecall.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecall.ForeColor = System.Drawing.Color.White
-        Me.btnRecall.Location = New System.Drawing.Point(285, 523)
+        Me.btnRecall.Location = New System.Drawing.Point(285, 552)
         Me.btnRecall.Name = "btnRecall"
         Me.btnRecall.Size = New System.Drawing.Size(90, 45)
         Me.btnRecall.TabIndex = 13
@@ -1097,7 +973,7 @@ Partial Class frmPOS
         Me.btnOpenTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOpenTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOpenTicket.ForeColor = System.Drawing.Color.Black
-        Me.btnOpenTicket.Location = New System.Drawing.Point(5, 470)
+        Me.btnOpenTicket.Location = New System.Drawing.Point(5, 501)
         Me.btnOpenTicket.Name = "btnOpenTicket"
         Me.btnOpenTicket.Size = New System.Drawing.Size(90, 45)
         Me.btnOpenTicket.TabIndex = 12
@@ -1112,7 +988,7 @@ Partial Class frmPOS
         Me.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNewTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNewTicket.ForeColor = System.Drawing.Color.White
-        Me.btnNewTicket.Location = New System.Drawing.Point(5, 419)
+        Me.btnNewTicket.Location = New System.Drawing.Point(5, 450)
         Me.btnNewTicket.Name = "btnNewTicket"
         Me.btnNewTicket.Size = New System.Drawing.Size(90, 45)
         Me.btnNewTicket.TabIndex = 11
@@ -1127,7 +1003,7 @@ Partial Class frmPOS
         Me.btnChgQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnChgQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgQty.ForeColor = System.Drawing.Color.White
-        Me.btnChgQty.Location = New System.Drawing.Point(5, 368)
+        Me.btnChgQty.Location = New System.Drawing.Point(5, 399)
         Me.btnChgQty.Name = "btnChgQty"
         Me.btnChgQty.Size = New System.Drawing.Size(90, 45)
         Me.btnChgQty.TabIndex = 10
@@ -1142,7 +1018,7 @@ Partial Class frmPOS
         Me.btnChgRate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnChgRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgRate.ForeColor = System.Drawing.Color.White
-        Me.btnChgRate.Location = New System.Drawing.Point(5, 317)
+        Me.btnChgRate.Location = New System.Drawing.Point(5, 348)
         Me.btnChgRate.Name = "btnChgRate"
         Me.btnChgRate.Size = New System.Drawing.Size(90, 45)
         Me.btnChgRate.TabIndex = 9
@@ -1157,7 +1033,7 @@ Partial Class frmPOS
         Me.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotes.ForeColor = System.Drawing.Color.White
-        Me.btnNotes.Location = New System.Drawing.Point(5, 266)
+        Me.btnNotes.Location = New System.Drawing.Point(5, 297)
         Me.btnNotes.Name = "btnNotes"
         Me.btnNotes.Size = New System.Drawing.Size(90, 45)
         Me.btnNotes.TabIndex = 8
@@ -1172,7 +1048,7 @@ Partial Class frmPOS
         Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemove.ForeColor = System.Drawing.Color.White
-        Me.btnRemove.Location = New System.Drawing.Point(5, 215)
+        Me.btnRemove.Location = New System.Drawing.Point(5, 246)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(90, 45)
         Me.btnRemove.TabIndex = 7
@@ -1187,7 +1063,7 @@ Partial Class frmPOS
         Me.btnLess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLess.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLess.ForeColor = System.Drawing.Color.White
-        Me.btnLess.Location = New System.Drawing.Point(5, 164)
+        Me.btnLess.Location = New System.Drawing.Point(5, 195)
         Me.btnLess.Name = "btnLess"
         Me.btnLess.Size = New System.Drawing.Size(90, 45)
         Me.btnLess.TabIndex = 6
@@ -1202,7 +1078,7 @@ Partial Class frmPOS
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(5, 113)
+        Me.btnAdd.Location = New System.Drawing.Point(5, 144)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(90, 45)
         Me.btnAdd.TabIndex = 2
@@ -1228,7 +1104,7 @@ Partial Class frmPOS
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1060, 629)
+        Me.TabPage2.Size = New System.Drawing.Size(1000, 658)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Billing"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1289,7 +1165,7 @@ Partial Class frmPOS
         Me.dgwList.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgwList.EnableHeadersVisualStyles = False
         Me.dgwList.GridColor = System.Drawing.Color.White
-        Me.dgwList.Location = New System.Drawing.Point(3, 388)
+        Me.dgwList.Location = New System.Drawing.Point(3, 417)
         Me.dgwList.MultiSelect = False
         Me.dgwList.Name = "dgwList"
         Me.dgwList.ReadOnly = True
@@ -1314,8 +1190,139 @@ Partial Class frmPOS
         Me.dgwList.RowTemplate.Height = 25
         Me.dgwList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgwList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgwList.Size = New System.Drawing.Size(1054, 238)
+        Me.dgwList.Size = New System.Drawing.Size(994, 238)
         Me.dgwList.TabIndex = 87
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn5.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn5.Width = 50
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Item Name"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn1.Width = 200
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle11
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Rate"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn2.Width = 90
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle12
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Qty"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn3.Width = 60
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle13
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Amount"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn6.Width = 120
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle14
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Disc %"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn13.Width = 80
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle15
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Disc Amt"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle16
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Vat %"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn7.Width = 80
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle17
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Vat Amt"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle18
+        Me.DataGridViewTextBoxColumn15.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn15.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn15.Width = 130
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle19
+        Me.DataGridViewTextBoxColumn12.HeaderText = "TableNo"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "SC %"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
+        'Column18
+        '
+        Me.Column18.HeaderText = "SC Amt"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
         '
         'FlowLayoutPanel3
         '
@@ -1325,7 +1332,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(102, 64)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(955, 318)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(895, 347)
         Me.FlowLayoutPanel3.TabIndex = 84
         '
         'Label8
@@ -1453,7 +1460,7 @@ Partial Class frmPOS
         Me.TabPage3.Location = New System.Drawing.Point(4, 30)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1060, 629)
+        Me.TabPage3.Size = New System.Drawing.Size(1000, 658)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Take-out"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1665,6 +1672,18 @@ Partial Class frmPOS
         Me.Panel5.Size = New System.Drawing.Size(698, 212)
         Me.Panel5.TabIndex = 108
         '
+        'lblPayID
+        '
+        Me.lblPayID.AutoSize = True
+        Me.lblPayID.BackColor = System.Drawing.Color.Transparent
+        Me.lblPayID.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPayID.ForeColor = System.Drawing.Color.Black
+        Me.lblPayID.Location = New System.Drawing.Point(527, 22)
+        Me.lblPayID.Name = "lblPayID"
+        Me.lblPayID.Size = New System.Drawing.Size(12, 13)
+        Me.lblPayID.TabIndex = 107
+        Me.lblPayID.Text = "1"
+        '
         'lblGrandTotal
         '
         Me.lblGrandTotal.AutoSize = True
@@ -1818,6 +1837,114 @@ Partial Class frmPOS
         Me.pnlPayment.Size = New System.Drawing.Size(704, 512)
         Me.pnlPayment.TabIndex = 73
         '
+        'btnCatUp
+        '
+        Me.btnCatUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatUp.FlatAppearance.BorderSize = 0
+        Me.btnCatUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatUp.ForeColor = System.Drawing.Color.White
+        Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnCatUp.Location = New System.Drawing.Point(450, 47)
+        Me.btnCatUp.Name = "btnCatUp"
+        Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatUp.TabIndex = 99
+        Me.btnCatUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatUp.UseVisualStyleBackColor = False
+        '
+        'btnCatDown
+        '
+        Me.btnCatDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnCatDown.FlatAppearance.BorderSize = 0
+        Me.btnCatDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCatDown.ForeColor = System.Drawing.Color.White
+        Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnCatDown.Location = New System.Drawing.Point(393, 47)
+        Me.btnCatDown.Name = "btnCatDown"
+        Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnCatDown.TabIndex = 98
+        Me.btnCatDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCatDown.UseVisualStyleBackColor = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.Honeydew
+        Me.btnClear.FlatAppearance.BorderSize = 0
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.Black
+        Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
+        Me.btnClear.Location = New System.Drawing.Point(668, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(106, 37)
+        Me.btnClear.TabIndex = 96
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'btnMenuDown
+        '
+        Me.btnMenuDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuDown.FlatAppearance.BorderSize = 0
+        Me.btnMenuDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuDown.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnMenuDown.Location = New System.Drawing.Point(894, 3)
+        Me.btnMenuDown.Name = "btnMenuDown"
+        Me.btnMenuDown.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuDown.TabIndex = 85
+        Me.btnMenuDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuDown.UseVisualStyleBackColor = False
+        '
+        'btnMenuUp
+        '
+        Me.btnMenuUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenuUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnMenuUp.FlatAppearance.BorderSize = 0
+        Me.btnMenuUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMenuUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenuUp.ForeColor = System.Drawing.Color.Black
+        Me.btnMenuUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnMenuUp.Location = New System.Drawing.Point(948, 3)
+        Me.btnMenuUp.Name = "btnMenuUp"
+        Me.btnMenuUp.Size = New System.Drawing.Size(40, 37)
+        Me.btnMenuUp.TabIndex = 84
+        Me.btnMenuUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnMenuUp.UseVisualStyleBackColor = False
+        '
+        'btnDown
+        '
+        Me.btnDown.BackColor = System.Drawing.Color.Honeydew
+        Me.btnDown.FlatAppearance.BorderSize = 0
+        Me.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDown.ForeColor = System.Drawing.Color.Black
+        Me.btnDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
+        Me.btnDown.Location = New System.Drawing.Point(5, 101)
+        Me.btnDown.Name = "btnDown"
+        Me.btnDown.Size = New System.Drawing.Size(90, 37)
+        Me.btnDown.TabIndex = 81
+        Me.btnDown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnDown.UseVisualStyleBackColor = False
+        '
+        'btnUp
+        '
+        Me.btnUp.BackColor = System.Drawing.Color.Honeydew
+        Me.btnUp.FlatAppearance.BorderSize = 0
+        Me.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUp.ForeColor = System.Drawing.Color.Black
+        Me.btnUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
+        Me.btnUp.Location = New System.Drawing.Point(5, 58)
+        Me.btnUp.Name = "btnUp"
+        Me.btnUp.Size = New System.Drawing.Size(90, 37)
+        Me.btnUp.TabIndex = 80
+        Me.btnUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnUp.UseVisualStyleBackColor = False
+        '
         'btnClose
         '
         Me.btnClose.BackColor = System.Drawing.Color.Brown
@@ -1930,158 +2057,27 @@ Partial Class frmPOS
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
         '
-        'DataGridViewTextBoxColumn5
+        'lblIDRecall
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewTextBoxColumn5.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn5.Width = 50
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Item Name"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn1.Width = 200
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Rate"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn2.Width = 90
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Qty"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn3.Width = 60
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle13
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Amount"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn6.Width = 120
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Disc %"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn13.Width = 80
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Disc Amt"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle16
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Vat %"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn7.Width = 80
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle17
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Vat Amt"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle18
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Total"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        Me.DataGridViewTextBoxColumn15.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn15.Width = 130
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle19
-        Me.DataGridViewTextBoxColumn12.HeaderText = "TableNo"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "SC %"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
-        '
-        'Column18
-        '
-        Me.Column18.HeaderText = "SC Amt"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
-        '
-        'lblPayID
-        '
-        Me.lblPayID.AutoSize = True
-        Me.lblPayID.BackColor = System.Drawing.Color.Transparent
-        Me.lblPayID.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPayID.ForeColor = System.Drawing.Color.Black
-        Me.lblPayID.Location = New System.Drawing.Point(527, 22)
-        Me.lblPayID.Name = "lblPayID"
-        Me.lblPayID.Size = New System.Drawing.Size(12, 13)
-        Me.lblPayID.TabIndex = 107
-        Me.lblPayID.Text = "1"
+        Me.lblIDRecall.AutoSize = True
+        Me.lblIDRecall.BackColor = System.Drawing.Color.Transparent
+        Me.lblIDRecall.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIDRecall.ForeColor = System.Drawing.Color.Black
+        Me.lblIDRecall.Location = New System.Drawing.Point(229, 11)
+        Me.lblIDRecall.Name = "lblIDRecall"
+        Me.lblIDRecall.Size = New System.Drawing.Size(12, 13)
+        Me.lblIDRecall.TabIndex = 86
+        Me.lblIDRecall.Text = "1"
         '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1068, 738)
-        Me.Controls.Add(Me.pnlPayment)
+        Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlPayment)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "frmPOS"
@@ -2124,7 +2120,6 @@ Partial Class frmPOS
     Friend WithEvents btnAdd As Button
     Friend WithEvents dgw As DataGridView
     Friend WithEvents btnGetData As Button
-    Friend WithEvents btnUpdate As Button
     Friend WithEvents btnSave As Button
     Friend WithEvents btnChgTable As Button
     Friend WithEvents btnHold As Button
@@ -2244,4 +2239,5 @@ Partial Class frmPOS
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents Column18 As DataGridViewTextBoxColumn
     Friend WithEvents lblPayID As Label
+    Friend WithEvents lblIDRecall As Label
 End Class

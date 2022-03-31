@@ -1,15 +1,15 @@
 ﻿Imports System.Data.SqlClient
-Public Class frmOpenTicketList
+Public Class frmRecallTicketList
     Public frm As String
     Dim UserButtons As List(Of Button) = New List(Of Button)
-    Private Sub frmOpenTicketList_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub frmRecallTicketList_Load(sender As Object, e As EventArgs) Handles Me.Load
         FillAvailableTables()
     End Sub
 
     Sub FillAvailableTables()
         con = New SqlConnection(cs)
         con.Open()
-        Dim cmdText1 As String = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
+        Dim cmdText1 As String = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM TempRestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
         cmd = New SqlCommand(cmdText1)
         cmd.Connection = con
         rdr = cmd.ExecuteReader()
@@ -35,9 +35,9 @@ Public Class frmOpenTicketList
         Dim btn As Button = DirectCast(sender, Button)
         If frm = "frmPOS" Then
             frmPOS.txtTableNo.Text = btn.Text
-            frmPOS.GetOrders(btn.Text, 0)
-            frmPOS.is_edit = True
-            frmPOS.btnSave.Enabled = False
+            frmPOS.GetOrders(btn.Text, 1)
+            frmPOS.is_edit = False
+            frmPOS.btnSave.Enabled = True
         End If
         Me.Close()
     End Sub
@@ -49,4 +49,5 @@ Public Class frmOpenTicketList
     Private Sub btnRefresh_Click(sender As System.Object, e As System.EventArgs) Handles btnRefresh.Click
         FillAvailableTables()
     End Sub
+
 End Class
