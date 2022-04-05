@@ -444,6 +444,11 @@ Public Class frmPOS
 
 #Region "Handlers Buttons"
 
+    Private Sub btnDiscounts_CheckedChanged(sender As Object, e As EventArgs)
+        Dim btnDisck As Button = DirectCast(sender, Button)
+        txtDiscPer.Text = toNumber(btnDisck.Text)
+    End Sub
+
     Private Sub chkBill_CheckedChanged(sender As Object, e As EventArgs)
         Dim chkbill As CheckBox = DirectCast(sender, CheckBox)
         If chkbill.Checked = True Then
@@ -2083,6 +2088,37 @@ Public Class frmPOS
         con.Close()
     End Sub
 
+    Private Sub GetDiscounts()
+        Try
+            con = New SqlConnection(cs)
+            con.Open()
+            Dim cmdText1 As String = "SELECT Discount from Discounts WHERE Active='YES'"
+            cmd = New SqlCommand(cmdText1)
+            cmd.Connection = con
+            rdr = cmd.ExecuteReader()
+            FlowLayoutPanel4.Controls.Clear()
+            Do While (rdr.Read())
+                Dim btn As New Button
+                btn.Text = Trim(rdr.GetValue(0)) '& Environment.NewLine & rdr.GetValue(2)
+                'btn.AutoSize = True
+                btn.TextAlign = ContentAlignment.MiddleCenter
+                'Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(4)))
+                btn.ForeColor = Color.White
+                btn.BackColor = Color.Crimson
+                btn.FlatStyle = FlatStyle.Standard
+                btn.Width = 120
+                btn.Height = 50
+                btn.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                'UserButtons.Add(btn)
+                FlowLayoutPanel4.Controls.Add(btn)
+                AddHandler btn.Click, AddressOf Me.btnDiscounts_CheckedChanged
+            Loop
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+        End Try
+    End Sub
+
 #Region "Billing Buttons"
 
     Private Sub btnSettleBill_Click(sender As Object, e As EventArgs) Handles btnSettleBill.Click
@@ -2099,6 +2135,7 @@ Public Class frmPOS
                 pnlPayment.BringToFront()
                 object_center(Me, pnlPayment)
                 pnlPayment.Show()
+                GetDiscounts()
                 TabControl1.Enabled = False
                 txtCash.SelectionStart = 0
                 txtCash.SelectionLength = Len(txtCash.Text)
@@ -2160,8 +2197,12 @@ Public Class frmPOS
 
     End Sub
 
-    Private Sub btnGetDataBill_Click(sender As Object, e As EventArgs) Handles btnGetDataBill.Click
-
+    Private Sub btnGetDataBill_Click(sender As Object, e As EventArgs) Handles btnSplitBill.Click
+        If dgwList.Rows.Count > 0 Then
+            With frmSplitBill
+                .ShowDialog()
+            End With
+        End If
     End Sub
 
     Private Sub btnCancelBill_Click(sender As Object, e As EventArgs) Handles btnCancelBill.Click
