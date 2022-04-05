@@ -350,5 +350,4 @@ Public Class frmRestaurantMaster
         End Try
     End Sub
 
-
 End Class

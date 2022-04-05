@@ -296,6 +296,12 @@
     <Compile Include="frmRestaurantPOSKOTRecord.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSplitBill.Designer.vb">
+      <DependentUpon>frmSplitBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplitBill.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmStockIn_StoreRecord.Designer.vb">
       <DependentUpon>frmStockIn_StoreRecord.vb</DependentUpon>
     </Compile>
@@ -1028,6 +1034,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRestaurantPOSKOTRecord.resx">
       <DependentUpon>frmRestaurantPOSKOTRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplitBill.resx">
+      <DependentUpon>frmSplitBill.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStockIn_StoreRecord.resx">
       <DependentUpon>frmStockIn_StoreRecord.vb</DependentUpon>

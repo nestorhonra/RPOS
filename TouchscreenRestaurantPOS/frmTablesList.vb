@@ -5,14 +5,14 @@ Public Class frmTablesList
     Sub FillAvailableTables()
         con = New SqlConnection(cs)
         con.Open()
-        Dim cmdText1 As String = "SELECT distinct RTRIM(R_Table.TableNo),BkColor,Sum(TempRestaurantPOS_OrderInfoKOT.GrandTotal) from R_Table left Join TempRestaurantPOS_OrderInfoKOT on R_Table.TableNo=TempRestaurantPOS_OrderInfoKOT.TableNo where Status='Activate' group By R_Table.TableNo,BkColor order by 1"
+        Dim cmdText1 As String = "SELECT R.TableNo, R.BkColor FROM R_Table AS R WHERE R.Status='Activate' AND R.TableNo NOT IN (SELECT TableNo FROM RestaurantPOS_OrderInfoKOT WHERE isPaid = 0)"
         cmd = New SqlCommand(cmdText1)
         cmd.Connection = con
         rdr = cmd.ExecuteReader()
         flpTables.Controls.Clear()
         Do While (rdr.Read())
             Dim btn As New Button
-            btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
+            btn.Text = Trim(rdr.GetValue(0)) '& Environment.NewLine & rdr.GetValue(2)
             btn.TextAlign = ContentAlignment.MiddleCenter
             Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
             btn.BackColor = btnColor

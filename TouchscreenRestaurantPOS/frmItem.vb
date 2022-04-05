@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Public Class frmItem
     Sub fillCombo()
         Try
@@ -106,6 +107,13 @@ Public Class frmItem
             cmd.Parameters.AddWithValue("@d2", cmbCategory.Text)
             cmd.Parameters.AddWithValue("@d3", btnUIColor.BackColor.ToArgb())
             cmd.Parameters.AddWithValue("@d4", cmbKitchen.Text)
+            Dim ms As New MemoryStream()
+            Dim bmpImage As New Bitmap(PictureBox1.Image)
+            bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
+            Dim data As Byte() = ms.GetBuffer()
+            Dim p As New SqlParameter("@d8", SqlDbType.Image)
+            p.Value = data
+            cmd.Parameters.Add(p)
             cmd.ExecuteReader()
             con.Close()
             Dim st As String = "added the new item '" & txtItemName.Text & "'"
@@ -459,6 +467,22 @@ Public Class frmItem
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrowse.Click
+        Try
+            With OpenFileDialog1
+                .Filter = ("Images |*.png; *.bmp; *.jpg;*.jpeg; *.gif;*.ico;")
+                .FilterIndex = 4
+            End With
+            'Clear the file name
+            OpenFileDialog1.FileName = ""
+            If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+                PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString())
         End Try
     End Sub
 End Class

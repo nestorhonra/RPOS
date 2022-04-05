@@ -86,7 +86,7 @@ Public Class frmPrint
 
         'Data_Load()
 
-        Printer.NewPrint()
+        Printer.NewPrint("")
 
         Printer.Print(Img, 250, 80)
 

@@ -204,7 +204,7 @@ Public Class Printer
 
     End Sub
 
-    Public Shared Sub NewPrint()
+    Public Shared Sub NewPrint(ByVal srcPrinter As String)
         PrintDatalist = New PrintDatalist
         _myfont = New Font("Courier New", 8, FontStyle.Regular, GraphicsUnit.Point) 'Default
         prn = New Printing.PrintDocument
@@ -219,6 +219,9 @@ Public Class Printer
             .Margins.Bottom = 0
         End With
         prn.DefaultPageSettings = PS1
+        If srcPrinter <> "" Then
+            prn.PrinterSettings.PrinterName = srcPrinter
+        End If
 
         AddHandler prn.PrintPage, AddressOf Document_PrintPage
     End Sub

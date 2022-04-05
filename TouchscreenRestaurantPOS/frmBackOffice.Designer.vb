@@ -234,7 +234,7 @@ Partial Class frmBackOffice
         Me.btnItems.Name = "btnItems"
         Me.btnItems.Size = New System.Drawing.Size(200, 70)
         Me.btnItems.TabIndex = 5
-        Me.btnItems.Text = "Items"
+        Me.btnItems.Text = "Menu Items"
         Me.btnItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnItems.UseVisualStyleBackColor = False
         '
