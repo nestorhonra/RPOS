@@ -66,6 +66,7 @@ Partial Class frmBackOffice
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.btnWallets = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -153,6 +154,7 @@ Partial Class frmBackOffice
         Me.FlowLayoutPanel1.Controls.Add(Me.btnRegistration)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnLogs)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnAbout)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnWallets)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 91)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(831, 609)
@@ -710,6 +712,22 @@ Partial Class frmBackOffice
         Me.ToolStripStatusLabel3.Spring = True
         Me.ToolStripStatusLabel3.Visible = False
         '
+        'btnWallets
+        '
+        Me.btnWallets.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnWallets.FlatAppearance.BorderSize = 0
+        Me.btnWallets.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnWallets.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWallets.ForeColor = System.Drawing.Color.White
+        Me.btnWallets.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
+        Me.btnWallets.Location = New System.Drawing.Point(3, 611)
+        Me.btnWallets.Name = "btnWallets"
+        Me.btnWallets.Size = New System.Drawing.Size(200, 70)
+        Me.btnWallets.TabIndex = 33
+        Me.btnWallets.Text = "Wallets"
+        Me.btnWallets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnWallets.UseVisualStyleBackColor = False
+        '
         'frmBackOffice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -777,4 +795,5 @@ Partial Class frmBackOffice
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents lblUser As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents btnWallets As Button
 End Class

@@ -9,36 +9,40 @@ Public Class frmWalletList
     End Sub
 
     Sub FillAvailableTables()
-        con = New SqlConnection(cs)
-        con.Open()
-        Dim cmdText1 As String = "SELECT * FROM Wallets WHERE Active='YES'"
-        cmd = New SqlCommand(cmdText1)
-        cmd.Connection = con
-        rdr = cmd.ExecuteReader()
-        flpTables.Controls.Clear()
-        Do While (rdr.Read())
-            Dim btn As New Button
+        Try
+            con = New SqlConnection(cs)
+            con.Open()
+            Dim cmdText1 As String = "SELECT * FROM Wallets WHERE Active=1"
+            cmd = New SqlCommand(cmdText1)
+            cmd.Connection = con
+            rdr = cmd.ExecuteReader()
+            flpTables.Controls.Clear()
+            Do While (rdr.Read())
+                Dim btn As New Button
 
-            btn.Text = rdr.GetValue(1) '& Environment.NewLine & rdr.GetValue(2)
-            If Not IsDBNull(rdr.GetValue(2)) Then
-                Dim data1 As Byte() = DirectCast(rdr.GetValue(2), Byte())
-                Dim ms1 As New MemoryStream(data1)
-                btn.Image = Image.FromStream(ms1)
-            End If
+                btn.Text = rdr.GetValue(1) '& Environment.NewLine & rdr.GetValue(2)
+                If Not IsDBNull(rdr.GetValue(2)) Then
+                    Dim data1 As Byte() = DirectCast(rdr.GetValue(2), Byte())
+                    Dim ms1 As New MemoryStream(data1)
+                    btn.Image = Image.FromStream(ms1)
+                End If
 
-            btn.TextImageRelation = TextImageRelation.ImageAboveText
-            btn.TextAlign = ContentAlignment.MiddleCenter
-            Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
-            btn.BackColor = Color.White
-            btn.FlatStyle = FlatStyle.Popup
-            btn.Width = 150
-            btn.Height = 180
-            btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            UserButtons.Add(btn)
-            flpTables.Controls.Add(btn)
-            AddHandler btn.Click, AddressOf Me.Button2_Click
-        Loop
-        con.Close()
+                btn.TextImageRelation = TextImageRelation.ImageAboveText
+                btn.TextAlign = ContentAlignment.MiddleCenter
+                Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
+                btn.BackColor = Color.White
+                btn.FlatStyle = FlatStyle.Popup
+                btn.Width = 150
+                btn.Height = 180
+                btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                UserButtons.Add(btn)
+                flpTables.Controls.Add(btn)
+                AddHandler btn.Click, AddressOf Me.Button2_Click
+            Loop
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

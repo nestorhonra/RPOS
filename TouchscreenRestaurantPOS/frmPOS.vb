@@ -82,20 +82,25 @@ Public Class frmPOS
         FlowLayoutPanel3.Controls.Clear()
         btnSave.Enabled = False
         Call Getdata()
-        con = New SqlConnection(cs)
-        con.Open()
-        Dim sql As String = "Select TOP 1 * from OtherSetting ORDER BY ID ASC"
-        cmd = New SqlCommand(sql)
-        cmd.Connection = con
-        rdr = cmd.ExecuteReader()
-        If rdr.Read Then
-            If Not rdr Is Nothing Then
-                srvVat = toNumber(rdr(4).ToString)
-                srvTax = toNumber(rdr(5).ToString)
-                srvChrge = toNumber(rdr(6).ToString)
-                srvSC = toNumber(rdr("SeniorDiscount").ToString)
+        Try
+            con = New SqlConnection(cs)
+            con.Open()
+            Dim sql As String = "Select TOP 1 * from OtherSetting ORDER BY ID ASC"
+            cmd = New SqlCommand(sql)
+            cmd.Connection = con
+            rdr = cmd.ExecuteReader()
+            If rdr.Read Then
+                If Not rdr Is Nothing Then
+                    srvVat = toNumber(rdr(4).ToString)
+                    srvTax = toNumber(rdr(5).ToString)
+                    srvChrge = toNumber(rdr(6).ToString)
+                    srvSC = toNumber(rdr("SeniorDiscount").ToString)
+                End If
             End If
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
 
     End Sub
 

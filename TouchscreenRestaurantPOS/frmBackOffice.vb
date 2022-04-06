@@ -234,4 +234,11 @@
             .ShowDialog()
         End With
     End Sub
+
+    Private Sub btnWallets_Click(sender As Object, e As EventArgs) Handles btnWallets.Click
+        With frmWallet
+            .lblUser.Text = Me.lblUser.Text
+            .ShowDialog()
+        End With
+    End Sub
 End Class
