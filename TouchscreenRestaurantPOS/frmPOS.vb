@@ -8,7 +8,7 @@ Public Class frmPOS
     Dim UserButtons As List(Of Button) = New List(Of Button)
     Public is_edit As Boolean = False
     Dim s, x As String
-    Dim srvTax, srvChrge, srvVat As Double
+    Dim srvTax, srvChrge, srvVat, srvSC As Double
     Dim StoreName As String = ""
     Dim StoreAddress As String = ""
     Dim Img As Image
@@ -34,6 +34,7 @@ Public Class frmPOS
     Dim dblVatTot As Double = 0
     Dim dblDiscTot As Double = 0
     Dim dblSCTot As Double = 0
+    Dim dblSCDisc As Double = 0
     Dim FocusText As TextBox
     Dim tableTag As String = ""
     Dim ticketTag As String = ""
@@ -57,6 +58,15 @@ Public Class frmPOS
         txtPaymentMode.Text = ""
         lblID.Text = ""
         lblIDRecall.Text = ""
+        chkSC.Checked = False
+        txtOSCANo.Text = ""
+        txtOSCANo.ReadOnly = True
+        txtOSCANo.BackColor = Color.WhiteSmoke
+        txtSCDiscPer.Text = ""
+        txtSCDiscPer.ReadOnly = True
+        txtSCDiscPer.BackColor = Color.WhiteSmoke
+        txtSCAmount.ReadOnly = True
+        txtSCAmount.BackColor = Color.WhiteSmoke
         txtDiscPer.Text = ""
         txtDiscAmt.Text = ""
         txtGrandTot.Text = ""
@@ -83,6 +93,7 @@ Public Class frmPOS
                 srvVat = toNumber(rdr(4).ToString)
                 srvTax = toNumber(rdr(5).ToString)
                 srvChrge = toNumber(rdr(6).ToString)
+                srvSC = toNumber(rdr("SeniorDiscount").ToString)
             End If
         End If
 
@@ -1936,6 +1947,11 @@ Public Class frmPOS
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                     End Try
                     lblPayID.Text = "1"
+                    lblSubTotal.Text = ""
+                    txtSCAmount.Text = ""
+                    txtSCDiscPer.Text = ""
+                    txtOSCANo.Text = ""
+                    chkSC.Checked = False
                     txtDiscPer.Text = ""
                     txtDiscAmt.Text = ""
                     txtDiscPer.ReadOnly = False
@@ -2125,6 +2141,11 @@ Public Class frmPOS
         If Trim(txtBillNo.Text) <> "" Then
             If dgwList.Rows.Count > 0 Then
                 lblPayID.Text = "0"
+                lblSubTotal.Text = ""
+                chkSC.Checked = False
+                txtSCDiscPer.Text = ""
+                txtSCAmount.Text = ""
+                txtOSCANo.Text = ""
                 txtDiscPer.Text = ""
                 txtDiscAmt.Text = ""
                 txtDiscPer.ReadOnly = False
@@ -2229,7 +2250,10 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnWallet_Click(sender As Object, e As EventArgs) Handles btnWallet.Click
-
+        With frmWalletList
+            .frm = "frmPOS"
+            .ShowDialog()
+        End With
     End Sub
 
     Private Sub btnGuest_Click(sender As Object, e As EventArgs) Handles btnGuest.Click
@@ -2389,8 +2413,13 @@ Public Class frmPOS
                 Printer.DoPrint()
                 pnlPayment.SendToBack()
                 pnlPayment.Hide()
+                chkSC.Checked = False
+                txtSCDiscPer.Text = ""
+                txtSCAmount.Text = ""
+                txtOSCANo.Text = ""
                 txtBillNo.Text = ""
                 txtPaymentMode.Text = ""
+                lblPayID.Text = ""
                 lblGrandTotal.Text = ""
                 lblTotalBill.Text = ""
                 txtGrandTot.Text = ""
@@ -2471,6 +2500,31 @@ Public Class frmPOS
                 txtChange.Text = ""
             End If
 
+        End If
+    End Sub
+
+    Private Sub btnKeyboard_Click(sender As Object, e As EventArgs) Handles btnKeyboard.Click
+        Process.Start("osk.exe")
+    End Sub
+
+    Private Sub CheckButton1_CheckedChanged(sender As Object, e As EventArgs) Handles chkSC.CheckedChanged
+        If chkSC.Checked = True Then
+            txtOSCANo.ReadOnly = False
+            txtOSCANo.BackColor = Color.White
+            txtSCDiscPer.ReadOnly = False
+            txtSCDiscPer.BackColor = Color.White
+            txtSCAmount.ReadOnly = True
+            txtSCDiscPer.Text = toNumber(srvSC)
+
+        Else
+            txtOSCANo.Text = ""
+            txtOSCANo.ReadOnly = True
+            txtOSCANo.BackColor = Color.WhiteSmoke
+            txtSCDiscPer.Text = ""
+            txtSCDiscPer.ReadOnly = True
+            txtSCDiscPer.BackColor = Color.WhiteSmoke
+            txtSCAmount.ReadOnly = True
+            txtSCAmount.BackColor = Color.WhiteSmoke
         End If
     End Sub
 

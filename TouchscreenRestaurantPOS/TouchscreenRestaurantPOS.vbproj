@@ -356,6 +356,18 @@
     <Compile Include="frmTablesList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmWallet.Designer.vb">
+      <DependentUpon>frmWallet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWallet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWalletList.Designer.vb">
+      <DependentUpon>frmWalletList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWalletList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Printer.vb" />
     <Compile Include="PrintingFormat.vb" />
     <Compile Include="rptWorkPeriod.vb">
@@ -1065,6 +1077,12 @@
     <EmbeddedResource Include="frmTablesList.resx">
       <DependentUpon>frmTablesList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmWallet.resx">
+      <DependentUpon>frmWallet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWalletList.resx">
+      <DependentUpon>frmWalletList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="rptWorkPeriod.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1678,6 +1696,9 @@
     <None Include="Resources\credit-card.png" />
     <None Include="Resources\credit-card_32.png" />
     <None Include="Resources\wallet.png" />
+    <None Include="Resources\GCash_128.png" />
+    <None Include="Resources\PayMaya_128.png" />
+    <None Include="Resources\GrabPay_128.png" />
     <Content Include="RPOS.ico" />
     <None Include="Resources\Button-Ok-icon.png" />
     <None Include="Resources\Button-Delete-icon.png" />

@@ -183,7 +183,7 @@ Partial Class frmPOS
         Me.btnWallet = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.btnCash = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtSCDiscPer = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -194,7 +194,12 @@ Partial Class frmPOS
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtOSCANo = New System.Windows.Forms.TextBox()
+        Me.chkSC = New DevExpress.XtraEditors.CheckButton()
+        Me.txtSCAmount = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.lblSubTotal = New System.Windows.Forms.Label()
+        Me.btnKeyboard = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -1612,7 +1617,7 @@ Partial Class frmPOS
         Me.Panel4.Controls.Add(Me.btnP3)
         Me.Panel4.Controls.Add(Me.btnP2)
         Me.Panel4.Controls.Add(Me.btnP1)
-        Me.Panel4.Location = New System.Drawing.Point(143, 335)
+        Me.Panel4.Location = New System.Drawing.Point(143, 359)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(420, 295)
         Me.Panel4.TabIndex = 86
@@ -1788,11 +1793,16 @@ Partial Class frmPOS
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel5.Controls.Add(Me.btnKeyboard)
+        Me.Panel5.Controls.Add(Me.lblSubTotal)
+        Me.Panel5.Controls.Add(Me.txtSCAmount)
+        Me.Panel5.Controls.Add(Me.Label18)
+        Me.Panel5.Controls.Add(Me.chkSC)
         Me.Panel5.Controls.Add(Me.Label17)
-        Me.Panel5.Controls.Add(Me.TextBox2)
+        Me.Panel5.Controls.Add(Me.txtOSCANo)
         Me.Panel5.Controls.Add(Me.Label16)
         Me.Panel5.Controls.Add(Me.FlowLayoutPanel4)
-        Me.Panel5.Controls.Add(Me.TextBox1)
+        Me.Panel5.Controls.Add(Me.txtSCDiscPer)
         Me.Panel5.Controls.Add(Me.Label14)
         Me.Panel5.Controls.Add(Me.lblPayID)
         Me.Panel5.Controls.Add(Me.lblGrandTotal)
@@ -1808,7 +1818,7 @@ Partial Class frmPOS
         Me.Panel5.Controls.Add(Me.Label9)
         Me.Panel5.Location = New System.Drawing.Point(3, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(698, 333)
+        Me.Panel5.Size = New System.Drawing.Size(698, 357)
         Me.Panel5.TabIndex = 108
         '
         'lblPayID
@@ -1817,7 +1827,7 @@ Partial Class frmPOS
         Me.lblPayID.BackColor = System.Drawing.Color.Transparent
         Me.lblPayID.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPayID.ForeColor = System.Drawing.Color.Black
-        Me.lblPayID.Location = New System.Drawing.Point(404, 22)
+        Me.lblPayID.Location = New System.Drawing.Point(414, 231)
         Me.lblPayID.Name = "lblPayID"
         Me.lblPayID.Size = New System.Drawing.Size(12, 13)
         Me.lblPayID.TabIndex = 107
@@ -1829,7 +1839,7 @@ Partial Class frmPOS
         Me.lblGrandTotal.BackColor = System.Drawing.Color.Transparent
         Me.lblGrandTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGrandTotal.ForeColor = System.Drawing.Color.Black
-        Me.lblGrandTotal.Location = New System.Drawing.Point(400, 219)
+        Me.lblGrandTotal.Location = New System.Drawing.Point(414, 15)
         Me.lblGrandTotal.Name = "lblGrandTotal"
         Me.lblGrandTotal.Size = New System.Drawing.Size(12, 13)
         Me.lblGrandTotal.TabIndex = 106
@@ -1841,7 +1851,7 @@ Partial Class frmPOS
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(63, 292)
+        Me.Label13.Location = New System.Drawing.Point(74, 307)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(87, 25)
         Me.Label13.TabIndex = 86
@@ -1853,7 +1863,7 @@ Partial Class frmPOS
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(29, 251)
+        Me.Label12.Location = New System.Drawing.Point(40, 266)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(121, 25)
         Me.Label12.TabIndex = 85
@@ -1865,7 +1875,7 @@ Partial Class frmPOS
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(30, 210)
+        Me.Label11.Location = New System.Drawing.Point(41, 225)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(120, 25)
         Me.Label11.TabIndex = 84
@@ -1877,7 +1887,7 @@ Partial Class frmPOS
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(17, 169)
+        Me.Label10.Location = New System.Drawing.Point(28, 184)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(133, 25)
         Me.Label10.TabIndex = 83
@@ -1887,7 +1897,7 @@ Partial Class frmPOS
         '
         Me.txtChange.BackColor = System.Drawing.Color.White
         Me.txtChange.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtChange.Location = New System.Drawing.Point(152, 286)
+        Me.txtChange.Location = New System.Drawing.Point(163, 301)
         Me.txtChange.Name = "txtChange"
         Me.txtChange.ReadOnly = True
         Me.txtChange.Size = New System.Drawing.Size(242, 35)
@@ -1900,7 +1910,7 @@ Partial Class frmPOS
         '
         Me.txtCash.BackColor = System.Drawing.Color.White
         Me.txtCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCash.Location = New System.Drawing.Point(152, 245)
+        Me.txtCash.Location = New System.Drawing.Point(163, 260)
         Me.txtCash.MaxLength = 12
         Me.txtCash.Name = "txtCash"
         Me.txtCash.Size = New System.Drawing.Size(242, 35)
@@ -1912,7 +1922,7 @@ Partial Class frmPOS
         '
         Me.txtGrandTot.BackColor = System.Drawing.Color.White
         Me.txtGrandTot.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGrandTot.Location = New System.Drawing.Point(152, 204)
+        Me.txtGrandTot.Location = New System.Drawing.Point(164, 219)
         Me.txtGrandTot.Name = "txtGrandTot"
         Me.txtGrandTot.ReadOnly = True
         Me.txtGrandTot.Size = New System.Drawing.Size(242, 35)
@@ -1925,7 +1935,7 @@ Partial Class frmPOS
         '
         Me.txtDiscAmt.BackColor = System.Drawing.Color.White
         Me.txtDiscAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscAmt.Location = New System.Drawing.Point(152, 163)
+        Me.txtDiscAmt.Location = New System.Drawing.Point(163, 178)
         Me.txtDiscAmt.Name = "txtDiscAmt"
         Me.txtDiscAmt.ReadOnly = True
         Me.txtDiscAmt.Size = New System.Drawing.Size(242, 35)
@@ -1938,11 +1948,11 @@ Partial Class frmPOS
         '
         Me.txtDiscPer.BackColor = System.Drawing.Color.White
         Me.txtDiscPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscPer.Location = New System.Drawing.Point(152, 122)
+        Me.txtDiscPer.Location = New System.Drawing.Point(163, 137)
         Me.txtDiscPer.MaxLength = 3
         Me.txtDiscPer.Name = "txtDiscPer"
         Me.txtDiscPer.ReadOnly = True
-        Me.txtDiscPer.Size = New System.Drawing.Size(44, 35)
+        Me.txtDiscPer.Size = New System.Drawing.Size(242, 35)
         Me.txtDiscPer.TabIndex = 2
         Me.txtDiscPer.Text = "1234567890"
         Me.txtDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1953,7 +1963,7 @@ Partial Class frmPOS
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(31, 127)
+        Me.Label9.Location = New System.Drawing.Point(42, 142)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(119, 25)
         Me.Label9.TabIndex = 77
@@ -1973,7 +1983,7 @@ Partial Class frmPOS
         Me.pnlPayment.Controls.Add(Me.btnCash)
         Me.pnlPayment.Location = New System.Drawing.Point(208, 45)
         Me.pnlPayment.Name = "pnlPayment"
-        Me.pnlPayment.Size = New System.Drawing.Size(704, 630)
+        Me.pnlPayment.Size = New System.Drawing.Size(704, 654)
         Me.pnlPayment.TabIndex = 73
         '
         'btnClose
@@ -1984,7 +1994,7 @@ Partial Class frmPOS
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.Color.White
         Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Button_Close_icon32X321
-        Me.btnClose.Location = New System.Drawing.Point(569, 541)
+        Me.btnClose.Location = New System.Drawing.Point(569, 565)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(127, 84)
         Me.btnClose.TabIndex = 125
@@ -2000,7 +2010,7 @@ Partial Class frmPOS
         Me.btnSettleUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSettleUpdate.ForeColor = System.Drawing.Color.White
         Me.btnSettleUpdate.Image = Global.RestaurantPOS3.My.Resources.Resources.report_edit_icon1
-        Me.btnSettleUpdate.Location = New System.Drawing.Point(569, 441)
+        Me.btnSettleUpdate.Location = New System.Drawing.Point(569, 465)
         Me.btnSettleUpdate.Name = "btnSettleUpdate"
         Me.btnSettleUpdate.Size = New System.Drawing.Size(127, 84)
         Me.btnSettleUpdate.TabIndex = 124
@@ -2016,7 +2026,7 @@ Partial Class frmPOS
         Me.btnSettle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSettle.ForeColor = System.Drawing.Color.White
         Me.btnSettle.Image = Global.RestaurantPOS3.My.Resources.Resources.Print_32x32
-        Me.btnSettle.Location = New System.Drawing.Point(569, 342)
+        Me.btnSettle.Location = New System.Drawing.Point(569, 366)
         Me.btnSettle.Name = "btnSettle"
         Me.btnSettle.Size = New System.Drawing.Size(127, 84)
         Me.btnSettle.TabIndex = 123
@@ -2032,7 +2042,7 @@ Partial Class frmPOS
         Me.btnGuest.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuest.ForeColor = System.Drawing.Color.White
         Me.btnGuest.Image = Global.RestaurantPOS3.My.Resources.Resources.AssignTo_32x32
-        Me.btnGuest.Location = New System.Drawing.Point(6, 558)
+        Me.btnGuest.Location = New System.Drawing.Point(6, 582)
         Me.btnGuest.Name = "btnGuest"
         Me.btnGuest.Size = New System.Drawing.Size(127, 66)
         Me.btnGuest.TabIndex = 122
@@ -2048,7 +2058,7 @@ Partial Class frmPOS
         Me.btnWallet.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWallet.ForeColor = System.Drawing.Color.White
         Me.btnWallet.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
-        Me.btnWallet.Location = New System.Drawing.Point(6, 486)
+        Me.btnWallet.Location = New System.Drawing.Point(6, 510)
         Me.btnWallet.Name = "btnWallet"
         Me.btnWallet.Size = New System.Drawing.Size(127, 66)
         Me.btnWallet.TabIndex = 121
@@ -2064,7 +2074,7 @@ Partial Class frmPOS
         Me.btnCard.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCard.ForeColor = System.Drawing.Color.White
         Me.btnCard.Image = Global.RestaurantPOS3.My.Resources.Resources.credit_card_32
-        Me.btnCard.Location = New System.Drawing.Point(6, 414)
+        Me.btnCard.Location = New System.Drawing.Point(6, 438)
         Me.btnCard.Name = "btnCard"
         Me.btnCard.Size = New System.Drawing.Size(127, 66)
         Me.btnCard.TabIndex = 120
@@ -2080,7 +2090,7 @@ Partial Class frmPOS
         Me.btnCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCash.ForeColor = System.Drawing.Color.White
         Me.btnCash.Image = Global.RestaurantPOS3.My.Resources.Resources.payment_icon
-        Me.btnCash.Location = New System.Drawing.Point(6, 342)
+        Me.btnCash.Location = New System.Drawing.Point(6, 366)
         Me.btnCash.Name = "btnCash"
         Me.btnCash.Size = New System.Drawing.Size(127, 66)
         Me.btnCash.TabIndex = 119
@@ -2088,18 +2098,18 @@ Partial Class frmPOS
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'txtSCDiscPer
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.White
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(152, 9)
-        Me.TextBox1.MaxLength = 3
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(44, 35)
-        Me.TextBox1.TabIndex = 108
-        Me.TextBox1.Text = "1234567890"
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtSCDiscPer.BackColor = System.Drawing.Color.White
+        Me.txtSCDiscPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSCDiscPer.Location = New System.Drawing.Point(205, 14)
+        Me.txtSCDiscPer.MaxLength = 3
+        Me.txtSCDiscPer.Name = "txtSCDiscPer"
+        Me.txtSCDiscPer.ReadOnly = True
+        Me.txtSCDiscPer.Size = New System.Drawing.Size(200, 35)
+        Me.txtSCDiscPer.TabIndex = 108
+        Me.txtSCDiscPer.Text = "1234567890"
+        Me.txtSCDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label14
         '
@@ -2107,7 +2117,7 @@ Partial Class frmPOS
         Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(24, 14)
+        Me.Label14.Location = New System.Drawing.Point(35, 19)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(126, 25)
         Me.Label14.TabIndex = 109
@@ -2124,7 +2134,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel4.Controls.Add(Me.Button6)
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(445, 31)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(253, 302)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(253, 326)
         Me.FlowLayoutPanel4.TabIndex = 110
         '
         'Button1
@@ -2229,24 +2239,94 @@ Partial Class frmPOS
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(22, 56)
+        Me.Label17.Location = New System.Drawing.Point(33, 61)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(127, 25)
         Me.Label17.TabIndex = 112
         Me.Label17.Text = "OSCA ID No :"
         '
-        'TextBox2
+        'txtOSCANo
         '
-        Me.TextBox2.BackColor = System.Drawing.Color.White
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(152, 50)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(242, 35)
-        Me.TextBox2.TabIndex = 113
-        Me.TextBox2.TabStop = False
-        Me.TextBox2.Text = "1234567890"
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtOSCANo.BackColor = System.Drawing.Color.White
+        Me.txtOSCANo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOSCANo.Location = New System.Drawing.Point(163, 55)
+        Me.txtOSCANo.Name = "txtOSCANo"
+        Me.txtOSCANo.ReadOnly = True
+        Me.txtOSCANo.Size = New System.Drawing.Size(242, 35)
+        Me.txtOSCANo.TabIndex = 113
+        Me.txtOSCANo.TabStop = False
+        Me.txtOSCANo.Text = "1234567890"
+        Me.txtOSCANo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'chkSC
+        '
+        Me.chkSC.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.chkSC.Appearance.Options.UseFont = True
+        Me.chkSC.AppearanceDisabled.BackColor = System.Drawing.Color.DarkRed
+        Me.chkSC.AppearanceDisabled.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSC.AppearanceDisabled.Options.UseBackColor = True
+        Me.chkSC.AppearanceDisabled.Options.UseFont = True
+        Me.chkSC.AppearancePressed.BackColor = System.Drawing.Color.ForestGreen
+        Me.chkSC.AppearancePressed.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSC.AppearancePressed.Options.UseBackColor = True
+        Me.chkSC.AppearancePressed.Options.UseFont = True
+        Me.chkSC.Location = New System.Drawing.Point(164, 14)
+        Me.chkSC.Name = "chkSC"
+        Me.chkSC.Size = New System.Drawing.Size(35, 35)
+        Me.chkSC.TabIndex = 114
+        Me.chkSC.Text = "V"
+        Me.chkSC.ToolTip = "Enable SC"
+        '
+        'txtSCAmount
+        '
+        Me.txtSCAmount.BackColor = System.Drawing.Color.White
+        Me.txtSCAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSCAmount.Location = New System.Drawing.Point(163, 96)
+        Me.txtSCAmount.MaxLength = 3
+        Me.txtSCAmount.Name = "txtSCAmount"
+        Me.txtSCAmount.ReadOnly = True
+        Me.txtSCAmount.Size = New System.Drawing.Size(242, 35)
+        Me.txtSCAmount.TabIndex = 115
+        Me.txtSCAmount.Text = "1234567890"
+        Me.txtSCAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(0, 100)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(160, 25)
+        Me.Label18.TabIndex = 116
+        Me.Label18.Text = "SC Disc Amount :"
+        '
+        'lblSubTotal
+        '
+        Me.lblSubTotal.AutoSize = True
+        Me.lblSubTotal.BackColor = System.Drawing.Color.Transparent
+        Me.lblSubTotal.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubTotal.ForeColor = System.Drawing.Color.Black
+        Me.lblSubTotal.Location = New System.Drawing.Point(170, 340)
+        Me.lblSubTotal.Name = "lblSubTotal"
+        Me.lblSubTotal.Size = New System.Drawing.Size(12, 13)
+        Me.lblSubTotal.TabIndex = 117
+        Me.lblSubTotal.Text = "1"
+        '
+        'btnKeyboard
+        '
+        Me.btnKeyboard.BackColor = System.Drawing.Color.White
+        Me.btnKeyboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnKeyboard.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnKeyboard.Image = Global.RestaurantPOS3.My.Resources.Resources.Computer_Hardware_Keyboard_icon
+        Me.btnKeyboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnKeyboard.Location = New System.Drawing.Point(408, 54)
+        Me.btnKeyboard.Name = "btnKeyboard"
+        Me.btnKeyboard.Size = New System.Drawing.Size(33, 36)
+        Me.btnKeyboard.TabIndex = 369
+        Me.btnKeyboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnKeyboard.UseVisualStyleBackColor = True
         '
         'frmPOS
         '
@@ -2421,7 +2501,7 @@ Partial Class frmPOS
     Friend WithEvents lblPayID As Label
     Friend WithEvents lblIDRecall As Label
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSCDiscPer As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Button1 As Button
@@ -2431,5 +2511,10 @@ Partial Class frmPOS
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtOSCANo As TextBox
+    Friend WithEvents chkSC As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents txtSCAmount As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents lblSubTotal As Label
+    Friend WithEvents btnKeyboard As Button
 End Class
