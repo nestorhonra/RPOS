@@ -25,6 +25,7 @@ Partial Class frmCustomDialog13
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnOK = New System.Windows.Forms.Button()
         Me.txtAmount = New System.Windows.Forms.TextBox()
+        Me.btnKeyboard = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label2
@@ -58,12 +59,29 @@ Partial Class frmCustomDialog13
         Me.txtAmount.Size = New System.Drawing.Size(329, 35)
         Me.txtAmount.TabIndex = 1
         '
+        'btnKeyboard
+        '
+        Me.btnKeyboard.BackColor = System.Drawing.Color.White
+        Me.btnKeyboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnKeyboard.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnKeyboard.Image = Global.RestaurantPOS3.My.Resources.Resources.Computer_Hardware_Keyboard_icon
+        Me.btnKeyboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnKeyboard.Location = New System.Drawing.Point(298, 215)
+        Me.btnKeyboard.Name = "btnKeyboard"
+        Me.btnKeyboard.Size = New System.Drawing.Size(93, 35)
+        Me.btnKeyboard.TabIndex = 370
+        Me.btnKeyboard.Text = "Keyboard"
+        Me.btnKeyboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnKeyboard.UseVisualStyleBackColor = True
+        Me.btnKeyboard.Visible = False
+        '
         'frmCustomDialog13
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(401, 261)
+        Me.Controls.Add(Me.btnKeyboard)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnOK)
@@ -79,4 +97,5 @@ Partial Class frmCustomDialog13
     Friend WithEvents Label2 As Label
     Friend WithEvents btnOK As Button
     Friend WithEvents txtAmount As TextBox
+    Friend WithEvents btnKeyboard As Button
 End Class

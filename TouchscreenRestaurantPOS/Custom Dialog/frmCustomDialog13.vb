@@ -13,13 +13,37 @@
             frmPOS.dgw.SelectedCells.Item(1).Value = toMoney(txtAmount.Text)
         ElseIf frm = "frmPOS1" Then
             frmPOS.dgw.SelectedCells.Item(2).Value = toNumber(txtAmount.Text)
+        ElseIf frm = "frmPOS2" Then
+            If Trim(txtAmount.Text) <> "" Then
+                frmPOS.lblRefNo.Text = Trim(Me.txtAmount.Text)
+            Else
+                frmPOS.lblRefNo.Text = Trim(Me.txtAmount.Text)
+                frmPOS.txtPaymentMode.Text = ""
+            End If
+
+        ElseIf frm = "frmPOS3" Then
+            If Trim(txtAmount.Text) <> "" Then
+                frmPOS.lblSCName.Text = Trim(Me.txtAmount.Text)
+            Else
+                frmPOS.lblSCName.Text = Trim(Me.txtAmount.Text)
+                frmPOS.txtSCDiscPer.Text = ""
+                frmPOS.chkSC.Checked = False
+                frmPOS.txtSCAmount.Text = ""
+                frmPOS.txtOSCANo.Text = ""
+            End If
+
         End If
-        txtAmount.Text = ""
+            txtAmount.Text = ""
         Me.Close()
     End Sub
 
     Private Sub txtAmount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAmount.KeyPress
-        Dim ValidChars As String = "0123456789."
+        Dim ValidChars As String = ""
+        If frm = "frmPOS2" Or frm = "frmPOS3" Then
+            ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.- "
+        Else
+            ValidChars = "0123456789."
+        End If
         e.Handled = Not (ValidChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
         If e.KeyChar = vbCr Then
             e.Handled = True

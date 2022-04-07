@@ -26,8 +26,8 @@ Public Class frmPOS
     Dim PosTicketPrntr As String = ""
     Dim PosInvPrntr As String = ""
     Dim c As New PrintingFormat
-
-    'for subtotal & qty total
+    Public wal_tag As Boolean
+    Dim dblSubTotVat As Double = 0
     Dim dblSubtotal As Double = 0
     Dim dblQty As Double = 0
     Dim dblPayment As Double = 0
@@ -45,42 +45,7 @@ Public Class frmPOS
     End Sub
 
     Private Sub frmPOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblType.Text = ""
-        lblTypeID.Text = ""
-        txtTableNo.Text = ""
-        txtTicketNo.Text = ""
-        txtQty.Text = ""
-        lblTotal.Text = ""
-        lblTotalBill.Text = ""
-        lblGrandTotal.Text = ""
-        lblPayID.Text = ""
-        txtBillNo.Text = ""
-        txtPaymentMode.Text = ""
-        lblID.Text = ""
-        lblIDRecall.Text = ""
-        chkSC.Checked = False
-        txtOSCANo.Text = ""
-        txtOSCANo.ReadOnly = True
-        txtOSCANo.BackColor = Color.WhiteSmoke
-        txtSCDiscPer.Text = ""
-        txtSCDiscPer.ReadOnly = True
-        txtSCDiscPer.BackColor = Color.WhiteSmoke
-        txtSCAmount.ReadOnly = True
-        txtSCAmount.BackColor = Color.WhiteSmoke
-        txtDiscPer.Text = ""
-        txtDiscAmt.Text = ""
-        txtGrandTot.Text = ""
-        txtCash.Text = ""
-        txtChange.Text = ""
-        ticketTag = ""
-        tableTag = ""
-        cateTag = ""
-        pnlPayment.Hide()
-        is_edit = False
-        FlowLayoutPanel1.Controls.Clear()
-        FlowLayoutPanel2.Controls.Clear()
-        FlowLayoutPanel3.Controls.Clear()
-        btnSave.Enabled = False
+        Call ClearAll()
         Call Getdata()
         Try
             con = New SqlConnection(cs)
@@ -100,7 +65,71 @@ Public Class frmPOS
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
 
+    Private Sub ClearAll()
+        lblType.Text = ""
+        lblTypeID.Text = ""
+        lblTotal.Text = ""
+        lblTotalBill.Text = ""
+        lblGrandTotal.Text = ""
+        lblPayID.Text = ""
+        lblRefNo.Text = ""
+        lblSubTotal.Text = ""
+        lblSCName.Text = ""
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
+        lblID.Text = ""
+        lblIDRecall.Text = ""
+        lblID.Text = ""
+
+
+        txtSCDiscPer.Text = ""
+        txtSCAmount.Text = ""
+        txtOSCANo.Text = ""
+        txtTableNo.Text = ""
+        txtTicketNo.Text = ""
+        txtQty.Text = ""
+        txtDiscPer.Text = ""
+        txtDiscAmt.Text = ""
+        txtGrandTot.Text = ""
+        txtCash.Text = ""
+        txtChange.Text = ""
+        txtBillNo.Text = ""
+        txtPaymentMode.Text = ""
+
+        chkSC.Checked = False
+        txtOSCANo.ReadOnly = True
+        txtOSCANo.BackColor = Color.WhiteSmoke
+        txtSCDiscPer.ReadOnly = True
+        txtSCDiscPer.BackColor = Color.WhiteSmoke
+        txtSCAmount.ReadOnly = True
+        txtSCAmount.BackColor = Color.WhiteSmoke
+
+        ticketTag = ""
+        tableTag = ""
+        cateTag = ""
+
+        dblDiscTot = 0
+        dblPayment = 0
+        dblQty = 0
+        dblSCDisc = 0
+        dblSCTot = 0
+        dblSubtotal = 0
+        dblSubTotVat = 0
+        dblVatTot = 0
+        is_edit = False
+        wal_tag = False
+        pnlPayment.SendToBack()
+        pnlPayment.Hide()
+        dgwList.Rows.Clear()
+        dgw.Rows.Clear()
+        is_edit = False
+        FlowLayoutPanel1.Controls.Clear()
+        FlowLayoutPanel2.Controls.Clear()
+        FlowLayoutPanel3.Controls.Clear()
+        btnSave.Enabled = False
 
     End Sub
 
@@ -196,6 +225,7 @@ Public Class frmPOS
                         txtTicketNo.Text = rdr(1).ToString
                         txtTableNo.Text = rdr(4).ToString
                     End If
+
 
                     lblTotal.Text = toMoney(rdr(3).ToString)
                     lblType.Text = rdr(8).ToString
@@ -325,11 +355,14 @@ Public Class frmPOS
     Private Sub ComputeTotalBill()
         If dgwList.Rows.Count > 0 Then
             Dim totalamt As Double = 0
+            Dim totalnoVat As Double = 0
             Try
                 For i As Integer = 0 To dgwList.Rows.Count - 1
                     totalamt += toNumber(dgwList.Rows(i).Cells(9).Value.ToString)
+                    totalnoVat += toNumber(dgwList.Rows(i).Cells(4).Value.ToString)
                 Next
                 lblTotalBill.Text = toMoney(totalamt)
+                dblSubTotVat = toMoney(totalnoVat)
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -500,6 +533,7 @@ Public Class frmPOS
                                 End If
                                 Do While (rdr.Read())
                                     dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)), toNumber(rdr(5)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)), chkbill.Text, toNumber(rdr(10)), toNumber(rdr(11)))
+
                                 Loop
                             End If
                         End If
@@ -904,26 +938,28 @@ Public Class frmPOS
             FlowLayoutPanel3.Controls.Clear()
             btnSave.Enabled = False
         Else
-            If MsgBox("Are you sure you want to cancel this order?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
-                txtQty.Text = ""
-                txtTableNo.Text = ""
-                txtTicketNo.Text = ""
-                lblType.Text = ""
-                lblTypeID.Text = ""
-                lblID.Text = ""
-                lblIDRecall.Text = ""
-                lblTotal.Text = ""
-                lblTotalBill.Text = ""
-                lblGrandTotal.Text = ""
-                lblPayID.Text = ""
-                dgw.Rows.Clear()
-                is_edit = False
-                FlowLayoutPanel1.Controls.Clear()
-                FlowLayoutPanel2.Controls.Clear()
-                FlowLayoutPanel3.Controls.Clear()
-                btnSave.Enabled = False
-            Else
-                Exit Sub
+            If lblID.Text <> "" Or Trim(txtTicketNo.Text) <> "" Then
+                If MsgBox("Are you sure you want to cancel this order?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
+                    txtQty.Text = ""
+                    txtTableNo.Text = ""
+                    txtTicketNo.Text = ""
+                    lblType.Text = ""
+                    lblTypeID.Text = ""
+                    lblID.Text = ""
+                    lblIDRecall.Text = ""
+                    lblTotal.Text = ""
+                    lblTotalBill.Text = ""
+                    lblGrandTotal.Text = ""
+                    lblPayID.Text = ""
+                    dgw.Rows.Clear()
+                    is_edit = False
+                    FlowLayoutPanel1.Controls.Clear()
+                    FlowLayoutPanel2.Controls.Clear()
+                    FlowLayoutPanel3.Controls.Clear()
+                    btnSave.Enabled = False
+                Else
+                    Exit Sub
+                End If
             End If
         End If
     End Sub
@@ -1890,7 +1926,7 @@ Public Class frmPOS
 
                                     'column header split by ; | nama kolom dipisah dengan ;
                                     Printer.Print("Item;Qty;Notes", arrWidth, arrFormat)
-                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    Printer.SetFont("Courier New", 18, FontStyle.Regular) 'Setting Font
                                     Printer.Print("----------------------------------------") 'line
                                     'looping item sales | loop item penjualan
                                     For r = 0 To dtItem.Rows.Count - 1
@@ -1910,22 +1946,7 @@ Public Class frmPOS
                             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                         End Try
 
-                        txtQty.Text = ""
-                        txtTableNo.Text = ""
-                        txtTicketNo.Text = ""
-                        lblType.Text = ""
-                        lblTypeID.Text = ""
-                        lblID.Text = ""
-                        lblTotal.Text = ""
-                        lblTotalBill.Text = ""
-                        lblGrandTotal.Text = ""
-                        lblPayID.Text = ""
-                        dgw.Rows.Clear()
-                        is_edit = False
-                        FlowLayoutPanel1.Controls.Clear()
-                        FlowLayoutPanel2.Controls.Clear()
-                        FlowLayoutPanel3.Controls.Clear()
-                        btnSave.Enabled = False
+                        Call ClearAll()
                     Else
                         MsgBox("Order list is already been saved", vbInformation + vbOKOnly, "Order saved")
                     End If
@@ -1956,6 +1977,11 @@ Public Class frmPOS
                     txtSCAmount.Text = ""
                     txtSCDiscPer.Text = ""
                     txtOSCANo.Text = ""
+                    lblSCName.Text = ""
+                    lblRefNo.Text = ""
+                    lblBookID.Text = ""
+                    lblRoomNo.Text = ""
+                    lblGuestName.Text = ""
                     chkSC.Checked = False
                     txtDiscPer.Text = ""
                     txtDiscAmt.Text = ""
@@ -2052,6 +2078,10 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        chkSC.Checked = False
+        txtSCAmount.Text = ""
+        txtSCDiscPer.Text = ""
+        txtOSCANo.Text = ""
         txtDiscPer.Text = ""
         txtDiscAmt.Text = ""
         txtGrandTot.Text = ""
@@ -2060,6 +2090,15 @@ Public Class frmPOS
         pnlPayment.SendToBack()
         pnlPayment.Hide()
         TabControl1.Enabled = True
+        wal_tag = False
+        lblPayID.Text = ""
+        lblGrandTotal.Text = ""
+        lblSubTotal.Text = ""
+        lblRefNo.Text = ""
+        lblSCName.Text = ""
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -2157,6 +2196,7 @@ Public Class frmPOS
                 txtCash.ReadOnly = False
                 txtGrandTot.Text = toMoney(lblTotalBill.Text)
                 lblGrandTotal.Text = toMoney(lblTotalBill.Text)
+                lblSubTotal.Text = dblSubTotVat
                 txtCash.Text = ""
                 pnlPayment.BringToFront()
                 object_center(Me, pnlPayment)
@@ -2259,6 +2299,14 @@ Public Class frmPOS
             .frm = "frmPOS"
             .ShowDialog()
         End With
+        If wal_tag = True Then
+            With frmCustomDialog13
+                .frm = "frmPOS2"
+                .Label2.Text = "Enter Reference Number"
+                .btnKeyboard.Visible = True
+                .ShowDialog()
+            End With
+        End If
     End Sub
 
     Private Sub btnGuest_Click(sender As Object, e As EventArgs) Handles btnGuest.Click
@@ -2272,6 +2320,10 @@ Public Class frmPOS
         ElseIf Trim(txtBillNo.Text) = "" Then
             MsgBox("Please create a new bill to settle payment.", vbInformation + vbOKOnly, "Error bill number")
             Exit Sub
+        ElseIf chkSC.Checked = True And (Trim(txtOSCANo.Text) = "" Or Trim(lblSCName.Text) = "") Then
+            MsgBox("Please enter SC/PWD details to settle payment.", vbInformation + vbOKOnly, "Error OSCA ID number or name")
+            Exit Sub
+
         Else
             If toNumber(txtGrandTot.Text) <= toNumber(txtCash.Text) Then
                 Try
@@ -2427,6 +2479,11 @@ Public Class frmPOS
                 lblPayID.Text = ""
                 lblGrandTotal.Text = ""
                 lblTotalBill.Text = ""
+                lblRefNo.Text = ""
+                lblSCName.Text = ""
+                lblBookID.Text = ""
+                lblRoomNo.Text = ""
+                lblGuestName.Text = ""
                 txtGrandTot.Text = ""
                 txtCash.Text = ""
                 txtChange.Text = ""
@@ -2471,7 +2528,7 @@ Public Class frmPOS
                 If dschk <= toNumber(lblGrandTotal.Text) Then
                     txtDiscAmt.Text = toMoney(dschk)
                 End If
-                Dim grnd As Double = toNumber(toNumber(lblGrandTotal.Text) - toNumber(txtDiscAmt.Text))
+                Dim grnd As Double = toNumber(toNumber(lblGrandTotal.Text) - toNumber(txtDiscAmt.Text) - toNumber(txtSCAmount.Text))
                 If toNumber(grnd) < 0 Then
 
                 Else
@@ -2485,7 +2542,7 @@ Public Class frmPOS
             Else
                 txtDiscPer.Text = "0"
                 txtDiscAmt.Text = "0"
-                txtGrandTot.Text = toMoney(lblGrandTotal.Text)
+                txtGrandTot.Text = toMoney(lblGrandTotal.Text) - toNumber(txtSCAmount.Text) - toNumber(txtDiscAmt.Text)
                 If Trim(txtCash.Text) <> "" Then
                     txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
                 Else
@@ -2508,6 +2565,38 @@ Public Class frmPOS
         End If
     End Sub
 
+    Private Sub txtSCDishPer_TextChanged(sender As Object, e As EventArgs) Handles txtSCDiscPer.TextChanged
+        If toNumber(txtGrandTot.Text) >= 0 Then
+            If Val(txtSCDiscPer.Text) > 0 Then
+                Dim dicper As Double = toNumber(txtSCDiscPer.Text) / 100
+                Dim dschk As Double = toNumber(toNumber(lblSubTotal.Text) * dicper)
+                If dschk <= toNumber(lblSubTotal.Text) Then
+                    txtSCAmount.Text = toMoney(dschk)
+                End If
+                Dim grnd As Double = toNumber(toNumber(lblGrandTotal.Text) - toNumber(txtSCAmount.Text) - toNumber(txtDiscAmt.Text))
+                If toNumber(grnd) < 0 Then
+
+                Else
+                    txtGrandTot.Text = toMoney(grnd)
+                End If
+                If Trim(txtCash.Text) <> "" Then
+                    txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+                Else
+                    txtChange.Text = ""
+                End If
+            Else
+                txtSCDiscPer.Text = "0"
+                txtSCAmount.Text = "0"
+                txtGrandTot.Text = toMoney(lblGrandTotal.Text) - toNumber(txtSCAmount.Text) - toNumber(txtDiscAmt.Text)
+                If Trim(txtCash.Text) <> "" Then
+                    txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+                Else
+                    txtChange.Text = ""
+                End If
+            End If
+        End If
+    End Sub
+
     Private Sub btnKeyboard_Click(sender As Object, e As EventArgs) Handles btnKeyboard.Click
         Process.Start("osk.exe")
     End Sub
@@ -2520,7 +2609,7 @@ Public Class frmPOS
             txtSCDiscPer.BackColor = Color.White
             txtSCAmount.ReadOnly = True
             txtSCDiscPer.Text = toNumber(srvSC)
-
+            txtOSCANo.Focus()
         Else
             txtOSCANo.Text = ""
             txtOSCANo.ReadOnly = True
@@ -2548,11 +2637,30 @@ Public Class frmPOS
         End If
     End Sub
 
+    Private Sub txtSCDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSCDiscPer.KeyPress
+        Dim validChars As String = "0123456789."
+        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
+        If e.KeyChar = vbCr Then
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub txtCash_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCash.KeyPress
         Dim validChars As String = "0123456789."
         e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
         If e.KeyChar = vbCr Then
             e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtOSCANo_LostFocus(sender As Object, e As EventArgs) Handles txtOSCANo.Leave
+        If Trim(txtOSCANo.Text) <> "" Then
+            With frmCustomDialog13
+                .frm = "frmPOS3"
+                .Label2.Text = "Enter SC/PWD Name"
+                .btnKeyboard.Visible = True
+                .ShowDialog()
+            End With
         End If
     End Sub
 

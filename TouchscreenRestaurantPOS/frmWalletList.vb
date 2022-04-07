@@ -49,6 +49,7 @@ Public Class frmWalletList
         Dim btn As Button = DirectCast(sender, Button)
         If frm = "frmPOS" Then
             frmPOS.txtPaymentMode.Text = btn.Text
+            frmPOS.wal_tag = True
         End If
         Me.Close()
     End Sub
