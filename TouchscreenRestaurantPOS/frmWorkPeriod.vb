@@ -175,7 +175,7 @@ Public Class frmWorkPeriod
         Try
             con = New SqlConnection(cs)
             con.Open()
-            Dim ct As String = "SELECT * from TempRestaurantPOS_OrderInfoKOT"
+            Dim ct As String = "SELECT * from RestaurantPOS_OrderInfoKOT WHERE isPaid = 0"
             cmd = New SqlCommand(ct)
             cmd.Connection = con
             rdr = cmd.ExecuteReader()

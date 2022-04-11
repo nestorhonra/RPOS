@@ -248,6 +248,12 @@
     <Compile Include="Custom Dialog\frmCustomDialog13.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog14.Designer.vb">
+      <DependentUpon>frmCustomDialog14.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Dialog\frmCustomDialog14.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Custom Dialog\frmCustomDialog9.Designer.vb">
       <DependentUpon>frmCustomDialog9.vb</DependentUpon>
     </Compile>
@@ -264,6 +270,12 @@
       <DependentUpon>frmFrontOffice.vb</DependentUpon>
     </Compile>
     <Compile Include="frmFrontOffice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuestLists.Designer.vb">
+      <DependentUpon>frmGuestLists.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGuestLists.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmOpenTicketList.Designer.vb">
@@ -1023,6 +1035,9 @@
     <EmbeddedResource Include="Custom Dialog\frmCustomDialog13.resx">
       <DependentUpon>frmCustomDialog13.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Custom Dialog\frmCustomDialog14.resx">
+      <DependentUpon>frmCustomDialog14.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Custom Dialog\frmCustomDialog9.resx">
       <DependentUpon>frmCustomDialog9.vb</DependentUpon>
     </EmbeddedResource>
@@ -1031,6 +1046,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFrontOffice.resx">
       <DependentUpon>frmFrontOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuestLists.resx">
+      <DependentUpon>frmGuestLists.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOpenTicketList.resx">
       <DependentUpon>frmOpenTicketList.vb</DependentUpon>

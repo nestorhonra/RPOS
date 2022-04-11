@@ -50,6 +50,9 @@ Public Class frmWalletList
         If frm = "frmPOS" Then
             frmPOS.txtPaymentMode.Text = btn.Text
             frmPOS.wal_tag = True
+        ElseIf frm = "frmSplitBill" Then
+            frmSplitBill.txtPaymentMode.Text = btn.Text
+            frmSplitBill.wal_tag = True
         End If
         Me.Close()
     End Sub

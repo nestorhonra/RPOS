@@ -50,11 +50,10 @@ Partial Class frmSplash
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(-1, 427)
+        Me.ProgressBar1.Location = New System.Drawing.Point(-1, 422)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(667, 5)
+        Me.ProgressBar1.Size = New System.Drawing.Size(667, 10)
         Me.ProgressBar1.TabIndex = 4
-        Me.ProgressBar1.Visible = False
         '
         'Label3
         '

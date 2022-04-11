@@ -39,6 +39,7 @@ Public Class frmPOS
     Dim tableTag As String = ""
     Dim ticketTag As String = ""
     Dim cateTag As String = ""
+    Dim splitTag As Boolean = False
 
     Private Sub frmPOS_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
@@ -83,7 +84,7 @@ Public Class frmPOS
         lblID.Text = ""
         lblIDRecall.Text = ""
         lblID.Text = ""
-
+        lblSplitTotal.Text = ""
 
         txtSCDiscPer.Text = ""
         txtSCAmount.Text = ""
@@ -121,10 +122,13 @@ Public Class frmPOS
         dblVatTot = 0
         is_edit = False
         wal_tag = False
+        splitTag = False
         pnlPayment.SendToBack()
         pnlPayment.Hide()
         dgwList.Rows.Clear()
         dgw.Rows.Clear()
+        dgw1.Rows.Clear()
+        dgw2.Rows.Clear()
         is_edit = False
         FlowLayoutPanel1.Controls.Clear()
         FlowLayoutPanel2.Controls.Clear()
@@ -266,7 +270,7 @@ Public Class frmPOS
                 If tagf > 0 Then
                     cmdText1 = "SELECT * from TempRestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
                 Else
-                    cmdText1 = "SELECT * from RestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
+                    cmdText1 = "SELECT * from RestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "' AND isPaid=0"
                 End If
                 cmd = New SqlCommand(cmdText1)
                 cmd.Connection = con
@@ -294,17 +298,38 @@ Public Class frmPOS
             rdr = cmd.ExecuteReader()
             FlowLayoutPanel2.Controls.Clear()
             Do While (rdr.Read())
+                Dim img As New PictureBox
                 Dim btn As New Button
+                Dim flp As New FlowLayoutPanel
                 btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
+                If Not IsDBNull(rdr.GetValue(6)) Then
+                    Dim data1 As Byte() = DirectCast(rdr.GetValue(6), Byte())
+                    Dim ms1 As New MemoryStream(data1)
+                    img.Image = Image.FromStream(ms1)
+                End If
+                ' btn.BackgroundImageLayout = ImageLayout.Zoom
+                btn.TextImageRelation = TextImageRelation.ImageAboveText
                 btn.TextAlign = ContentAlignment.MiddleCenter
                 Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(4)))
                 btn.BackColor = btnColor
                 btn.FlatStyle = FlatStyle.Flat
-                btn.Width = 93
-                btn.Height = 50
-                btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                btn.UseVisualStyleBackColor = True
+                btn.FlatAppearance.BorderSize = 0
+                btn.FlatAppearance.BorderColor = btnColor
+                img.Width = 100
+                img.Height = 100
+                img.SizeMode = PictureBoxSizeMode.StretchImage
+                btn.Width = 100
+                btn.Height = 45
+                flp.BorderStyle = BorderStyle.FixedSingle
+                flp.Width = 107
+                flp.Height = 157
+                flp.BackColor = btnColor
+                btn.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
                 UserButtons.Add(btn)
-                FlowLayoutPanel2.Controls.Add(btn)
+                FlowLayoutPanel2.Controls.Add(flp)
+                flp.Controls.Add(img)
+                flp.Controls.Add(btn)
                 AddHandler btn.Click, AddressOf Me.btnAddMenu_Click
             Loop
             con.Close()
@@ -368,7 +393,32 @@ Public Class frmPOS
             End Try
         Else
             lblTotalBill.Text = "0.00"
+            dblSubTotVat = 0
         End If
+    End Sub
+
+    Private Sub ComputeSplitBill()
+        If dgw2.Rows.Count > 0 Then
+            Dim totalamt As Double = 0
+            Dim totalnoVat As Double = 0
+            Try
+                For i As Integer = 0 To dgw2.Rows.Count - 1
+                    totalamt += toNumber(dgw2.Rows(i).Cells(9).Value.ToString)
+                    totalnoVat += toNumber(dgw2.Rows(i).Cells(4).Value.ToString)
+                Next
+                lblSplitTotal.Text = toMoney(totalamt)
+                lblTotalBill.Text = toMoney(totalamt)
+                dblSubTotVat = toMoney(totalnoVat)
+                lblGrandTotal.Text = toMoney(totalamt)
+                txtGrandTot.Text = toMoney(totalamt)
+                lblSubTotal.Text = dblSubTotVat
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            lblTotalBill.Text = "0.00"
+        End If
+
     End Sub
 
     Private Sub Data_Load_Kitchen(ByVal kitc As String)
@@ -446,6 +496,33 @@ Public Class frmPOS
 
     End Sub
 
+    Private Sub Data_LoadPaymentSplit()
+        dtItem = New DataTable
+        With dtItem.Columns
+            .Add("Itemname", Type.GetType("System.String"))
+            .Add("Qty", Type.GetType("System.String"))
+            .Add("Price", Type.GetType("System.String"))
+            .Add("VatAmt", Type.GetType("System.String"))
+            .Add("DiscAmt", Type.GetType("System.String"))
+            .Add("SCAmt", Type.GetType("System.String"))
+        End With
+        If dgw2.Rows.Count > 0 Then
+            Dim ItemRow As DataRow
+            For i As Integer = 0 To dgw2.Rows.Count - 1
+                ItemRow = dtItem.NewRow()
+                ItemRow("Itemname") = dgw2.Rows(i).Cells(1).Value.ToString
+                ItemRow("Qty") = dgw2.Rows(i).Cells(3).Value.ToString
+                ItemRow("Price") = dgw2.Rows(i).Cells(2).Value.ToString
+                ItemRow("VatAmt") = dgw2.Rows(i).Cells(8).Value.ToString
+                ItemRow("DiscAmt") = dgw2.Rows(i).Cells(6).Value.ToString
+                ItemRow("SCAmt") = dgw2.Rows(i).Cells(12).Value.ToString
+                dtItem.Rows.Add(ItemRow)
+            Next
+        End If
+
+    End Sub
+
+
 #Region "Button Nav"
 
     Private Sub btnMenuUp_Click(sender As Object, e As EventArgs) Handles btnMenuUp.Click
@@ -500,6 +577,7 @@ Public Class frmPOS
 
     Private Sub chkBill_CheckedChanged(sender As Object, e As EventArgs)
         Dim chkbill As CheckBox = DirectCast(sender, CheckBox)
+        Dim rowcount As Integer = 0
         If chkbill.Checked = True Then
             If Trim(chkbill.Text) <> "" Then
                 Try
@@ -521,19 +599,18 @@ Public Class frmPOS
                             ticketID = toNumber(rdr(0).ToString)
                             rdr.Close()
                             If ticketID > 0 Then
-                                Dim sqldet As String = "Select * from RestaurantPOS_OrderedProductKOT WHERE TicketID=@d1"
+                                Dim sqldet As String = "Select * from view_RestaurantPOS_OrderedProductSplit WHERE TicketID=@d1 AND isPaid=0"
                                 cmd = New SqlCommand(sqldet)
                                 cmd.Connection = con
                                 cmd.Parameters.AddWithValue("@d1", ticketID)
                                 rdr = cmd.ExecuteReader()
-                                If ticketTag = "" Then
-                                    ticketTag = ticketID.ToString
-                                Else
-                                    ticketTag = ticketTag & ";" & ticketID.ToString
-                                End If
+                                'If ticketTag = "" Then
+                                '    ticketTag = ticketID.ToString
+                                'Else
+                                '    ticketTag = ticketTag & ";" & ticketID.ToString
+                                'End If
                                 Do While (rdr.Read())
-                                    dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)), toNumber(rdr(5)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)), chkbill.Text, toNumber(rdr(10)), toNumber(rdr(11)))
-
+                                    dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)) - toNumber(rdr(19).ToString), toNumber(rdr(5)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)), chkbill.Text, toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(ticketID), "0")
                                 Loop
                             End If
                         End If
@@ -544,10 +621,24 @@ Public Class frmPOS
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
 
+                If dgwList.Rows.Count > 0 Then
+                    rowcount = Me.dgwList.RowCount - 1
+                    Dim chkval As String
+                    With Me.dgwList
+                        For i = rowcount To 0 Step -1
+                            chkval = .Rows(i).Cells(3).Value
+                            If chkval <= 0 Then
+                                .Rows.Remove(.Rows(i))
+                            End If
+                        Next
+                    End With
+
+
+                End If
             End If
         Else
             If dgwList.Rows.Count > 0 Then
-                Dim rowcount As Integer = Me.dgwList.RowCount - 1
+                rowcount = Me.dgwList.RowCount - 1
                 Dim chkval As String
                 With Me.dgwList
                     For i = rowcount To 0 Step -1
@@ -559,11 +650,40 @@ Public Class frmPOS
                 End With
             End If
         End If
+        If dgwList.Rows.Count > 0 Then
+
+
+            rowcount = Me.dgwList.RowCount - 1
+            Dim tckt_last As String = ""
+            Dim tckt_first As String = ""
+            ticketTag = dgwList.Rows(0).Cells(15).Value
+            tckt_first = dgwList.Rows(0).Cells(15).Value
+            With Me.dgwList
+                For i As Integer = 0 To dgwList.Rows.Count - 1
+                    tckt_last = .Rows(i).Cells(15).Value
+                    'MsgBox(tckt_first & " " & tckt_last & " = " & ticketTag)
+                    If tckt_first = tckt_last Then
+                        tckt_first = tckt_last
+                    Else
+                        If ticketTag = "" Then
+                            ticketTag = tckt_last.ToString
+                        Else
+                            ticketTag = ticketTag & ";" & tckt_last.ToString
+                        End If
+                        tckt_first = tckt_last
+                    End If
+                Next
+            End With
+        Else
+            ticketTag = ""
+        End If
+        'MsgBox(ticketTag)
         Call ComputeTotalBill()
     End Sub
 
     Private Sub btnCategory_Click(sender As Object, e As EventArgs)
         Dim btn As Button = DirectCast(sender, Button)
+        txtQty.Text = ""
         Call FillMenus(btn.Text)
         cateTag = btn.Text
     End Sub
@@ -592,7 +712,6 @@ Public Class frmPOS
         End If
 
     End Sub
-
 
     Private Sub btnAddMenu_Click(sender As Object, e As EventArgs)
         Dim btn As Button = DirectCast(sender, Button)
@@ -1847,7 +1966,7 @@ Public Class frmPOS
                             Try
                                 con = New SqlConnection(cs)
                                 con.Open()
-                                Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16)"
+                                Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen,isPaid) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)"
                                 cmd = New SqlCommand(cb)
                                 cmd.Connection = con
                                 cmd.Parameters.AddWithValue("@d1", toNumber(newID))
@@ -1866,6 +1985,7 @@ Public Class frmPOS
                                 cmd.Parameters.AddWithValue("@d14", dgw.Rows(i).Cells(14).Value.ToString)
                                 cmd.Parameters.AddWithValue("@d15", dgw.Rows(i).Cells(3).Value.ToString)
                                 cmd.Parameters.AddWithValue("@d16", dgw.Rows(i).Cells(15).Value.ToString)
+                                cmd.Parameters.AddWithValue("@d17", toNumber("0"))
                                 cmd.ExecuteNonQuery()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
@@ -2198,6 +2318,12 @@ Public Class frmPOS
                 lblGrandTotal.Text = toMoney(lblTotalBill.Text)
                 lblSubTotal.Text = dblSubTotVat
                 txtCash.Text = ""
+                pnlPayment.Size = New Size(700, 656)
+                dgw1.Enabled = False
+                dgw1.Enabled = False
+                lblSplitTotal.Text = ""
+                btnSplitClear.Enabled = False
+                'pnlPayment.Size = New Size(1070, 656)
                 pnlPayment.BringToFront()
                 object_center(Me, pnlPayment)
                 pnlPayment.Show()
@@ -2263,11 +2389,103 @@ Public Class frmPOS
 
     End Sub
 
-    Private Sub btnGetDataBill_Click(sender As Object, e As EventArgs) Handles btnSplitBill.Click
-        If dgwList.Rows.Count > 0 Then
-            With frmSplitBill
-                .ShowDialog()
-            End With
+    Private Sub btnSplitBill_Click(sender As Object, e As EventArgs) Handles btnSplitBill.Click
+        If Trim(txtBillNo.Text) <> "" Then
+            If dgwList.Rows.Count > 0 Then
+                splitTag = True
+                lblSplitTotal.Text = ""
+                lblPayID.Text = "0"
+                lblSubTotal.Text = ""
+                chkSC.Checked = False
+                txtSCDiscPer.Text = ""
+                txtSCAmount.Text = ""
+                txtOSCANo.Text = ""
+                txtDiscPer.Text = ""
+                txtDiscAmt.Text = ""
+                txtDiscPer.ReadOnly = False
+                txtCash.ReadOnly = False
+                txtGrandTot.Text = toMoney(lblTotalBill.Text)
+                lblGrandTotal.Text = toMoney(lblTotalBill.Text)
+                lblSubTotal.Text = dblSubTotVat
+                txtCash.Text = ""
+                pnlPayment.Size = New Size(1070, 656)
+                pnlPayment.BringToFront()
+                object_center(Me, pnlPayment)
+                pnlPayment.Show()
+                GetDiscounts()
+                TabControl1.Enabled = False
+                txtCash.SelectionStart = 0
+                txtCash.SelectionLength = Len(txtCash.Text)
+                txtCash.SelectAll()
+                txtCash.Focus()
+
+                Dim targetRows = New List(Of DataGridViewRow)
+
+                For Each sourceRow As DataGridViewRow In dgwList.Rows
+
+                    If (Not sourceRow.IsNewRow) Then
+
+                        Dim targetRow = CType(sourceRow.Clone(), DataGridViewRow)
+
+
+                        For Each cell As DataGridViewCell In sourceRow.Cells
+                            targetRow.Cells(cell.ColumnIndex).Value = cell.Value
+                        Next
+
+                        targetRows.Add(targetRow)
+
+                    End If
+
+                Next
+
+                'Clear target columns and then clone all source columns.
+
+                dgw1.Columns.Clear()
+                dgw2.Rows.Clear()
+
+                For Each column As DataGridViewColumn In dgwList.Columns
+                    dgw1.Columns.Add(CType(column.Clone(), DataGridViewColumn))
+                Next
+
+                'It's recommended to use the AddRange method (if available)
+                'when adding multiple items to a collection.
+
+                dgw1.Rows.AddRange(targetRows.ToArray())
+
+            End If
+        End If
+
+    End Sub
+
+    Public Sub AddSplitItems(ByVal srows As Integer, ByVal nqty As Integer, sqty As Integer)
+        Dim subtot As Double = 0
+        If srows >= 0 Then
+
+            Dim row As New DataGridViewRow()
+
+            row = DirectCast(dgw1.Rows(srows).Clone(), DataGridViewRow)
+            Dim intColIndex As Integer = 0
+            For Each cell As DataGridViewCell In dgw1.Rows(srows).Cells
+                row.Cells(intColIndex).Value = cell.Value
+                intColIndex += 1
+            Next
+            dgw2.Rows.Add(row)
+            Dim nwrow As Integer = dgw2.Rows.Count - 1
+            'MsgBox(nwrow)
+            dgw1.Rows(srows).Cells(3).Value = sqty
+            dgw2.Rows(nwrow).Cells(3).Value = nqty
+            If sqty = 0 Then
+                dgwList.Rows(srows).Cells(16).Value = "1"
+            End If
+            For Each roe As DataGridViewRow In dgw1.Rows
+                If roe.Cells(3).Value = 0 Then
+                    dgw1.Rows.RemoveAt(roe.Index)
+                Else
+
+                End If
+            Next
+
+            Call ComputeSplitBill()
         End If
     End Sub
 
@@ -2310,7 +2528,9 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnGuest_Click(sender As Object, e As EventArgs) Handles btnGuest.Click
-
+        With frmGuestLists
+            .ShowDialog()
+        End With
     End Sub
 
     Private Sub btnSettle_Click(sender As Object, e As EventArgs) Handles btnSettle.Click
@@ -2341,20 +2561,25 @@ Public Class frmPOS
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                 End Try
                 TransNo = txtBillNo.Text
-                'Save and print function
-                If toNumber(lblPayID.Text) > 0 Then
-                    'Take-out payment
-                    Data_Load()
+
+                If splitTag = True Then
+                    Data_LoadPaymentSplit()
                 Else
-                    'Dine-in billing
-                    Data_LoadPayment()
+                    'Save and print function
+                    If toNumber(lblPayID.Text) > 0 Then
+                        'Take-out payment
+                        Data_Load()
+                    Else
+                        'Dine-in billing
+                        Data_LoadPayment()
+                    End If
                 End If
 
                 TransDate = Format(Now, "yyyy-MM-dd HH:mm:ss")
                 Try
                     con = New SqlConnection(cs)
                     con.Open()
-                    Dim cb As String = "insert into RestaurantPOS_BillingInfoKOT (BillNo,BillDate,KOTDiscountPer,GrandTotal,Cash,Change,Operator,PaymentMode,ExchangeRate,CurrencyCode,DiscountReason,TableNo) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)"
+                    Dim cb As String = "insert into RestaurantPOS_BillingInfoKOT (BillNo,BillDate,KOTDiscountPer,GrandTotal,Cash,Change,Operator,PaymentMode,ExchangeRate,CurrencyCode,DiscountReason,TableNo,RefNo,OSCANo,SCDiscAmt,SCPer,DiscAmount) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)"
                     cmd = New SqlCommand(cb)
                     cmd.Connection = con
                     cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
@@ -2369,6 +2594,11 @@ Public Class frmPOS
                     cmd.Parameters.AddWithValue("@d10", CurCode)
                     cmd.Parameters.AddWithValue("@d11", "")
                     cmd.Parameters.AddWithValue("@d12", tableTag)
+                    cmd.Parameters.AddWithValue("@d13", Trim(lblRefNo.Text))
+                    cmd.Parameters.AddWithValue("@d14", Trim(txtOSCANo.Text))
+                    cmd.Parameters.AddWithValue("@d15", toNumber(txtSCAmount.Text))
+                    cmd.Parameters.AddWithValue("@d16", toNumber(txtSCDiscPer.Text))
+                    cmd.Parameters.AddWithValue("@d17", toNumber(txtDiscAmt.Text))
                     cmd.ExecuteNonQuery()
                     con.Close()
                     Dim st As String = "Payment made of '" & ticketTag & "' with TableNo " & tableTag
@@ -2376,26 +2606,145 @@ Public Class frmPOS
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                 End Try
+                If splitTag = True Then
+                    If dgw2.Rows.Count > 0 Then
+                        Dim opid As Integer = 0
+                        Dim spqty As Integer = 0
+                        Dim tkid As Integer = 0
+                        For i As Integer = 0 To dgw2.Rows.Count - 1
+                            opid = toNumber(dgw2.Rows(i).Cells(0).Value)
+                            spqty = toNumber(dgw2.Rows(i).Cells(3).Value)
+                            tkid = toNumber(dgw2.Rows(i).Cells(15).Value)
+
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductSplit (OP_ID,TicketID,Qty) VALUES(@d1,@d2,@d3)"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", opid)
+                                cmd.Parameters.AddWithValue("@d2", toNumber(tkid))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(spqty))
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+                        Next
+                        For x As Integer = 0 To dgwList.Rows.Count - 1
+                            Dim opd As Integer = dgwList.Rows(x).Cells(0).Value
+                            For Each rws As DataGridViewRow In dgw1.Rows
+                                MsgBox("OP_ID " & opd & " = " & rws.Cells(0).Value)
+                                If rws.Cells(0).Value = toNumber(opd) Then
+
+                                Else
+                                    Try
+                                        con.Open()
+                                        Dim cb3 As String = "UPDATE RestaurantPOS_OrderedProductKOT SET isPaid=1 WHERE OP_ID=@d1"
+                                        cmd = New SqlCommand(cb3)
+                                        cmd.Parameters.AddWithValue("@d1", opd)
+                                        cmd.Connection = con
+                                        cmd.ExecuteNonQuery()
+                                        con.Close()
+                                    Catch ex As Exception
+                                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                    End Try
+                                End If
+                            Next
+                        Next
+                    End If
+                Else
+
+                End If
+
                 If ticketTag <> "" Then
                     Dim tktparts As String() = ticketTag.Split(New Char() {";"c})
                     Dim tktpart As String
                     For Each tktpart In tktparts
                         Try
+                            'MsgBox(tktpart)
+                            If splitTag = False Then
+                                Try
+                                    con.Open()
+                                    Dim cb3 As String = "UPDATE RestaurantPOS_OrderedProductKOT SET isPaid=1 WHERE TicketID=@d1"
+                                    cmd = New SqlCommand(cb3)
+                                    cmd.Parameters.AddWithValue("@d1", toNumber(tktpart))
+                                    cmd.Connection = con
+                                    cmd.ExecuteNonQuery()
+                                    'MsgBox("UPDATE RestaurantPOS_OrderedProductKOT SET isPaid=1 WHERE TicketID=@d1")
+                                    con.Close()
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                End Try
+                            End If
                             con = New SqlConnection(cs)
                             con.Open()
-                            Dim cb3 As String = "update RestaurantPOS_OrderInfoKOT set isPaid=1, BillDate=@d1, BillNo=@d3 where ID=@d2"
-                            cmd = New SqlCommand(cb3)
-                            cmd.Parameters.AddWithValue("@d1", CDate(TransDate))
-                            cmd.Parameters.AddWithValue("@d2", toNumber(tktpart))
-                            cmd.Parameters.AddWithValue("@d3", Trim(txtBillNo.Text))
+                            Dim cl3 As String = "select * from RestaurantPOS_OrderedProductKOT where isPaid=0 AND TicketID=@d1"
+                            cmd = New SqlCommand(cl3)
                             cmd.Connection = con
-                            cmd.ExecuteNonQuery()
-                            con.Close()
+                            cmd.Parameters.AddWithValue("@d1", toNumber(tktpart))
+                            rdr = cmd.ExecuteReader()
+                            If rdr.Read Then
+                                'MsgBox("REad")
+                                If Not rdr Is Nothing Then
+                                    rdr.Close()
+                                End If
+                            Else
+                                'MsgBox("Else")
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim cb3 As String = "update RestaurantPOS_OrderInfoKOT set isPaid=1, BillDate=@d1, BillNo=@d3 where ID=@d2"
+                                    cmd = New SqlCommand(cb3)
+                                    cmd.Parameters.AddWithValue("@d1", CDate(TransDate))
+                                    cmd.Parameters.AddWithValue("@d2", toNumber(tktpart))
+                                    cmd.Parameters.AddWithValue("@d3", Trim(txtBillNo.Text))
+                                    cmd.Connection = con
+                                    cmd.ExecuteNonQuery()
+                                    'MsgBox("update RestaurantPOS_OrderInfoKOT set isPaid=1, BillDate=@d1, BillNo=@d3 where ID= " & toNumber(tktpart))
+                                    con.Close()
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                End Try
+                                Try
+                                    con = New SqlConnection(cs)
+                                    con.Open()
+                                    Dim cb3 As String = "update RestaurantPOS_OrderedProductKOT set isPaid=1 where TicketID=@d2"
+                                    cmd = New SqlCommand(cb3)
+
+                                    cmd.Parameters.AddWithValue("@d2", toNumber(tktpart))
+                                    cmd.Connection = con
+                                    cmd.ExecuteNonQuery()
+                                    con.Close()
+                                Catch ex As Exception
+                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                End Try
+                            End If
                         Catch ex As Exception
                             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                         End Try
                     Next
                 End If
+                If toNumber(lblBookID.Text) > 0 Then
+                    Try
+                        con = New SqlConnection(cs)
+                        con.Open()
+                        MsgBox("Insert room service")
+                        Dim cb3 As String = "INSERT INTO hotel_guest_charges (booking_id,description,price,paid,date_created) VALUES(@d1,@d2,@d3,@d4,@d5)"
+                        cmd = New SqlCommand(cb3)
+                        cmd.Parameters.AddWithValue("@d1", toNumber(lblBookID.Text))
+                        cmd.Parameters.AddWithValue("@d2", "Food Orders :" & txtBillNo.Text)
+                        cmd.Parameters.AddWithValue("@d3", toNumber(txtGrandTot.Text))
+                        cmd.Parameters.AddWithValue("@d4", toNumber("0"))
+                        cmd.Parameters.AddWithValue("@d5", CDate(TransDate))
+                        cmd.Connection = con
+                        cmd.ExecuteNonQuery()
+                        con.Close()
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                    End Try
+                End If
+
 
                 Printer.NewPrint(PosTicketPrntr)
 
@@ -2466,6 +2815,12 @@ Public Class frmPOS
                 Printer.Print(" ")
                 Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
 
+                If chkSC.Checked = True Then
+                    Printer.Print("OSCA/PWD ID;" & Trim(txtOSCANo.Text), arrWidth, arrFormat)
+                    Printer.Print("Name;" & Trim(lblSCName.Text), arrWidth, arrFormat)
+                    Printer.Print("Signature;" & "____________________", arrWidth, arrFormat)
+                End If
+
                 'Release the job for actual printing
                 Printer.DoPrint()
                 pnlPayment.SendToBack()
@@ -2476,6 +2831,7 @@ Public Class frmPOS
                 txtOSCANo.Text = ""
                 txtBillNo.Text = ""
                 txtPaymentMode.Text = ""
+                lblSplitTotal.Text = ""
                 lblPayID.Text = ""
                 lblGrandTotal.Text = ""
                 lblTotalBill.Text = ""
@@ -2492,6 +2848,8 @@ Public Class frmPOS
                 FlowLayoutPanel3.Controls.Clear()
                 TabControl1.Enabled = True
                 dgwList.Rows.Clear()
+                dgw1.Rows.Clear()
+                dgw2.Rows.Clear()
             Else
                 MsgBox("Payment is not suffice to settle the bill." & vbNewLine & "Please re-enter amount", vbCritical + vbOKOnly, "Payment not enough")
                 Exit Sub
@@ -2627,6 +2985,24 @@ Public Class frmPOS
         txtCash.SelectionLength = Len(txtCash.Text)
         txtCash.SelectAll()
         FocusText = txtCash
+    End Sub
+
+    Private Sub btnSplitAdd_Click(sender As Object, e As EventArgs) Handles btnSplitAdd.Click
+        If dgw1.Rows.Count > 0 Then
+            Dim selrow As Integer = dgw1.SelectedCells(0).OwningRow.Index
+            Dim selqty As Integer = toNumber(dgw1.Rows(selrow).Cells(3).Value.ToString)
+            With frmCustomDialog14
+                .lblSelrow.Text = selrow
+                .lblQty.Text = selqty
+                .ShowDialog()
+            End With
+        End If
+    End Sub
+
+    Private Sub btnSplitClear_Click(sender As Object, e As EventArgs) Handles btnSplitClear.Click
+        For i As Integer = 0 To dgwList.Rows.Count - 1
+            dgwList.Rows(i).Cells(16).Value = "0"
+        Next
     End Sub
 
     Private Sub txtDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiscPer.KeyPress

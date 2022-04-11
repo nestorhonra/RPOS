@@ -49,7 +49,7 @@ Public Class frmSqlServerSetting
                             sw.WriteLine("Data Source=" & cmbServerName.Text.Trim & ";Initial Catalog=RPOS_DB;User ID=" & txtUserName.Text.Trim & ";Password=" & txtPassword.Text & "")
                             sw.Close()
                         End If
-                        CreateDB()
+                        'CreateDB()
                     End Using
                 Else
                     End

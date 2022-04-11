@@ -20,7 +20,13 @@
                 frmPOS.lblRefNo.Text = Trim(Me.txtAmount.Text)
                 frmPOS.txtPaymentMode.Text = ""
             End If
-
+        ElseIf frm = "frmSplitBill" Then
+            If Trim(txtAmount.Text) <> "" Then
+                frmSplitBill.lblRefNo.Text = Trim(Me.txtAmount.Text)
+            Else
+                frmSplitBill.lblRefNo.Text = Trim(Me.txtAmount.Text)
+                frmSplitBill.txtPaymentMode.Text = ""
+            End If
         ElseIf frm = "frmPOS3" Then
             If Trim(txtAmount.Text) <> "" Then
                 frmPOS.lblSCName.Text = Trim(Me.txtAmount.Text)
@@ -39,7 +45,7 @@
 
     Private Sub txtAmount_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAmount.KeyPress
         Dim ValidChars As String = ""
-        If frm = "frmPOS2" Or frm = "frmPOS3" Then
+        If frm = "frmPOS2" Or frm = "frmPOS3" Or frm = "frmSplitBill" Then
             ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.- "
         Else
             ValidChars = "0123456789."

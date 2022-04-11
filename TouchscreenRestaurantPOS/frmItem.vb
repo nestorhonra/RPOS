@@ -100,7 +100,7 @@ Public Class frmItem
             con = New SqlConnection(cs)
             con.Open()
 
-            Dim cb As String = "insert into Dish(DishName,Category,Rate,Discount,BackColor,Kitchen) VALUES (@d1,@d2," & txtRate.Text & "," & txtDiscount.Text & ",@d3,@d4)"
+            Dim cb As String = "insert into Dish(DishName,Category,Rate,Discount,BackColor,Kitchen,Photo) VALUES (@d1,@d2," & txtRate.Text & "," & txtDiscount.Text & ",@d3,@d4,@d5)"
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", txtItemName.Text)
@@ -111,7 +111,7 @@ Public Class frmItem
             Dim bmpImage As New Bitmap(PictureBox1.Image)
             bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim data As Byte() = ms.GetBuffer()
-            Dim p As New SqlParameter("@d8", SqlDbType.Image)
+            Dim p As New SqlParameter("@d5", SqlDbType.Image)
             p.Value = data
             cmd.Parameters.Add(p)
             cmd.ExecuteReader()
@@ -308,7 +308,7 @@ Public Class frmItem
             End If
             con = New SqlConnection(cs)
             con.Open()
-            Dim cb As String = "update Dish set DishName=@d1,Category=@d2,Rate=" & txtRate.Text & ",Discount=" & txtDiscount.Text & ",BackColor=@d4,Kitchen=@d5 where DishName=@d3"
+            Dim cb As String = "update Dish set DishName=@d1,Category=@d2,Rate=" & txtRate.Text & ",Discount=" & txtDiscount.Text & ",BackColor=@d4,Kitchen=@d5,Photo=@d6 where DishName=@d3"
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", txtItemName.Text)
@@ -316,6 +316,13 @@ Public Class frmItem
             cmd.Parameters.AddWithValue("@d3", txtDish.Text)
             cmd.Parameters.AddWithValue("@d4", btnUIColor.BackColor.ToArgb())
             cmd.Parameters.AddWithValue("@d5", cmbKitchen.Text)
+            Dim ms As New MemoryStream()
+            Dim bmpImage As New Bitmap(PictureBox1.Image)
+            bmpImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
+            Dim data As Byte() = ms.GetBuffer()
+            Dim p As New SqlParameter("@d6", SqlDbType.Image)
+            p.Value = data
+            cmd.Parameters.Add(p)
             cmd.ExecuteReader()
             con.Close()
             Dim st As String = "updated the item '" & txtItemName.Text & "' details"
@@ -331,11 +338,11 @@ Public Class frmItem
         Try
             con = New SqlConnection(cs)
             con.Open()
-            cmd = New SqlCommand("SELECT RTRIM(DishName), RTRIM(Category),RTRIM(Kitchen), RTRIM(Rate),RTRIM(Discount),BackColor from Dish order by DishName", con)
+            cmd = New SqlCommand("SELECT RTRIM(DishName), RTRIM(Category),RTRIM(Kitchen), RTRIM(Rate),RTRIM(Discount),BackColor,Photo from Dish order by DishName", con)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             dgw.Rows.Clear()
             While (rdr.Read() = True)
-                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5))
+                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5), rdr(6))
             End While
             con.Close()
         Catch ex As Exception
@@ -374,6 +381,9 @@ Public Class frmItem
                 txtDiscount.Text = dr.Cells(4).Value.ToString()
                 Dim btnColor As Color = Color.FromArgb(dr.Cells(5).Value)
                 btnUIColor.BackColor = btnColor
+                Dim data As Byte() = DirectCast(dr.Cells(6).Value, Byte())
+                Dim ms As New MemoryStream(data)
+                Me.PictureBox1.Image = Image.FromStream(ms)
                 btnUpdate.Enabled = True
                 btnDelete.Enabled = True
                 btnSave.Enabled = False
@@ -482,7 +492,11 @@ Public Class frmItem
                 PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString())
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub frmItem_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Me.Dispose()
     End Sub
 End Class

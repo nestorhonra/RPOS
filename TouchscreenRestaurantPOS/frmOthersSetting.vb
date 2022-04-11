@@ -7,6 +7,7 @@ Public Class frmOthersSetting
         txtSTPer.Text = "0.00"
         txtSCPer.Text = "0.00"
         txtVATPer.Text = "0.00"
+        txtSeniorDisc.Text = "0.00"
         chkCashDrawer.Checked = False
         chkEB.Checked = False
         chkHD.Checked = False
@@ -64,7 +65,7 @@ Public Class frmOthersSetting
             End If
             con = New SqlConnection(cs)
             con.Open()
-            Dim cb As String = "insert into OtherSetting(ParcelCharges,HomeDeliveryCharges,VAT,ServiceTax,ServiceCharges,CashDrawer,TA,HD,EB,KG) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10)"
+            Dim cb As String = "insert into OtherSetting(ParcelCharges,HomeDeliveryCharges,VAT,ServiceTax,ServiceCharges,CashDrawer,TA,HD,EB,KG,SeniorDiscount) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11)"
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", Val(txtParcelCharges.Text))
@@ -77,6 +78,7 @@ Public Class frmOthersSetting
             cmd.Parameters.AddWithValue("@d8", st3)
             cmd.Parameters.AddWithValue("@d9", st4)
             cmd.Parameters.AddWithValue("@d10", st5)
+            cmd.Parameters.AddWithValue("@d11", Val(txtSeniorDisc.Text))
             cmd.ExecuteReader()
             con.Close()
             Dim st As String = "added the others setting info"
@@ -162,7 +164,7 @@ Public Class frmOthersSetting
             End If
             con = New SqlConnection(cs)
             con.Open()
-            Dim cb As String = "Update OtherSetting set ParcelCharges=@d1,HomeDeliveryCharges=@d2,VAT=@d3,ServiceTax=@d4,ServiceCharges=@d5,CashDrawer=@d6,TA=@d7,HD=@d8,EB=@d9,KG=@d10 where ID=" & txtID.Text & ""
+            Dim cb As String = "Update OtherSetting set ParcelCharges=@d1,HomeDeliveryCharges=@d2,VAT=@d3,ServiceTax=@d4,ServiceCharges=@d5,CashDrawer=@d6,TA=@d7,HD=@d8,EB=@d9,KG=@d10,SeniorDiscount=@d11 where ID=" & txtID.Text & ""
             cmd = New SqlCommand(cb)
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@d1", Val(txtParcelCharges.Text))
@@ -175,6 +177,7 @@ Public Class frmOthersSetting
             cmd.Parameters.AddWithValue("@d8", st3)
             cmd.Parameters.AddWithValue("@d9", st4)
             cmd.Parameters.AddWithValue("@d10", st5)
+            cmd.Parameters.AddWithValue("@d11", Val(txtSeniorDisc.Text))
             cmd.ExecuteReader()
             con.Close()
             Dim st As String = "Updated the others setting info"
@@ -190,11 +193,11 @@ Public Class frmOthersSetting
         Try
             con = New SqlConnection(cs)
             con.Open()
-            cmd = New SqlCommand("SELECT ID,(ParcelCharges),(HomeDeliveryCharges),ServiceTax,VAT,ServiceCharges,RTRIM(TA),RTRIM(HD),RTRIM(EB),RTRIM(KG),RTRIM(CashDrawer) from OtherSetting", con)
+            cmd = New SqlCommand("SELECT ID,(ParcelCharges),(HomeDeliveryCharges),ServiceTax,VAT,ServiceCharges,RTRIM(TA),RTRIM(HD),RTRIM(EB),RTRIM(KG),RTRIM(CashDrawer),SeniorDiscount from OtherSetting", con)
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             dgw.Rows.Clear()
             While (rdr.Read() = True)
-                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5), rdr(6), rdr(7), rdr(8), rdr(9), rdr(10))
+                dgw.Rows.Add(rdr(0), rdr(1), rdr(2), rdr(3), rdr(4), rdr(5), rdr(6), rdr(7), rdr(8), rdr(9), rdr(10), rdr(11))
             End While
             con.Close()
         Catch ex As Exception
@@ -213,12 +216,12 @@ Public Class frmOthersSetting
         Try
             If dgw.Rows.Count > 0 Then
                 Dim dr As DataGridViewRow = dgw.SelectedRows(0)
-                txtParcelCharges.Text = dr.Cells(1).Value.ToString()
-                txtID.Text = dr.Cells(0).Value.ToString()
-                txtHDCharges.Text = dr.Cells(2).Value.ToString()
-                txtSTPer.Text = dr.Cells(3).Value.ToString()
-                txtVATPer.Text = dr.Cells(4).Value.ToString()
-                txtSCPer.Text = dr.Cells(5).Value.ToString()
+                txtParcelCharges.Text = toNumber(dr.Cells(1).Value.ToString())
+                txtID.Text = toNumber(dr.Cells(0).Value.ToString())
+                txtHDCharges.Text = toNumber(dr.Cells(2).Value.ToString())
+                txtSTPer.Text = toNumber(dr.Cells(3).Value.ToString())
+                txtVATPer.Text = toNumber(dr.Cells(4).Value.ToString())
+                txtSCPer.Text = toNumber(dr.Cells(5).Value.ToString())
                 If dr.Cells(6).Value = "Yes" Then
                     chkTA.Checked = True
                 Else
@@ -244,6 +247,7 @@ Public Class frmOthersSetting
                 Else
                     chkCashDrawer.Checked = False
                 End If
+                txtSeniorDisc.Text = toNumber(dr.Cells(11).Value.ToString())
                 btnUpdate.Enabled = True
                 btnDelete.Enabled = True
                 btnSave.Enabled = False
@@ -376,5 +380,34 @@ Public Class frmOthersSetting
             'Reject all other characters.
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub txtSeniorDisc_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtSeniorDisc.KeyPress
+        Dim keyChar = e.KeyChar
+
+        If Char.IsControl(keyChar) Then
+            'Allow all control characters.
+        ElseIf Char.IsDigit(keyChar) OrElse keyChar = "."c Then
+            Dim text = Me.txtSTPer.Text
+            Dim selectionStart = Me.txtSTPer.SelectionStart
+            Dim selectionLength = Me.txtSTPer.SelectionLength
+
+            text = text.Substring(0, selectionStart) & keyChar & text.Substring(selectionStart + selectionLength)
+
+            If Integer.TryParse(text, New Integer) AndAlso text.Length > 16 Then
+                'Reject an integer that is longer than 16 digits.
+                e.Handled = True
+            ElseIf Double.TryParse(text, New Double) AndAlso text.IndexOf("."c) < text.Length - 3 Then
+                'Reject a real number with two many decimal places.
+                e.Handled = False
+            End If
+        Else
+            'Reject all other characters.
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub frmOthersSetting_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Me.Dispose()
     End Sub
 End Class

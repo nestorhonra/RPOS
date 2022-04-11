@@ -57,6 +57,13 @@ Partial Class frmOthersSetting
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.dgw = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.lblUser = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtSeniorDisc = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,11 +75,7 @@ Partial Class frmOthersSetting
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtID = New System.Windows.Forms.TextBox()
-        Me.lblUser = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -88,6 +91,7 @@ Partial Class frmOthersSetting
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.dgw)
+        Me.Panel1.Controls.Add(Me.chkTA)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(3, 2)
         Me.Panel1.Name = "Panel1"
@@ -165,11 +169,12 @@ Partial Class frmOthersSetting
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtSeniorDisc)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.chkCashDrawer)
         Me.GroupBox1.Controls.Add(Me.chkKG)
         Me.GroupBox1.Controls.Add(Me.chkEB)
         Me.GroupBox1.Controls.Add(Me.chkHD)
-        Me.GroupBox1.Controls.Add(Me.chkTA)
         Me.GroupBox1.Controls.Add(Me.txtSCPer)
         Me.GroupBox1.Controls.Add(Me.txtVATPer)
         Me.GroupBox1.Controls.Add(Me.txtSTPer)
@@ -207,6 +212,7 @@ Partial Class frmOthersSetting
         Me.chkKG.TabIndex = 8
         Me.chkKG.Text = "KOT Generation in Cashier Counter"
         Me.chkKG.UseVisualStyleBackColor = True
+        Me.chkKG.Visible = False
         '
         'chkEB
         '
@@ -217,26 +223,29 @@ Partial Class frmOthersSetting
         Me.chkEB.TabIndex = 7
         Me.chkEB.Text = "Express Billing"
         Me.chkEB.UseVisualStyleBackColor = True
+        Me.chkEB.Visible = False
         '
         'chkHD
         '
         Me.chkHD.AutoSize = True
-        Me.chkHD.Location = New System.Drawing.Point(157, 172)
+        Me.chkHD.Location = New System.Drawing.Point(257, 195)
         Me.chkHD.Name = "chkHD"
         Me.chkHD.Size = New System.Drawing.Size(95, 17)
         Me.chkHD.TabIndex = 6
         Me.chkHD.Text = "Home Delivery"
         Me.chkHD.UseVisualStyleBackColor = True
+        Me.chkHD.Visible = False
         '
         'chkTA
         '
         Me.chkTA.AutoSize = True
-        Me.chkTA.Location = New System.Drawing.Point(157, 149)
+        Me.chkTA.Location = New System.Drawing.Point(358, 254)
         Me.chkTA.Name = "chkTA"
         Me.chkTA.Size = New System.Drawing.Size(76, 17)
         Me.chkTA.TabIndex = 5
         Me.chkTA.Text = "Takeaway"
         Me.chkTA.UseVisualStyleBackColor = True
+        Me.chkTA.Visible = False
         '
         'txtSCPer
         '
@@ -275,7 +284,7 @@ Partial Class frmOthersSetting
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(16, 97)
+        Me.Label9.Location = New System.Drawing.Point(107, 100)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(45, 13)
         Me.Label9.TabIndex = 12
@@ -285,7 +294,7 @@ Partial Class frmOthersSetting
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(16, 123)
+        Me.Label8.Location = New System.Drawing.Point(50, 126)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(102, 13)
         Me.Label8.TabIndex = 11
@@ -295,17 +304,18 @@ Partial Class frmOthersSetting
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(16, 150)
+        Me.Label7.Location = New System.Drawing.Point(6, 202)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 13)
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Print Kitchen Order Ticket :"
+        Me.Label7.Visible = False
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 71)
+        Me.Label5.Location = New System.Drawing.Point(71, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(81, 13)
         Me.Label5.TabIndex = 8
@@ -315,7 +325,7 @@ Partial Class frmOthersSetting
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 45)
+        Me.Label4.Location = New System.Drawing.Point(28, 49)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(124, 13)
         Me.Label4.TabIndex = 7
@@ -347,7 +357,7 @@ Partial Class frmOthersSetting
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 20)
+        Me.Label2.Location = New System.Drawing.Point(67, 24)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 13)
         Me.Label2.TabIndex = 5
@@ -383,7 +393,7 @@ Partial Class frmOthersSetting
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgw.ColumnHeadersHeight = 35
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column1, Me.Column2, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column4})
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column1, Me.Column2, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column4, Me.Column12})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgw.EnableHeadersVisualStyles = False
         Me.dgw.GridColor = System.Drawing.Color.White
@@ -413,6 +423,78 @@ Partial Class frmOthersSetting
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgw.Size = New System.Drawing.Size(451, 115)
         Me.dgw.TabIndex = 1
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.txtID)
+        Me.Panel2.Controls.Add(Me.lblUser)
+        Me.Panel2.Location = New System.Drawing.Point(3, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(412, 31)
+        Me.Panel2.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(125, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(142, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Others Setting"
+        '
+        'txtID
+        '
+        Me.txtID.Location = New System.Drawing.Point(3, 7)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(39, 20)
+        Me.txtID.TabIndex = 4
+        Me.txtID.Visible = False
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Location = New System.Drawing.Point(26, 10)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(39, 13)
+        Me.lblUser.TabIndex = 5
+        Me.lblUser.Text = "Label8"
+        Me.lblUser.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(530, 82)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(0, 13)
+        Me.Label3.TabIndex = 0
+        '
+        'txtSeniorDisc
+        '
+        Me.txtSeniorDisc.BackColor = System.Drawing.Color.White
+        Me.txtSeniorDisc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSeniorDisc.Location = New System.Drawing.Point(157, 149)
+        Me.txtSeniorDisc.Name = "txtSeniorDisc"
+        Me.txtSeniorDisc.Size = New System.Drawing.Size(124, 20)
+        Me.txtSeniorDisc.TabIndex = 13
+        Me.txtSeniorDisc.Text = "0.00"
+        Me.txtSeniorDisc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(16, 152)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(136, 13)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Senior / PWD Discount % :"
         '
         'Column3
         '
@@ -492,56 +574,11 @@ Partial Class frmOthersSetting
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 83
         '
-        'Panel2
+        'Column12
         '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.txtID)
-        Me.Panel2.Controls.Add(Me.lblUser)
-        Me.Panel2.Location = New System.Drawing.Point(3, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(412, 31)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(125, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(142, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Others Setting"
-        '
-        'txtID
-        '
-        Me.txtID.Location = New System.Drawing.Point(3, 7)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(39, 20)
-        Me.txtID.TabIndex = 4
-        Me.txtID.Visible = False
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(26, 10)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(39, 13)
-        Me.lblUser.TabIndex = 5
-        Me.lblUser.Text = "Label8"
-        Me.lblUser.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(530, 82)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(0, 13)
-        Me.Label3.TabIndex = 0
+        Me.Column12.HeaderText = "Senior / PWD"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
         '
         'frmOthersSetting
         '
@@ -559,6 +596,7 @@ Partial Class frmOthersSetting
         Me.Name = "frmOthersSetting"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -599,16 +637,18 @@ Partial Class frmOthersSetting
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-
+    Friend WithEvents txtSeniorDisc As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
 End Class

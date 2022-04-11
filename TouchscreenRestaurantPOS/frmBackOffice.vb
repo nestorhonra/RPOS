@@ -1,17 +1,17 @@
 ﻿Public Class frmBackOffice
 
     Private Sub frmBackOffice_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'btnDBBackup.Visible = False
-        'btnDBSetup.Visible = False
-        'btnDBRestore.Visible = False
-        'btnCurrency.Visible = False
-        'btnPurchase.Visible = False
-        'btnExpense.Visible = False
-        'btnExpenseType.Visible = False
-        'btnVoucher.Visible = False
-        'btnDelivery.Visible = False
-        'btnRecipe.Visible = False
-        'btnAbout.Visible = False
+        btnDBBackup.Visible = False
+        btnDBSetup.Visible = False
+        btnDBRestore.Visible = False
+        btnCurrency.Visible = False
+        btnPurchase.Visible = False
+        btnExpense.Visible = False
+        btnExpenseType.Visible = False
+        btnVoucher.Visible = False
+        btnDelivery.Visible = False
+        btnRecipe.Visible = False
+        btnAbout.Visible = False
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
