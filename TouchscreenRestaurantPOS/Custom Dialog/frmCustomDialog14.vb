@@ -148,8 +148,12 @@
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         If s_tag = True Then
-            frmPOS.AddSplitItems(toNumber(lblSelrow.Text), toNumber(txtAmount.Text), Val(toNumber(lblQty.Text) - toNumber(txtAmount.Text)))
-            Me.Close()
+            If toNumber(txtAmount.Text) > 0 Then
+                frmPOS.AddSplitItems(toNumber(lblSelrow.Text), toNumber(txtAmount.Text), Val(toNumber(lblQty.Text) - toNumber(txtAmount.Text)))
+                Me.Close()
+            Else
+                Me.Close()
+            End If
         Else
             MsgBox("Invalid quantity value. Please re-enter or cancel.", vbCritical + vbOKOnly, "Error")
             Exit Sub

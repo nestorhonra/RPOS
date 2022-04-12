@@ -4,6 +4,7 @@ Public Class frmNotes1
     Public rowIDs As Integer
     Declare Function Wow64DisableWow64FsRedirection Lib "kernel32" (ByRef oldvalue As Long) As Boolean
     Declare Function Wow64EnableWow64FsRedirection Lib "kernel32" (ByRef oldvalue As Long) As Boolean
+    Private osk As String = "C:\Windows\System32\osk.exe"
 
     Private Sub btnClose_Click(sender As System.Object, e As System.EventArgs) Handles btnClose.Click
         Me.Close()
@@ -30,7 +31,16 @@ Public Class frmNotes1
         txtNotes.Text = ""
     End Sub
     Private Sub btnKeyboard_Click(sender As System.Object, e As System.EventArgs) Handles btnKeyboard.Click
-        Process.Start("osk.exe")
+        Dim old As Long
+        If Environment.Is64BitOperatingSystem Then
+            If Wow64DisableWow64FsRedirection(old) Then
+                Process.Start(osk)
+                Wow64EnableWow64FsRedirection(old)
+            End If
+        Else
+            Process.Start(osk)
+        End If
+
     End Sub
 
     Private Sub dgw_MouseClick(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles dgw.MouseClick

@@ -31,6 +31,7 @@ Partial Class frmGuestLists
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnSplitAdd = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtSearchByDish = New System.Windows.Forms.TextBox()
@@ -40,7 +41,6 @@ Partial Class frmGuestLists
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDish = New System.Windows.Forms.TextBox()
         Me.lblUser = New System.Windows.Forms.Label()
-        Me.btnSplitAdd = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -71,6 +71,21 @@ Partial Class frmGuestLists
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(710, 443)
         Me.Panel1.TabIndex = 3
+        '
+        'btnSplitAdd
+        '
+        Me.btnSplitAdd.BackColor = System.Drawing.Color.Green
+        Me.btnSplitAdd.FlatAppearance.BorderSize = 0
+        Me.btnSplitAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSplitAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSplitAdd.ForeColor = System.Drawing.Color.White
+        Me.btnSplitAdd.Location = New System.Drawing.Point(520, 44)
+        Me.btnSplitAdd.Name = "btnSplitAdd"
+        Me.btnSplitAdd.Size = New System.Drawing.Size(107, 45)
+        Me.btnSplitAdd.TabIndex = 130
+        Me.btnSplitAdd.Text = "Select"
+        Me.btnSplitAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnSplitAdd.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
@@ -131,13 +146,13 @@ Partial Class frmGuestLists
         Me.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgw.ColumnHeadersHeight = 24
+        Me.dgw.ColumnHeadersHeight = 26
         Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column6, Me.Column3, Me.Column7, Me.Column4, Me.Column5})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgw.EnableHeadersVisualStyles = False
@@ -149,13 +164,13 @@ Partial Class frmGuestLists
         Me.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSeaGreen
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Orange
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgw.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.dgw.RowHeadersWidth = 25
+        Me.dgw.RowHeadersWidth = 30
         Me.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Tahoma", 12.0!)
@@ -211,21 +226,6 @@ Partial Class frmGuestLists
         Me.lblUser.Text = "Label8"
         Me.lblUser.Visible = False
         '
-        'btnSplitAdd
-        '
-        Me.btnSplitAdd.BackColor = System.Drawing.Color.Green
-        Me.btnSplitAdd.FlatAppearance.BorderSize = 0
-        Me.btnSplitAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSplitAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSplitAdd.ForeColor = System.Drawing.Color.White
-        Me.btnSplitAdd.Location = New System.Drawing.Point(520, 44)
-        Me.btnSplitAdd.Name = "btnSplitAdd"
-        Me.btnSplitAdd.Size = New System.Drawing.Size(107, 45)
-        Me.btnSplitAdd.TabIndex = 130
-        Me.btnSplitAdd.Text = "Select"
-        Me.btnSplitAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnSplitAdd.UseVisualStyleBackColor = False
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Guest Name"
@@ -233,7 +233,7 @@ Partial Class frmGuestLists
         Me.Column1.ReadOnly = True
         Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column1.Width = 150
+        Me.Column1.Width = 170
         '
         'Column2
         '
@@ -242,7 +242,7 @@ Partial Class frmGuestLists
         Me.Column2.ReadOnly = True
         Me.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column2.Width = 120
+        Me.Column2.Width = 90
         '
         'Column6
         '
@@ -260,6 +260,9 @@ Partial Class frmGuestLists
         Me.Column3.HeaderText = "From "
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
+        Me.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Column3.Width = 110
         '
         'Column7
         '
@@ -268,6 +271,9 @@ Partial Class frmGuestLists
         Me.Column7.HeaderText = "To"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
+        Me.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Column7.Width = 110
         '
         'Column4
         '
@@ -276,6 +282,8 @@ Partial Class frmGuestLists
         Me.Column4.HeaderText = "C_Lvl"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.Column4.Width = 70
         '
         'Column5

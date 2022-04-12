@@ -184,6 +184,7 @@ Partial Class frmFrontOffice
         Me.btnTicket.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnTicket.UseVisualStyleBackColor = False
+        Me.btnTicket.Visible = False
         '
         'btnWorkPeriodRep
         '
