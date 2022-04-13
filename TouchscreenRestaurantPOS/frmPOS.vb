@@ -640,8 +640,6 @@ Public Class frmPOS
                             End If
                         Next
                     End With
-
-
                 End If
             End If
         Else
