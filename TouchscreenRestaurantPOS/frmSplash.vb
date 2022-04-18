@@ -6,6 +6,7 @@ Public Class frmSplash
             Label3.Visible = Not Label3.Visible
 
             If System.IO.File.Exists(Application.StartupPath & "\SQLSettings.dat") Then
+                'MsgBox(txtActivationID.Text & " " & TextBox1.Text & " " & init_db.ToString)
                 If txtActivationID.Text = TextBox1.Text Then
                     ProgressBar1.Value = ProgressBar1.Value + 50
                     If (ProgressBar1.Value = 10) Then
@@ -19,13 +20,32 @@ Public Class frmSplash
                     ElseIf (ProgressBar1.Value = 80) Then
                         Label3.Text = "Loading..."
                     ElseIf (ProgressBar1.Value = 100) Then
-                        If init_db = True Then
-                            frmLogin.Show()
-                            Timer1.Enabled = False
-                            Me.Hide()
-                        End If
+                        frmLogin.Show()
+                        Timer1.Enabled = False
+                        Me.Hide()
                     End If
-                ElseIf txtActivationID.Text <> TextBox1.Text Then
+                End If
+            Else
+                ProgressBar1.Value = ProgressBar1.Value + 10
+                If (ProgressBar1.Value = 10) Then
+                    Label3.Text = "Loading..."
+                ElseIf (ProgressBar1.Value = 20) Then
+                    Label3.Text = "Loading..."
+                ElseIf (ProgressBar1.Value = 40) Then
+                    Label3.Text = "Loading..."
+                ElseIf (ProgressBar1.Value = 60) Then
+                    Label3.Text = "Loading..."
+                ElseIf (ProgressBar1.Value = 80) Then
+                    Label3.Text = "Loading..."
+                ElseIf (ProgressBar1.Value = 100) Then
+                    frmSqlServerSetting.Reset()
+                    frmSqlServerSetting.Show()
+                    Timer1.Enabled = False
+                    Me.Hide()
+                End If
+            End If
+            If System.IO.File.Exists(Application.StartupPath & "\SQLSettings.dat") Then
+                If txtActivationID.Text <> TextBox1.Text Then
                     ProgressBar1.Value = ProgressBar1.Value + 10
                     If (ProgressBar1.Value = 10) Then
                         Label3.Text = "Loading..."
@@ -38,16 +58,9 @@ Public Class frmSplash
                     ElseIf (ProgressBar1.Value = 80) Then
                         Label3.Text = "Loading..."
                     ElseIf (ProgressBar1.Value = 100) Then
-                        If init_db = True Then
-                            frmActivation.Show()
-                            Timer1.Enabled = False
-                            Me.Hide()
-                        Else
-                            frmSqlServerSetting.Reset()
-                            frmSqlServerSetting.Show()
-                            Timer1.Enabled = False
-                            Me.Hide()
-                        End If
+                        frmActivation.Show()
+                        Timer1.Enabled = False
+                        Me.Hide()
                     End If
                 End If
             Else
@@ -75,11 +88,6 @@ Public Class frmSplash
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        init_db = CheckDB()
-    End Sub
-
-    Private Function CheckDB() As Boolean
-        Dim retval As Boolean = False
         Try
             Panel1.Location = New Point(Me.ClientSize.Width / 2 - Panel1.Size.Width / 2, Me.ClientSize.Height / 2 - Panel1.Size.Height / 2)
             Panel1.Anchor = AnchorStyles.None
@@ -100,16 +108,11 @@ Public Class frmSplash
                 rdr = cmd.ExecuteReader()
                 If rdr.Read() Then
                     txtActivationID.Text = Decrypt(rdr.GetValue(0))
-                    retval = True
                 End If
             End If
         Catch ex As Exception
-            'MsgBox(ex.Message, MsgBoxStyle.Critical, "Error!")
-            retval = False
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error!")
+            End
         End Try
-
-
-        Return retval
-
-    End Function
+    End Sub
 End Class

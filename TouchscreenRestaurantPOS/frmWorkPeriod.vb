@@ -181,27 +181,51 @@ Public Class frmWorkPeriod
             rdr = cmd.ExecuteReader()
             If rdr.Read() Then
                 frmCustomDialog4.ShowDialog()
-                Exit Sub
+                If MsgBox("Are you sure you want to end your work period?" & vbNewLine & "The remaining open tickets will be endorse to next cashier." & vbNewLine & "DO YOU WANT TO CONTINUE?", vbQuestion + vbYesNo, "Confirm ending workperiod") = vbYes Then
+                    con.Close()
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim cb As String = "insert into WorkPeriodEnd(ID,WPEnd) VALUES (" & Val(txtID.Text) & ",@d1)"
+                    cmd = New SqlCommand(cb)
+                    cmd.Parameters.AddWithValue("@d1", System.DateTime.Now)
+                    cmd.Connection = con
+                    cmd.ExecuteReader()
+                    con.Close()
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim cb1 As String = "Update WorkPeriodStart set Status='Inactive'"
+                    cmd = New SqlCommand(cb1)
+                    cmd.Connection = con
+                    cmd.ExecuteReader()
+                    con.Close()
+                    frmCustomDialog2.ShowDialog()
+                    GetData()
+                    FillDataGridview()
+                Else
+                    Exit Sub
+                End If
+            Else
+                con.Close()
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb As String = "insert into WorkPeriodEnd(ID,WPEnd) VALUES (" & Val(txtID.Text) & ",@d1)"
+                cmd = New SqlCommand(cb)
+                cmd.Parameters.AddWithValue("@d1", System.DateTime.Now)
+                cmd.Connection = con
+                cmd.ExecuteReader()
+                con.Close()
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb1 As String = "Update WorkPeriodStart set Status='Inactive'"
+                cmd = New SqlCommand(cb1)
+                cmd.Connection = con
+                cmd.ExecuteReader()
+                con.Close()
+                frmCustomDialog2.ShowDialog()
+                GetData()
+                FillDataGridview()
             End If
-            con.Close()
-            con = New SqlConnection(cs)
-            con.Open()
-            Dim cb As String = "insert into WorkPeriodEnd(ID,WPEnd) VALUES (" & Val(txtID.Text) & ",@d1)"
-            cmd = New SqlCommand(cb)
-            cmd.Parameters.AddWithValue("@d1", System.DateTime.Now)
-            cmd.Connection = con
-            cmd.ExecuteReader()
-            con.Close()
-            con = New SqlConnection(cs)
-            con.Open()
-            Dim cb1 As String = "Update WorkPeriodStart set Status='Inactive'"
-            cmd = New SqlCommand(cb1)
-            cmd.Connection = con
-            cmd.ExecuteReader()
-            con.Close()
-            frmCustomDialog2.ShowDialog()
-            GetData()
-            FillDataGridview()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         End Try

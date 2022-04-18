@@ -106,6 +106,7 @@ Partial Class frmPOS
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnTransfer = New System.Windows.Forms.Button()
         Me.lblIDRecall = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -126,6 +127,7 @@ Partial Class frmPOS
         Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnDown = New System.Windows.Forms.Button()
@@ -278,6 +280,7 @@ Partial Class frmPOS
         Me.btnWallet = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.btnCash = New System.Windows.Forms.Button()
+        Me.lblDiscRem = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -424,7 +427,7 @@ Partial Class frmPOS
         Me.btnCatUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCatUp.ForeColor = System.Drawing.Color.White
         Me.btnCatUp.Image = Global.RestaurantPOS3.My.Resources.Resources.Previous_32x32
-        Me.btnCatUp.Location = New System.Drawing.Point(450, 47)
+        Me.btnCatUp.Location = New System.Drawing.Point(455, 47)
         Me.btnCatUp.Name = "btnCatUp"
         Me.btnCatUp.Size = New System.Drawing.Size(40, 37)
         Me.btnCatUp.TabIndex = 99
@@ -439,7 +442,7 @@ Partial Class frmPOS
         Me.btnCatDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCatDown.ForeColor = System.Drawing.Color.White
         Me.btnCatDown.Image = Global.RestaurantPOS3.My.Resources.Resources.Next_32x32
-        Me.btnCatDown.Location = New System.Drawing.Point(393, 47)
+        Me.btnCatDown.Location = New System.Drawing.Point(399, 47)
         Me.btnCatDown.Name = "btnCatDown"
         Me.btnCatDown.Size = New System.Drawing.Size(40, 37)
         Me.btnCatDown.TabIndex = 98
@@ -450,7 +453,7 @@ Partial Class frmPOS
         '
         Me.txtQty.BackColor = System.Drawing.Color.White
         Me.txtQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtQty.Location = New System.Drawing.Point(502, 5)
+        Me.txtQty.Location = New System.Drawing.Point(522, 5)
         Me.txtQty.Name = "txtQty"
         Me.txtQty.ReadOnly = True
         Me.txtQty.Size = New System.Drawing.Size(160, 35)
@@ -465,7 +468,7 @@ Partial Class frmPOS
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
         Me.btnClear.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
-        Me.btnClear.Location = New System.Drawing.Point(668, 3)
+        Me.btnClear.Location = New System.Drawing.Point(688, 3)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(106, 37)
         Me.btnClear.TabIndex = 96
@@ -480,7 +483,7 @@ Partial Class frmPOS
         Me.btn0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn0.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn0.ForeColor = System.Drawing.Color.White
-        Me.btn0.Location = New System.Drawing.Point(950, 45)
+        Me.btn0.Location = New System.Drawing.Point(970, 45)
         Me.btn0.Name = "btn0"
         Me.btn0.Size = New System.Drawing.Size(45, 43)
         Me.btn0.TabIndex = 95
@@ -494,7 +497,7 @@ Partial Class frmPOS
         Me.btn9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn9.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn9.ForeColor = System.Drawing.Color.White
-        Me.btn9.Location = New System.Drawing.Point(900, 45)
+        Me.btn9.Location = New System.Drawing.Point(920, 45)
         Me.btn9.Name = "btn9"
         Me.btn9.Size = New System.Drawing.Size(45, 43)
         Me.btn9.TabIndex = 94
@@ -508,7 +511,7 @@ Partial Class frmPOS
         Me.btn8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn8.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn8.ForeColor = System.Drawing.Color.White
-        Me.btn8.Location = New System.Drawing.Point(850, 45)
+        Me.btn8.Location = New System.Drawing.Point(870, 45)
         Me.btn8.Name = "btn8"
         Me.btn8.Size = New System.Drawing.Size(45, 43)
         Me.btn8.TabIndex = 93
@@ -522,7 +525,7 @@ Partial Class frmPOS
         Me.btn7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn7.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn7.ForeColor = System.Drawing.Color.White
-        Me.btn7.Location = New System.Drawing.Point(800, 45)
+        Me.btn7.Location = New System.Drawing.Point(820, 45)
         Me.btn7.Name = "btn7"
         Me.btn7.Size = New System.Drawing.Size(45, 43)
         Me.btn7.TabIndex = 92
@@ -536,7 +539,7 @@ Partial Class frmPOS
         Me.btn6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn6.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn6.ForeColor = System.Drawing.Color.White
-        Me.btn6.Location = New System.Drawing.Point(750, 45)
+        Me.btn6.Location = New System.Drawing.Point(770, 45)
         Me.btn6.Name = "btn6"
         Me.btn6.Size = New System.Drawing.Size(45, 43)
         Me.btn6.TabIndex = 91
@@ -550,7 +553,7 @@ Partial Class frmPOS
         Me.btn5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn5.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn5.ForeColor = System.Drawing.Color.White
-        Me.btn5.Location = New System.Drawing.Point(700, 45)
+        Me.btn5.Location = New System.Drawing.Point(720, 45)
         Me.btn5.Name = "btn5"
         Me.btn5.Size = New System.Drawing.Size(45, 43)
         Me.btn5.TabIndex = 90
@@ -564,7 +567,7 @@ Partial Class frmPOS
         Me.btn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn4.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn4.ForeColor = System.Drawing.Color.White
-        Me.btn4.Location = New System.Drawing.Point(650, 45)
+        Me.btn4.Location = New System.Drawing.Point(670, 45)
         Me.btn4.Name = "btn4"
         Me.btn4.Size = New System.Drawing.Size(45, 43)
         Me.btn4.TabIndex = 89
@@ -578,7 +581,7 @@ Partial Class frmPOS
         Me.btn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn3.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn3.ForeColor = System.Drawing.Color.White
-        Me.btn3.Location = New System.Drawing.Point(600, 45)
+        Me.btn3.Location = New System.Drawing.Point(620, 45)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(45, 43)
         Me.btn3.TabIndex = 88
@@ -592,7 +595,7 @@ Partial Class frmPOS
         Me.btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn2.ForeColor = System.Drawing.Color.White
-        Me.btn2.Location = New System.Drawing.Point(550, 45)
+        Me.btn2.Location = New System.Drawing.Point(570, 45)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(45, 43)
         Me.btn2.TabIndex = 87
@@ -606,7 +609,7 @@ Partial Class frmPOS
         Me.btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn1.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn1.ForeColor = System.Drawing.Color.White
-        Me.btn1.Location = New System.Drawing.Point(500, 45)
+        Me.btn1.Location = New System.Drawing.Point(520, 45)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(45, 43)
         Me.btn1.TabIndex = 86
@@ -652,9 +655,9 @@ Partial Class frmPOS
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FlowLayoutPanel2.AutoScroll = True
         Me.FlowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(498, 94)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(516, 94)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(767, 564)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(749, 564)
         Me.FlowLayoutPanel2.TabIndex = 2
         '
         'FlowLayoutPanel1
@@ -663,16 +666,16 @@ Partial Class frmPOS
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(386, 94)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(110, 564)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(133, 564)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.btnTransfer)
         Me.Panel2.Controls.Add(Me.lblIDRecall)
         Me.Panel2.Controls.Add(Me.lblID)
         Me.Panel2.Controls.Add(Me.Panel3)
@@ -707,6 +710,22 @@ Partial Class frmPOS
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(381, 655)
         Me.Panel2.TabIndex = 0
+        '
+        'btnTransfer
+        '
+        Me.btnTransfer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnTransfer.BackColor = System.Drawing.Color.DodgerBlue
+        Me.btnTransfer.FlatAppearance.BorderSize = 0
+        Me.btnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTransfer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTransfer.ForeColor = System.Drawing.Color.White
+        Me.btnTransfer.Location = New System.Drawing.Point(5, 552)
+        Me.btnTransfer.Name = "btnTransfer"
+        Me.btnTransfer.Size = New System.Drawing.Size(90, 45)
+        Me.btnTransfer.TabIndex = 87
+        Me.btnTransfer.Text = "Transfer Table"
+        Me.btnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnTransfer.UseVisualStyleBackColor = False
         '
         'lblIDRecall
         '
@@ -755,14 +774,14 @@ Partial Class frmPOS
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSteelBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgw.ColumnHeadersHeight = 25
         Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16})
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16, Me.Column31})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
@@ -915,6 +934,14 @@ Partial Class frmPOS
         Me.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
+        'Column31
+        '
+        Me.Column31.HeaderText = "PR"
+        Me.Column31.Name = "Column31"
+        Me.Column31.ReadOnly = True
+        Me.Column31.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
         'lblTotal
         '
         Me.lblTotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -977,7 +1004,7 @@ Partial Class frmPOS
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.FlatAppearance.BorderSize = 0
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(5, 603)
         Me.btnCancel.Name = "btnCancel"
@@ -1016,7 +1043,7 @@ Partial Class frmPOS
         Me.btnDinein.BackColor = System.Drawing.Color.SeaGreen
         Me.btnDinein.FlatAppearance.BorderSize = 0
         Me.btnDinein.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDinein.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDinein.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDinein.ForeColor = System.Drawing.Color.White
         Me.btnDinein.Location = New System.Drawing.Point(127, 29)
         Me.btnDinein.Name = "btnDinein"
@@ -1031,7 +1058,7 @@ Partial Class frmPOS
         Me.btnTakeout.BackColor = System.Drawing.Color.Crimson
         Me.btnTakeout.FlatAppearance.BorderSize = 0
         Me.btnTakeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTakeout.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTakeout.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTakeout.ForeColor = System.Drawing.Color.White
         Me.btnTakeout.Location = New System.Drawing.Point(232, 29)
         Me.btnTakeout.Name = "btnTakeout"
@@ -1093,13 +1120,13 @@ Partial Class frmPOS
         Me.btnGetData.BackColor = System.Drawing.Color.SteelBlue
         Me.btnGetData.FlatAppearance.BorderSize = 0
         Me.btnGetData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGetData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGetData.ForeColor = System.Drawing.Color.White
         Me.btnGetData.Location = New System.Drawing.Point(98, 603)
         Me.btnGetData.Name = "btnGetData"
         Me.btnGetData.Size = New System.Drawing.Size(90, 45)
         Me.btnGetData.TabIndex = 20
-        Me.btnGetData.Text = "Get Data"
+        Me.btnGetData.Text = "Send Order"
         Me.btnGetData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnGetData.UseVisualStyleBackColor = False
         '
@@ -1109,7 +1136,7 @@ Partial Class frmPOS
         Me.btnSave.BackColor = System.Drawing.Color.MediumBlue
         Me.btnSave.FlatAppearance.BorderSize = 0
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
         Me.btnSave.Location = New System.Drawing.Point(98, 552)
         Me.btnSave.Name = "btnSave"
@@ -1125,7 +1152,7 @@ Partial Class frmPOS
         Me.btnChgTable.BackColor = System.Drawing.Color.Orange
         Me.btnChgTable.FlatAppearance.BorderSize = 0
         Me.btnChgTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChgTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChgTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgTable.ForeColor = System.Drawing.Color.Black
         Me.btnChgTable.Location = New System.Drawing.Point(191, 603)
         Me.btnChgTable.Name = "btnChgTable"
@@ -1141,7 +1168,7 @@ Partial Class frmPOS
         Me.btnHold.BackColor = System.Drawing.Color.OrangeRed
         Me.btnHold.FlatAppearance.BorderSize = 0
         Me.btnHold.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHold.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHold.ForeColor = System.Drawing.Color.White
         Me.btnHold.Location = New System.Drawing.Point(191, 552)
         Me.btnHold.Name = "btnHold"
@@ -1157,7 +1184,7 @@ Partial Class frmPOS
         Me.btnPrint.BackColor = System.Drawing.Color.BlueViolet
         Me.btnPrint.FlatAppearance.BorderSize = 0
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.White
         Me.btnPrint.Location = New System.Drawing.Point(285, 603)
         Me.btnPrint.Name = "btnPrint"
@@ -1173,7 +1200,7 @@ Partial Class frmPOS
         Me.btnRecall.BackColor = System.Drawing.Color.DarkCyan
         Me.btnRecall.FlatAppearance.BorderSize = 0
         Me.btnRecall.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRecall.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRecall.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecall.ForeColor = System.Drawing.Color.White
         Me.btnRecall.Location = New System.Drawing.Point(285, 552)
         Me.btnRecall.Name = "btnRecall"
@@ -1188,7 +1215,7 @@ Partial Class frmPOS
         Me.btnOpenTicket.BackColor = System.Drawing.Color.Gold
         Me.btnOpenTicket.FlatAppearance.BorderSize = 0
         Me.btnOpenTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOpenTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOpenTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOpenTicket.ForeColor = System.Drawing.Color.Black
         Me.btnOpenTicket.Location = New System.Drawing.Point(5, 501)
         Me.btnOpenTicket.Name = "btnOpenTicket"
@@ -1203,7 +1230,7 @@ Partial Class frmPOS
         Me.btnNewTicket.BackColor = System.Drawing.Color.ForestGreen
         Me.btnNewTicket.FlatAppearance.BorderSize = 0
         Me.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNewTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNewTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNewTicket.ForeColor = System.Drawing.Color.White
         Me.btnNewTicket.Location = New System.Drawing.Point(5, 450)
         Me.btnNewTicket.Name = "btnNewTicket"
@@ -1218,7 +1245,7 @@ Partial Class frmPOS
         Me.btnChgQty.BackColor = System.Drawing.Color.DarkSlateGray
         Me.btnChgQty.FlatAppearance.BorderSize = 0
         Me.btnChgQty.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChgQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChgQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgQty.ForeColor = System.Drawing.Color.White
         Me.btnChgQty.Location = New System.Drawing.Point(5, 399)
         Me.btnChgQty.Name = "btnChgQty"
@@ -1233,7 +1260,7 @@ Partial Class frmPOS
         Me.btnChgRate.BackColor = System.Drawing.Color.DarkOrchid
         Me.btnChgRate.FlatAppearance.BorderSize = 0
         Me.btnChgRate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChgRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChgRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChgRate.ForeColor = System.Drawing.Color.White
         Me.btnChgRate.Location = New System.Drawing.Point(5, 348)
         Me.btnChgRate.Name = "btnChgRate"
@@ -1248,7 +1275,7 @@ Partial Class frmPOS
         Me.btnNotes.BackColor = System.Drawing.Color.DarkCyan
         Me.btnNotes.FlatAppearance.BorderSize = 0
         Me.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotes.ForeColor = System.Drawing.Color.White
         Me.btnNotes.Location = New System.Drawing.Point(5, 297)
         Me.btnNotes.Name = "btnNotes"
@@ -1263,7 +1290,7 @@ Partial Class frmPOS
         Me.btnRemove.BackColor = System.Drawing.Color.DarkRed
         Me.btnRemove.FlatAppearance.BorderSize = 0
         Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemove.ForeColor = System.Drawing.Color.White
         Me.btnRemove.Location = New System.Drawing.Point(5, 246)
         Me.btnRemove.Name = "btnRemove"
@@ -1889,6 +1916,7 @@ Partial Class frmPOS
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel5.Controls.Add(Me.lblDiscRem)
         Me.Panel5.Controls.Add(Me.lblGuestName)
         Me.Panel5.Controls.Add(Me.lblRoomNo)
         Me.Panel5.Controls.Add(Me.lblBookID)
@@ -2954,6 +2982,18 @@ Partial Class frmPOS
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
         '
+        'lblDiscRem
+        '
+        Me.lblDiscRem.AutoSize = True
+        Me.lblDiscRem.BackColor = System.Drawing.Color.Transparent
+        Me.lblDiscRem.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiscRem.ForeColor = System.Drawing.Color.Black
+        Me.lblDiscRem.Location = New System.Drawing.Point(411, 151)
+        Me.lblDiscRem.Name = "lblDiscRem"
+        Me.lblDiscRem.Size = New System.Drawing.Size(12, 13)
+        Me.lblDiscRem.TabIndex = 375
+        Me.lblDiscRem.Text = "1"
+        '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3095,22 +3135,6 @@ Partial Class frmPOS
     Friend WithEvents btnClose As Button
     Friend WithEvents btnSettleUpdate As Button
     Friend WithEvents btnSettle As Button
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents lblTotalBill As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents lblGrandTotal As Label
@@ -3193,4 +3217,23 @@ Partial Class frmPOS
     Friend WithEvents Column22 As DataGridViewTextBoxColumn
     Friend WithEvents Column26 As DataGridViewTextBoxColumn
     Friend WithEvents Column29 As DataGridViewTextBoxColumn
+    Friend WithEvents btnTransfer As Button
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column31 As DataGridViewTextBoxColumn
+    Friend WithEvents lblDiscRem As Label
 End Class

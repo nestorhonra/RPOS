@@ -72,6 +72,7 @@ Public Class frmLogin
         Panel1.Anchor = AnchorStyles.None
         Panel2.Width = Me.Width
         Call Getdata()
+        'Password.Text = Decrypt("MDkwMQ==")
     End Sub
 
     Private Sub frmLogin_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing

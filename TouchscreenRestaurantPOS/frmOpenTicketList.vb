@@ -9,7 +9,15 @@ Public Class frmOpenTicketList
     Sub FillAvailableTables()
         con = New SqlConnection(cs)
         con.Open()
-        Dim cmdText1 As String = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
+        Dim cmdText1 As String = ""
+        'MsgBox(frm)
+        If frm = "frmPOS" Then
+            cmdText1 = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
+        ElseIf frm = "frmPOSC" Then
+            cmdText1 = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
+        ElseIf frm = "frmPOST" Then
+            cmdText1 = " SELECT R.TableNo, R.BkColor, (SELECT GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O WHERE R.TableNo = O.TableNo AND O.isPaid = 0) AS GrandTotal FROM R_Table AS R WHERE R.Status = 'Activate'"
+        End If
         cmd = New SqlCommand(cmdText1)
         cmd.Connection = con
         rdr = cmd.ExecuteReader()
@@ -18,8 +26,20 @@ Public Class frmOpenTicketList
             Dim btn As New Button
             btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
             btn.TextAlign = ContentAlignment.MiddleCenter
-            Dim btnColor As Color = Color.FromArgb(Val(rdr.GetValue(1)))
-            btn.BackColor = Color.LightSalmon
+            Dim btnColor As Color
+            'MsgBox(Val(rdr.GetValue(1)))
+            If frm = "frmPOS" Then
+                btnColor = Color.FromArgb(Val(rdr.GetValue(1)))
+            ElseIf frm = "frmPOST" Then
+                If toNumber(rdr.GetValue(2).ToString) > 0 Then
+                    btnColor = Color.LightSalmon
+                Else
+                    btnColor = Color.FromArgb(Val(rdr.GetValue(1)))
+                End If
+            ElseIf frm = "frmPOSC" Then
+                btnColor = Color.LightSalmon
+            End If
+            btn.BackColor = btnColor
             btn.FlatStyle = FlatStyle.Popup
             btn.Width = 180
             btn.Height = 80
@@ -38,6 +58,13 @@ Public Class frmOpenTicketList
             frmPOS.GetOrders(btn.Text, 0)
             frmPOS.is_edit = True
             frmPOS.btnSave.Enabled = False
+        ElseIf frm = "frmPOSC" Then
+            frmPOS.txtTableNo.Text = btn.Text
+            frmPOS.GetOrders(btn.Text, 0)
+            frmPOS.is_edit = True
+            frmPOS.btnSave.Enabled = False
+        ElseIf frm = "frmPOST" Then
+
         End If
         Me.Close()
     End Sub

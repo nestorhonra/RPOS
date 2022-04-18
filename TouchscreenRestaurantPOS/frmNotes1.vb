@@ -25,7 +25,14 @@ Public Class frmNotes1
         End Try
     End Sub
     Private Sub btnGetData_Click(sender As System.Object, e As System.EventArgs) Handles btnOkay.Click
-
+        Try
+            If txtNotes.Text <> "" Then
+                frmPOS.dgw.SelectedCells.Item(3).Value = txtNotes.Text
+            End If
+            Me.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
     Sub Reset()
         txtNotes.Text = ""

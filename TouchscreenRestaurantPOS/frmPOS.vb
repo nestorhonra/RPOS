@@ -79,6 +79,7 @@ Public Class frmPOS
         lblGrandTotal.Text = ""
         lblPayID.Text = ""
         lblRefNo.Text = ""
+        lblDiscRem.Text = ""
         lblSubTotal.Text = ""
         lblSCName.Text = ""
         lblBookID.Text = ""
@@ -273,14 +274,15 @@ Public Class frmPOS
                 If tagf > 0 Then
                     cmdText1 = "SELECT * from TempRestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "'"
                 Else
-                    cmdText1 = "SELECT * from RestaurantPOS_OrderedProductKOT where TicketID = '" & ids & "' AND isPaid=0"
+                    cmdText1 = "SELECT P.OP_ID,P.TicketID,P.Dish,P.Rate,P.Quantity,P.Amount,P.VATPer,P.VATAmount,P.STPer,P.STAmount,P.SCPer,P.SCAmount,P.DiscountPer,P.DiscountAmount,P.TotalAmount,P.Notes,P.Kitchen,P.isPaid,P.isPrinted,D.Category FROM RestaurantPOS_OrderedProductKOT AS P INNER JOIN Dish AS D on P.Dish = D.DishName where P.TicketID = '" & ids & "' AND P.isPaid=0 ORDER BY D.Category"
                 End If
                 cmd = New SqlCommand(cmdText1)
                 cmd.Connection = con
                 rdr = cmd.ExecuteReader()
                 FlowLayoutPanel2.Controls.Clear()
                 Do While (rdr.Read())
-                    dgw.Rows.Add(Trim(rdr(2).ToString), toMoney(rdr(3).ToString), rdr(4), Trim(rdr(15).ToString), toNumber(rdr(0)), toNumber(rdr(5)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(14)), Trim(rdr(16).ToString))
+                    'MsgBox(rdr(17).ToString & " " & rdr(18).ToString)
+                    dgw.Rows.Add(Trim(rdr(2).ToString), toMoney(rdr(3).ToString), rdr(4), Trim(rdr(15).ToString), toNumber(rdr(0)), toNumber(rdr(5)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(14)), Trim(rdr(16).ToString), changeOneZeroValue(rdr("isPrinted").ToString))
                 Loop
                 con.Close()
                 Call FillCategory()
@@ -431,6 +433,7 @@ Public Class frmPOS
 
     Private Sub Data_Load_Kitchen(ByVal kitc As String)
         dtItem = New DataTable
+        Dim opID As Integer = 0
         With dtItem.Columns
             .Add("Itemname", Type.GetType("System.String"))
             .Add("Qty", Type.GetType("System.String"))
@@ -441,12 +444,27 @@ Public Class frmPOS
             Dim ItemRow As DataRow
             For i As Integer = 0 To dgw.Rows.Count - 1
                 If Trim(dgw.Rows(i).Cells(15).Value.ToString) = kitc Then
-                    ItemRow = dtItem.NewRow()
-                    ItemRow("Itemname") = Trim(dgw.Rows(i).Cells(0).Value.ToString)
-                    ItemRow("Qty") = toNumber(dgw.Rows(i).Cells(2).Value.ToString)
-                    ItemRow("Notes") = Trim(dgw.Rows(i).Cells(3).Value.ToString)
-                    ItemRow("Kitchen") = Trim(dgw.Rows(i).Cells(15).Value.ToString)
-                    dtItem.Rows.Add(ItemRow)
+                    opID = toNumber(dgw.Rows(i).Cells(4).Value.ToString)
+                    If toNumber(dgw.Rows(i).Cells(16).Value.ToString) = 0 Then
+                        ItemRow = dtItem.NewRow()
+                        ItemRow("Itemname") = Trim(dgw.Rows(i).Cells(0).Value.ToString)
+                        ItemRow("Qty") = toNumber(dgw.Rows(i).Cells(2).Value.ToString)
+                        ItemRow("Notes") = Trim(dgw.Rows(i).Cells(3).Value.ToString)
+                        ItemRow("Kitchen") = Trim(dgw.Rows(i).Cells(15).Value.ToString)
+                        dtItem.Rows.Add(ItemRow)
+                        Try
+                            con = New SqlConnection(cs)
+                            con.Open()
+                            Dim cb As String = "UPDATE RestaurantPOS_OrderedProductKOT SET isPrinted=1 WHERE OP_ID=@d1"
+                            cmd = New SqlCommand(cb)
+                            cmd.Connection = con
+                            cmd.Parameters.AddWithValue("@d1", toNumber(opID))
+                            cmd.ExecuteReader()
+                            con.Close()
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End Try
+                    End If
                 End If
             Next
         End If
@@ -468,7 +486,7 @@ Public Class frmPOS
                 ItemRow = dtItem.NewRow()
                 ItemRow("Itemname") = dgw.Rows(i).Cells(0).Value.ToString
                 ItemRow("Qty") = dgw.Rows(i).Cells(2).Value.ToString
-                ItemRow("Price") = dgw.Rows(i).Cells(14).Value.ToString
+                ItemRow("Price") = dgw.Rows(i).Cells(1).Value.ToString
                 ItemRow("VatAmt") = dgw.Rows(i).Cells(7).Value.ToString
                 ItemRow("DiscAmt") = dgw.Rows(i).Cells(13).Value.ToString
                 ItemRow("SCAmt") = dgw.Rows(i).Cells(11).Value.ToString
@@ -775,11 +793,13 @@ Public Class frmPOS
                         Dim totamt As Double = amt + stamt + scamt + vatamat
                         Dim dishname As String = Trim(rdr(0))
                         Dim kitsec As String = Trim(rdr(5))
+                        Dim prtag As Integer = 0
+                        'MsgBox(lblID.Text & " > 0 " & is_edit.ToString)
                         If toNumber(lblID.Text) > 0 And is_edit = True Then
                             con = New SqlConnection(cs)
                             con.Open()
 
-                            Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT(TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16)"
+                            Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT(TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen,isPaid,isPrinted) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)"
                             cmd = New SqlCommand(cb)
                             cmd.Connection = con
                             cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
@@ -798,6 +818,8 @@ Public Class frmPOS
                             cmd.Parameters.AddWithValue("@d14", toNumber(totamt))
                             cmd.Parameters.AddWithValue("@d15", Trim(""))
                             cmd.Parameters.AddWithValue("@d16", Trim(kitsec))
+                            cmd.Parameters.AddWithValue("@d17", toNumber("0"))
+                            cmd.Parameters.AddWithValue("@d18", toNumber("0"))
                             cmd.ExecuteReader()
                             con.Close()
                             Dim st As String = "added the new item '" & Trim(rdr(0)) & "' to ticket no " & Trim(txtTicketNo.Text)
@@ -832,13 +854,13 @@ Public Class frmPOS
                             cmd.ExecuteReader()
                             con.Close()
 
-                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec)
+                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec, prtag)
                             dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                             dgw.Focus()
 
                         ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
-                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec)
-                                dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
+                            rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec, prtag)
+                            dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                                 dgw.Focus()
                                 btnSave.Enabled = True
                             End If
@@ -1032,7 +1054,7 @@ Public Class frmPOS
             Exit Sub
         Else
             With frmOpenTicketList
-                .frm = "frmPOS"
+                .frm = "frmPOSC"
                 .ShowDialog()
             End With
         End If
@@ -1040,6 +1062,27 @@ Public Class frmPOS
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         If is_edit = True Then
+            If dgw.Rows.Count = 0 Then
+                Dim RowsAffected As Integer = 0
+                Try
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim cq As String = "DELETE FROM RestaurantPOS_OrderInfoKOT Where ID =@d1 AND isPaid = 0"
+                    cmd = New SqlCommand(cq)
+                    cmd.Connection = con
+                    cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                    RowsAffected = cmd.ExecuteNonQuery()
+                    If RowsAffected > 0 Then
+                        Dim st As String = "deleted the TicketNo '" & txtTicketNo.Text & "' in table " & txtTableNo.Text
+                        LogFunc(lblUser.Text, st)
+                    End If
+                    If con.State = ConnectionState.Open Then
+                        con.Close()
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
             txtQty.Text = ""
             txtTableNo.Text = ""
             txtTicketNo.Text = ""
@@ -1973,7 +2016,7 @@ Public Class frmPOS
                             Try
                                 con = New SqlConnection(cs)
                                 con.Open()
-                                Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen,isPaid) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17)"
+                                Dim cb As String = "insert into RestaurantPOS_OrderedProductKOT (TicketID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,Notes,Kitchen,isPaid,isPrinted) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18)"
                                 cmd = New SqlCommand(cb)
                                 cmd.Connection = con
                                 cmd.Parameters.AddWithValue("@d1", toNumber(newID))
@@ -1993,11 +2036,13 @@ Public Class frmPOS
                                 cmd.Parameters.AddWithValue("@d15", dgw.Rows(i).Cells(3).Value.ToString)
                                 cmd.Parameters.AddWithValue("@d16", dgw.Rows(i).Cells(15).Value.ToString)
                                 cmd.Parameters.AddWithValue("@d17", toNumber("0"))
+                                cmd.Parameters.AddWithValue("@d18", toNumber("0"))
                                 cmd.ExecuteNonQuery()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
                         Next
+                        Call GetOrderList(newID, 0)
                         If toNumber(lblIDRecall.Text) > 0 Then
                             Try
                                 con = New SqlConnection(cs)
@@ -2040,29 +2085,88 @@ Public Class frmPOS
                                     '=========Print Kitchen=========
                                     Data_Load_Kitchen(kitc)
                                     Printer.NewPrint(kitPrint)
+                                    Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Table No: " & txtTableNo.Text) 'spacing
                                     Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
                                     Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
                                     Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
                                     Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
                                     Printer.Print("Cashier: " & lblUser.Text) 'spacing
-                                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
-                                    Printer.Print("Table No: " & txtTableNo.Text) 'spacing
                                     Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
-                                    arrWidth = {130, 50, 100} 'array for column width | array untuk lebar kolom
-                                    arrFormat = {c.MidLeft, c.TopRight, c.TopLeft} 'array alignment 
+                                    arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                    arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
 
                                     'column header split by ; | nama kolom dipisah dengan ;
-                                    Printer.Print("Item;Qty;Notes", arrWidth, arrFormat)
-                                    Printer.SetFont("Courier New", 18, FontStyle.Regular) 'Setting Font
-                                    Printer.Print("----------------------------------------") 'line
+                                    Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                    Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("------------------------------------") 'line
                                     'looping item sales | loop item penjualan
                                     For r = 0 To dtItem.Rows.Count - 1
-                                        Printer.Print(dtItem.Rows(r).Item("Itemname") & ";" & dtItem.Rows(r).Item("Qty") & ";" &
+                                        Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
                                           Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
                                     Next
-                                    Printer.Print("----------------------------------------")
+                                    Printer.Print("------------------------------------")
                                     'Release the job for actual printing
                                     Printer.DoPrint()
+
+                                    '================2nd print============
+                                    Printer.NewPrint(kitPrint)
+                                    Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Table No: " & txtTableNo.Text) 'spacing
+                                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                                    Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                    arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
+
+                                    'column header split by ; | nama kolom dipisah dengan ;
+                                    Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                    Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("------------------------------------") 'line
+                                    'looping item sales | loop item penjualan
+                                    For r = 0 To dtItem.Rows.Count - 1
+                                        Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
+                                          Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
+                                    Next
+                                    Printer.Print("------------------------------------")
+                                    'Release the job for actual printing
+                                    Printer.DoPrint()
+
+                                    '====================3rd print=================================
+                                    Printer.NewPrint(kitPrint)
+                                    Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Table No: " & txtTableNo.Text) 'spacing
+                                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                    Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                                    Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                    arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                    arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
+
+                                    'column header split by ; | nama kolom dipisah dengan ;
+                                    Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                    Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                    Printer.Print("------------------------------------") 'line
+                                    'looping item sales | loop item penjualan
+                                    For r = 0 To dtItem.Rows.Count - 1
+                                        Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
+                                          Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
+                                    Next
+                                    Printer.Print("------------------------------------")
+                                    'Release the job for actual printing
+                                    Printer.DoPrint()
+
                                 End If
                             End While
 
@@ -2107,6 +2211,7 @@ Public Class frmPOS
                     txtOSCANo.Text = ""
                     lblSCName.Text = ""
                     lblRefNo.Text = ""
+                    lblDiscRem.Text = ""
                     lblBookID.Text = ""
                     lblRoomNo.Text = ""
                     lblGuestName.Text = ""
@@ -2139,77 +2244,200 @@ Public Class frmPOS
         End If
     End Sub
 
-    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+    Private Sub btnGetData_Click(sender As Object, e As EventArgs) Handles btnGetData.Click
         If is_edit = True And toNumber(lblID.Text) > 0 Then
             If dgw.Rows.Count > 0 Then
+                Try
+                    con = New SqlConnection(cs)
+                    con.Open()
+                    Dim sql4 As String = "SELECT R.Kitchen, K.Printer,K.IsEnabled FROM RestaurantPOS_OrderedProductKOT AS R INNER JOIN Kitchen AS K ON R.Kitchen = K.Kitchenname WHERE TicketID=@d1 Group By R.Kitchen, K.Printer, K.IsEnabled"
+                    cmd = New SqlCommand(sql4)
+                    cmd.Connection = con
+                    cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                    rdr = cmd.ExecuteReader()
+                    While (rdr.Read() = True)
+                        Dim kitc As String = Trim(rdr(0).ToString)
+                        Dim kitPrint As String = Trim(rdr(1).ToString)
+                        Dim kitTag As String = Trim(rdr(2).ToString)
+                        If kitTag = "Yes" Then
+                            '=========Print Kitchen=========
+                            Data_Load_Kitchen(kitc)
+                            If dtItem.Rows.Count > 0 Then
+                                Printer.NewPrint(kitPrint)
+                                Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Table No: " & txtTableNo.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                                Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
+
+                                'column header split by ; | nama kolom dipisah dengan ;
+                                Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                Printer.Print("------------------------------------") 'line
+                                'looping item sales | loop item penjualan
+                                For r = 0 To dtItem.Rows.Count - 1
+                                    Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
+                                              Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
+                                Next
+                                Printer.Print("------------------------------------")
+                                'Release the job for actual printing
+                                Printer.DoPrint()
+
+                                '================2nd print============
+                                Printer.NewPrint(kitPrint)
+                                Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Table No: " & txtTableNo.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                                Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
+
+                                'column header split by ; | nama kolom dipisah dengan ;
+                                Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                Printer.Print("------------------------------------") 'line
+                                'looping item sales | loop item penjualan
+                                For r = 0 To dtItem.Rows.Count - 1
+                                    Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
+                                              Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
+                                Next
+                                Printer.Print("------------------------------------")
+                                'Release the job for actual printing
+                                Printer.DoPrint()
+
+                                '====================3rd print=================================
+                                Printer.NewPrint(kitPrint)
+                                Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Table No: " & txtTableNo.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                                Printer.Print("Type: " & Trim(lblType.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("TicketNo: " & Trim(txtTicketNo.Text)) ' Transaction No | Nomor transaksi
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                                Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                                Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                                arrWidth = {50, 130, 100} 'array for column width | array untuk lebar kolom
+                                arrFormat = {c.TopCenter, c.TopLeft, c.TopLeft} 'array alignment 
+
+                                'column header split by ; | nama kolom dipisah dengan ;
+                                Printer.Print("Qty;Item;Notes", arrWidth, arrFormat)
+                                Printer.SetFont("Courier New", 9, FontStyle.Regular) 'Setting Font
+                                Printer.Print("------------------------------------") 'line
+                                'looping item sales | loop item penjualan
+                                For r = 0 To dtItem.Rows.Count - 1
+                                    Printer.Print(dtItem.Rows(r).Item("Qty") & ";" & dtItem.Rows(r).Item("Itemname") & ";" &
+                                              Trim(dtItem.Rows(r).Item("Notes")), arrWidth, arrFormat)
+                                Next
+                                Printer.Print("------------------------------------")
+                                'Release the job for actual printing
+                                Printer.DoPrint()
+                            End If
+                        End If
+                    End While
+
+                    If Not rdr Is Nothing Then
+                        rdr.Close()
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                End Try
 
             End If
         End If
     End Sub
 
-    Private Sub btnGetData_Click(sender As Object, e As EventArgs) Handles btnGetData.Click
-        'Data_Load()
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If toNumber(lblID.Text) > 0 And toNumber(lblTotal.Text) > 0 Then
+            Data_Load()
 
-        'Printer.NewPrint()
+            Printer.NewPrint(PosTicketPrntr)
 
-        'If is_en = True Then
-        '    Printer.Print(Img, 300, 80)
-        'End If
+            If is_en = True Then
+                Printer.Print(Img, 300, 80)
+            End If
 
-        ''Setting Font
-        'Printer.SetFont("Courier New", 9, FontStyle.Bold)
-        'Printer.Print(StoreName, {300}, {c.MidCenter}) 'Store Name | Nama Toko
+            'Setting Font
+            Printer.SetFont("Courier New", 9, FontStyle.Bold)
+            Printer.Print(StoreName, {300}, {c.MidCenter}) 'Store Name | Nama Toko
 
-        ''Setting Font
-        'Printer.SetFont("Courier New", 8, FontStyle.Regular)
-        'Printer.Print(StoreAddress & ";", {300}, 0) 'Store Address | Alamat Toko
+            'Setting Font
+            Printer.SetFont("Courier New", 8, FontStyle.Regular)
+            Printer.Print(StoreAddress & ";", {300}, 0) 'Store Address | Alamat Toko
 
-        ''spacing
-        'Printer.Print(TINNo, {300}, {c.MidCenter})
-        'Printer.Print(SNNo, {300}, {c.MidCenter})
-        'Printer.Print(MIDNo, {300}, {c.MidCenter})
+            'spacing
+            Printer.Print(TINNo, {300}, {c.MidCenter})
+            Printer.Print(SNNo, {300}, {c.MidCenter})
+            Printer.Print(MIDNo, {300}, {c.MidCenter})
 
-        'Printer.Print(" ") 'spacing
-        'Printer.Print(TransNo) ' Transaction No | Nomor transaksi
-        'Printer.Print(TransDate) ' Trans Date | Tanggal transaksi
+            Printer.Print(" ") 'spacing
+            Printer.Print("Table No: " & Trim(txtTableNo.Text)) ' Transaction No | Nomor transaksi
+            Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
 
-        'Printer.Print(" ") 'spacing
-        'Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
-        'arrWidth = {100, 40, 70, 70} 'array for column width | array untuk lebar kolom
-        'arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
+            Printer.Print(" ") 'spacing
+            Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+            arrWidth = {100, 40, 70, 70} 'array for column width | array untuk lebar kolom
+            arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
 
-        ''column header split by ; | nama kolom dipisah dengan ;
-        'Printer.Print("Item;Qty;Price;Subtotal", arrWidth, arrFormat)
-        'Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
-        'Printer.Print("----------------------------------------") 'line
+            'column header split by ; | nama kolom dipisah dengan ;
+            Printer.Print("Item;Qty;Price;Subtotal", arrWidth, arrFormat)
+            Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+            Printer.Print("----------------------------------------") 'line
 
-        'dblSubtotal = 0
-        'dblQty = 0
-        ''looping item sales | loop item penjualan
-        'For r = 0 To dtItem.Rows.Count - 1
-        '    Printer.Print(dtItem.Rows(r).Item("Itemname") & ";" & dtItem.Rows(r).Item("Qty") & ";" &
-        '              toMoney(dtItem.Rows(r).Item("Price")) & ";" &
-        '              toMoney(dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price")), arrWidth, arrFormat)
-        '    dblQty = dblQty + CSng(dtItem.Rows(r).Item("Qty"))
-        '    dblSubtotal = dblSubtotal + (dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price"))
-        'Next
+            dblSubtotal = 0
+            dblQty = 0
+            dblDiscTot = 0
+            dblVatTot = 0
+            'looping item sales | loop item penjualan
+            For r = 0 To dtItem.Rows.Count - 1
+                Printer.Print(dtItem.Rows(r).Item("Itemname") & ";" & dtItem.Rows(r).Item("Qty") & ";" &
+                          toMoney(dtItem.Rows(r).Item("Price")) & ";" &
+                          toMoney(dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price")), arrWidth, arrFormat)
+                dblQty = dblQty + CSng(dtItem.Rows(r).Item("Qty"))
+                dblVatTot = dblVatTot + CSng(dtItem.Rows(r).Item("VatAmt"))
+                dblDiscTot = dblDiscTot + CSng(dtItem.Rows(r).Item("DiscAmt"))
+                dblSCTot = dblSCTot + CSng(dtItem.Rows(r).Item("SCAmt"))
+                dblSubtotal = dblSubtotal + (dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price"))
+            Next
 
-        'Printer.Print("----------------------------------------")
-        'arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
-        'arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
-        'Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
-        'Printer.Print("Total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
-        'Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
-        'Printer.Print("Payment;" & toMoney(txtCash.Text), arrWidth, arrFormat)
-        'Printer.Print("----------------------------------------")
-        'Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
-        'Printer.Print("Change;" & toMoney(txtCash.Text - dblSubtotal), arrWidth, arrFormat)
-        'Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
-        'Printer.Print(" ")
-        'Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
+            Printer.Print("----------------------------------------")
+            arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
+            arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
+            Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+            Printer.Print("Sub-Total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
+            Printer.Print("Service Charge @" & srvChrge & "%;" & toMoney(dblSCTot), arrWidth, arrFormat)
+            Printer.Print("VAT Amount @" & srvVat & "%;" & toMoney(dblVatTot), arrWidth, arrFormat)
+            Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
+            Printer.Print("Total Bill;" & toMoney(lblTotal.Text), arrWidth, arrFormat)
+            Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+            'Printer.Print("Payment;" & toMoney(txtCash.Text), arrWidth, arrFormat)
+            'Printer.Print("----------------------------------------")
+            'Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
+            'Printer.Print("Change;" & toMoney(txtCash.Text - dblSubtotal), arrWidth, arrFormat)
+            'Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+            Printer.Print(" ")
+            Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
 
-        ''Release the job for actual printing
-        'Printer.DoPrint()
+            'Release the job for actual printing
+            Printer.DoPrint()
+        Else
+            MsgBox("Please select ticket order to print billing receipt.", vbInformation + vbOKOnly, "Error ticket")
+            Exit Sub
+        End If
+
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -2230,6 +2458,7 @@ Public Class frmPOS
         lblGrandTotal.Text = ""
         lblSubTotal.Text = ""
         lblRefNo.Text = ""
+        lblDiscRem.Text = ""
         lblSCName.Text = ""
         lblBookID.Text = ""
         lblRoomNo.Text = ""
@@ -2338,6 +2567,7 @@ Public Class frmPOS
                 txtSCAmount.Text = ""
                 lblSCName.Text = ""
                 lblRefNo.Text = ""
+                lblDiscRem.Text = ""
                 lblBookID.Text = ""
                 lblRoomNo.Text = ""
                 lblGuestName.Text = ""
@@ -2631,7 +2861,7 @@ Public Class frmPOS
                     cmd.Parameters.AddWithValue("@d8", Trim(txtPaymentMode.Text))
                     cmd.Parameters.AddWithValue("@d9", toNumber("1.00"))
                     cmd.Parameters.AddWithValue("@d10", CurCode)
-                    cmd.Parameters.AddWithValue("@d11", "")
+                    cmd.Parameters.AddWithValue("@d11", Trim(lblDiscRem.Text))
                     cmd.Parameters.AddWithValue("@d12", tableTag)
                     cmd.Parameters.AddWithValue("@d13", Trim(lblRefNo.Text))
                     cmd.Parameters.AddWithValue("@d14", Trim(txtOSCANo.Text))
@@ -2715,7 +2945,49 @@ Public Class frmPOS
                         Next
                     End If
                 Else
-
+                    For x As Integer = 0 To dgwList.Rows.Count - 1
+                        Dim opd As Integer = toNumber(dgwList.Rows(x).Cells(0).Value)
+                        Dim upd_tag As Integer = toNumber(dgwList.Rows(x).Cells(16).Value)
+                        If upd_tag > 0 And opd > 0 Then
+                            Try
+                                con.Open()
+                                Dim cb3 As String = "UPDATE RestaurantPOS_OrderedProductKOT SET isPaid=1 WHERE OP_ID=@d1"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", opd)
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
+                                cmd.Parameters.AddWithValue("@d2", Trim(dgwList.Rows(x).Cells(1).Value))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(dgwList.Rows(x).Cells(2).Value))
+                                cmd.Parameters.AddWithValue("@d4", toNumber(dgwList.Rows(x).Cells(3).Value))
+                                cmd.Parameters.AddWithValue("@d5", toNumber(dgwList.Rows(x).Cells(4).Value))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(dgwList.Rows(x).Cells(7).Value))
+                                cmd.Parameters.AddWithValue("@d7", toNumber(dgwList.Rows(x).Cells(8).Value))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(dgwList.Rows(x).Cells(13).Value))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(dgwList.Rows(x).Cells(14).Value))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(dgwList.Rows(x).Cells(11).Value))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(dgwList.Rows(x).Cells(12).Value))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(dgwList.Rows(x).Cells(5).Value))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(dgwList.Rows(x).Cells(6).Value))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(dgwList.Rows(x).Cells(9).Value))
+                                cmd.Parameters.AddWithValue("@d15", Trim(dgwList.Rows(x).Cells(10).Value))
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+                        End If
+                    Next
                 End If
 
                 If ticketTag <> "" Then
@@ -2790,7 +3062,7 @@ Public Class frmPOS
                     Try
                         con = New SqlConnection(cs)
                         con.Open()
-                        MsgBox("Insert room service")
+                        'MsgBox("Insert room service")
                         Dim cb3 As String = "INSERT INTO hotel_guest_charges (booking_id,description,price,paid,date_created) VALUES(@d1,@d2,@d3,@d4,@d5)"
                         cmd = New SqlCommand(cb3)
                         cmd.Parameters.AddWithValue("@d1", toNumber(lblBookID.Text))
@@ -2801,8 +3073,12 @@ Public Class frmPOS
                         cmd.Connection = con
                         cmd.ExecuteNonQuery()
                         con.Close()
+                        Dim st As String = "Payment charged to room service Food Orders :'" & txtBillNo.Text & "' Total:" & toNumber(txtGrandTot.Text) & " with Booking ID " & lblBookID.Text & "," & Trim(lblRoomNo.Text) & "," & Trim(lblGuestName.Text)
+                        LogFunc(lblUser.Text, st)
                     Catch ex As Exception
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                        Dim st As String = "Error Room Service :" & ex.Message
+                        LogFunc(lblUser.Text, st)
                     End Try
                 End If
 
@@ -2875,15 +3151,156 @@ Public Class frmPOS
                 Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
                 Printer.Print(" ")
                 Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
+                Printer.DoPrint()
+                If txtPaymentMode.Text = "Room Service" Then
+                    Printer.NewPrint(PosTicketPrntr)
+
+                    If is_en = True Then
+                        Printer.Print(Img, 300, 80)
+                    End If
+
+                    'Setting Font
+                    Printer.SetFont("Courier New", 9, FontStyle.Bold)
+                    Printer.Print(StoreName, {300}, {c.MidCenter}) 'Store Name | Nama Toko
+
+                    'Setting Font
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular)
+                    Printer.Print(StoreAddress & ";", {300}, 0) 'Store Address | Alamat Toko
+
+                    'spacing
+                    Printer.Print(TINNo, {300}, {c.MidCenter})
+                    Printer.Print(SNNo, {300}, {c.MidCenter})
+                    Printer.Print(MIDNo, {300}, {c.MidCenter})
+
+                    Printer.Print(" ") 'spacing
+                    Printer.Print("Bill No: " & TransNo) ' Transaction No | Nomor transaksi
+                    Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                    Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                    Printer.Print("Payment Mode: " & txtPaymentMode.Text) 'spacing
+                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                    arrWidth = {100, 40, 70, 70} 'array for column width | array untuk lebar kolom
+                    arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
+
+                    'column header split by ; | nama kolom dipisah dengan ;
+                    Printer.Print("Item;Qty;Price;Subtotal", arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("----------------------------------------") 'line
+
+                    dblSubtotal = 0
+                    dblQty = 0
+                    dblDiscTot = 0
+                    dblVatTot = 0
+                    'looping item sales | loop item penjualan
+                    For r = 0 To dtItem.Rows.Count - 1
+                        Printer.Print(dtItem.Rows(r).Item("Itemname") & ";" & dtItem.Rows(r).Item("Qty") & ";" &
+                                  toMoney(dtItem.Rows(r).Item("Price")) & ";" &
+                                  toMoney(dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price")), arrWidth, arrFormat)
+                        dblQty = dblQty + CSng(dtItem.Rows(r).Item("Qty"))
+                        dblVatTot = dblVatTot + CSng(dtItem.Rows(r).Item("VatAmt"))
+                        dblDiscTot = dblDiscTot + CSng(dtItem.Rows(r).Item("DiscAmt"))
+                        dblSCTot = dblSCTot + CSng(dtItem.Rows(r).Item("SCAmt"))
+                        dblSubtotal = dblSubtotal + (dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price"))
+                    Next
+
+                    Printer.Print("----------------------------------------")
+                    arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
+                    arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
+                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
+                    Printer.Print("Service Charge;" & toMoney(dblSCTot), arrWidth, arrFormat)
+                    Printer.Print("VAT Amount;" & toMoney(dblVatTot), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Total;" & toMoney(txtGrandTot.Text), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("Payment;" & toMoney(txtCash.Text), arrWidth, arrFormat)
+                    Printer.Print("----------------------------------------")
+                    Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Change;" & toMoney(txtChange.Text), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print(" ")
+                    Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
+                    Printer.DoPrint()
+                End If
 
                 If chkSC.Checked = True Then
+                    Printer.NewPrint(PosTicketPrntr)
+
+                    If is_en = True Then
+                        Printer.Print(Img, 300, 80)
+                    End If
+
+                    'Setting Font
+                    Printer.SetFont("Courier New", 9, FontStyle.Bold)
+                    Printer.Print(StoreName, {300}, {c.MidCenter}) 'Store Name | Nama Toko
+
+                    'Setting Font
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular)
+                    Printer.Print(StoreAddress & ";", {300}, 0) 'Store Address | Alamat Toko
+
+                    'spacing
+                    Printer.Print(TINNo, {300}, {c.MidCenter})
+                    Printer.Print(SNNo, {300}, {c.MidCenter})
+                    Printer.Print(MIDNo, {300}, {c.MidCenter})
+
+                    Printer.Print(" ") 'spacing
+                    Printer.Print("Bill No: " & TransNo) ' Transaction No | Nomor transaksi
+                    Printer.Print("Date: " & TransDate) ' Trans Date | Tanggal transaksi
+                    Printer.Print("Cashier: " & lblUser.Text) 'spacing
+                    Printer.Print("Payment Mode: " & txtPaymentMode.Text) 'spacing
+                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                    arrWidth = {100, 40, 70, 70} 'array for column width | array untuk lebar kolom
+                    arrFormat = {c.MidLeft, c.TopRight, c.TopRight, c.TopRight} 'array alignment 
+
+                    'column header split by ; | nama kolom dipisah dengan ;
+                    Printer.Print("Item;Qty;Price;Subtotal", arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("----------------------------------------") 'line
+
+                    dblSubtotal = 0
+                    dblQty = 0
+                    dblDiscTot = 0
+                    dblVatTot = 0
+                    'looping item sales | loop item penjualan
+                    For r = 0 To dtItem.Rows.Count - 1
+                        Printer.Print(dtItem.Rows(r).Item("Itemname") & ";" & dtItem.Rows(r).Item("Qty") & ";" &
+                              toMoney(dtItem.Rows(r).Item("Price")) & ";" &
+                              toMoney(dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price")), arrWidth, arrFormat)
+                        dblQty = dblQty + CSng(dtItem.Rows(r).Item("Qty"))
+                        dblVatTot = dblVatTot + CSng(dtItem.Rows(r).Item("VatAmt"))
+                        dblDiscTot = dblDiscTot + CSng(dtItem.Rows(r).Item("DiscAmt"))
+                        dblSCTot = dblSCTot + CSng(dtItem.Rows(r).Item("SCAmt"))
+                        dblSubtotal = dblSubtotal + (dtItem.Rows(r).Item("Qty") * dtItem.Rows(r).Item("Price"))
+                    Next
+
+                    Printer.Print("----------------------------------------")
+                    arrWidth = {130, 150} 'array for column width | array untuk lebar kolom
+                    arrFormat = {c.MidLeft, c.MidRight} 'array alignment 
+                    Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
+                    Printer.Print("Service Charge @" & srvChrge & "%;" & toMoney(dblSCTot), arrWidth, arrFormat)
+                    Printer.Print("VAT Amount @" & srvVat & "%;" & toMoney(dblVatTot), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 9, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Total;" & toMoney(txtGrandTot.Text), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("Payment;" & toMoney(txtCash.Text), arrWidth, arrFormat)
+                    Printer.Print("----------------------------------------")
+                    Printer.SetFont("Courier New", 10, FontStyle.Bold) 'Setting Font
+                    Printer.Print("Change;" & toMoney(txtChange.Text), arrWidth, arrFormat)
+                    Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print(" ")
+                    Printer.Print("Item Qty;" & dblQty, arrWidth, arrFormat)
                     Printer.Print("OSCA/PWD ID;" & Trim(txtOSCANo.Text), arrWidth, arrFormat)
                     Printer.Print("Name;" & Trim(lblSCName.Text), arrWidth, arrFormat)
                     Printer.Print("Signature;" & "____________________", arrWidth, arrFormat)
+                    Printer.DoPrint()
                 End If
 
                 'Release the job for actual printing
-                Printer.DoPrint()
+
                 pnlPayment.SendToBack()
                 pnlPayment.Hide()
                 chkSC.Checked = False
@@ -2897,6 +3314,7 @@ Public Class frmPOS
                 lblGrandTotal.Text = ""
                 lblTotalBill.Text = ""
                 lblRefNo.Text = ""
+                lblDiscRem.Text = ""
                 lblSCName.Text = ""
                 lblBookID.Text = ""
                 lblRoomNo.Text = ""
@@ -3151,6 +3569,18 @@ Public Class frmPOS
         End If
     End Sub
 
+    Private Sub btnTransfer_Click(sender As Object, e As EventArgs) Handles btnTransfer.Click
+        If lblID.Text > 0 And Trim(txtTableNo.Text) <> "" Then
+            With frmOpenTicketList
+                .frm = "frmPOST"
+                .ShowDialog()
+            End With
+        Else
+            MsgBox("Select open ticket first to transfer to another table.", vbCritical + vbOKOnly, "Error transfer")
+            Exit Sub
+        End If
+    End Sub
+
     Private Sub txtDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiscPer.KeyPress
         Dim validChars As String = "0123456789."
         e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
@@ -3180,6 +3610,17 @@ Public Class frmPOS
             With frmCustomDialog13
                 .frm = "frmPOS3"
                 .Label2.Text = "Enter SC/PWD Name"
+                .btnKeyboard.Visible = True
+                .ShowDialog()
+            End With
+        End If
+    End Sub
+
+    Private Sub txtDiscPer_LostFocus(sender As Object, e As EventArgs) Handles txtDiscPer.Leave
+        If toNumber(txtDiscPer.Text) > 0 Then
+            With frmCustomDialog13
+                .frm = "frmPOS4"
+                .Label2.Text = "Enter discount remarks"
                 .btnKeyboard.Visible = True
                 .ShowDialog()
             End With
