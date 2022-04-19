@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class frmRestaurantPOSKOTFinalBillRecord
+    Public frm As String
     Sub fillBillNo()
         Try
             Dim CN As New SqlConnection(cs)
@@ -53,7 +54,7 @@ Public Class frmRestaurantPOSKOTFinalBillRecord
     End Sub
 
     Private Sub dgw_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dgw.MouseClick
-     
+
     End Sub
 
     Private Sub dgw_RowPostPaint(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles dgw.RowPostPaint
@@ -110,5 +111,17 @@ Public Class frmRestaurantPOSKOTFinalBillRecord
         End If
     End Sub
 
+    Private Sub dgw_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgw.CellDoubleClick
+        If dgw.Rows.Count > 0 Then
+            Dim selrow As Integer = dgw.SelectedCells(0).OwningRow.Index
+            Dim selID As Integer = toNumber(dgw.Rows(selrow).Cells(0).Value.ToString)
+            If frm = "frmRefund" Then
+                frmRefund.GetData(selID)
+                'MsgBox(selID.ToString)
+                Me.Close()
+            End If
+        End If
+
+    End Sub
 End Class
 

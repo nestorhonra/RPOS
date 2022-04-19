@@ -2775,13 +2775,24 @@ Public Class frmPOS
 
     Private Sub btnCash_Click(sender As Object, e As EventArgs) Handles btnCash.Click
         txtPaymentMode.Text = "Cash"
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
+        wal_tag = False
     End Sub
 
     Private Sub btnCard_Click(sender As Object, e As EventArgs) Handles btnCard.Click
         txtPaymentMode.Text = "Card"
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
+        wal_tag = False
     End Sub
 
     Private Sub btnWallet_Click(sender As Object, e As EventArgs) Handles btnWallet.Click
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
         With frmWalletList
             .frm = "frmPOS"
             .ShowDialog()
@@ -2797,6 +2808,10 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnGuest_Click(sender As Object, e As EventArgs) Handles btnGuest.Click
+        wal_tag = False
+        lblBookID.Text = ""
+        lblRoomNo.Text = ""
+        lblGuestName.Text = ""
         With frmGuestLists
             .ShowDialog()
         End With

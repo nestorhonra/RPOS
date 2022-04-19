@@ -24,11 +24,15 @@ Partial Class frmBackOffice
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBackOffice))
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblUserType = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnInfo = New System.Windows.Forms.Button()
         Me.btnCurrency = New System.Windows.Forms.Button()
         Me.btnCategories = New System.Windows.Forms.Button()
@@ -52,6 +56,8 @@ Partial Class frmBackOffice
         Me.btnSTF = New System.Windows.Forms.Button()
         Me.btnExpenseType = New System.Windows.Forms.Button()
         Me.btnExpense = New System.Windows.Forms.Button()
+        Me.btnWallets = New System.Windows.Forms.Button()
+        Me.btnRefund = New System.Windows.Forms.Button()
         Me.btnVoucher = New System.Windows.Forms.Button()
         Me.btnDelivery = New System.Windows.Forms.Button()
         Me.btnRecipe = New System.Windows.Forms.Button()
@@ -61,31 +67,10 @@ Partial Class frmBackOffice
         Me.btnRegistration = New System.Windows.Forms.Button()
         Me.btnLogs = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.lblUserType = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.btnWallets = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.BackColor = System.Drawing.Color.Transparent
-        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.FlatAppearance.BorderSize = 0
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Image = Global.RestaurantPOS3.My.Resources.Resources.Button_Delete_icon1
-        Me.btnCancel.Location = New System.Drawing.Point(780, 1)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(52, 49)
-        Me.btnCancel.TabIndex = 67
-        Me.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -96,7 +81,7 @@ Partial Class frmBackOffice
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(0, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(774, 50)
+        Me.Label5.Size = New System.Drawing.Size(985, 50)
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "   POS Settings"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -109,7 +94,7 @@ Partial Class frmBackOffice
         Me.lblDateTime.ForeColor = System.Drawing.Color.Black
         Me.lblDateTime.Location = New System.Drawing.Point(2, 51)
         Me.lblDateTime.Name = "lblDateTime"
-        Me.lblDateTime.Size = New System.Drawing.Size(830, 37)
+        Me.lblDateTime.Size = New System.Drawing.Size(1041, 37)
         Me.lblDateTime.TabIndex = 68
         Me.lblDateTime.Text = "DateTime"
         '
@@ -145,6 +130,8 @@ Partial Class frmBackOffice
         Me.FlowLayoutPanel1.Controls.Add(Me.btnSTF)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnExpenseType)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnExpense)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnWallets)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnRefund)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnVoucher)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnDelivery)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnRecipe)
@@ -154,11 +141,50 @@ Partial Class frmBackOffice
         Me.FlowLayoutPanel1.Controls.Add(Me.btnRegistration)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnLogs)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnAbout)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnWallets)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 91)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(831, 609)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1042, 538)
         Me.FlowLayoutPanel1.TabIndex = 69
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUserType, Me.ToolStripStatusLabel2, Me.lblUser, Me.ToolStripStatusLabel3})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 720)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(834, 22)
+        Me.StatusStrip1.TabIndex = 70
+        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.StatusStrip1.Visible = False
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(11, 17)
+        Me.ToolStripStatusLabel2.Text = ":"
+        '
+        'lblUser
+        '
+        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.ForeColor = System.Drawing.Color.Black
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(70, 17)
+        Me.lblUser.Text = "User Name"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(660, 17)
+        Me.ToolStripStatusLabel3.Spring = True
+        Me.ToolStripStatusLabel3.Visible = False
+        '
+        'lblUserType
+        '
+        Me.lblUserType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserType.Image = CType(resources.GetObject("lblUserType.Image"), System.Drawing.Image)
+        Me.lblUserType.Name = "lblUserType"
+        Me.lblUserType.Size = New System.Drawing.Size(78, 16)
+        Me.lblUserType.Text = "User Type"
         '
         'btnInfo
         '
@@ -232,7 +258,7 @@ Partial Class frmBackOffice
         Me.btnItems.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnItems.ForeColor = System.Drawing.Color.White
         Me.btnItems.Image = Global.RestaurantPOS3.My.Resources.Resources.dish_2_icon
-        Me.btnItems.Location = New System.Drawing.Point(3, 79)
+        Me.btnItems.Location = New System.Drawing.Point(827, 3)
         Me.btnItems.Name = "btnItems"
         Me.btnItems.Size = New System.Drawing.Size(200, 70)
         Me.btnItems.TabIndex = 5
@@ -248,7 +274,7 @@ Partial Class frmBackOffice
         Me.btnItemStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnItemStock.ForeColor = System.Drawing.Color.White
         Me.btnItemStock.Image = Global.RestaurantPOS3.My.Resources.Resources.Stocks_icon1
-        Me.btnItemStock.Location = New System.Drawing.Point(209, 79)
+        Me.btnItemStock.Location = New System.Drawing.Point(3, 79)
         Me.btnItemStock.Name = "btnItemStock"
         Me.btnItemStock.Size = New System.Drawing.Size(200, 70)
         Me.btnItemStock.TabIndex = 6
@@ -264,7 +290,7 @@ Partial Class frmBackOffice
         Me.btnTables.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTables.ForeColor = System.Drawing.Color.White
         Me.btnTables.Image = Global.RestaurantPOS3.My.Resources.Resources.Crafting_Table_icon
-        Me.btnTables.Location = New System.Drawing.Point(415, 79)
+        Me.btnTables.Location = New System.Drawing.Point(209, 79)
         Me.btnTables.Name = "btnTables"
         Me.btnTables.Size = New System.Drawing.Size(200, 70)
         Me.btnTables.TabIndex = 7
@@ -280,7 +306,7 @@ Partial Class frmBackOffice
         Me.btnNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNotes.ForeColor = System.Drawing.Color.White
         Me.btnNotes.Image = Global.RestaurantPOS3.My.Resources.Resources.Note_icon
-        Me.btnNotes.Location = New System.Drawing.Point(621, 79)
+        Me.btnNotes.Location = New System.Drawing.Point(415, 79)
         Me.btnNotes.Name = "btnNotes"
         Me.btnNotes.Size = New System.Drawing.Size(200, 70)
         Me.btnNotes.TabIndex = 8
@@ -296,7 +322,7 @@ Partial Class frmBackOffice
         Me.btnPrinterSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrinterSetup.ForeColor = System.Drawing.Color.White
         Me.btnPrinterSetup.Image = Global.RestaurantPOS3.My.Resources.Resources.print_icon
-        Me.btnPrinterSetup.Location = New System.Drawing.Point(3, 155)
+        Me.btnPrinterSetup.Location = New System.Drawing.Point(621, 79)
         Me.btnPrinterSetup.Name = "btnPrinterSetup"
         Me.btnPrinterSetup.Size = New System.Drawing.Size(200, 70)
         Me.btnPrinterSetup.TabIndex = 9
@@ -312,7 +338,7 @@ Partial Class frmBackOffice
         Me.btnDBSetup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDBSetup.ForeColor = System.Drawing.Color.White
         Me.btnDBSetup.Image = Global.RestaurantPOS3.My.Resources.Resources.sql_icon
-        Me.btnDBSetup.Location = New System.Drawing.Point(209, 155)
+        Me.btnDBSetup.Location = New System.Drawing.Point(827, 79)
         Me.btnDBSetup.Name = "btnDBSetup"
         Me.btnDBSetup.Size = New System.Drawing.Size(200, 70)
         Me.btnDBSetup.TabIndex = 10
@@ -328,7 +354,7 @@ Partial Class frmBackOffice
         Me.btnDBBackup.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDBBackup.ForeColor = System.Drawing.Color.White
         Me.btnDBBackup.Image = Global.RestaurantPOS3.My.Resources.Resources.Database_Active_icon
-        Me.btnDBBackup.Location = New System.Drawing.Point(415, 155)
+        Me.btnDBBackup.Location = New System.Drawing.Point(3, 155)
         Me.btnDBBackup.Name = "btnDBBackup"
         Me.btnDBBackup.Size = New System.Drawing.Size(200, 70)
         Me.btnDBBackup.TabIndex = 11
@@ -344,7 +370,7 @@ Partial Class frmBackOffice
         Me.btnDBRestore.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDBRestore.ForeColor = System.Drawing.Color.White
         Me.btnDBRestore.Image = Global.RestaurantPOS3.My.Resources.Resources.database_check_icon
-        Me.btnDBRestore.Location = New System.Drawing.Point(621, 155)
+        Me.btnDBRestore.Location = New System.Drawing.Point(209, 155)
         Me.btnDBRestore.Name = "btnDBRestore"
         Me.btnDBRestore.Size = New System.Drawing.Size(200, 70)
         Me.btnDBRestore.TabIndex = 12
@@ -360,7 +386,7 @@ Partial Class frmBackOffice
         Me.btnOthers.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOthers.ForeColor = System.Drawing.Color.White
         Me.btnOthers.Image = Global.RestaurantPOS3.My.Resources.Resources.Settings_L_icon
-        Me.btnOthers.Location = New System.Drawing.Point(3, 231)
+        Me.btnOthers.Location = New System.Drawing.Point(415, 155)
         Me.btnOthers.Name = "btnOthers"
         Me.btnOthers.Size = New System.Drawing.Size(200, 70)
         Me.btnOthers.TabIndex = 13
@@ -376,7 +402,7 @@ Partial Class frmBackOffice
         Me.btnWHType.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWHType.ForeColor = System.Drawing.Color.White
         Me.btnWHType.Image = Global.RestaurantPOS3.My.Resources.Resources.Building_icon
-        Me.btnWHType.Location = New System.Drawing.Point(209, 231)
+        Me.btnWHType.Location = New System.Drawing.Point(621, 155)
         Me.btnWHType.Name = "btnWHType"
         Me.btnWHType.Size = New System.Drawing.Size(200, 70)
         Me.btnWHType.TabIndex = 14
@@ -392,7 +418,7 @@ Partial Class frmBackOffice
         Me.btnWH.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWH.ForeColor = System.Drawing.Color.White
         Me.btnWH.Image = Global.RestaurantPOS3.My.Resources.Resources.Two_storied_house_icon
-        Me.btnWH.Location = New System.Drawing.Point(415, 231)
+        Me.btnWH.Location = New System.Drawing.Point(827, 155)
         Me.btnWH.Name = "btnWH"
         Me.btnWH.Size = New System.Drawing.Size(200, 70)
         Me.btnWH.TabIndex = 15
@@ -408,7 +434,7 @@ Partial Class frmBackOffice
         Me.btnProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProduct.ForeColor = System.Drawing.Color.White
         Me.btnProduct.Image = Global.RestaurantPOS3.My.Resources.Resources.product_icon
-        Me.btnProduct.Location = New System.Drawing.Point(621, 231)
+        Me.btnProduct.Location = New System.Drawing.Point(3, 231)
         Me.btnProduct.Name = "btnProduct"
         Me.btnProduct.Size = New System.Drawing.Size(200, 70)
         Me.btnProduct.TabIndex = 16
@@ -424,7 +450,7 @@ Partial Class frmBackOffice
         Me.btnSupplier.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSupplier.ForeColor = System.Drawing.Color.White
         Me.btnSupplier.Image = Global.RestaurantPOS3.My.Resources.Resources.icon_cert1
-        Me.btnSupplier.Location = New System.Drawing.Point(3, 307)
+        Me.btnSupplier.Location = New System.Drawing.Point(209, 231)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(200, 70)
         Me.btnSupplier.TabIndex = 17
@@ -440,7 +466,7 @@ Partial Class frmBackOffice
         Me.btnPurchase.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPurchase.ForeColor = System.Drawing.Color.White
         Me.btnPurchase.Image = Global.RestaurantPOS3.My.Resources.Resources.Order_history_icon
-        Me.btnPurchase.Location = New System.Drawing.Point(209, 307)
+        Me.btnPurchase.Location = New System.Drawing.Point(415, 231)
         Me.btnPurchase.Name = "btnPurchase"
         Me.btnPurchase.Size = New System.Drawing.Size(200, 70)
         Me.btnPurchase.TabIndex = 18
@@ -456,7 +482,7 @@ Partial Class frmBackOffice
         Me.btnPayment.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPayment.ForeColor = System.Drawing.Color.White
         Me.btnPayment.Image = Global.RestaurantPOS3.My.Resources.Resources.payment_icon
-        Me.btnPayment.Location = New System.Drawing.Point(415, 307)
+        Me.btnPayment.Location = New System.Drawing.Point(621, 231)
         Me.btnPayment.Name = "btnPayment"
         Me.btnPayment.Size = New System.Drawing.Size(200, 70)
         Me.btnPayment.TabIndex = 19
@@ -472,7 +498,7 @@ Partial Class frmBackOffice
         Me.btnStore.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStore.ForeColor = System.Drawing.Color.White
         Me.btnStore.Image = Global.RestaurantPOS3.My.Resources.Resources.shop_icon
-        Me.btnStore.Location = New System.Drawing.Point(621, 307)
+        Me.btnStore.Location = New System.Drawing.Point(827, 231)
         Me.btnStore.Name = "btnStore"
         Me.btnStore.Size = New System.Drawing.Size(200, 70)
         Me.btnStore.TabIndex = 20
@@ -488,7 +514,7 @@ Partial Class frmBackOffice
         Me.btnSTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSTF.ForeColor = System.Drawing.Color.White
         Me.btnSTF.Image = Global.RestaurantPOS3.My.Resources.Resources.transfer_icon
-        Me.btnSTF.Location = New System.Drawing.Point(3, 383)
+        Me.btnSTF.Location = New System.Drawing.Point(3, 307)
         Me.btnSTF.Name = "btnSTF"
         Me.btnSTF.Size = New System.Drawing.Size(200, 70)
         Me.btnSTF.TabIndex = 21
@@ -504,7 +530,7 @@ Partial Class frmBackOffice
         Me.btnExpenseType.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExpenseType.ForeColor = System.Drawing.Color.White
         Me.btnExpenseType.Image = Global.RestaurantPOS3.My.Resources.Resources.Money_icon
-        Me.btnExpenseType.Location = New System.Drawing.Point(209, 383)
+        Me.btnExpenseType.Location = New System.Drawing.Point(209, 307)
         Me.btnExpenseType.Name = "btnExpenseType"
         Me.btnExpenseType.Size = New System.Drawing.Size(200, 70)
         Me.btnExpenseType.TabIndex = 22
@@ -520,13 +546,45 @@ Partial Class frmBackOffice
         Me.btnExpense.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExpense.ForeColor = System.Drawing.Color.White
         Me.btnExpense.Image = Global.RestaurantPOS3.My.Resources.Resources.Money_icon22
-        Me.btnExpense.Location = New System.Drawing.Point(415, 383)
+        Me.btnExpense.Location = New System.Drawing.Point(415, 307)
         Me.btnExpense.Name = "btnExpense"
         Me.btnExpense.Size = New System.Drawing.Size(200, 70)
         Me.btnExpense.TabIndex = 23
         Me.btnExpense.Text = "Expense"
         Me.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnExpense.UseVisualStyleBackColor = False
+        '
+        'btnWallets
+        '
+        Me.btnWallets.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnWallets.FlatAppearance.BorderSize = 0
+        Me.btnWallets.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnWallets.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWallets.ForeColor = System.Drawing.Color.White
+        Me.btnWallets.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
+        Me.btnWallets.Location = New System.Drawing.Point(621, 307)
+        Me.btnWallets.Name = "btnWallets"
+        Me.btnWallets.Size = New System.Drawing.Size(200, 70)
+        Me.btnWallets.TabIndex = 33
+        Me.btnWallets.Text = "Wallets"
+        Me.btnWallets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnWallets.UseVisualStyleBackColor = False
+        '
+        'btnRefund
+        '
+        Me.btnRefund.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnRefund.FlatAppearance.BorderSize = 0
+        Me.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefund.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefund.ForeColor = System.Drawing.Color.White
+        Me.btnRefund.Image = Global.RestaurantPOS3.My.Resources.Resources.refund_32
+        Me.btnRefund.Location = New System.Drawing.Point(827, 307)
+        Me.btnRefund.Name = "btnRefund"
+        Me.btnRefund.Size = New System.Drawing.Size(200, 70)
+        Me.btnRefund.TabIndex = 34
+        Me.btnRefund.Text = "Refund"
+        Me.btnRefund.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnRefund.UseVisualStyleBackColor = False
         '
         'btnVoucher
         '
@@ -536,7 +594,7 @@ Partial Class frmBackOffice
         Me.btnVoucher.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVoucher.ForeColor = System.Drawing.Color.White
         Me.btnVoucher.Image = Global.RestaurantPOS3.My.Resources.Resources.Document_Text_icon
-        Me.btnVoucher.Location = New System.Drawing.Point(621, 383)
+        Me.btnVoucher.Location = New System.Drawing.Point(3, 383)
         Me.btnVoucher.Name = "btnVoucher"
         Me.btnVoucher.Size = New System.Drawing.Size(200, 70)
         Me.btnVoucher.TabIndex = 24
@@ -552,7 +610,7 @@ Partial Class frmBackOffice
         Me.btnDelivery.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelivery.ForeColor = System.Drawing.Color.White
         Me.btnDelivery.Image = Global.RestaurantPOS3.My.Resources.Resources.Person_Male_Light_icon
-        Me.btnDelivery.Location = New System.Drawing.Point(3, 459)
+        Me.btnDelivery.Location = New System.Drawing.Point(209, 383)
         Me.btnDelivery.Name = "btnDelivery"
         Me.btnDelivery.Size = New System.Drawing.Size(200, 70)
         Me.btnDelivery.TabIndex = 25
@@ -568,7 +626,7 @@ Partial Class frmBackOffice
         Me.btnRecipe.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecipe.ForeColor = System.Drawing.Color.White
         Me.btnRecipe.Image = Global.RestaurantPOS3.My.Resources.Resources.Notebook_Recipe_icon
-        Me.btnRecipe.Location = New System.Drawing.Point(209, 459)
+        Me.btnRecipe.Location = New System.Drawing.Point(415, 383)
         Me.btnRecipe.Name = "btnRecipe"
         Me.btnRecipe.Size = New System.Drawing.Size(200, 70)
         Me.btnRecipe.TabIndex = 26
@@ -584,7 +642,7 @@ Partial Class frmBackOffice
         Me.btnWorkPeriod.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnWorkPeriod.ForeColor = System.Drawing.Color.White
         Me.btnWorkPeriod.Image = Global.RestaurantPOS3.My.Resources.Resources.Calendar_iconPSB75GWN
-        Me.btnWorkPeriod.Location = New System.Drawing.Point(415, 459)
+        Me.btnWorkPeriod.Location = New System.Drawing.Point(621, 383)
         Me.btnWorkPeriod.Name = "btnWorkPeriod"
         Me.btnWorkPeriod.Size = New System.Drawing.Size(200, 70)
         Me.btnWorkPeriod.TabIndex = 27
@@ -600,7 +658,7 @@ Partial Class frmBackOffice
         Me.btnPOSRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPOSRep.ForeColor = System.Drawing.Color.White
         Me.btnPOSRep.Image = Global.RestaurantPOS3.My.Resources.Resources.Reports_icon
-        Me.btnPOSRep.Location = New System.Drawing.Point(621, 459)
+        Me.btnPOSRep.Location = New System.Drawing.Point(827, 383)
         Me.btnPOSRep.Name = "btnPOSRep"
         Me.btnPOSRep.Size = New System.Drawing.Size(200, 70)
         Me.btnPOSRep.TabIndex = 28
@@ -616,7 +674,7 @@ Partial Class frmBackOffice
         Me.btnAcctgRep.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAcctgRep.ForeColor = System.Drawing.Color.White
         Me.btnAcctgRep.Image = Global.RestaurantPOS3.My.Resources.Resources.report_edit_icon
-        Me.btnAcctgRep.Location = New System.Drawing.Point(3, 535)
+        Me.btnAcctgRep.Location = New System.Drawing.Point(3, 459)
         Me.btnAcctgRep.Name = "btnAcctgRep"
         Me.btnAcctgRep.Size = New System.Drawing.Size(200, 70)
         Me.btnAcctgRep.TabIndex = 29
@@ -632,7 +690,7 @@ Partial Class frmBackOffice
         Me.btnRegistration.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRegistration.ForeColor = System.Drawing.Color.White
         Me.btnRegistration.Image = Global.RestaurantPOS3.My.Resources.Resources.User_Group_icon
-        Me.btnRegistration.Location = New System.Drawing.Point(209, 535)
+        Me.btnRegistration.Location = New System.Drawing.Point(209, 459)
         Me.btnRegistration.Name = "btnRegistration"
         Me.btnRegistration.Size = New System.Drawing.Size(200, 70)
         Me.btnRegistration.TabIndex = 30
@@ -648,7 +706,7 @@ Partial Class frmBackOffice
         Me.btnLogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogs.ForeColor = System.Drawing.Color.White
         Me.btnLogs.Image = Global.RestaurantPOS3.My.Resources.Resources.log_icon
-        Me.btnLogs.Location = New System.Drawing.Point(415, 535)
+        Me.btnLogs.Location = New System.Drawing.Point(415, 459)
         Me.btnLogs.Name = "btnLogs"
         Me.btnLogs.Size = New System.Drawing.Size(200, 70)
         Me.btnLogs.TabIndex = 31
@@ -664,7 +722,7 @@ Partial Class frmBackOffice
         Me.btnAbout.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAbout.ForeColor = System.Drawing.Color.White
         Me.btnAbout.Image = Global.RestaurantPOS3.My.Resources.Resources.Actions_help_about_icon
-        Me.btnAbout.Location = New System.Drawing.Point(621, 535)
+        Me.btnAbout.Location = New System.Drawing.Point(621, 459)
         Me.btnAbout.Name = "btnAbout"
         Me.btnAbout.Size = New System.Drawing.Size(200, 70)
         Me.btnAbout.TabIndex = 32
@@ -672,68 +730,28 @@ Partial Class frmBackOffice
         Me.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnAbout.UseVisualStyleBackColor = False
         '
-        'StatusStrip1
+        'btnCancel
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUserType, Me.ToolStripStatusLabel2, Me.lblUser, Me.ToolStripStatusLabel3})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 720)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(834, 22)
-        Me.StatusStrip1.TabIndex = 70
-        Me.StatusStrip1.Text = "StatusStrip1"
-        Me.StatusStrip1.Visible = False
-        '
-        'lblUserType
-        '
-        Me.lblUserType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUserType.Image = CType(resources.GetObject("lblUserType.Image"), System.Drawing.Image)
-        Me.lblUserType.Name = "lblUserType"
-        Me.lblUserType.Size = New System.Drawing.Size(78, 17)
-        Me.lblUserType.Text = "User Type"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(11, 17)
-        Me.ToolStripStatusLabel2.Text = ":"
-        '
-        'lblUser
-        '
-        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser.ForeColor = System.Drawing.Color.Black
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(70, 17)
-        Me.lblUser.Text = "User Name"
-        '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(660, 17)
-        Me.ToolStripStatusLabel3.Spring = True
-        Me.ToolStripStatusLabel3.Visible = False
-        '
-        'btnWallets
-        '
-        Me.btnWallets.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.btnWallets.FlatAppearance.BorderSize = 0
-        Me.btnWallets.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnWallets.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnWallets.ForeColor = System.Drawing.Color.White
-        Me.btnWallets.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
-        Me.btnWallets.Location = New System.Drawing.Point(3, 611)
-        Me.btnWallets.Name = "btnWallets"
-        Me.btnWallets.Size = New System.Drawing.Size(200, 70)
-        Me.btnWallets.TabIndex = 33
-        Me.btnWallets.Text = "Wallets"
-        Me.btnWallets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnWallets.UseVisualStyleBackColor = False
+        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCancel.BackColor = System.Drawing.Color.Transparent
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnCancel.FlatAppearance.BorderSize = 0
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Image = Global.RestaurantPOS3.My.Resources.Resources.Button_Delete_icon1
+        Me.btnCancel.Location = New System.Drawing.Point(991, 1)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(52, 49)
+        Me.btnCancel.TabIndex = 67
+        Me.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'frmBackOffice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(834, 703)
+        Me.ClientSize = New System.Drawing.Size(1045, 632)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.lblDateTime)
@@ -796,4 +814,5 @@ Partial Class frmBackOffice
     Friend WithEvents lblUser As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents btnWallets As Button
+    Friend WithEvents btnRefund As Button
 End Class

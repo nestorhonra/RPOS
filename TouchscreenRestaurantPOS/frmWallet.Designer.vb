@@ -158,7 +158,7 @@ Partial Class frmWallet
         'PictureBox1
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.RestaurantPOS3.My.Resources.Resources.GrabPay_128
+        Me.PictureBox1.Image = Global.RestaurantPOS3.My.Resources.Resources.wallet
         Me.PictureBox1.Location = New System.Drawing.Point(143, 56)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 100)

@@ -200,6 +200,7 @@ Partial Class frmPOS
         Me.btnP2 = New System.Windows.Forms.Button()
         Me.btnP1 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblDiscRem = New System.Windows.Forms.Label()
         Me.lblGuestName = New System.Windows.Forms.Label()
         Me.lblRoomNo = New System.Windows.Forms.Label()
         Me.lblBookID = New System.Windows.Forms.Label()
@@ -280,7 +281,6 @@ Partial Class frmPOS
         Me.btnWallet = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.btnCash = New System.Windows.Forms.Button()
-        Me.lblDiscRem = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -1296,7 +1296,7 @@ Partial Class frmPOS
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(90, 45)
         Me.btnRemove.TabIndex = 7
-        Me.btnRemove.Text = "Remove"
+        Me.btnRemove.Text = "Void Item"
         Me.btnRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnRemove.UseVisualStyleBackColor = False
         '
@@ -1949,6 +1949,18 @@ Partial Class frmPOS
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(698, 357)
         Me.Panel5.TabIndex = 108
+        '
+        'lblDiscRem
+        '
+        Me.lblDiscRem.AutoSize = True
+        Me.lblDiscRem.BackColor = System.Drawing.Color.Transparent
+        Me.lblDiscRem.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiscRem.ForeColor = System.Drawing.Color.Black
+        Me.lblDiscRem.Location = New System.Drawing.Point(411, 151)
+        Me.lblDiscRem.Name = "lblDiscRem"
+        Me.lblDiscRem.Size = New System.Drawing.Size(12, 13)
+        Me.lblDiscRem.TabIndex = 375
+        Me.lblDiscRem.Text = "1"
         '
         'lblGuestName
         '
@@ -2981,18 +2993,6 @@ Partial Class frmPOS
         Me.btnCash.Text = "CASH"
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
-        '
-        'lblDiscRem
-        '
-        Me.lblDiscRem.AutoSize = True
-        Me.lblDiscRem.BackColor = System.Drawing.Color.Transparent
-        Me.lblDiscRem.Font = New System.Drawing.Font("Segoe UI Semibold", 8.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiscRem.ForeColor = System.Drawing.Color.Black
-        Me.lblDiscRem.Location = New System.Drawing.Point(411, 151)
-        Me.lblDiscRem.Name = "lblDiscRem"
-        Me.lblDiscRem.Size = New System.Drawing.Size(12, 13)
-        Me.lblDiscRem.TabIndex = 375
-        Me.lblDiscRem.Text = "1"
         '
         'frmPOS
         '

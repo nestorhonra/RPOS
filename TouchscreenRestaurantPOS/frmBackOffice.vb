@@ -241,4 +241,11 @@
             .ShowDialog()
         End With
     End Sub
+
+    Private Sub btnRefund_Click(sender As Object, e As EventArgs) Handles btnRefund.Click
+        With frmRefund
+            .lblUser.Text = Me.lblUser.Text
+            .ShowDialog()
+        End With
+    End Sub
 End Class
