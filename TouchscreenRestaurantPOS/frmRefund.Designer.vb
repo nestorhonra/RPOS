@@ -40,9 +40,57 @@ Partial Class frmRefund
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRefund))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblOP_ID = New System.Windows.Forms.Label()
+        Me.dgwList = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblQty = New System.Windows.Forms.Label()
+        Me.lblOP_ID = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtOperator = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtTable = New System.Windows.Forms.TextBox()
+        Me.txtTableNo = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblUser = New System.Windows.Forms.Label()
+        Me.txtOSCA = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txtReference = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtSeniorAmt = New System.Windows.Forms.TextBox()
+        Me.txtSeniorPer = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtDiscAmt = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtChange = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPaymentMode = New System.Windows.Forms.TextBox()
+        Me.dcPayment = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtDiscRem = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtBillDate = New System.Windows.Forms.DateTimePicker()
+        Me.lblID = New System.Windows.Forms.Label()
         Me.txtCash = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -51,90 +99,41 @@ Partial Class frmRefund
         Me.txtGrandTotal = New System.Windows.Forms.TextBox()
         Me.txtBillNo = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.lblUser = New System.Windows.Forms.Label()
-        Me.txtTableNo = New System.Windows.Forms.TextBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgwList = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblID = New System.Windows.Forms.Label()
-        Me.dtBillDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtDiscRem = New System.Windows.Forms.TextBox()
-        Me.dcPayment = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtPaymentMode = New System.Windows.Forms.TextBox()
-        Me.txtChange = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtSeniorAmt = New System.Windows.Forms.TextBox()
-        Me.txtSeniorPer = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtDiscAmt = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtOSCA = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtReference = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtOperator = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtTable = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.txtAmount = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.txtItemName = New System.Windows.Forms.TextBox()
-        Me.txtQty = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.txtRate = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.txtVatPer = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.txtVatAmt = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.txtSCPer = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.txtSCAmt = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.txtSTPer = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.txtSTAmt = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.txtTotalAmt = New System.Windows.Forms.TextBox()
         Me.txtDicsPer = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.txtDicsAmt = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.txtTotalAmt = New System.Windows.Forms.TextBox()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.txtSTPer = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.txtSTAmt = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtSCPer = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.txtSCAmt = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.txtVatPer = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtVatAmt = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtItemName = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtAmount = New System.Windows.Forms.TextBox()
+        Me.txtRate = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtQty = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -156,198 +155,6 @@ Partial Class frmRefund
         Me.Panel1.Size = New System.Drawing.Size(715, 712)
         Me.Panel1.TabIndex = 3
         '
-        'lblOP_ID
-        '
-        Me.lblOP_ID.AutoSize = True
-        Me.lblOP_ID.Location = New System.Drawing.Point(357, 245)
-        Me.lblOP_ID.Name = "lblOP_ID"
-        Me.lblOP_ID.Size = New System.Drawing.Size(39, 13)
-        Me.lblOP_ID.TabIndex = 48
-        Me.lblOP_ID.Text = "OP_ID"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.btnCancel)
-        Me.GroupBox2.Controls.Add(Me.btnDelete)
-        Me.GroupBox2.Controls.Add(Me.btnSearch)
-        Me.GroupBox2.Controls.Add(Me.btnNew)
-        Me.GroupBox2.Controls.Add(Me.btnSave)
-        Me.GroupBox2.Location = New System.Drawing.Point(605, 40)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(103, 259)
-        Me.GroupBox2.TabIndex = 4
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Action Button"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.lblOP_ID)
-        Me.GroupBox1.Controls.Add(Me.Label15)
-        Me.GroupBox1.Controls.Add(Me.txtOperator)
-        Me.GroupBox1.Controls.Add(Me.Label16)
-        Me.GroupBox1.Controls.Add(Me.txtTable)
-        Me.GroupBox1.Controls.Add(Me.txtTableNo)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.lblUser)
-        Me.GroupBox1.Controls.Add(Me.txtOSCA)
-        Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Controls.Add(Me.txtReference)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.txtSeniorAmt)
-        Me.GroupBox1.Controls.Add(Me.txtSeniorPer)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.txtDiscAmt)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.txtChange)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.txtPaymentMode)
-        Me.GroupBox1.Controls.Add(Me.dcPayment)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.txtDiscRem)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.dtBillDate)
-        Me.GroupBox1.Controls.Add(Me.lblID)
-        Me.GroupBox1.Controls.Add(Me.txtCash)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txtDiscPer)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.txtGrandTotal)
-        Me.GroupBox1.Controls.Add(Me.txtBillNo)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Location = New System.Drawing.Point(7, 41)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(587, 282)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Billing Info :"
-        '
-        'txtCash
-        '
-        Me.txtCash.BackColor = System.Drawing.Color.White
-        Me.txtCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCash.Location = New System.Drawing.Point(109, 222)
-        Me.txtCash.Name = "txtCash"
-        Me.txtCash.ReadOnly = True
-        Me.txtCash.Size = New System.Drawing.Size(157, 21)
-        Me.txtCash.TabIndex = 3
-        Me.txtCash.Text = "0.00"
-        Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(68, 226)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(37, 13)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Cash :"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(62, 29)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Bill No :"
-        '
-        'txtDiscPer
-        '
-        Me.txtDiscPer.BackColor = System.Drawing.Color.White
-        Me.txtDiscPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscPer.Location = New System.Drawing.Point(109, 108)
-        Me.txtDiscPer.Name = "txtDiscPer"
-        Me.txtDiscPer.ReadOnly = True
-        Me.txtDiscPer.Size = New System.Drawing.Size(157, 21)
-        Me.txtDiscPer.TabIndex = 1
-        Me.txtDiscPer.Text = "0.00"
-        Me.txtDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(39, 112)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Discount % :"
-        '
-        'txtGrandTotal
-        '
-        Me.txtGrandTotal.BackColor = System.Drawing.Color.White
-        Me.txtGrandTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGrandTotal.Location = New System.Drawing.Point(109, 195)
-        Me.txtGrandTotal.Name = "txtGrandTotal"
-        Me.txtGrandTotal.ReadOnly = True
-        Me.txtGrandTotal.Size = New System.Drawing.Size(157, 21)
-        Me.txtGrandTotal.TabIndex = 2
-        Me.txtGrandTotal.Text = "0.00"
-        Me.txtGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'txtBillNo
-        '
-        Me.txtBillNo.BackColor = System.Drawing.Color.White
-        Me.txtBillNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBillNo.Location = New System.Drawing.Point(109, 26)
-        Me.txtBillNo.Name = "txtBillNo"
-        Me.txtBillNo.ReadOnly = True
-        Me.txtBillNo.Size = New System.Drawing.Size(157, 21)
-        Me.txtBillNo.TabIndex = 0
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 198)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Grand Total :"
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(519, 226)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(39, 13)
-        Me.lblUser.TabIndex = 5
-        Me.lblUser.Text = "Label8"
-        Me.lblUser.Visible = False
-        '
-        'txtTableNo
-        '
-        Me.txtTableNo.Location = New System.Drawing.Point(401, 242)
-        Me.txtTableNo.Name = "txtTableNo"
-        Me.txtTableNo.Size = New System.Drawing.Size(49, 20)
-        Me.txtTableNo.TabIndex = 4
-        '
-        'Panel2
-        '
-        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(657, 31)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(657, 31)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Refund Items"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'dgwList
         '
         Me.dgwList.AllowUserToAddRows = False
@@ -367,7 +174,7 @@ Partial Class frmRefund
         Me.dgwList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgwList.ColumnHeadersHeight = 25
         Me.dgwList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgwList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn12, Me.Column17, Me.Column18, Me.Column19, Me.Column20, Me.Column25, Me.Column28})
+        Me.dgwList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.Column19, Me.Column20, Me.Column17, Me.Column18, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn12})
         Me.dgwList.Cursor = System.Windows.Forms.Cursors.Hand
         DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
@@ -465,31 +272,10 @@ Partial Class frmRefund
         Me.DataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.DataGridViewTextBoxColumn6.Width = 120
         '
-        'DataGridViewTextBoxColumn13
-        '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Disc %"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn13.Width = 80
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Disc Amt"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn7.HeaderText = "Vat %"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -499,13 +285,58 @@ Partial Class frmRefund
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn8.HeaderText = "Vat Amt"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
         Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Column19
+        '
+        Me.Column19.HeaderText = "ST %"
+        Me.Column19.Name = "Column19"
+        Me.Column19.ReadOnly = True
+        '
+        'Column20
+        '
+        Me.Column20.HeaderText = "ST Amt"
+        Me.Column20.Name = "Column20"
+        Me.Column20.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "SC %"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
+        'Column18
+        '
+        Me.Column18.HeaderText = "SC Amt"
+        Me.Column18.Name = "Column18"
+        Me.Column18.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Disc %"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn13.Width = 80
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle11
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Disc Amt"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'DataGridViewTextBoxColumn15
         '
@@ -528,141 +359,246 @@ Partial Class frmRefund
         Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
-        'Column17
+        'GroupBox2
         '
-        Me.Column17.HeaderText = "SC %"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.btnCancel)
+        Me.GroupBox2.Controls.Add(Me.btnDelete)
+        Me.GroupBox2.Controls.Add(Me.btnSearch)
+        Me.GroupBox2.Controls.Add(Me.btnNew)
+        Me.GroupBox2.Controls.Add(Me.btnSave)
+        Me.GroupBox2.Location = New System.Drawing.Point(605, 40)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(103, 259)
+        Me.GroupBox2.TabIndex = 4
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Action Button"
         '
-        'Column18
+        'btnCancel
         '
-        Me.Column18.HeaderText = "SC Amt"
-        Me.Column18.Name = "Column18"
-        Me.Column18.ReadOnly = True
+        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
+        Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCancel.Location = New System.Drawing.Point(11, 203)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(83, 40)
+        Me.btnCancel.TabIndex = 4
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'Column19
+        'btnDelete
         '
-        Me.Column19.HeaderText = "ST %"
-        Me.Column19.Name = "Column19"
-        Me.Column19.ReadOnly = True
+        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDelete.Location = New System.Drawing.Point(11, 155)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(83, 40)
+        Me.btnDelete.TabIndex = 3
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'Column20
+        'btnSearch
         '
-        Me.Column20.HeaderText = "ST Amt"
-        Me.Column20.Name = "Column20"
-        Me.Column20.ReadOnly = True
+        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Image = Global.RestaurantPOS3.My.Resources.Resources._1__6_
+        Me.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSearch.Location = New System.Drawing.Point(11, 109)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(83, 40)
+        Me.btnSearch.TabIndex = 2
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'Column25
+        'btnNew
         '
-        Me.Column25.HeaderText = "tk"
-        Me.Column25.Name = "Column25"
-        Me.Column25.ReadOnly = True
+        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNew.Location = New System.Drawing.Point(11, 17)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(83, 40)
+        Me.btnNew.TabIndex = 0
+        Me.btnNew.Text = "New"
+        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNew.UseVisualStyleBackColor = True
         '
-        'Column28
+        'btnSave
         '
-        Me.Column28.HeaderText = "upd"
-        Me.Column28.Name = "Column28"
-        Me.Column28.ReadOnly = True
-        Me.Column28.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Column28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column28.Width = 60
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(11, 63)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(83, 40)
+        Me.btnSave.TabIndex = 1
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'lblID
+        'GroupBox1
         '
-        Me.lblID.AutoSize = True
-        Me.lblID.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(274, 31)
-        Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(18, 13)
-        Me.lblID.TabIndex = 49
-        Me.lblID.Text = "ID"
+        Me.GroupBox1.Controls.Add(Me.lblQty)
+        Me.GroupBox1.Controls.Add(Me.lblOP_ID)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.txtOperator)
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.txtTable)
+        Me.GroupBox1.Controls.Add(Me.txtTableNo)
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Controls.Add(Me.lblUser)
+        Me.GroupBox1.Controls.Add(Me.txtOSCA)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.txtReference)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.txtSeniorAmt)
+        Me.GroupBox1.Controls.Add(Me.txtSeniorPer)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.txtDiscAmt)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.txtChange)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.txtPaymentMode)
+        Me.GroupBox1.Controls.Add(Me.dcPayment)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.txtDiscRem)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.dtBillDate)
+        Me.GroupBox1.Controls.Add(Me.lblID)
+        Me.GroupBox1.Controls.Add(Me.txtCash)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtDiscPer)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.txtGrandTotal)
+        Me.GroupBox1.Controls.Add(Me.txtBillNo)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 41)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(587, 282)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Billing Info :"
         '
-        'dtBillDate
+        'lblQty
         '
-        Me.dtBillDate.CustomFormat = "MM/dd/yyyy hh:mm tt"
-        Me.dtBillDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtBillDate.Location = New System.Drawing.Point(109, 53)
-        Me.dtBillDate.Name = "dtBillDate"
-        Me.dtBillDate.Size = New System.Drawing.Size(157, 20)
-        Me.dtBillDate.TabIndex = 50
+        Me.lblQty.AutoSize = True
+        Me.lblQty.Location = New System.Drawing.Point(456, 246)
+        Me.lblQty.Name = "lblQty"
+        Me.lblQty.Size = New System.Drawing.Size(23, 13)
+        Me.lblQty.TabIndex = 73
+        Me.lblQty.Text = "Qty"
         '
-        'Label6
+        'lblOP_ID
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(53, 56)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 13)
-        Me.Label6.TabIndex = 51
-        Me.Label6.Text = "Bill Date :"
+        Me.lblOP_ID.AutoSize = True
+        Me.lblOP_ID.Location = New System.Drawing.Point(357, 245)
+        Me.lblOP_ID.Name = "lblOP_ID"
+        Me.lblOP_ID.Size = New System.Drawing.Size(39, 13)
+        Me.lblOP_ID.TabIndex = 48
+        Me.lblOP_ID.Text = "OP_ID"
         '
-        'Label7
+        'Label15
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(5, 168)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(100, 13)
-        Me.Label7.TabIndex = 53
-        Me.Label7.Text = "Discount Remarks :"
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(319, 58)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(78, 13)
+        Me.Label15.TabIndex = 72
+        Me.Label15.Text = "User Account :"
         '
-        'txtDiscRem
+        'txtOperator
         '
-        Me.txtDiscRem.BackColor = System.Drawing.Color.White
-        Me.txtDiscRem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiscRem.Location = New System.Drawing.Point(109, 164)
-        Me.txtDiscRem.Name = "txtDiscRem"
-        Me.txtDiscRem.ReadOnly = True
-        Me.txtDiscRem.Size = New System.Drawing.Size(157, 21)
-        Me.txtDiscRem.TabIndex = 52
+        Me.txtOperator.BackColor = System.Drawing.Color.White
+        Me.txtOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOperator.Location = New System.Drawing.Point(401, 54)
+        Me.txtOperator.Name = "txtOperator"
+        Me.txtOperator.ReadOnly = True
+        Me.txtOperator.Size = New System.Drawing.Size(157, 21)
+        Me.txtOperator.TabIndex = 71
         '
-        'dcPayment
+        'Label16
         '
-        Me.dcPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.dcPayment.FormattingEnabled = True
-        Me.dcPayment.Items.AddRange(New Object() {"Admin", "Cashier", "Waiter"})
-        Me.dcPayment.Location = New System.Drawing.Point(401, 190)
-        Me.dcPayment.Name = "dcPayment"
-        Me.dcPayment.Size = New System.Drawing.Size(157, 21)
-        Me.dcPayment.TabIndex = 54
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(340, 31)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(57, 13)
+        Me.Label16.TabIndex = 70
+        Me.Label16.Text = "Table No :"
         '
-        'Label8
+        'txtTable
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(21, 84)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(84, 13)
-        Me.Label8.TabIndex = 56
-        Me.Label8.Text = "Payment Mode :"
+        Me.txtTable.BackColor = System.Drawing.Color.White
+        Me.txtTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTable.Location = New System.Drawing.Point(401, 27)
+        Me.txtTable.Name = "txtTable"
+        Me.txtTable.ReadOnly = True
+        Me.txtTable.Size = New System.Drawing.Size(157, 21)
+        Me.txtTable.TabIndex = 69
         '
-        'txtPaymentMode
+        'txtTableNo
         '
-        Me.txtPaymentMode.BackColor = System.Drawing.Color.White
-        Me.txtPaymentMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPaymentMode.Location = New System.Drawing.Point(109, 81)
-        Me.txtPaymentMode.Name = "txtPaymentMode"
-        Me.txtPaymentMode.ReadOnly = True
-        Me.txtPaymentMode.Size = New System.Drawing.Size(157, 21)
-        Me.txtPaymentMode.TabIndex = 55
+        Me.txtTableNo.Location = New System.Drawing.Point(401, 242)
+        Me.txtTableNo.Name = "txtTableNo"
+        Me.txtTableNo.Size = New System.Drawing.Size(49, 20)
+        Me.txtTableNo.TabIndex = 4
         '
-        'txtChange
+        'Label13
         '
-        Me.txtChange.BackColor = System.Drawing.Color.White
-        Me.txtChange.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtChange.Location = New System.Drawing.Point(109, 249)
-        Me.txtChange.Name = "txtChange"
-        Me.txtChange.ReadOnly = True
-        Me.txtChange.Size = New System.Drawing.Size(157, 21)
-        Me.txtChange.TabIndex = 57
-        Me.txtChange.Text = "0.00"
-        Me.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(293, 113)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(104, 13)
+        Me.Label13.TabIndex = 68
+        Me.Label13.Text = "OSCA/PWD ID No :"
         '
-        'Label9
+        'lblUser
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(55, 253)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(50, 13)
-        Me.Label9.TabIndex = 58
-        Me.Label9.Text = "Change :"
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Location = New System.Drawing.Point(519, 226)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(39, 13)
+        Me.lblUser.TabIndex = 5
+        Me.lblUser.Text = "Label8"
+        Me.lblUser.Visible = False
+        '
+        'txtOSCA
+        '
+        Me.txtOSCA.BackColor = System.Drawing.Color.White
+        Me.txtOSCA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOSCA.Location = New System.Drawing.Point(401, 108)
+        Me.txtOSCA.Name = "txtOSCA"
+        Me.txtOSCA.ReadOnly = True
+        Me.txtOSCA.Size = New System.Drawing.Size(157, 21)
+        Me.txtOSCA.TabIndex = 67
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(317, 85)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(80, 13)
+        Me.Label14.TabIndex = 66
+        Me.Label14.Text = "Reference No :"
+        '
+        'txtReference
+        '
+        Me.txtReference.BackColor = System.Drawing.Color.White
+        Me.txtReference.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReference.Location = New System.Drawing.Point(401, 81)
+        Me.txtReference.Name = "txtReference"
+        Me.txtReference.ReadOnly = True
+        Me.txtReference.Size = New System.Drawing.Size(157, 21)
+        Me.txtReference.TabIndex = 65
         '
         'Label10
         '
@@ -727,81 +663,223 @@ Partial Class frmRefund
         Me.Label12.TabIndex = 61
         Me.Label12.Text = "Discount Amt :"
         '
-        'Label13
+        'Label9
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(293, 113)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(104, 13)
-        Me.Label13.TabIndex = 68
-        Me.Label13.Text = "OSCA/PWD ID No :"
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(55, 253)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(50, 13)
+        Me.Label9.TabIndex = 58
+        Me.Label9.Text = "Change :"
         '
-        'txtOSCA
+        'txtChange
         '
-        Me.txtOSCA.BackColor = System.Drawing.Color.White
-        Me.txtOSCA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOSCA.Location = New System.Drawing.Point(401, 108)
-        Me.txtOSCA.Name = "txtOSCA"
-        Me.txtOSCA.ReadOnly = True
-        Me.txtOSCA.Size = New System.Drawing.Size(157, 21)
-        Me.txtOSCA.TabIndex = 67
+        Me.txtChange.BackColor = System.Drawing.Color.White
+        Me.txtChange.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtChange.Location = New System.Drawing.Point(109, 249)
+        Me.txtChange.Name = "txtChange"
+        Me.txtChange.ReadOnly = True
+        Me.txtChange.Size = New System.Drawing.Size(157, 21)
+        Me.txtChange.TabIndex = 57
+        Me.txtChange.Text = "0.00"
+        Me.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label14
+        'Label8
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(317, 85)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(80, 13)
-        Me.Label14.TabIndex = 66
-        Me.Label14.Text = "Reference No :"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(21, 84)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(84, 13)
+        Me.Label8.TabIndex = 56
+        Me.Label8.Text = "Payment Mode :"
         '
-        'txtReference
+        'txtPaymentMode
         '
-        Me.txtReference.BackColor = System.Drawing.Color.White
-        Me.txtReference.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReference.Location = New System.Drawing.Point(401, 81)
-        Me.txtReference.Name = "txtReference"
-        Me.txtReference.ReadOnly = True
-        Me.txtReference.Size = New System.Drawing.Size(157, 21)
-        Me.txtReference.TabIndex = 65
+        Me.txtPaymentMode.BackColor = System.Drawing.Color.White
+        Me.txtPaymentMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPaymentMode.Location = New System.Drawing.Point(109, 81)
+        Me.txtPaymentMode.Name = "txtPaymentMode"
+        Me.txtPaymentMode.ReadOnly = True
+        Me.txtPaymentMode.Size = New System.Drawing.Size(157, 21)
+        Me.txtPaymentMode.TabIndex = 55
         '
-        'Label15
+        'dcPayment
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(319, 58)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(78, 13)
-        Me.Label15.TabIndex = 72
-        Me.Label15.Text = "User Account :"
+        Me.dcPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.dcPayment.FormattingEnabled = True
+        Me.dcPayment.Items.AddRange(New Object() {"Admin", "Cashier", "Waiter"})
+        Me.dcPayment.Location = New System.Drawing.Point(401, 190)
+        Me.dcPayment.Name = "dcPayment"
+        Me.dcPayment.Size = New System.Drawing.Size(157, 21)
+        Me.dcPayment.TabIndex = 54
         '
-        'txtOperator
+        'Label7
         '
-        Me.txtOperator.BackColor = System.Drawing.Color.White
-        Me.txtOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOperator.Location = New System.Drawing.Point(401, 54)
-        Me.txtOperator.Name = "txtOperator"
-        Me.txtOperator.ReadOnly = True
-        Me.txtOperator.Size = New System.Drawing.Size(157, 21)
-        Me.txtOperator.TabIndex = 71
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(5, 168)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(100, 13)
+        Me.Label7.TabIndex = 53
+        Me.Label7.Text = "Discount Remarks :"
         '
-        'Label16
+        'txtDiscRem
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(340, 31)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(57, 13)
-        Me.Label16.TabIndex = 70
-        Me.Label16.Text = "Table No :"
+        Me.txtDiscRem.BackColor = System.Drawing.Color.White
+        Me.txtDiscRem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscRem.Location = New System.Drawing.Point(109, 164)
+        Me.txtDiscRem.Name = "txtDiscRem"
+        Me.txtDiscRem.ReadOnly = True
+        Me.txtDiscRem.Size = New System.Drawing.Size(157, 21)
+        Me.txtDiscRem.TabIndex = 52
         '
-        'txtTable
+        'Label6
         '
-        Me.txtTable.BackColor = System.Drawing.Color.White
-        Me.txtTable.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTable.Location = New System.Drawing.Point(401, 27)
-        Me.txtTable.Name = "txtTable"
-        Me.txtTable.ReadOnly = True
-        Me.txtTable.Size = New System.Drawing.Size(157, 21)
-        Me.txtTable.TabIndex = 69
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(53, 56)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.TabIndex = 51
+        Me.Label6.Text = "Bill Date :"
+        '
+        'dtBillDate
+        '
+        Me.dtBillDate.CustomFormat = "MM/dd/yyyy hh:mm tt"
+        Me.dtBillDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtBillDate.Location = New System.Drawing.Point(109, 53)
+        Me.dtBillDate.Name = "dtBillDate"
+        Me.dtBillDate.Size = New System.Drawing.Size(157, 20)
+        Me.dtBillDate.TabIndex = 50
+        '
+        'lblID
+        '
+        Me.lblID.AutoSize = True
+        Me.lblID.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblID.Location = New System.Drawing.Point(274, 31)
+        Me.lblID.Name = "lblID"
+        Me.lblID.Size = New System.Drawing.Size(18, 13)
+        Me.lblID.TabIndex = 49
+        Me.lblID.Text = "ID"
+        '
+        'txtCash
+        '
+        Me.txtCash.BackColor = System.Drawing.Color.White
+        Me.txtCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCash.Location = New System.Drawing.Point(109, 222)
+        Me.txtCash.Name = "txtCash"
+        Me.txtCash.ReadOnly = True
+        Me.txtCash.Size = New System.Drawing.Size(157, 21)
+        Me.txtCash.TabIndex = 3
+        Me.txtCash.Text = "0.00"
+        Me.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(68, 226)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Cash :"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(62, 29)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Bill No :"
+        '
+        'txtDiscPer
+        '
+        Me.txtDiscPer.BackColor = System.Drawing.Color.White
+        Me.txtDiscPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiscPer.Location = New System.Drawing.Point(109, 108)
+        Me.txtDiscPer.Name = "txtDiscPer"
+        Me.txtDiscPer.ReadOnly = True
+        Me.txtDiscPer.Size = New System.Drawing.Size(157, 21)
+        Me.txtDiscPer.TabIndex = 1
+        Me.txtDiscPer.Text = "0.00"
+        Me.txtDiscPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(39, 112)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(66, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Discount % :"
+        '
+        'txtGrandTotal
+        '
+        Me.txtGrandTotal.BackColor = System.Drawing.Color.White
+        Me.txtGrandTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGrandTotal.Location = New System.Drawing.Point(109, 195)
+        Me.txtGrandTotal.Name = "txtGrandTotal"
+        Me.txtGrandTotal.ReadOnly = True
+        Me.txtGrandTotal.Size = New System.Drawing.Size(157, 21)
+        Me.txtGrandTotal.TabIndex = 2
+        Me.txtGrandTotal.Text = "0.00"
+        Me.txtGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtBillNo
+        '
+        Me.txtBillNo.BackColor = System.Drawing.Color.White
+        Me.txtBillNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBillNo.Location = New System.Drawing.Point(109, 26)
+        Me.txtBillNo.Name = "txtBillNo"
+        Me.txtBillNo.ReadOnly = True
+        Me.txtBillNo.Size = New System.Drawing.Size(157, 21)
+        Me.txtBillNo.TabIndex = 0
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(36, 198)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(69, 13)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Grand Total :"
+        '
+        'btnClose
+        '
+        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClose.Location = New System.Drawing.Point(668, 3)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(39, 36)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Location = New System.Drawing.Point(4, 4)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(657, 31)
+        Me.Panel2.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(657, 31)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Refund Items"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GroupBox3
         '
@@ -838,203 +916,26 @@ Partial Class frmRefund
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Order Details"
         '
-        'Label17
+        'Label29
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(347, 22)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(49, 13)
-        Me.Label17.TabIndex = 66
-        Me.Label17.Text = "Amount :"
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(449, 22)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(76, 13)
+        Me.Label29.TabIndex = 84
+        Me.Label29.Text = "Total Amount :"
         '
-        'txtAmount
+        'txtTotalAmt
         '
-        Me.txtAmount.BackColor = System.Drawing.Color.White
-        Me.txtAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmount.Location = New System.Drawing.Point(344, 40)
-        Me.txtAmount.Name = "txtAmount"
-        Me.txtAmount.Size = New System.Drawing.Size(96, 21)
-        Me.txtAmount.TabIndex = 65
-        Me.txtAmount.Text = "0.00"
-        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(9, 22)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(64, 13)
-        Me.Label18.TabIndex = 64
-        Me.Label18.Text = "Item Name :"
-        '
-        'txtItemName
-        '
-        Me.txtItemName.BackColor = System.Drawing.Color.White
-        Me.txtItemName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemName.Location = New System.Drawing.Point(6, 40)
-        Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(181, 21)
-        Me.txtItemName.TabIndex = 63
-        '
-        'txtQty
-        '
-        Me.txtQty.BackColor = System.Drawing.Color.White
-        Me.txtQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtQty.Location = New System.Drawing.Point(275, 40)
-        Me.txtQty.Name = "txtQty"
-        Me.txtQty.Size = New System.Drawing.Size(57, 21)
-        Me.txtQty.TabIndex = 60
-        Me.txtQty.Text = "0.00"
-        Me.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(280, 22)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(29, 13)
-        Me.Label19.TabIndex = 62
-        Me.Label19.Text = "Qty :"
-        '
-        'txtRate
-        '
-        Me.txtRate.BackColor = System.Drawing.Color.White
-        Me.txtRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRate.Location = New System.Drawing.Point(193, 40)
-        Me.txtRate.Name = "txtRate"
-        Me.txtRate.Size = New System.Drawing.Size(71, 21)
-        Me.txtRate.TabIndex = 59
-        Me.txtRate.Text = "0.00"
-        Me.txtRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(195, 22)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(36, 13)
-        Me.Label20.TabIndex = 61
-        Me.Label20.Text = "Rate :"
-        '
-        'txtVatPer
-        '
-        Me.txtVatPer.BackColor = System.Drawing.Color.White
-        Me.txtVatPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVatPer.Location = New System.Drawing.Point(6, 89)
-        Me.txtVatPer.Name = "txtVatPer"
-        Me.txtVatPer.Size = New System.Drawing.Size(42, 21)
-        Me.txtVatPer.TabIndex = 67
-        Me.txtVatPer.Text = "0.00"
-        Me.txtVatPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(8, 72)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(45, 13)
-        Me.Label21.TabIndex = 69
-        Me.Label21.Text = "VAT % :"
-        '
-        'txtVatAmt
-        '
-        Me.txtVatAmt.BackColor = System.Drawing.Color.White
-        Me.txtVatAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVatAmt.Location = New System.Drawing.Point(54, 89)
-        Me.txtVatAmt.Name = "txtVatAmt"
-        Me.txtVatAmt.Size = New System.Drawing.Size(66, 21)
-        Me.txtVatAmt.TabIndex = 68
-        Me.txtVatAmt.Text = "0.00"
-        Me.txtVatAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(57, 71)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(55, 13)
-        Me.Label22.TabIndex = 70
-        Me.Label22.Text = "VAT Amt :"
-        '
-        'txtSCPer
-        '
-        Me.txtSCPer.BackColor = System.Drawing.Color.White
-        Me.txtSCPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSCPer.Location = New System.Drawing.Point(150, 89)
-        Me.txtSCPer.Name = "txtSCPer"
-        Me.txtSCPer.Size = New System.Drawing.Size(42, 21)
-        Me.txtSCPer.TabIndex = 71
-        Me.txtSCPer.Text = "0.00"
-        Me.txtSCPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(153, 72)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(38, 13)
-        Me.Label23.TabIndex = 73
-        Me.Label23.Text = "SC % :"
-        '
-        'txtSCAmt
-        '
-        Me.txtSCAmt.BackColor = System.Drawing.Color.White
-        Me.txtSCAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSCAmt.Location = New System.Drawing.Point(198, 89)
-        Me.txtSCAmt.Name = "txtSCAmt"
-        Me.txtSCAmt.Size = New System.Drawing.Size(66, 21)
-        Me.txtSCAmt.TabIndex = 72
-        Me.txtSCAmt.Text = "0.00"
-        Me.txtSCAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(201, 71)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(48, 13)
-        Me.Label24.TabIndex = 74
-        Me.Label24.Text = "SC Amt :"
-        '
-        'txtSTPer
-        '
-        Me.txtSTPer.BackColor = System.Drawing.Color.White
-        Me.txtSTPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSTPer.Location = New System.Drawing.Point(302, 89)
-        Me.txtSTPer.Name = "txtSTPer"
-        Me.txtSTPer.Size = New System.Drawing.Size(42, 21)
-        Me.txtSTPer.TabIndex = 75
-        Me.txtSTPer.Text = "0.00"
-        Me.txtSTPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(305, 72)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(38, 13)
-        Me.Label25.TabIndex = 77
-        Me.Label25.Text = "ST % :"
-        '
-        'txtSTAmt
-        '
-        Me.txtSTAmt.BackColor = System.Drawing.Color.White
-        Me.txtSTAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSTAmt.Location = New System.Drawing.Point(350, 89)
-        Me.txtSTAmt.Name = "txtSTAmt"
-        Me.txtSTAmt.Size = New System.Drawing.Size(66, 21)
-        Me.txtSTAmt.TabIndex = 76
-        Me.txtSTAmt.Text = "0.00"
-        Me.txtSTAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(353, 71)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(48, 13)
-        Me.Label26.TabIndex = 78
-        Me.Label26.Text = "ST Amt :"
+        Me.txtTotalAmt.BackColor = System.Drawing.Color.White
+        Me.txtTotalAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalAmt.Location = New System.Drawing.Point(446, 40)
+        Me.txtTotalAmt.Name = "txtTotalAmt"
+        Me.txtTotalAmt.ReadOnly = True
+        Me.txtTotalAmt.Size = New System.Drawing.Size(110, 21)
+        Me.txtTotalAmt.TabIndex = 83
+        Me.txtTotalAmt.Text = "0.00"
+        Me.txtTotalAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtDicsPer
         '
@@ -1042,6 +943,7 @@ Partial Class frmRefund
         Me.txtDicsPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDicsPer.Location = New System.Drawing.Point(442, 89)
         Me.txtDicsPer.Name = "txtDicsPer"
+        Me.txtDicsPer.ReadOnly = True
         Me.txtDicsPer.Size = New System.Drawing.Size(42, 21)
         Me.txtDicsPer.TabIndex = 79
         Me.txtDicsPer.Text = "0.00"
@@ -1062,6 +964,7 @@ Partial Class frmRefund
         Me.txtDicsAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDicsAmt.Location = New System.Drawing.Point(490, 89)
         Me.txtDicsAmt.Name = "txtDicsAmt"
+        Me.txtDicsAmt.ReadOnly = True
         Me.txtDicsAmt.Size = New System.Drawing.Size(66, 21)
         Me.txtDicsAmt.TabIndex = 80
         Me.txtDicsAmt.Text = "0.00"
@@ -1076,109 +979,213 @@ Partial Class frmRefund
         Me.Label28.TabIndex = 82
         Me.Label28.Text = "Disc Amt :"
         '
-        'Label29
+        'txtSTPer
         '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(449, 22)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(76, 13)
-        Me.Label29.TabIndex = 84
-        Me.Label29.Text = "Total Amount :"
+        Me.txtSTPer.BackColor = System.Drawing.Color.White
+        Me.txtSTPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSTPer.Location = New System.Drawing.Point(302, 89)
+        Me.txtSTPer.Name = "txtSTPer"
+        Me.txtSTPer.ReadOnly = True
+        Me.txtSTPer.Size = New System.Drawing.Size(42, 21)
+        Me.txtSTPer.TabIndex = 75
+        Me.txtSTPer.Text = "0.00"
+        Me.txtSTPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtTotalAmt
+        'Label25
         '
-        Me.txtTotalAmt.BackColor = System.Drawing.Color.White
-        Me.txtTotalAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalAmt.Location = New System.Drawing.Point(446, 40)
-        Me.txtTotalAmt.Name = "txtTotalAmt"
-        Me.txtTotalAmt.Size = New System.Drawing.Size(110, 21)
-        Me.txtTotalAmt.TabIndex = 83
-        Me.txtTotalAmt.Text = "0.00"
-        Me.txtTotalAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(305, 72)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(38, 13)
+        Me.Label25.TabIndex = 77
+        Me.Label25.Text = "ST % :"
         '
-        'btnDelete
+        'txtSTAmt
         '
-        Me.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(11, 155)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(83, 40)
-        Me.btnDelete.TabIndex = 3
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.txtSTAmt.BackColor = System.Drawing.Color.White
+        Me.txtSTAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSTAmt.Location = New System.Drawing.Point(350, 89)
+        Me.txtSTAmt.Name = "txtSTAmt"
+        Me.txtSTAmt.ReadOnly = True
+        Me.txtSTAmt.Size = New System.Drawing.Size(66, 21)
+        Me.txtSTAmt.TabIndex = 76
+        Me.txtSTAmt.Text = "0.00"
+        Me.txtSTAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnSearch
+        'Label26
         '
-        Me.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Image = Global.RestaurantPOS3.My.Resources.Resources._1__6_
-        Me.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSearch.Location = New System.Drawing.Point(11, 109)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(83, 40)
-        Me.btnSearch.TabIndex = 2
-        Me.btnSearch.Text = "Search"
-        Me.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(353, 71)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(48, 13)
+        Me.Label26.TabIndex = 78
+        Me.Label26.Text = "ST Amt :"
         '
-        'btnNew
+        'txtSCPer
         '
-        Me.btnNew.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
-        Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(11, 17)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(83, 40)
-        Me.btnNew.TabIndex = 0
-        Me.btnNew.Text = "New"
-        Me.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNew.UseVisualStyleBackColor = True
+        Me.txtSCPer.BackColor = System.Drawing.Color.White
+        Me.txtSCPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSCPer.Location = New System.Drawing.Point(150, 89)
+        Me.txtSCPer.Name = "txtSCPer"
+        Me.txtSCPer.ReadOnly = True
+        Me.txtSCPer.Size = New System.Drawing.Size(42, 21)
+        Me.txtSCPer.TabIndex = 71
+        Me.txtSCPer.Text = "0.00"
+        Me.txtSCPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnSave
+        'Label23
         '
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(11, 63)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(83, 40)
-        Me.btnSave.TabIndex = 1
-        Me.btnSave.Text = "Save"
-        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(153, 72)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(38, 13)
+        Me.Label23.TabIndex = 73
+        Me.Label23.Text = "SC % :"
         '
-        'btnClose
+        'txtSCAmt
         '
-        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(668, 3)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(39, 36)
-        Me.btnClose.TabIndex = 4
-        Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.txtSCAmt.BackColor = System.Drawing.Color.White
+        Me.txtSCAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSCAmt.Location = New System.Drawing.Point(198, 89)
+        Me.txtSCAmt.Name = "txtSCAmt"
+        Me.txtSCAmt.ReadOnly = True
+        Me.txtSCAmt.Size = New System.Drawing.Size(66, 21)
+        Me.txtSCAmt.TabIndex = 72
+        Me.txtSCAmt.Text = "0.00"
+        Me.txtSCAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnCancel
+        'Label24
         '
-        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
-        Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancel.Location = New System.Drawing.Point(11, 203)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(83, 40)
-        Me.btnCancel.TabIndex = 4
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(201, 71)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(48, 13)
+        Me.Label24.TabIndex = 74
+        Me.Label24.Text = "SC Amt :"
+        '
+        'txtVatPer
+        '
+        Me.txtVatPer.BackColor = System.Drawing.Color.White
+        Me.txtVatPer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVatPer.Location = New System.Drawing.Point(6, 89)
+        Me.txtVatPer.Name = "txtVatPer"
+        Me.txtVatPer.ReadOnly = True
+        Me.txtVatPer.Size = New System.Drawing.Size(42, 21)
+        Me.txtVatPer.TabIndex = 67
+        Me.txtVatPer.Text = "0.00"
+        Me.txtVatPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(8, 72)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(45, 13)
+        Me.Label21.TabIndex = 69
+        Me.Label21.Text = "VAT % :"
+        '
+        'txtVatAmt
+        '
+        Me.txtVatAmt.BackColor = System.Drawing.Color.White
+        Me.txtVatAmt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVatAmt.Location = New System.Drawing.Point(54, 89)
+        Me.txtVatAmt.Name = "txtVatAmt"
+        Me.txtVatAmt.ReadOnly = True
+        Me.txtVatAmt.Size = New System.Drawing.Size(66, 21)
+        Me.txtVatAmt.TabIndex = 68
+        Me.txtVatAmt.Text = "0.00"
+        Me.txtVatAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(57, 71)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(55, 13)
+        Me.Label22.TabIndex = 70
+        Me.Label22.Text = "VAT Amt :"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(347, 22)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(49, 13)
+        Me.Label17.TabIndex = 66
+        Me.Label17.Text = "Amount :"
+        '
+        'txtItemName
+        '
+        Me.txtItemName.BackColor = System.Drawing.Color.White
+        Me.txtItemName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtItemName.Location = New System.Drawing.Point(6, 40)
+        Me.txtItemName.Name = "txtItemName"
+        Me.txtItemName.ReadOnly = True
+        Me.txtItemName.Size = New System.Drawing.Size(181, 21)
+        Me.txtItemName.TabIndex = 63
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(9, 22)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(64, 13)
+        Me.Label18.TabIndex = 64
+        Me.Label18.Text = "Item Name :"
+        '
+        'txtAmount
+        '
+        Me.txtAmount.BackColor = System.Drawing.Color.White
+        Me.txtAmount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmount.Location = New System.Drawing.Point(344, 40)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.ReadOnly = True
+        Me.txtAmount.Size = New System.Drawing.Size(96, 21)
+        Me.txtAmount.TabIndex = 65
+        Me.txtAmount.Text = "0.00"
+        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtRate
+        '
+        Me.txtRate.BackColor = System.Drawing.Color.White
+        Me.txtRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRate.Location = New System.Drawing.Point(193, 40)
+        Me.txtRate.Name = "txtRate"
+        Me.txtRate.ReadOnly = True
+        Me.txtRate.Size = New System.Drawing.Size(71, 21)
+        Me.txtRate.TabIndex = 59
+        Me.txtRate.Text = "0.00"
+        Me.txtRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(195, 22)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(36, 13)
+        Me.Label20.TabIndex = 61
+        Me.Label20.Text = "Rate :"
+        '
+        'txtQty
+        '
+        Me.txtQty.BackColor = System.Drawing.Color.White
+        Me.txtQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtQty.Location = New System.Drawing.Point(275, 40)
+        Me.txtQty.MaxLength = 7
+        Me.txtQty.Name = "txtQty"
+        Me.txtQty.Size = New System.Drawing.Size(57, 21)
+        Me.txtQty.TabIndex = 60
+        Me.txtQty.Text = "0.00"
+        Me.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(280, 22)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 13)
+        Me.Label19.TabIndex = 62
+        Me.Label19.Text = "Qty :"
         '
         'frmRefund
         '
@@ -1194,11 +1201,11 @@ Partial Class frmRefund
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Refund Transaction"
         Me.Panel1.ResumeLayout(False)
+        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.dgwList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
@@ -1227,23 +1234,6 @@ Partial Class frmRefund
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents dgwList As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
-    Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents Column20 As DataGridViewTextBoxColumn
-    Friend WithEvents Column25 As DataGridViewTextBoxColumn
-    Friend WithEvents Column28 As DataGridViewTextBoxColumn
     Friend WithEvents lblID As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtDiscRem As TextBox
@@ -1296,4 +1286,20 @@ Partial Class frmRefund
     Friend WithEvents txtQty As TextBox
     Friend WithEvents Label19 As Label
     Friend WithEvents btnCancel As Button
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column19 As DataGridViewTextBoxColumn
+    Friend WithEvents Column20 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents lblQty As Label
 End Class

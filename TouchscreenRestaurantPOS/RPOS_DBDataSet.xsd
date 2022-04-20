@@ -4611,6 +4611,14 @@ SELECT Type FROM WarehouseType WHERE (Type = @Type)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="RefNo" msprop:Generator_ColumnVarNameInTable="columnRefNo" msprop:Generator_ColumnPropNameInRow="RefNo" msprop:Generator_ColumnPropNameInTable="RefNoColumn" msprop:Generator_UserColumnName="RefNo" type="xs:string" minOccurs="0" />
+              <xs:element name="TableNo" msprop:Generator_ColumnVarNameInTable="columnTableNo" msprop:Generator_ColumnPropNameInRow="TableNo" msprop:Generator_ColumnPropNameInTable="TableNoColumn" msprop:Generator_UserColumnName="TableNo" type="xs:string" minOccurs="0" />
+              <xs:element name="DiscountReason" msprop:Generator_ColumnVarNameInTable="columnDiscountReason" msprop:Generator_ColumnPropNameInRow="DiscountReason" msprop:Generator_ColumnPropNameInTable="DiscountReasonColumn" msprop:Generator_UserColumnName="DiscountReason" type="xs:string" minOccurs="0" />
+              <xs:element name="KOTDiscountPer" msprop:Generator_ColumnVarNameInTable="columnKOTDiscountPer" msprop:Generator_ColumnPropNameInRow="KOTDiscountPer" msprop:Generator_ColumnPropNameInTable="KOTDiscountPerColumn" msprop:Generator_UserColumnName="KOTDiscountPer" type="xs:string" minOccurs="0" />
+              <xs:element name="DiscAmount" msprop:Generator_ColumnVarNameInTable="columnDiscAmount" msprop:Generator_ColumnPropNameInRow="DiscAmount" msprop:Generator_ColumnPropNameInTable="DiscAmountColumn" msprop:Generator_UserColumnName="DiscAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="SCPer" msprop:Generator_ColumnVarNameInTable="columnSCPer" msprop:Generator_ColumnPropNameInRow="SCPer" msprop:Generator_ColumnPropNameInTable="SCPerColumn" msprop:Generator_UserColumnName="SCPer" type="xs:string" minOccurs="0" />
+              <xs:element name="SCDiscAmt" msprop:Generator_ColumnVarNameInTable="columnSCDiscAmt" msprop:Generator_ColumnPropNameInRow="SCDiscAmt" msprop:Generator_ColumnPropNameInTable="SCDiscAmtColumn" msprop:Generator_UserColumnName="SCDiscAmt" type="xs:string" minOccurs="0" />
+              <xs:element name="OSCANo" msprop:Generator_ColumnVarNameInTable="columnOSCANo" msprop:Generator_ColumnPropNameInRow="OSCANo" msprop:Generator_ColumnPropNameInTable="OSCANoColumn" msprop:Generator_UserColumnName="OSCANo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

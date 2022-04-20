@@ -388,6 +388,11 @@
     </Compile>
     <Compile Include="Printer.vb" />
     <Compile Include="PrintingFormat.vb" />
+    <Compile Include="RPOS_DBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPOS_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="rptWorkPeriod.vb">
       <DependentUpon>rptWorkPeriod.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1497,6 +1502,7 @@
     <None Include="RPOS_DBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>RPOS_DBDataSet.Designer.vb</LastGenOutput>
     </None>
     <None Include="RPOS_DBDataSet.xss">
       <DependentUpon>RPOS_DBDataSet.xsd</DependentUpon>
