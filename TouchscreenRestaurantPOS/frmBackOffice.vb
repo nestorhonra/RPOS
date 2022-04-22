@@ -199,7 +199,7 @@
     End Sub
 
     Private Sub btnWorkPeriod_Click(sender As Object, e As EventArgs) Handles btnWorkPeriod.Click
-        With frmWorkPeriod
+        With frmWorkPeriodReport
             .ShowDialog()
         End With
     End Sub

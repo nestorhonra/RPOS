@@ -60,6 +60,7 @@ Public Class frmRefund
         txtTableNo.Text = ""
         txtItemName.Text = ""
         txtRate.Text = ""
+        txtReason.Text = ""
         s_tag = True
         txtQty.Text = ""
         s_tag = False
@@ -77,6 +78,8 @@ Public Class frmRefund
         lblOP_ID.Text = ""
         lblQty.Text = ""
         dgwList.Rows.Clear()
+        txtQty.ReadOnly = True
+        txtReason.ReadOnly = True
     End Sub
 
     Public Sub GetData(ByVal billID As Integer)
@@ -173,6 +176,9 @@ Public Class frmRefund
             txtDicsAmt.Text = toNumber(dgwList.Rows(sr).Cells(12).Value.ToString)
             txtTotalAmt.Text = toNumber(dgwList.Rows(sr).Cells(13).Value.ToString)
             txtTableNo.Text = Trim(dgwList.Rows(sr).Cells(14).Value.ToString)
+            txtReason.Text = ""
+            txtQty.ReadOnly = False
+            txtReason.ReadOnly = False
         End If
     End Sub
 
@@ -232,55 +238,104 @@ Public Class frmRefund
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If Trim(txtTotalAmt.Text) <> "" Then
             If is_new = True Then
-                If MsgBox("Are you sure you want to refund this item?" & vbNewLine & "This transaction cannot be revised afterwards.", vbQuestion + vbYesNo, "Confirm refund") = vbYes Then
-                    MsgBox("Insert Here " & lblOP_ID.Text)
-                    Try
-                        con = New SqlConnection(cs)
-                        con.Open()
-                        Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
-                        cmd = New SqlCommand(cb3)
-                        cmd.Parameters.AddWithValue("@d1", toNumber(txtBillNo.Text))
-                        cmd.Parameters.AddWithValue("@d2", Trim(txtItemName.Text))
-                        cmd.Parameters.AddWithValue("@d3", toNumber(txtRate.Text))
-                        cmd.Parameters.AddWithValue("@d4", toNumber(txtQty.Text))
-                        cmd.Parameters.AddWithValue("@d5", toNumber(txtAmount.Text))
-                        cmd.Parameters.AddWithValue("@d6", toNumber(txtVatPer.Text))
-                        cmd.Parameters.AddWithValue("@d7", toNumber(txtVatAmt.Text))
-                        cmd.Parameters.AddWithValue("@d8", toNumber(txtSTPer.Text))
-                        cmd.Parameters.AddWithValue("@d9", toNumber(txtSTAmt.Text))
-                        cmd.Parameters.AddWithValue("@d10", toNumber(txtSCPer.Text))
-                        cmd.Parameters.AddWithValue("@d11", toNumber(txtSCAmt.Text))
-                        cmd.Parameters.AddWithValue("@d12", toNumber(txtDicsPer.Text))
-                        cmd.Parameters.AddWithValue("@d13", toNumber(txtDicsAmt.Text))
-                        cmd.Parameters.AddWithValue("@d14", toNumber(txtTotalAmt.Text))
-                        cmd.Parameters.AddWithValue("@d15", Trim(txtTableNo.Text))
-                        cmd.Connection = con
-                        cmd.ExecuteNonQuery()
-                        con.Close()
-                    Catch ex As Exception
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-                    End Try
-                    Try
-                        con = New SqlConnection(cs)
-                        con.Open()
-                        Dim cb As String = "UPDATE RestaurantPOS_BillingInfoKOT SET GrandTotal = GrandTotal + @d2,Change = Change - @d2 WHERE ID = @d1"
-                        cmd = New SqlCommand(cb)
-                        cmd.Connection = con
-                        cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
-                        cmd.Parameters.AddWithValue("@d2", toNumber(txtTotalAmt.Text))
-                        cmd.ExecuteNonQuery()
-                        con.Close()
-                        Dim st As String = "Refund made of '" & lblID.Text & "' Item '" & txtItemName.Text & "' with qty '" & txtQty.Text & "' amount '" & txtAmount.Text & "' by : " & lblUser.Text
-                        LogFunc(lblUser.Text, st)
-                        Call ClearAll()
-                        is_new = False
-                        dtBillDate.Value = CDate(Now().ToString(dateformat))
-                        Call CommandPass(True, False, False, False, False)
-                    Catch ex As Exception
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-                    End Try
-                End If
+                If Trim(txtReason.Text) <> "" Then
+                    If toNumber(txtQty.Text) < 0 Then
+                        If MsgBox("Are you sure you want to refund this item?" & vbNewLine & "This transaction cannot be revised afterwards.", vbQuestion + vbYesNo, "Confirm refund") = vbYes Then
+                            'MsgBox("Insert Here " & lblOP_ID.Text)
+                            Try
 
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb3 As String = "INSERT INTO RefundItems (BillID,BillNo,BillDate,PaymentMode,Reason,OP_ID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo,EncodedBy,EntryDate) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15,@d16,@d17,@d18,@d19,@d20,@d21,@d22)"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                                cmd.Parameters.AddWithValue("@d2", toNumber(txtBillNo.Text))
+                                cmd.Parameters.AddWithValue("@d3", CDate(dtBillDate.Value))
+                                cmd.Parameters.AddWithValue("@d4", Trim(txtPaymentMode.Text))
+                                cmd.Parameters.AddWithValue("@d5", Trim(txtReason.Text))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(lblOP_ID.Text))
+                                cmd.Parameters.AddWithValue("@d7", Trim(txtItemName.Text))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(txtRate.Text))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(txtQty.Text))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(txtAmount.Text))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(txtVatPer.Text))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(txtVatAmt.Text))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(txtSTPer.Text))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(txtSTAmt.Text))
+                                cmd.Parameters.AddWithValue("@d15", toNumber(txtSCPer.Text))
+                                cmd.Parameters.AddWithValue("@d16", toNumber(txtSCAmt.Text))
+                                cmd.Parameters.AddWithValue("@d17", toNumber(txtDicsPer.Text))
+                                cmd.Parameters.AddWithValue("@d18", toNumber(txtDicsAmt.Text))
+                                cmd.Parameters.AddWithValue("@d19", toNumber(txtTotalAmt.Text))
+                                cmd.Parameters.AddWithValue("@d20", Trim(txtTableNo.Text))
+                                cmd.Parameters.AddWithValue("@d21", Trim(lblUser.Text))
+                                cmd.Parameters.AddWithValue("@d22", CDate(Now()))
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                Exit Sub
+                            End Try
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", toNumber(txtBillNo.Text))
+                                cmd.Parameters.AddWithValue("@d2", Trim(txtItemName.Text))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(txtRate.Text))
+                                cmd.Parameters.AddWithValue("@d4", toNumber(txtQty.Text))
+                                cmd.Parameters.AddWithValue("@d5", toNumber(txtAmount.Text))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(txtVatPer.Text))
+                                cmd.Parameters.AddWithValue("@d7", toNumber(txtVatAmt.Text))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(txtSTPer.Text))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(txtSTAmt.Text))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(txtSCPer.Text))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(txtSCAmt.Text))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(txtDicsPer.Text))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(txtDicsAmt.Text))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(txtTotalAmt.Text))
+                                cmd.Parameters.AddWithValue("@d15", Trim(txtTableNo.Text))
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                Exit Sub
+                            End Try
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb As String = "UPDATE RestaurantPOS_BillingInfoKOT SET GrandTotal = GrandTotal + @d2,Change = Change - @d2 WHERE ID = @d1"
+                                cmd = New SqlCommand(cb)
+                                cmd.Connection = con
+                                cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
+                                cmd.Parameters.AddWithValue("@d2", toNumber(txtTotalAmt.Text))
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                                Exit Sub
+                            End Try
+                            Dim st As String = "Refund made of '" & lblID.Text & "' Item '" & txtItemName.Text & "' with qty '" & txtQty.Text & "' amount '" & txtAmount.Text & "' by : " & lblUser.Text
+                            LogFunc(lblUser.Text, st)
+                            Call ClearAll()
+                            is_new = False
+                            dtBillDate.Value = CDate(Now().ToString(dateformat))
+                            Call CommandPass(True, False, False, False, False)
+                            MsgBox("Refund item is saved.", vbInformation + vbOKOnly, "Refund transaction Success")
+                        End If
+                    Else
+                        MsgBox("Please enter negative quantiy to create refund.", vbCritical + vbOKOnly, "Error negative quantity")
+                        txtQty.Focus()
+                        Exit Sub
+                    End If
+                Else
+                    MsgBox("Please enter reason of refund.", vbCritical + vbOKOnly, "Error blank reason")
+                    txtReason.Focus()
+                    Exit Sub
+                End If
             End If
         End If
     End Sub
