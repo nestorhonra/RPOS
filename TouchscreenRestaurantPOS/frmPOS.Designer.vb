@@ -726,7 +726,6 @@ Partial Class frmPOS
         Me.btnTransfer.Text = "Transfer Table"
         Me.btnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnTransfer.UseVisualStyleBackColor = False
-        Me.btnTransfer.Visible = False
         '
         'lblIDRecall
         '

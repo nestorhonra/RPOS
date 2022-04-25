@@ -3584,8 +3584,28 @@ Public Class frmPOS
         End If
     End Sub
 
+    Public Sub TransferTable(ByVal newTbl As String)
+        If newTbl <> "" Then
+            If MsgBox("Are you sure you want to transfer this order to table " & newTbl & "?", vbQuestion + vbYesNo, "Confirm transfer table") Then
+
+                Dim old_id As Integer = toNumber(lblID.Text)
+                Dim tablenew As String = Trim(txtTableNo.Text)
+                MsgBox(old_id & " " & tablenew & " to new " & newTbl)
+                Try
+
+                Catch ex As Exception
+
+                End Try
+            Else
+                Exit Sub
+            End If
+        End If
+
+
+    End Sub
+
     Private Sub btnTransfer_Click(sender As Object, e As EventArgs) Handles btnTransfer.Click
-        If lblID.Text > 0 And Trim(txtTableNo.Text) <> "" Then
+        If toNumber(lblID.Text) > 0 And Trim(txtTableNo.Text) <> "" Then
             With frmOpenTicketList
                 .frm = "frmPOST"
                 .ShowDialog()

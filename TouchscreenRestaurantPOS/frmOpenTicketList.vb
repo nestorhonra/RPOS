@@ -24,7 +24,7 @@ Public Class frmOpenTicketList
         flpTables.Controls.Clear()
         Do While (rdr.Read())
             Dim btn As New Button
-            btn.Text = rdr.GetValue(0) '& Environment.NewLine & rdr.GetValue(2)
+            btn.Text = Trim(rdr.GetValue(0)) '& Environment.NewLine & rdr.GetValue(2)
             btn.TextAlign = ContentAlignment.MiddleCenter
             Dim btnColor As Color
             'MsgBox(Val(rdr.GetValue(1)))
@@ -64,7 +64,7 @@ Public Class frmOpenTicketList
             frmPOS.is_edit = True
             frmPOS.btnSave.Enabled = False
         ElseIf frm = "frmPOST" Then
-
+            frmPOS.TransferTable(btn.Text)
         End If
         Me.Close()
     End Sub
