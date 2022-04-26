@@ -28,6 +28,11 @@ Partial Class frmBackOffice
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblUserType = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnInfo = New System.Windows.Forms.Button()
         Me.btnCurrency = New System.Windows.Forms.Button()
         Me.btnCategories = New System.Windows.Forms.Button()
@@ -60,13 +65,9 @@ Partial Class frmBackOffice
         Me.btnPOSRep = New System.Windows.Forms.Button()
         Me.btnAcctgRep = New System.Windows.Forms.Button()
         Me.btnRegistration = New System.Windows.Forms.Button()
+        Me.btnCustomer = New System.Windows.Forms.Button()
         Me.btnLogs = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.lblUserType = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -139,12 +140,53 @@ Partial Class frmBackOffice
         Me.FlowLayoutPanel1.Controls.Add(Me.btnPOSRep)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnAcctgRep)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnRegistration)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnCustomer)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnLogs)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnAbout)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 91)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1042, 538)
         Me.FlowLayoutPanel1.TabIndex = 69
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUserType, Me.ToolStripStatusLabel2, Me.lblUser, Me.ToolStripStatusLabel3})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 720)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(834, 22)
+        Me.StatusStrip1.TabIndex = 70
+        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.StatusStrip1.Visible = False
+        '
+        'ToolStripStatusLabel2
+        '
+        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(11, 17)
+        Me.ToolStripStatusLabel2.Text = ":"
+        '
+        'lblUser
+        '
+        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.ForeColor = System.Drawing.Color.Black
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(70, 17)
+        Me.lblUser.Text = "User Name"
+        '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(660, 17)
+        Me.ToolStripStatusLabel3.Spring = True
+        Me.ToolStripStatusLabel3.Visible = False
+        '
+        'lblUserType
+        '
+        Me.lblUserType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserType.Image = CType(resources.GetObject("lblUserType.Image"), System.Drawing.Image)
+        Me.lblUserType.Name = "lblUserType"
+        Me.lblUserType.Size = New System.Drawing.Size(78, 16)
+        Me.lblUserType.Text = "User Type"
         '
         'btnInfo
         '
@@ -658,6 +700,22 @@ Partial Class frmBackOffice
         Me.btnRegistration.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnRegistration.UseVisualStyleBackColor = False
         '
+        'btnCustomer
+        '
+        Me.btnCustomer.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnCustomer.FlatAppearance.BorderSize = 0
+        Me.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCustomer.ForeColor = System.Drawing.Color.White
+        Me.btnCustomer.Image = Global.RestaurantPOS3.My.Resources.Resources.Customer_32x32
+        Me.btnCustomer.Location = New System.Drawing.Point(415, 459)
+        Me.btnCustomer.Name = "btnCustomer"
+        Me.btnCustomer.Size = New System.Drawing.Size(200, 70)
+        Me.btnCustomer.TabIndex = 35
+        Me.btnCustomer.Text = "Credit Customers"
+        Me.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCustomer.UseVisualStyleBackColor = False
+        '
         'btnLogs
         '
         Me.btnLogs.BackColor = System.Drawing.Color.LightSeaGreen
@@ -666,7 +724,7 @@ Partial Class frmBackOffice
         Me.btnLogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogs.ForeColor = System.Drawing.Color.White
         Me.btnLogs.Image = Global.RestaurantPOS3.My.Resources.Resources.log_icon
-        Me.btnLogs.Location = New System.Drawing.Point(415, 459)
+        Me.btnLogs.Location = New System.Drawing.Point(621, 459)
         Me.btnLogs.Name = "btnLogs"
         Me.btnLogs.Size = New System.Drawing.Size(200, 70)
         Me.btnLogs.TabIndex = 31
@@ -682,53 +740,13 @@ Partial Class frmBackOffice
         Me.btnAbout.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAbout.ForeColor = System.Drawing.Color.White
         Me.btnAbout.Image = Global.RestaurantPOS3.My.Resources.Resources.Actions_help_about_icon
-        Me.btnAbout.Location = New System.Drawing.Point(621, 459)
+        Me.btnAbout.Location = New System.Drawing.Point(827, 459)
         Me.btnAbout.Name = "btnAbout"
         Me.btnAbout.Size = New System.Drawing.Size(200, 70)
         Me.btnAbout.TabIndex = 32
         Me.btnAbout.Text = "About"
         Me.btnAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnAbout.UseVisualStyleBackColor = False
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUserType, Me.ToolStripStatusLabel2, Me.lblUser, Me.ToolStripStatusLabel3})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 720)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(834, 22)
-        Me.StatusStrip1.TabIndex = 70
-        Me.StatusStrip1.Text = "StatusStrip1"
-        Me.StatusStrip1.Visible = False
-        '
-        'lblUserType
-        '
-        Me.lblUserType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUserType.Image = CType(resources.GetObject("lblUserType.Image"), System.Drawing.Image)
-        Me.lblUserType.Name = "lblUserType"
-        Me.lblUserType.Size = New System.Drawing.Size(78, 17)
-        Me.lblUserType.Text = "User Type"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("Palatino Linotype", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(11, 17)
-        Me.ToolStripStatusLabel2.Text = ":"
-        '
-        'lblUser
-        '
-        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser.ForeColor = System.Drawing.Color.Black
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(70, 17)
-        Me.lblUser.Text = "User Name"
-        '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(660, 17)
-        Me.ToolStripStatusLabel3.Spring = True
-        Me.ToolStripStatusLabel3.Visible = False
         '
         'btnCancel
         '
@@ -815,4 +833,5 @@ Partial Class frmBackOffice
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents btnWallets As Button
     Friend WithEvents btnRefund As Button
+    Friend WithEvents btnCustomer As Button
 End Class

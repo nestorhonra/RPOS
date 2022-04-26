@@ -248,4 +248,11 @@
             .ShowDialog()
         End With
     End Sub
+
+    Private Sub btnCustomer_Click(sender As Object, e As EventArgs) Handles btnCustomer.Click
+        With frmCustomerRegistration
+            .lblUser.Text = Me.lblUser.Text
+            .ShowDialog()
+        End With
+    End Sub
 End Class

@@ -30,12 +30,8 @@ Partial Class frmEmployeeRegistration
         Me.Label8 = New System.Windows.Forms.Label()
         Me.chkActive = New System.Windows.Forms.CheckBox()
         Me.lblUser = New System.Windows.Forms.Label()
-        Me.Picture = New System.Windows.Forms.PictureBox()
-        Me.BRemove = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
-        Me.Browse = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.BStartCapture = New System.Windows.Forms.Button()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtEmployeeID = New System.Windows.Forms.TextBox()
         Me.txtEmployeeName = New System.Windows.Forms.TextBox()
@@ -49,23 +45,27 @@ Partial Class frmEmployeeRegistration
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtEmpName = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Picture = New System.Windows.Forms.PictureBox()
+        Me.BRemove = New System.Windows.Forms.Button()
+        Me.Browse = New System.Windows.Forms.Button()
+        Me.BStartCapture = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtEmpName = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Label4 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Picture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.Picture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label4
@@ -166,31 +166,6 @@ Partial Class frmEmployeeRegistration
         Me.lblUser.Text = "Label8"
         Me.lblUser.Visible = False
         '
-        'Picture
-        '
-        Me.Picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Picture.Image = Global.RestaurantPOS3.My.Resources.Resources.photo
-        Me.Picture.Location = New System.Drawing.Point(11, 23)
-        Me.Picture.Name = "Picture"
-        Me.Picture.Size = New System.Drawing.Size(186, 193)
-        Me.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Picture.TabIndex = 291
-        Me.Picture.TabStop = False
-        '
-        'BRemove
-        '
-        Me.BRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BRemove.ForeColor = System.Drawing.Color.Black
-        Me.BRemove.Image = CType(resources.GetObject("BRemove.Image"), System.Drawing.Image)
-        Me.BRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BRemove.Location = New System.Drawing.Point(108, 224)
-        Me.BRemove.Name = "BRemove"
-        Me.BRemove.Size = New System.Drawing.Size(89, 35)
-        Me.BRemove.TabIndex = 9
-        Me.BRemove.Text = "Remove"
-        Me.BRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BRemove.UseVisualStyleBackColor = True
-        '
         'txtID
         '
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -200,40 +175,12 @@ Partial Class frmEmployeeRegistration
         Me.txtID.TabIndex = 292
         Me.txtID.Visible = False
         '
-        'Browse
-        '
-        Me.Browse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Browse.ForeColor = System.Drawing.Color.Black
-        Me.Browse.Image = CType(resources.GetObject("Browse.Image"), System.Drawing.Image)
-        Me.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Browse.Location = New System.Drawing.Point(11, 224)
-        Me.Browse.Name = "Browse"
-        Me.Browse.Size = New System.Drawing.Size(93, 35)
-        Me.Browse.TabIndex = 8
-        Me.Browse.Text = "Browse..."
-        Me.Browse.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Browse.UseVisualStyleBackColor = True
-        '
         'txtEmail
         '
         Me.txtEmail.Location = New System.Drawing.Point(311, 224)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(220, 20)
         Me.txtEmail.TabIndex = 5
-        '
-        'BStartCapture
-        '
-        Me.BStartCapture.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BStartCapture.ForeColor = System.Drawing.Color.Black
-        Me.BStartCapture.Image = CType(resources.GetObject("BStartCapture.Image"), System.Drawing.Image)
-        Me.BStartCapture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BStartCapture.Location = New System.Drawing.Point(40, 286)
-        Me.BStartCapture.Name = "BStartCapture"
-        Me.BStartCapture.Size = New System.Drawing.Size(123, 38)
-        Me.BStartCapture.TabIndex = 10
-        Me.BStartCapture.Text = "Use Webcam"
-        Me.BStartCapture.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BStartCapture.UseVisualStyleBackColor = True
         '
         'txtAddress
         '
@@ -361,6 +308,95 @@ Partial Class frmEmployeeRegistration
         Me.Panel3.Size = New System.Drawing.Size(103, 222)
         Me.Panel3.TabIndex = 1
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.txtEmpName)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Location = New System.Drawing.Point(4, 4)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(572, 30)
+        Me.Panel2.TabIndex = 0
+        '
+        'txtEmpName
+        '
+        Me.txtEmpName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmpName.Location = New System.Drawing.Point(30, 7)
+        Me.txtEmpName.Name = "txtEmpName"
+        Me.txtEmpName.Size = New System.Drawing.Size(30, 20)
+        Me.txtEmpName.TabIndex = 2
+        Me.txtEmpName.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(194, 2)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(211, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Delivery Person Entry"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Picture
+        '
+        Me.Picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Picture.Image = Global.RestaurantPOS3.My.Resources.Resources.photo
+        Me.Picture.Location = New System.Drawing.Point(11, 23)
+        Me.Picture.Name = "Picture"
+        Me.Picture.Size = New System.Drawing.Size(186, 193)
+        Me.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Picture.TabIndex = 291
+        Me.Picture.TabStop = False
+        '
+        'BRemove
+        '
+        Me.BRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BRemove.ForeColor = System.Drawing.Color.Black
+        Me.BRemove.Image = CType(resources.GetObject("BRemove.Image"), System.Drawing.Image)
+        Me.BRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BRemove.Location = New System.Drawing.Point(108, 224)
+        Me.BRemove.Name = "BRemove"
+        Me.BRemove.Size = New System.Drawing.Size(89, 35)
+        Me.BRemove.TabIndex = 9
+        Me.BRemove.Text = "Remove"
+        Me.BRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BRemove.UseVisualStyleBackColor = True
+        '
+        'Browse
+        '
+        Me.Browse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Browse.ForeColor = System.Drawing.Color.Black
+        Me.Browse.Image = CType(resources.GetObject("Browse.Image"), System.Drawing.Image)
+        Me.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Browse.Location = New System.Drawing.Point(11, 224)
+        Me.Browse.Name = "Browse"
+        Me.Browse.Size = New System.Drawing.Size(93, 35)
+        Me.Browse.TabIndex = 8
+        Me.Browse.Text = "Browse..."
+        Me.Browse.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Browse.UseVisualStyleBackColor = True
+        '
+        'BStartCapture
+        '
+        Me.BStartCapture.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BStartCapture.ForeColor = System.Drawing.Color.Black
+        Me.BStartCapture.Image = CType(resources.GetObject("BStartCapture.Image"), System.Drawing.Image)
+        Me.BStartCapture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BStartCapture.Location = New System.Drawing.Point(40, 286)
+        Me.BStartCapture.Name = "BStartCapture"
+        Me.BStartCapture.Size = New System.Drawing.Size(123, 38)
+        Me.BStartCapture.TabIndex = 10
+        Me.BStartCapture.Text = "Use Webcam"
+        Me.BStartCapture.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BStartCapture.UseVisualStyleBackColor = True
+        '
         'Button1
         '
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
@@ -439,49 +475,12 @@ Partial Class frmEmployeeRegistration
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(582, -4)
+        Me.btnClose.Location = New System.Drawing.Point(612, 0)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 40)
+        Me.btnClose.Size = New System.Drawing.Size(38, 40)
         Me.btnClose.TabIndex = 5
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.txtEmpName)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(572, 30)
-        Me.Panel2.TabIndex = 0
-        '
-        'txtEmpName
-        '
-        Me.txtEmpName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmpName.Location = New System.Drawing.Point(30, 7)
-        Me.txtEmpName.Name = "txtEmpName"
-        Me.txtEmpName.Size = New System.Drawing.Size(30, 20)
-        Me.txtEmpName.TabIndex = 2
-        Me.txtEmpName.Visible = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(194, 2)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(211, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Delivery Person Entry"
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'frmEmployeeRegistration
         '
@@ -499,10 +498,10 @@ Partial Class frmEmployeeRegistration
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.Picture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.Picture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

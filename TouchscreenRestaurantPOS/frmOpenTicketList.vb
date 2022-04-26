@@ -64,7 +64,23 @@ Public Class frmOpenTicketList
             frmPOS.is_edit = True
             frmPOS.btnSave.Enabled = False
         ElseIf frm = "frmPOST" Then
-            frmPOS.TransferTable(btn.Text)
+            Try
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cmdText1 As String = ""
+                cmdText1 = "SELECT TOP 1 * FROM RestaurantPOS_OrderInfoKOT where TableNo=@d1 AND isPaid=0 ORDER BY ID DESC"
+                cmd = New SqlCommand(cmdText1)
+                cmd.Connection = con
+                cmd.Parameters.AddWithValue("@d1", btn.Text)
+                rdr = cmd.ExecuteReader()
+                If rdr.Read Then
+                    frmPOS.newTblID = toNumber(rdr("ID").ToString)
+                    frmPOS.newTbl = Trim(btn.Text)
+                End If
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End If
         Me.Close()
     End Sub

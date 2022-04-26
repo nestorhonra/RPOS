@@ -266,6 +266,12 @@
     <Compile Include="frmBackOffice.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCustomerRegistration.Designer.vb">
+      <DependentUpon>frmCustomerRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFrontOffice.Designer.vb">
       <DependentUpon>frmFrontOffice.vb</DependentUpon>
     </Compile>
@@ -1054,6 +1060,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBackOffice.resx">
       <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerRegistration.resx">
+      <DependentUpon>frmCustomerRegistration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFrontOffice.resx">
       <DependentUpon>frmFrontOffice.vb</DependentUpon>
