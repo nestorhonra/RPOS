@@ -135,7 +135,7 @@ Partial Class frmStockTransferRecord
         '
         'dtpDateFrom
         '
-        Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDateFrom.CustomFormat = "MM/dd/yyyy"
         Me.dtpDateFrom.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDateFrom.Location = New System.Drawing.Point(15, 50)
@@ -145,7 +145,7 @@ Partial Class frmStockTransferRecord
         '
         'dtpDateTo
         '
-        Me.dtpDateTo.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDateTo.CustomFormat = "MM/dd/yyyy"
         Me.dtpDateTo.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDateTo.Location = New System.Drawing.Point(207, 50)

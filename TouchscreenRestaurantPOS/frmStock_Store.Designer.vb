@@ -158,11 +158,10 @@ Partial Class frmStock_Store
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(446, 6)
+        Me.btnClose.Location = New System.Drawing.Point(482, 6)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.Size = New System.Drawing.Size(41, 38)
         Me.btnClose.TabIndex = 313
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -275,7 +274,7 @@ Partial Class frmStock_Store
         Me.btnRemove.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemove.Image = CType(resources.GetObject("btnRemove.Image"), System.Drawing.Image)
         Me.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemove.Location = New System.Drawing.Point(409, 74)
+        Me.btnRemove.Location = New System.Drawing.Point(409, 64)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(90, 34)
         Me.btnRemove.TabIndex = 3
@@ -288,9 +287,9 @@ Partial Class frmStock_Store
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
         Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(409, 34)
+        Me.btnAdd.Location = New System.Drawing.Point(409, 24)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(67, 34)
+        Me.btnAdd.Size = New System.Drawing.Size(90, 34)
         Me.btnAdd.TabIndex = 2
         Me.btnAdd.Text = "&Add"
         Me.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -301,7 +300,7 @@ Partial Class frmStock_Store
         Me.cmbItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cmbItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbItemName.FormattingEnabled = True
-        Me.cmbItemName.Location = New System.Drawing.Point(111, 34)
+        Me.cmbItemName.Location = New System.Drawing.Point(111, 24)
         Me.cmbItemName.Name = "cmbItemName"
         Me.cmbItemName.Size = New System.Drawing.Size(277, 21)
         Me.cmbItemName.TabIndex = 0
@@ -310,7 +309,7 @@ Partial Class frmStock_Store
         '
         Me.txtQty.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.txtQty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtQty.Location = New System.Drawing.Point(111, 61)
+        Me.txtQty.Location = New System.Drawing.Point(111, 51)
         Me.txtQty.Name = "txtQty"
         Me.txtQty.Size = New System.Drawing.Size(70, 21)
         Me.txtQty.TabIndex = 1
@@ -319,7 +318,7 @@ Partial Class frmStock_Store
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 61)
+        Me.Label4.Location = New System.Drawing.Point(24, 51)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 27
@@ -328,7 +327,7 @@ Partial Class frmStock_Store
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(24, 34)
+        Me.Label8.Location = New System.Drawing.Point(24, 24)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(64, 13)
         Me.Label8.TabIndex = 22
@@ -349,7 +348,7 @@ Partial Class frmStock_Store
         '
         'dtpDate
         '
-        Me.dtpDate.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDate.CustomFormat = "MM/dd/yyyy"
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDate.Location = New System.Drawing.Point(109, 52)
         Me.dtpDate.Name = "dtpDate"
@@ -392,7 +391,7 @@ Partial Class frmStock_Store
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(9, 7)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(431, 37)
+        Me.Panel2.Size = New System.Drawing.Size(467, 37)
         Me.Panel2.TabIndex = 0
         '
         'lblUserType
@@ -408,7 +407,7 @@ Partial Class frmStock_Store
         'lblSet
         '
         Me.lblSet.AutoSize = True
-        Me.lblSet.Location = New System.Drawing.Point(187, 30)
+        Me.lblSet.Location = New System.Drawing.Point(351, 6)
         Me.lblSet.Name = "lblSet"
         Me.lblSet.Size = New System.Drawing.Size(23, 13)
         Me.lblSet.TabIndex = 311
@@ -418,7 +417,7 @@ Partial Class frmStock_Store
         'lblUser
         '
         Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(142, 29)
+        Me.lblUser.Location = New System.Drawing.Point(316, 6)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Size = New System.Drawing.Size(29, 13)
         Me.lblUser.TabIndex = 6
@@ -431,7 +430,7 @@ Partial Class frmStock_Store
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(152, 6)
+        Me.Label1.Location = New System.Drawing.Point(181, 6)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(115, 24)
         Me.Label1.TabIndex = 0

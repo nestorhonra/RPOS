@@ -43,6 +43,8 @@ Partial Class frmCustomerRegistration
         Me.Column11 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtRemarks = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpBirthDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -66,6 +68,8 @@ Partial Class frmCustomerRegistration
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnBilling = New System.Windows.Forms.Button()
+        Me.btnLedger = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -75,8 +79,6 @@ Partial Class frmCustomerRegistration
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.txtRemarks = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -295,6 +297,23 @@ Partial Class frmCustomerRegistration
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Customer Details"
         '
+        'txtRemarks
+        '
+        Me.txtRemarks.Location = New System.Drawing.Point(307, 249)
+        Me.txtRemarks.Name = "txtRemarks"
+        Me.txtRemarks.Size = New System.Drawing.Size(220, 20)
+        Me.txtRemarks.TabIndex = 7
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(247, 253)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(55, 13)
+        Me.Label3.TabIndex = 299
+        Me.Label3.Text = "Remarks :"
+        '
         'dtpBirthDate
         '
         Me.dtpBirthDate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -396,6 +415,7 @@ Partial Class frmCustomerRegistration
         'txtCredit
         '
         Me.txtCredit.Location = New System.Drawing.Point(307, 223)
+        Me.txtCredit.MaxLength = 7
         Me.txtCredit.Name = "txtCredit"
         Me.txtCredit.Size = New System.Drawing.Size(220, 20)
         Me.txtCredit.TabIndex = 6
@@ -516,6 +536,8 @@ Partial Class frmCustomerRegistration
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.btnBilling)
+        Me.Panel3.Controls.Add(Me.btnLedger)
         Me.Panel3.Controls.Add(Me.btnCancel)
         Me.Panel3.Controls.Add(Me.btnDelete)
         Me.Panel3.Controls.Add(Me.btnUpdate)
@@ -523,8 +545,37 @@ Partial Class frmCustomerRegistration
         Me.Panel3.Controls.Add(Me.btnNew)
         Me.Panel3.Location = New System.Drawing.Point(553, 46)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(103, 222)
+        Me.Panel3.Size = New System.Drawing.Size(103, 303)
         Me.Panel3.TabIndex = 1
+        '
+        'btnBilling
+        '
+        Me.btnBilling.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBilling.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBilling.Image = Global.RestaurantPOS3.My.Resources.Resources.payment_icon
+        Me.btnBilling.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnBilling.Location = New System.Drawing.Point(6, 257)
+        Me.btnBilling.Name = "btnBilling"
+        Me.btnBilling.Size = New System.Drawing.Size(89, 38)
+        Me.btnBilling.TabIndex = 14
+        Me.btnBilling.Text = "Billing"
+        Me.btnBilling.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnBilling.UseVisualStyleBackColor = True
+        Me.btnBilling.Visible = False
+        '
+        'btnLedger
+        '
+        Me.btnLedger.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLedger.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLedger.Image = Global.RestaurantPOS3.My.Resources.Resources.Order_history_icon
+        Me.btnLedger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLedger.Location = New System.Drawing.Point(6, 212)
+        Me.btnLedger.Name = "btnLedger"
+        Me.btnLedger.Size = New System.Drawing.Size(89, 38)
+        Me.btnLedger.TabIndex = 13
+        Me.btnLedger.Text = "Ledger"
+        Me.btnLedger.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnLedger.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
@@ -532,7 +583,7 @@ Partial Class frmCustomerRegistration
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.Image = Global.RestaurantPOS3.My.Resources.Resources.Reload_icon
         Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancel.Location = New System.Drawing.Point(6, 173)
+        Me.btnCancel.Location = New System.Drawing.Point(6, 168)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(89, 38)
         Me.btnCancel.TabIndex = 4
@@ -547,7 +598,7 @@ Partial Class frmCustomerRegistration
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(6, 132)
+        Me.btnDelete.Location = New System.Drawing.Point(6, 127)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(89, 35)
         Me.btnDelete.TabIndex = 3
@@ -562,7 +613,7 @@ Partial Class frmCustomerRegistration
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(6, 91)
+        Me.btnUpdate.Location = New System.Drawing.Point(6, 86)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(89, 35)
         Me.btnUpdate.TabIndex = 2
@@ -576,7 +627,7 @@ Partial Class frmCustomerRegistration
         Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSave.Location = New System.Drawing.Point(6, 50)
+        Me.btnSave.Location = New System.Drawing.Point(6, 45)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(89, 35)
         Me.btnSave.TabIndex = 1
@@ -590,7 +641,7 @@ Partial Class frmCustomerRegistration
         Me.btnNew.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
         Me.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNew.Location = New System.Drawing.Point(6, 9)
+        Me.btnNew.Location = New System.Drawing.Point(6, 4)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(89, 35)
         Me.btnNew.TabIndex = 0
@@ -627,32 +678,15 @@ Partial Class frmCustomerRegistration
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(194, 2)
+        Me.Label1.Location = New System.Drawing.Point(217, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(269, 24)
+        Me.Label1.Size = New System.Drawing.Size(208, 24)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Customer Registration Entry"
+        Me.Label1.Text = "Customer Information"
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'txtRemarks
-        '
-        Me.txtRemarks.Location = New System.Drawing.Point(307, 249)
-        Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(220, 20)
-        Me.txtRemarks.TabIndex = 7
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(247, 253)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(55, 13)
-        Me.Label3.TabIndex = 299
-        Me.Label3.Text = "Remarks :"
         '
         'frmCustomerRegistration
         '
@@ -727,4 +761,6 @@ Partial Class frmCustomerRegistration
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents txtRemarks As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents btnBilling As Button
+    Friend WithEvents btnLedger As Button
 End Class

@@ -90,11 +90,10 @@ Partial Class frmSupplier
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(521, 7)
+        Me.btnClose.Location = New System.Drawing.Point(560, 7)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 8
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -494,7 +493,7 @@ Partial Class frmSupplier
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(9, 7)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(506, 39)
+        Me.Panel2.Size = New System.Drawing.Size(545, 39)
         Me.Panel2.TabIndex = 0
         '
         'txtTransactionNo
@@ -522,7 +521,7 @@ Partial Class frmSupplier
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(193, 6)
+        Me.Label1.Location = New System.Drawing.Point(205, 7)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(142, 24)
         Me.Label1.TabIndex = 0

@@ -208,7 +208,7 @@ Partial Class frmRecipe
         Me.GroupBox3.Controls.Add(Me.btnDelete)
         Me.GroupBox3.Controls.Add(Me.btnNew)
         Me.GroupBox3.Controls.Add(Me.btnSave)
-        Me.GroupBox3.Location = New System.Drawing.Point(906, 39)
+        Me.GroupBox3.Location = New System.Drawing.Point(906, 46)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(99, 272)
         Me.GroupBox3.TabIndex = 4
@@ -407,11 +407,10 @@ Partial Class frmRecipe
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(923, 4)
+        Me.btnClose.Location = New System.Drawing.Point(967, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(82, 37)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -502,7 +501,7 @@ Partial Class frmRecipe
         Me.Panel2.Controls.Add(Me.lblUser)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(913, 28)
+        Me.Panel2.Size = New System.Drawing.Size(957, 28)
         Me.Panel2.TabIndex = 0
         '
         'txtID

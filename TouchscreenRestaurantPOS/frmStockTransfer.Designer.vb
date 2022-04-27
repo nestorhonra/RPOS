@@ -319,7 +319,7 @@ Partial Class frmStockTransfer
         '
         'dtpDate
         '
-        Me.dtpDate.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDate.CustomFormat = "MM/dd/yyyy"
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDate.Location = New System.Drawing.Point(118, 53)
         Me.dtpDate.Name = "dtpDate"
@@ -573,11 +573,10 @@ Partial Class frmStockTransfer
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(923, 4)
+        Me.btnClose.Location = New System.Drawing.Point(969, 3)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(82, 37)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -682,7 +681,7 @@ Partial Class frmStockTransfer
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(913, 28)
+        Me.Panel2.Size = New System.Drawing.Size(959, 28)
         Me.Panel2.TabIndex = 0
         '
         'Label1

@@ -277,10 +277,13 @@ Partial Class frmPOS
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnSettleUpdate = New System.Windows.Forms.Button()
         Me.btnSettle = New System.Windows.Forms.Button()
-        Me.btnGuest = New System.Windows.Forms.Button()
+        Me.btnCharge = New System.Windows.Forms.Button()
         Me.btnWallet = New System.Windows.Forms.Button()
         Me.btnCard = New System.Windows.Forms.Button()
         Me.btnCash = New System.Windows.Forms.Button()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.btnAccount = New System.Windows.Forms.Button()
+        Me.btnGuest = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -295,6 +298,7 @@ Partial Class frmPOS
         Me.Panel6.SuspendLayout()
         CType(Me.dgw2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgw1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel7.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -2318,13 +2322,13 @@ Partial Class frmPOS
         Me.pnlPayment.Controls.Add(Me.btnClose)
         Me.pnlPayment.Controls.Add(Me.btnSettleUpdate)
         Me.pnlPayment.Controls.Add(Me.btnSettle)
-        Me.pnlPayment.Controls.Add(Me.btnGuest)
+        Me.pnlPayment.Controls.Add(Me.btnCharge)
         Me.pnlPayment.Controls.Add(Me.Panel5)
         Me.pnlPayment.Controls.Add(Me.btnWallet)
         Me.pnlPayment.Controls.Add(Me.btnCard)
         Me.pnlPayment.Controls.Add(Me.Panel4)
         Me.pnlPayment.Controls.Add(Me.btnCash)
-        Me.pnlPayment.Location = New System.Drawing.Point(106, 45)
+        Me.pnlPayment.Location = New System.Drawing.Point(127, 45)
         Me.pnlPayment.Name = "pnlPayment"
         Me.pnlPayment.Size = New System.Drawing.Size(1070, 656)
         Me.pnlPayment.TabIndex = 73
@@ -2930,21 +2934,21 @@ Partial Class frmPOS
         Me.btnSettle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnSettle.UseVisualStyleBackColor = False
         '
-        'btnGuest
+        'btnCharge
         '
-        Me.btnGuest.BackColor = System.Drawing.Color.DarkViolet
-        Me.btnGuest.FlatAppearance.BorderSize = 0
-        Me.btnGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuest.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuest.ForeColor = System.Drawing.Color.White
-        Me.btnGuest.Image = Global.RestaurantPOS3.My.Resources.Resources.AssignTo_32x32
-        Me.btnGuest.Location = New System.Drawing.Point(5, 582)
-        Me.btnGuest.Name = "btnGuest"
-        Me.btnGuest.Size = New System.Drawing.Size(127, 66)
-        Me.btnGuest.TabIndex = 14
-        Me.btnGuest.Text = "GUEST"
-        Me.btnGuest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnGuest.UseVisualStyleBackColor = False
+        Me.btnCharge.BackColor = System.Drawing.Color.DarkViolet
+        Me.btnCharge.FlatAppearance.BorderSize = 0
+        Me.btnCharge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCharge.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCharge.ForeColor = System.Drawing.Color.White
+        Me.btnCharge.Image = Global.RestaurantPOS3.My.Resources.Resources.AssignTo_32x32
+        Me.btnCharge.Location = New System.Drawing.Point(5, 582)
+        Me.btnCharge.Name = "btnCharge"
+        Me.btnCharge.Size = New System.Drawing.Size(127, 66)
+        Me.btnCharge.TabIndex = 14
+        Me.btnCharge.Text = "CHARGE"
+        Me.btnCharge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCharge.UseVisualStyleBackColor = False
         '
         'btnWallet
         '
@@ -2994,15 +2998,58 @@ Partial Class frmPOS
         Me.btnCash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCash.UseVisualStyleBackColor = False
         '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel7.Controls.Add(Me.btnAccount)
+        Me.Panel7.Controls.Add(Me.btnGuest)
+        Me.Panel7.Location = New System.Drawing.Point(483, 291)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(436, 114)
+        Me.Panel7.TabIndex = 74
+        '
+        'btnAccount
+        '
+        Me.btnAccount.BackColor = System.Drawing.Color.DarkBlue
+        Me.btnAccount.FlatAppearance.BorderSize = 0
+        Me.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAccount.ForeColor = System.Drawing.Color.White
+        Me.btnAccount.Image = Global.RestaurantPOS3.My.Resources.Resources.Customer_32x32
+        Me.btnAccount.Location = New System.Drawing.Point(223, 9)
+        Me.btnAccount.Name = "btnAccount"
+        Me.btnAccount.Size = New System.Drawing.Size(199, 97)
+        Me.btnAccount.TabIndex = 13
+        Me.btnAccount.Text = "ACCOUNT"
+        Me.btnAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnAccount.UseVisualStyleBackColor = False
+        '
+        'btnGuest
+        '
+        Me.btnGuest.BackColor = System.Drawing.Color.DarkRed
+        Me.btnGuest.FlatAppearance.BorderSize = 0
+        Me.btnGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuest.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuest.ForeColor = System.Drawing.Color.White
+        Me.btnGuest.Image = Global.RestaurantPOS3.My.Resources.Resources.Person_Male_Light_icon
+        Me.btnGuest.Location = New System.Drawing.Point(12, 9)
+        Me.btnGuest.Name = "btnGuest"
+        Me.btnGuest.Size = New System.Drawing.Size(199, 97)
+        Me.btnGuest.TabIndex = 12
+        Me.btnGuest.Text = "GUEST"
+        Me.btnGuest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnGuest.UseVisualStyleBackColor = False
+        '
         'frmPOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1276, 729)
+        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.pnlPayment)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pnlPayment)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.MinimizeBox = False
@@ -3029,6 +3076,7 @@ Partial Class frmPOS
         Me.Panel6.PerformLayout()
         CType(Me.dgw2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgw1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel7.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -3126,7 +3174,7 @@ Partial Class frmPOS
     Friend WithEvents txtDiscAmt As TextBox
     Friend WithEvents txtDiscPer As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents btnGuest As Button
+    Friend WithEvents btnCharge As Button
     Friend WithEvents btnWallet As Button
     Friend WithEvents btnCard As Button
     Friend WithEvents btnCash As Button
@@ -3236,4 +3284,7 @@ Partial Class frmPOS
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents Column31 As DataGridViewTextBoxColumn
     Friend WithEvents lblDiscRem As Label
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents btnGuest As Button
+    Friend WithEvents btnAccount As Button
 End Class

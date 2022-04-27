@@ -104,11 +104,10 @@ Partial Class frmRegistration
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(884, 6)
+        Me.btnClose.Location = New System.Drawing.Point(923, 4)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(77, 36)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 5
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -476,7 +475,7 @@ Partial Class frmRegistration
         Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Location = New System.Drawing.Point(9, 7)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(870, 28)
+        Me.Panel2.Size = New System.Drawing.Size(908, 28)
         Me.Panel2.TabIndex = 0
         '
         'lblUser
@@ -495,7 +494,7 @@ Partial Class frmRegistration
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(320, 4)
+        Me.Label1.Location = New System.Drawing.Point(330, 4)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(230, 24)
         Me.Label1.TabIndex = 0

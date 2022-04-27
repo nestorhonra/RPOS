@@ -80,7 +80,7 @@ Partial Class frmRestaurantPOSReport
         '
         'dtpDateTo
         '
-        Me.dtpDateTo.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDateTo.CustomFormat = "MM/dd/yyyy"
         Me.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDateTo.Location = New System.Drawing.Point(143, 41)
         Me.dtpDateTo.Name = "dtpDateTo"
@@ -89,7 +89,7 @@ Partial Class frmRestaurantPOSReport
         '
         'dtpDateFrom
         '
-        Me.dtpDateFrom.CustomFormat = "dd/MM/yyyy"
+        Me.dtpDateFrom.CustomFormat = "MM/dd/yyyy"
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDateFrom.Location = New System.Drawing.Point(21, 41)
         Me.dtpDateFrom.Name = "dtpDateFrom"

@@ -28,6 +28,7 @@ Public Class frmCustomerRegistration
         txtAddress.Text = ""
         txtContactNo.Text = ""
         txtCredit.Text = ""
+        txtRemarks.Text = ""
         dtpCreated.Text = Today
         dtpBirthDate.Text = Today
         btnNew.Enabled = True
@@ -133,12 +134,86 @@ Public Class frmCustomerRegistration
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If Trim(txtAccountID.Text) <> "" Then
+            Try
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb As String = "INSERT INTO CustomerInfo (AccountNo,FirstName,LastName,Address,BirthDate,ContactNo,Remarks,Status,CreditAmount,Photo,CrtdUser,CrtdDate) VALUES (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12)"
+                cmd = New SqlCommand(cb)
+                cmd.Connection = con
+                cmd.Parameters.AddWithValue("@d1", Trim(txtAccountID.Text))
+                cmd.Parameters.AddWithValue("@d2", Trim(txtFirstName.Text))
+                cmd.Parameters.AddWithValue("@d3", Trim(txtLastName.Text))
+                cmd.Parameters.AddWithValue("@d4", Trim(txtAddress.Text))
+                cmd.Parameters.AddWithValue("@d5", CDate(dtpBirthDate.Value))
+                cmd.Parameters.AddWithValue("@d6", Trim(txtContactNo.Text))
+                cmd.Parameters.AddWithValue("@d7", Trim(txtRemarks.Text))
+                cmd.Parameters.AddWithValue("@d8", changeOneZeroValue(chkActive.Checked))
+                cmd.Parameters.AddWithValue("@d9", toNumber(txtCredit.Text))
+                cmd.Parameters.AddWithValue("@d11", Trim(lblUser.Text))
+                cmd.Parameters.AddWithValue("@d12", CDate(Now()))
+                Dim ms3 As New MemoryStream()
+                Dim bmpImage3 As New Bitmap(Picture.Image)
+                bmpImage3.Save(ms3, System.Drawing.Imaging.ImageFormat.Jpeg)
+                Dim data3 As Byte() = ms3.GetBuffer()
+                Dim p3 As New SqlParameter("@d10", SqlDbType.Image)
+                p3.Value = data3
+                cmd.Parameters.Add(p3)
+                cmd.ExecuteNonQuery()
+                con.Close()
+                Dim st As String = "added the new customer account '" & txtFirstName.Text & "' '" & txtLastName.Text & "' having AccountID='" & txtAccountID.Text & "'"
+                LogFunc(lblUser.Text, st)
+                MessageBox.Show("Successfully saved", "Customer Profile", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                btnSave.Enabled = False
+                con.Close()
+                Call Reset()
+                Call GetData()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
         Call CommandPass(True, False, False, False, False)
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If toNumber(txtID.Text) > 0 Then
-
+            Try
+                con = New SqlConnection(cs)
+                con.Open()
+                Dim cb As String = "UPDATE CustomerInfo SET AccountNo=@d1,FirstName=@d2,LastName=@d3,Address=@d4,BirthDate=@d5,ContactNo=@d6,Remarks=@d7,Status=@d8,CreditAmount=@d9,Photo=@d10,ModUser=@d11,ModDate=@d12 WHERE ID=@d13"
+                cmd = New SqlCommand(cb)
+                cmd.Connection = con
+                cmd.Parameters.AddWithValue("@d1", Trim(txtAccountID.Text))
+                cmd.Parameters.AddWithValue("@d2", Trim(txtFirstName.Text))
+                cmd.Parameters.AddWithValue("@d3", Trim(txtLastName.Text))
+                cmd.Parameters.AddWithValue("@d4", Trim(txtAddress.Text))
+                cmd.Parameters.AddWithValue("@d5", CDate(dtpBirthDate.Value))
+                cmd.Parameters.AddWithValue("@d6", Trim(txtContactNo.Text))
+                cmd.Parameters.AddWithValue("@d7", Trim(txtRemarks.Text))
+                cmd.Parameters.AddWithValue("@d8", changeOneZeroValue(chkActive.Checked))
+                cmd.Parameters.AddWithValue("@d9", toNumber(txtCredit.Text))
+                cmd.Parameters.AddWithValue("@d11", Trim(lblUser.Text))
+                cmd.Parameters.AddWithValue("@d12", CDate(Now()))
+                cmd.Parameters.AddWithValue("@d13", toNumber(txtID.Text))
+                Dim ms3 As New MemoryStream()
+                Dim bmpImage3 As New Bitmap(Picture.Image)
+                bmpImage3.Save(ms3, System.Drawing.Imaging.ImageFormat.Jpeg)
+                Dim data3 As Byte() = ms3.GetBuffer()
+                Dim p3 As New SqlParameter("@d10", SqlDbType.Image)
+                p3.Value = data3
+                cmd.Parameters.Add(p3)
+                cmd.ExecuteNonQuery()
+                con.Close()
+                Dim st As String = "update the customer account '" & txtFirstName.Text & "' '" & txtLastName.Text & "' having AccountID='" & txtAccountID.Text & "'"
+                LogFunc(lblUser.Text, st)
+                MessageBox.Show("Successfully updated", "Customer Profile", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                btnSave.Enabled = False
+                con.Close()
+                Call Reset()
+                Call GetData()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
             Call CommandPass(True, False, False, False, False)
         End If
     End Sub
@@ -223,7 +298,7 @@ Public Class frmCustomerRegistration
     End Sub
 
     Private Sub txtAddress_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAddress.KeyPress
-        Dim validChars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz -1234567890"
+        Dim validChars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz -1234567890,"
         e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
         If e.KeyChar = vbCr Then
             e.Handled = True
@@ -237,5 +312,18 @@ Public Class frmCustomerRegistration
         Call CommandPass(False, True, False, False, True)
     End Sub
 
+    Private Sub btnLedger_Click(sender As Object, e As EventArgs) Handles btnLedger.Click
+        If toNumber(txtID.Text) > 0 Then
+            With frmCustomerLedger
+                .cid = toNumber(txtID.Text)
+                .ShowDialog()
+            End With
+        End If
+    End Sub
 
+    Private Sub btnBilling_Click(sender As Object, e As EventArgs) Handles btnBilling.Click
+        If toNumber(txtID.Text) > 0 Then
+
+        End If
+    End Sub
 End Class

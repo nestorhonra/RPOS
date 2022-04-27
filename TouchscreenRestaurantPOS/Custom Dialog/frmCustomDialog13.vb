@@ -19,6 +19,7 @@
         ElseIf frm = "frmPOS2" Then
             If Trim(txtAmount.Text) <> "" Then
                 frmPOS.lblRefNo.Text = Trim(Me.txtAmount.Text)
+                frmPOS.txtCash.Text = frmPOS.txtGrandTot.Text
             Else
                 frmPOS.lblRefNo.Text = Trim(Me.txtAmount.Text)
                 frmPOS.txtPaymentMode.Text = ""

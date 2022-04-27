@@ -242,6 +242,14 @@ Module ModFunc
         End Select
     End Function
 
+    Public Function changeYESNOValue(ByVal srcStr As String) As String
+        changeYESNOValue = "0"
+        Select Case srcStr
+            Case "1" : changeYESNOValue = "YES"
+            Case "0" : changeYESNOValue = "NO"
+        End Select
+    End Function
+
     Public Sub CenterForm(ByVal srcForm As Form)
         Dim sw As Integer = My.Computer.Screen.Bounds.Width / 2
         Dim sh As Integer = My.Computer.Screen.Bounds.Height / 2

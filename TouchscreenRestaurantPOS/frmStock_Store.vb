@@ -54,6 +54,7 @@ Public Class frmStock_Store
         btnRemove.Enabled = False
         DataGridView1.Rows.Clear()
         lblSet.Text = ""
+        txtRemarks.Text = ""
         Clear()
         auto()
     End Sub
@@ -138,7 +139,8 @@ Public Class frmStock_Store
     End Sub
 
     Private Sub btnClose_Click(sender As System.Object, e As System.EventArgs) Handles btnClose.Click
-        Me.Close()
+        Me.Dispose()
+        'Me.Close()
     End Sub
 
     Private Sub btnNew_Click(sender As System.Object, e As System.EventArgs) Handles btnNew.Click
@@ -207,10 +209,11 @@ Public Class frmStock_Store
                 End If
             Next
             con.Close()
-            LogFunc(lblUser.Text, "added the new Item Stock having Stock ID '" & txtST_ID.Text & "'")
+            LogFunc(lblUser.Text, "Added the new Item Stock having Stock ID '" & txtST_ID.Text & "'")
             MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
             btnSave.Enabled = False
             con.Close()
+            Reset()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

@@ -26,8 +26,8 @@ Public Class frmWorkPeriodReport
             Dim ds As DataSet
             Dim adp, adp1, adp2, adp3, adp4, adp5 As SqlDataAdapter
             Dim dtable, dtable1, dtable2, dtable3, dtable4, dtable5 As DataTable
-            Dim StartDate As DateTime = DateTime.ParseExact(cmbWorkPeriodStartTime.Text, "dd/MM/yyyy hh:mm:ss tt", Nothing)
-            Dim EndDate As DateTime = DateTime.ParseExact(cmbWorkPeriodEndTime.Text, "dd/MM/yyyy hh:mm:ss tt", Nothing)
+            Dim StartDate As DateTime = DateTime.ParseExact(cmbWorkPeriodStartTime.Text, "MM/dd/yyyy hh:mm:ss tt", Nothing)
+            Dim EndDate As DateTime = DateTime.ParseExact(cmbWorkPeriodEndTime.Text, "MM/dd/yyyy hh:mm:ss tt", Nothing)
             con = New SqlConnection(cs)
             con.Open()
             Dim ct As String = "select Operator from RestaurantPOS_BillingInfoKOT where BillDate >=@d1 and BillDate <= @d2 union select Operator from RestaurantPOS_BillingInfoTA where BillDate >=@d1 and BillDate <= @d2 union select Operator from RestaurantPOS_BillingInfoHD where BillDate >=@d1 and BillDate <= @d2 Union select Operator from RestaurantPOS_BillingInfoEB where BillDate >=@d1 and BillDate <= @d2"
@@ -150,7 +150,7 @@ Public Class frmWorkPeriodReport
             Me.cmbWorkPeriodStartTime.Items.Clear()
             Do While rdr.Read()
                 Dim dt As DateTime = rdr.GetDateTime(0)
-                Me.cmbWorkPeriodStartTime.Items.Add(dt.ToString("dd/MM/yyyy hh:mm:ss tt"))
+                Me.cmbWorkPeriodStartTime.Items.Add(dt.ToString("MM/dd/yyyy hh:mm:ss tt"))
             Loop
             con.Close()
         Catch ex As Exception
@@ -165,7 +165,7 @@ Public Class frmWorkPeriodReport
     Private Sub cmbWorkPeriodStartTime_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbWorkPeriodStartTime.SelectedIndexChanged
         Try
             If cmbWorkPeriodStartTime.Text <> "" Then
-                Dim StartDate As DateTime = DateTime.ParseExact(cmbWorkPeriodStartTime.Text, "dd/MM/yyyy hh:mm:ss tt", Nothing)
+                Dim StartDate As DateTime = DateTime.ParseExact(cmbWorkPeriodStartTime.Text, "MM/dd/yyyy hh:mm:ss tt", Nothing)
                 con = New SqlConnection(cs)
                 con.Open()
                 Dim ct As String = "SELECT WpEnd FROM WorkPeriodStart,WorkPeriodEnd where WorkPeriodStart.ID=WorkPeriodEnd.ID and WPStart like @d1"
@@ -174,9 +174,9 @@ Public Class frmWorkPeriodReport
                 cmd.Connection = con
                 rdr = cmd.ExecuteReader()
                 If rdr.Read() Then
-                    cmbWorkPeriodEndTime.Text = rdr.GetDateTime(0).ToString("dd/MM/yyyy hh:mm:ss tt")
+                    cmbWorkPeriodEndTime.Text = rdr.GetDateTime(0).ToString("MM/dd/yyyy hh:mm:ss tt")
                 Else
-                    cmbWorkPeriodEndTime.Text = System.DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")
+                    cmbWorkPeriodEndTime.Text = System.DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt")
                 End If
                 con.Close()
             End If

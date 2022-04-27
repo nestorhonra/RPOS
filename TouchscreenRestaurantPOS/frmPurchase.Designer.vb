@@ -234,11 +234,10 @@ Partial Class frmPurchase
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = Global.RestaurantPOS3.My.Resources.Resources.Close_32x32
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(720, 6)
+        Me.btnClose.Location = New System.Drawing.Point(757, 6)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(76, 38)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 313
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -1033,7 +1032,7 @@ Partial Class frmPurchase
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(9, 7)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(705, 37)
+        Me.Panel2.Size = New System.Drawing.Size(742, 37)
         Me.Panel2.TabIndex = 0
         '
         'txtProductID

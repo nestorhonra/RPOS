@@ -37,10 +37,6 @@ Partial Class frmGuestLists
         Me.txtSearchByDish = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.dgw = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtDish = New System.Windows.Forms.TextBox()
-        Me.lblUser = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,6 +44,12 @@ Partial Class frmGuestLists
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtCred = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtDish = New System.Windows.Forms.TextBox()
+        Me.lblUser = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgw, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -153,7 +155,8 @@ Partial Class frmGuestLists
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgw.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgw.ColumnHeadersHeight = 26
-        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column6, Me.Column3, Me.Column7, Me.Column4, Me.Column5})
+        Me.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgw.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column6, Me.Column3, Me.Column7, Me.Column4, Me.Column5, Me.Column8})
         Me.dgw.Cursor = System.Windows.Forms.Cursors.Hand
         Me.dgw.EnableHeadersVisualStyles = False
         Me.dgw.GridColor = System.Drawing.Color.White
@@ -183,48 +186,6 @@ Partial Class frmGuestLists
         Me.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgw.Size = New System.Drawing.Size(699, 343)
         Me.dgw.TabIndex = 1
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.txtDish)
-        Me.Panel2.Controls.Add(Me.lblUser)
-        Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(656, 28)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(284, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Guest List "
-        '
-        'txtDish
-        '
-        Me.txtDish.Location = New System.Drawing.Point(473, 3)
-        Me.txtDish.Name = "txtDish"
-        Me.txtDish.Size = New System.Drawing.Size(40, 20)
-        Me.txtDish.TabIndex = 4
-        Me.txtDish.Visible = False
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.Location = New System.Drawing.Point(524, 6)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(39, 13)
-        Me.lblUser.TabIndex = 5
-        Me.lblUser.Text = "Label8"
-        Me.lblUser.Visible = False
         '
         'Column1
         '
@@ -292,6 +253,65 @@ Partial Class frmGuestLists
         Me.Column5.Name = "Column5"
         Me.Column5.ReadOnly = True
         '
+        'Column8
+        '
+        Me.Column8.HeaderText = "CR"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        Me.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Controls.Add(Me.txtCred)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.txtDish)
+        Me.Panel2.Controls.Add(Me.lblUser)
+        Me.Panel2.Location = New System.Drawing.Point(4, 4)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(656, 28)
+        Me.Panel2.TabIndex = 0
+        '
+        'txtCred
+        '
+        Me.txtCred.Location = New System.Drawing.Point(194, 4)
+        Me.txtCred.Name = "txtCred"
+        Me.txtCred.Size = New System.Drawing.Size(40, 20)
+        Me.txtCred.TabIndex = 6
+        Me.txtCred.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(284, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Guest List "
+        '
+        'txtDish
+        '
+        Me.txtDish.Location = New System.Drawing.Point(473, 3)
+        Me.txtDish.Name = "txtDish"
+        Me.txtDish.Size = New System.Drawing.Size(40, 20)
+        Me.txtDish.TabIndex = 4
+        Me.txtDish.Visible = False
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Location = New System.Drawing.Point(524, 6)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(39, 13)
+        Me.lblUser.TabIndex = 5
+        Me.lblUser.Text = "Label8"
+        Me.lblUser.Visible = False
+        '
         'frmGuestLists
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -324,6 +344,7 @@ Partial Class frmGuestLists
     Friend WithEvents lblUser As Label
     Friend WithEvents btnSearch As Button
     Friend WithEvents btnSplitAdd As Button
+    Friend WithEvents txtCred As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
@@ -331,4 +352,5 @@ Partial Class frmGuestLists
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
 End Class

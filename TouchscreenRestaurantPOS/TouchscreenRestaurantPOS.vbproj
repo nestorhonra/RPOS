@@ -266,6 +266,12 @@
     <Compile Include="frmBackOffice.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCustomerLedger.Designer.vb">
+      <DependentUpon>frmCustomerLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerLedger.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCustomerRegistration.Designer.vb">
       <DependentUpon>frmCustomerRegistration.vb</DependentUpon>
     </Compile>
@@ -1060,6 +1066,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBackOffice.resx">
       <DependentUpon>frmBackOffice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerLedger.resx">
+      <DependentUpon>frmCustomerLedger.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerRegistration.resx">
       <DependentUpon>frmCustomerRegistration.vb</DependentUpon>

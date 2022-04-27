@@ -111,11 +111,10 @@ Partial Class frmVoucherRecord
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.btnClose.Location = New System.Drawing.Point(658, 3)
+        Me.btnClose.Location = New System.Drawing.Point(696, 3)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(78, 39)
+        Me.btnClose.Size = New System.Drawing.Size(39, 39)
         Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "Close"
         Me.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnClose.UseVisualStyleBackColor = True
         '
@@ -266,7 +265,7 @@ Partial Class frmVoucherRecord
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(646, 30)
+        Me.Panel2.Size = New System.Drawing.Size(686, 30)
         Me.Panel2.TabIndex = 0
         '
         'Label1
@@ -275,7 +274,7 @@ Partial Class frmVoucherRecord
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(242, 2)
+        Me.Label1.Location = New System.Drawing.Point(275, 2)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(164, 24)
         Me.Label1.TabIndex = 0
