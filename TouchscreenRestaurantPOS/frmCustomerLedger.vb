@@ -43,7 +43,7 @@ Public Class frmCustomerLedger
             rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
             dgw.Rows.Clear()
             While (rdr.Read() = True)
-                dgw.Rows.Add(rdr(0), rdr(2), rdr(3), Trim(rdr(5)), toMoney(rdr(4)), Trim(rdr(6).ToString), changeYESNOValue(toNumber(rdr(7).ToString)), rdr(8))
+                dgw.Rows.Add(rdr(0), rdr(2), rdr(3), Trim(rdr(6)), toMoney(rdr(4).ToString), toMoney(rdr(5).ToString), Trim(rdr(7).ToString), changeYESNOValue(toNumber(rdr(8).ToString)), rdr(9))
             End While
             con.Close()
         Catch ex As Exception

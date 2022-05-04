@@ -12,6 +12,7 @@
         btnDelivery.Visible = False
         btnRecipe.Visible = False
         btnAbout.Visible = False
+        btnStore.Visible = False
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick

@@ -3417,22 +3417,9 @@ Public Class frmPOS
                             LogFunc(lblUser.Text, st)
                         End Try
                     ElseIf Trim(txtPaymentMode.Text) = "Account Charge" Then
+                        Call CustomerLedgerSave(toNumber(lblBookID.Text), toNumber(txtBillNo.Text), CDate(TransDate), toNumber(txtGrandTot.Text), 0, "Order No: " & Trim(ticketTag), False, Trim("from POS"))
+                        Call LedgerSave(CDate(TransDate), Trim(lblRoomNo.Text), toNumber(txtBillNo.Text), Trim(txtPaymentMode.Text), 0, toNumber(txtGrandTot.Text), toNumber(lblBookID.Text))
                         Try
-                            con = New SqlConnection(cs)
-                            con.Open()
-
-                            Dim cb3 As String = "INSERT INTO CustomerLedger (C_ID,BillID,BillDate,GrandTotal,Description,isPaid,Remarks) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7)"
-                            cmd = New SqlCommand(cb3)
-                            cmd.Parameters.AddWithValue("@d1", toNumber(lblBookID.Text))
-                            cmd.Parameters.AddWithValue("@d2", toNumber(txtBillNo.Text))
-                            cmd.Parameters.AddWithValue("@d3", CDate(TransDate))
-                            cmd.Parameters.AddWithValue("@d4", toNumber(txtGrandTot.Text))
-                            cmd.Parameters.AddWithValue("@d5", "Order No: " & Trim(ticketTag))
-                            cmd.Parameters.AddWithValue("@d6", toNumber("0"))
-                            cmd.Parameters.AddWithValue("@d7", Trim("from POS"))
-                            cmd.Connection = con
-                            cmd.ExecuteNonQuery()
-                            con.Close()
                             con = New SqlConnection(cs)
                             con.Open()
 

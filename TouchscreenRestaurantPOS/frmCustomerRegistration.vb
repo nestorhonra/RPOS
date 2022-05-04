@@ -37,7 +37,7 @@ Public Class frmCustomerRegistration
         chkActive.Checked = False
         btnSave.Enabled = False
         Picture.Image = My.Resources.photo
-        'auto()
+        dgw.Enabled = True
         txtFirstName.Focus()
     End Sub
 
@@ -86,7 +86,7 @@ Public Class frmCustomerRegistration
         Dim Num As Integer = 0
         con = New SqlConnection(cs)
         con.Open()
-        Dim sql As String = ("SELECT MAX(EmpID) FROM EmployeeRegistration")
+        Dim sql As String = ("SELECT MAX(ID) FROM CustomerInfo")
         cmd = New SqlCommand(sql)
         cmd.Connection = con
         If (IsDBNull(cmd.ExecuteScalar)) Then
@@ -135,6 +135,7 @@ Public Class frmCustomerRegistration
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If Trim(txtAccountID.Text) <> "" Then
+            Call auto()
             Try
                 con = New SqlConnection(cs)
                 con.Open()
@@ -166,6 +167,9 @@ Public Class frmCustomerRegistration
                 MessageBox.Show("Successfully saved", "Customer Profile", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 btnSave.Enabled = False
                 con.Close()
+
+                Call CustomerLedgerSave(toNumber(txtID.Text), toNumber(txtID.Text), CDate(Now()), 0, toNumber(txtCredit.Text), "Account No: " & Trim(txtAccountID.Text), False, Trim("New Register"))
+                Call LedgerSave(CDate(Now()), txtAccountID.Text, toNumber(txtID.Text), "Account Credit", 0, toNumber(txtCredit.Text), txtAccountID.Text)
                 Call Reset()
                 Call GetData()
             Catch ex As Exception

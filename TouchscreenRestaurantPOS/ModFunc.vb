@@ -83,7 +83,7 @@ Module ModFunc
         Dim obj As frmItem = DirectCast(Application.OpenForms("frmDish"), frmItem)
         obj.fillCombo()
     End Sub
-   
+
     Sub ExportExcel(ByVal st As Object)
         Dim rowsTotal, colsTotal As Short
         Dim I, j, iC As Short
@@ -123,6 +123,25 @@ Module ModFunc
             xlApp = Nothing
         End Try
     End Sub
+
+    Sub CustomerLedgerSave(ByVal a As Integer, ByVal b As Integer, ByVal c As DateTime, ByVal d As Decimal, ByVal e As Decimal, ByVal f As String, ByVal g As Boolean, ByVal h As String)
+        con = New SqlConnection(cs)
+        con.Open()
+        Dim cb As String = "insert into CustomerLedger(C_ID,BillID,BillDate,Credit,Debit,Description,isPaid,Remarks) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8)"
+        cmd = New SqlCommand(cb)
+        cmd.Parameters.AddWithValue("@d1", a)
+        cmd.Parameters.AddWithValue("@d2", b)
+        cmd.Parameters.AddWithValue("@d3", c)
+        cmd.Parameters.AddWithValue("@d4", d)
+        cmd.Parameters.AddWithValue("@d5", e)
+        cmd.Parameters.AddWithValue("@d6", f)
+        cmd.Parameters.AddWithValue("@d7", g)
+        cmd.Parameters.AddWithValue("@d8", h)
+        cmd.Connection = con
+        cmd.ExecuteReader()
+        con.Close()
+    End Sub
+
     Sub SupplierLedgerSave(ByVal a As DateTime, ByVal b As String, ByVal c As String, ByVal d As String, ByVal e As Decimal, ByVal f As Decimal, ByVal g As String)
         con = New SqlConnection(cs)
         con.Open()
