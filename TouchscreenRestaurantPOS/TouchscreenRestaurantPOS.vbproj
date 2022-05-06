@@ -380,6 +380,12 @@
     <Compile Include="Custom Dialog\frmCustomDialog5.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTableRoom.Designer.vb">
+      <DependentUpon>frmTableRoom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTableRoom.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTablesList.Designer.vb">
       <DependentUpon>frmTablesList.vb</DependentUpon>
     </Compile>
@@ -1123,6 +1129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Dialog\frmCustomDialog5.resx">
       <DependentUpon>frmCustomDialog5.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTableRoom.resx">
+      <DependentUpon>frmTableRoom.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTablesList.resx">
       <DependentUpon>frmTablesList.vb</DependentUpon>

@@ -808,7 +808,8 @@ Public Class frmPOS
                             cmd.Connection = con
                             cmd.Parameters.AddWithValue("@d1", dishname)
                             rdr = cmd.ExecuteReader()
-                            If (rdr.Read()) Then
+                            If rdr.HasRows Then
+                                rdr.Read()
                                 If toNumber(rdr(1).ToString) <= d_qty Then          'Qty 1<= 1
                                     If MsgBox("This item has a remaining quantity of " & toNumber(rdr(1).ToString) & "." & vbNewLine & "Do you still want to add this item?", vbQuestion + vbYesNo, "Confirm order") = vbYes Then
                                         If toNumber(lblID.Text) > 0 And is_edit = True Then
@@ -909,6 +910,7 @@ Public Class frmPOS
                                         Exit Sub
                                     End If
                                 Else
+                                    MsgBox(toNumber(lblID.Text) & " > 0 " & is_edit)
                                     If toNumber(lblID.Text) > 0 And is_edit = True Then
                                         Try
                                             con = New SqlConnection(cs)
@@ -951,6 +953,7 @@ Public Class frmPOS
                                             cmd.Parameters.AddWithValue("@d3", d_qty)
                                             rdr = cmd.ExecuteReader()
                                             If rdr.Read Then
+                                                MsgBox(toNumber(rdr(0)))
                                                 newID = toNumber(rdr(0))
                                                 If Not rdr Is Nothing Then
                                                     rdr.Close()
@@ -984,7 +987,7 @@ Public Class frmPOS
                                             dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                                             dgw.Focus()
                                         Catch ex As Exception
-                                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                            MessageBox.Show(ex.Message, "Error reader 1", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                         End Try
                                     ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
                                         con = New SqlConnection(cs)
@@ -1033,10 +1036,13 @@ Public Class frmPOS
                                         cmd.Parameters.AddWithValue("@d18", toNumber("0"))
                                         cmd.ExecuteReader()
                                         con.Close()
-                                        Dim st As String = "added the new item '" & Trim(rdr(0)) & "' to ticket no " & Trim(txtTicketNo.Text)
+                                        Dim st As String = "added the new item '" & Trim(dishname) & "' to ticket no " & Trim(txtTicketNo.Text)
                                         LogFunc(lblUser.Text, st)
                                         'MessageBox.Show("Successfully saved", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                                    Catch ex As Exception
+                                        MessageBox.Show(ex.Message, "Error end", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End Try
+                                    Try
                                         con = New SqlConnection(cs)
                                         con.Open()
                                         Dim sql4 As String = "select TOP 1 OP_ID from RestaurantPOS_OrderedProductKOT where TicketID=@d1 AND Dish=@d2 AND Quantity=@d3 ORDER BY OP_ID DESC"
@@ -1053,12 +1059,15 @@ Public Class frmPOS
                                             End If
                                         End If
                                         con.Close()
-
+                                    Catch ex As Exception
+                                        MessageBox.Show(ex.Message, "Error 1", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End Try
+                                    Try
                                         con = New SqlConnection(cs)
                                         con.Open()
 
-                                        Dim cb1 As String = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = GrandTotal + @d2 WHERE ID=@d1"
-                                        cmd = New SqlCommand(cb1)
+                                            Dim cb1 As String = "UPDATE RestaurantPOS_OrderInfoKOT SET GrandTotal = GrandTotal + @d2 WHERE ID=@d1"
+                                            cmd = New SqlCommand(cb1)
                                         cmd.Connection = con
                                         cmd.Parameters.AddWithValue("@d1", toNumber(lblID.Text))
                                         cmd.Parameters.AddWithValue("@d2", totamt)
@@ -1069,9 +1078,11 @@ Public Class frmPOS
                                         dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                                         dgw.Focus()
                                     Catch ex As Exception
-                                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                        MessageBox.Show(ex.Message, "Error 2", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                     End Try
-                                ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
+
+
+                                        ElseIf toNumber(lblID.Text) = 0 And is_edit = False Then
                                     rowId = dgw.Rows.Add(Trim(dishname), Trim(dishrate), d_qty, "", newID, amt, srvVat, vatamat, srvTax, stamt, srvChrge, scamt, disc, discamt, totamt, kitsec, prtag)
                                     dgw.CurrentCell = dgw.Rows(rowId).Cells(0)
                                     dgw.Focus()
@@ -1079,7 +1090,7 @@ Public Class frmPOS
                                 End If
                             End If
                         Catch ex As Exception
-                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBox.Show(ex.Message, "Error Read", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try
                     Else
                         rdr.Close()
@@ -1090,7 +1101,7 @@ Public Class frmPOS
                 txtQty.Text = ""
                 con.Close()
             Catch ex As Exception
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(ex.Message, "Error main", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         Else
             MsgBox("Please click new ticket to create an orders", vbCritical + vbOKOnly, "Error new order")
@@ -1849,8 +1860,7 @@ Public Class frmPOS
     End Sub
 
     Private Sub btnChgTable_Click(sender As Object, e As EventArgs) Handles btnChgTable.Click
-        With frmTablesList
-            .frm = "frmPOS"
+        With frmTableRoom
             .ShowDialog()
         End With
     End Sub
