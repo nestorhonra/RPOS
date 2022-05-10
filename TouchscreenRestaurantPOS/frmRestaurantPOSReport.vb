@@ -23,8 +23,8 @@ Public Class frmRestaurantPOSReport
             MyCommand.Connection = myConnection
             MyCommand1.Connection = myConnection
             MyCommand.CommandText = "SELECT RestaurantPOS_BillingInfoKOT.Id,Operator,RestaurantPOS_BillingInfoKOT.PaymentMode,RestaurantPOS_BillingInfoKOT.TableNo,RestaurantPOS_BillingInfoKOT.KOTDiscountPer,RestaurantPOS_BillingInfoKOT.DiscAmount,RestaurantPOS_BillingInfoKOT.SCPer,RestaurantPOS_BillingInfoKOT.SCDiscAmt,RestaurantPOS_BillingInfoKOT.OSCANo,RestaurantPOS_BillingInfoKOT.RefNo ,RestaurantPOS_BillingInfoKOT.BillNo, RestaurantPOS_BillingInfoKOT.BillDate, RestaurantPOS_BillingInfoKOT.GrandTotal, RestaurantPOS_BillingInfoKOT.Cash, RestaurantPOS_BillingInfoKOT.Change,RestaurantPOS_OrderedProductBillKOT.OP_ID, RestaurantPOS_OrderedProductBillKOT.BillID, RestaurantPOS_OrderedProductBillKOT.Dish,RestaurantPOS_OrderedProductBillKOT.Rate, RestaurantPOS_OrderedProductBillKOT.Quantity, RestaurantPOS_OrderedProductBillKOT.Amount,RestaurantPOS_OrderedProductBillKOT.VATPer, RestaurantPOS_OrderedProductBillKOT.VATAmount, RestaurantPOS_OrderedProductBillKOT.STPer, RestaurantPOS_OrderedProductBillKOT.STAmount,RestaurantPOS_OrderedProductBillKOT.DiscountPer, RestaurantPOS_OrderedProductBillKOT.DiscountAmount, RestaurantPOS_OrderedProductBillKOT.TotalAmount, RestaurantPOS_OrderedProductBillKOT.TableNo FROM RestaurantPOS_BillingInfoKOT INNER JOIN RestaurantPOS_OrderedProductBillKOT ON RestaurantPOS_BillingInfoKOT.Id = RestaurantPOS_OrderedProductBillKOT.BillID where BillDate between @d1 and @d2 order by BillDate"
-            MyCommand.Parameters.Add("@d1", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateFrom.Value.Date
-            MyCommand.Parameters.Add("@d2", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateTo.Value
+            MyCommand.Parameters.Add("@d1", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateFrom.Value.ToShortDateString & " 00:00:00"
+            MyCommand.Parameters.Add("@d2", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateTo.Value.ToShortDateString & " 23:59:59"
             MyCommand1.CommandText = "SELECT * from Hotel"
             MyCommand.CommandType = CommandType.Text
             MyCommand1.CommandType = CommandType.Text
@@ -37,8 +37,8 @@ Public Class frmRestaurantPOSReport
             con.Open()
             Dim ct As String = "select IsNull(Sum(GrandTotal),0) from RestaurantPOS_BillingInfoKOT where BillDate between @d1 and @d2"
             cmd = New SqlCommand(ct)
-            cmd.Parameters.Add("@d1", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateFrom.Value.Date
-            cmd.Parameters.Add("@d2", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateTo.Value
+            cmd.Parameters.Add("@d1", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateFrom.Value.ToShortDateString & " 00:00:00"
+            cmd.Parameters.Add("@d2", SqlDbType.DateTime, 30, "DateIN").Value = dtpDateTo.Value.ToShortDateString & " 23:59:59"
             cmd.Connection = con
             rdr = cmd.ExecuteReader()
             While rdr.Read()
@@ -46,8 +46,8 @@ Public Class frmRestaurantPOSReport
             End While
             con.Close()
             rpt.SetDataSource(myDS)
-            rpt.SetParameterValue("p1", dtpDateFrom.Value.Date)
-            rpt.SetParameterValue("p2", dtpDateTo.Value.Date)
+            rpt.SetParameterValue("p1", dtpDateFrom.Value.ToShortDateString & " 00:00:00")
+            rpt.SetParameterValue("p2", dtpDateTo.Value.ToShortDateString & " 23:59:59")
             rpt.SetParameterValue("p3", a)
             frmReport.CrystalReportViewer1.ReportSource = rpt
             frmReport.ShowDialog()

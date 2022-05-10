@@ -418,6 +418,12 @@ Public Class frmPOS
             Dim totalnoVat As Double = 0
             Try
                 For i As Integer = 0 To dgw2.Rows.Count - 1
+                    dgw2.Rows(i).Cells(4).Value = toNumber(dgw2.Rows(i).Cells(2).Value.ToString) * toNumber(dgw2.Rows(i).Cells(3).Value.ToString)                                                                       'TotalAmount
+                    dgw2.Rows(i).Cells(6).Value = Val(toNumber(dgw2.Rows(i).Cells(5).Value.ToString) / 100) * toNumber(dgw2.Rows(i).Cells(4).Value.ToString)                                                            'Disc Amount
+                    dgw2.Rows(i).Cells(8).Value = Val(toNumber(dgw2.Rows(i).Cells(7).Value.ToString) / 100) * Val(toNumber(dgw2.Rows(i).Cells(4).Value.ToString) - toNumber(dgw2.Rows(i).Cells(6).Value.ToString))      'Vat Amount
+                    dgw2.Rows(i).Cells(12).Value = Val(toNumber(dgw2.Rows(i).Cells(11).Value.ToString) / 100) * Val(toNumber(dgw2.Rows(i).Cells(4).Value.ToString) - toNumber(dgw2.Rows(i).Cells(6).Value.ToString))    'SC Amount
+                    dgw2.Rows(i).Cells(14).Value = Val(toNumber(dgw2.Rows(i).Cells(13).Value.ToString) / 100) * Val(toNumber(dgw2.Rows(i).Cells(4).Value.ToString) - toNumber(dgw2.Rows(i).Cells(6).Value.ToString))    'ST Amount
+                    dgw2.Rows(i).Cells(9).Value = toNumber(dgw2.Rows(i).Cells(4).Value.ToString) - toNumber(dgw2.Rows(i).Cells(6).Value.ToString) + toNumber(dgw2.Rows(i).Cells(8).Value.ToString) + toNumber(dgw2.Rows(i).Cells(12).Value.ToString) + toNumber(dgw2.Rows(i).Cells(14).Value.ToString)
                     totalamt += toNumber(dgw2.Rows(i).Cells(9).Value.ToString)
                     totalnoVat += toNumber(dgw2.Rows(i).Cells(4).Value.ToString)
                 Next
@@ -3508,6 +3514,9 @@ Public Class frmPOS
                 Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
                 Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
                 Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                If toNumber(txtSCAmount.Text) > 0 Then
+                    Printer.Print("SC/PWD Discount;" & toMoney(txtSCAmount.Text), arrWidth, arrFormat)
+                End If
                 Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
                 Printer.Print("Service Charge;" & toMoney(dblSCTot), arrWidth, arrFormat)
                 Printer.Print("VAT Amount;" & toMoney(dblVatTot), arrWidth, arrFormat)
@@ -3578,6 +3587,9 @@ Public Class frmPOS
                     Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
                     Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
                     Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    If toNumber(txtSCAmount.Text) > 0 Then
+                        Printer.Print("SC/PWD Discount;" & toMoney(txtSCAmount.Text), arrWidth, arrFormat)
+                    End If
                     Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
                     Printer.Print("Service Charge;" & toMoney(dblSCTot), arrWidth, arrFormat)
                     Printer.Print("VAT Amount;" & toMoney(dblVatTot), arrWidth, arrFormat)
@@ -3650,6 +3662,7 @@ Public Class frmPOS
                     Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
                     Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
                     Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    Printer.Print("SC/PWD Discount;" & toMoney(txtSCAmount.Text), arrWidth, arrFormat)
                     Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
                     Printer.Print("Service Charge @" & srvChrge & "%;" & toMoney(dblSCTot), arrWidth, arrFormat)
                     Printer.Print("VAT Amount @" & srvVat & "%;" & toMoney(dblVatTot), arrWidth, arrFormat)
@@ -3724,6 +3737,9 @@ Public Class frmPOS
                     Printer.SetFont("Courier New", 8, FontStyle.Bold) 'Setting Font
                     Printer.Print("Sub-total;" & toMoney(dblSubtotal), arrWidth, arrFormat)
                     Printer.SetFont("Courier New", 8, FontStyle.Regular) 'Setting Font
+                    If toNumber(txtSCAmount.Text) > 0 Then
+                        Printer.Print("SC/PWD Discount;" & toMoney(txtSCAmount.Text), arrWidth, arrFormat)
+                    End If
                     Printer.Print("Discount;" & toMoney(dblDiscTot + toNumber(txtDiscAmt.Text)), arrWidth, arrFormat)
                     Printer.Print("Service Charge @" & srvChrge & "%;" & toMoney(dblSCTot), arrWidth, arrFormat)
                     Printer.Print("VAT Amount @" & srvVat & "%;" & toMoney(dblVatTot), arrWidth, arrFormat)
