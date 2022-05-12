@@ -14,7 +14,7 @@ Public Class frmOpenTicketList
         If frm = "frmPOS" Then
             cmdText1 = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
         ElseIf frm = "frmPOSC" Then
-            cmdText1 = "SELECT RTRIM(T.TableNo) AS TableNo, T.BkColor, O.GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O LEFT JOIN R_Table aS T ON O.TableNo = T.TableNo WHERE isPaid = 0"
+            cmdText1 = "SELECT * FROM vw_OpenTicketList"
         ElseIf frm = "frmPOST" Then
             cmdText1 = " SELECT R.TableNo, R.BkColor, (SELECT GrandTotal FROM RestaurantPOS_OrderInfoKOT AS O WHERE R.TableNo = O.TableNo AND O.isPaid = 0) AS GrandTotal FROM R_Table AS R WHERE R.Status = 'Activate'"
         End If

@@ -916,7 +916,7 @@ Public Class frmPOS
                                         Exit Sub
                                     End If
                                 Else
-                                    MsgBox(toNumber(lblID.Text) & " > 0 " & is_edit)
+                                    'MsgBox(toNumber(lblID.Text) & " > 0 " & is_edit)
                                     If toNumber(lblID.Text) > 0 And is_edit = True Then
                                         Try
                                             con = New SqlConnection(cs)
@@ -3311,34 +3311,39 @@ Public Class frmPOS
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
+
+                        End If
+                    Next
+                    If dgw2.Rows.Count > 0 Then
+                        For s As Integer = 0 To dgw2.Rows.Count - 1
                             Try
                                 con = New SqlConnection(cs)
                                 con.Open()
                                 Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
                                 cmd = New SqlCommand(cb3)
                                 cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
-                                cmd.Parameters.AddWithValue("@d2", Trim(dgwList.Rows(x).Cells(1).Value))
-                                cmd.Parameters.AddWithValue("@d3", toNumber(dgwList.Rows(x).Cells(2).Value))
-                                cmd.Parameters.AddWithValue("@d4", toNumber(dgwList.Rows(x).Cells(3).Value))
-                                cmd.Parameters.AddWithValue("@d5", toNumber(dgwList.Rows(x).Cells(4).Value))
-                                cmd.Parameters.AddWithValue("@d6", toNumber(dgwList.Rows(x).Cells(7).Value))
-                                cmd.Parameters.AddWithValue("@d7", toNumber(dgwList.Rows(x).Cells(8).Value))
-                                cmd.Parameters.AddWithValue("@d8", toNumber(dgwList.Rows(x).Cells(13).Value))
-                                cmd.Parameters.AddWithValue("@d9", toNumber(dgwList.Rows(x).Cells(14).Value))
-                                cmd.Parameters.AddWithValue("@d10", toNumber(dgwList.Rows(x).Cells(11).Value))
-                                cmd.Parameters.AddWithValue("@d11", toNumber(dgwList.Rows(x).Cells(12).Value))
-                                cmd.Parameters.AddWithValue("@d12", toNumber(dgwList.Rows(x).Cells(5).Value))
-                                cmd.Parameters.AddWithValue("@d13", toNumber(dgwList.Rows(x).Cells(6).Value))
-                                cmd.Parameters.AddWithValue("@d14", toNumber(dgwList.Rows(x).Cells(9).Value))
-                                cmd.Parameters.AddWithValue("@d15", Trim(dgwList.Rows(x).Cells(10).Value))
+                                cmd.Parameters.AddWithValue("@d2", Trim(dgw2.Rows(s).Cells(1).Value))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(dgw2.Rows(s).Cells(2).Value))
+                                cmd.Parameters.AddWithValue("@d4", toNumber(dgw2.Rows(s).Cells(3).Value))
+                                cmd.Parameters.AddWithValue("@d5", toNumber(dgw2.Rows(s).Cells(4).Value))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(dgw2.Rows(s).Cells(7).Value))
+                                cmd.Parameters.AddWithValue("@d7", toNumber(dgw2.Rows(s).Cells(8).Value))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(dgw2.Rows(s).Cells(13).Value))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(dgw2.Rows(s).Cells(14).Value))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(dgw2.Rows(s).Cells(11).Value))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(dgw2.Rows(s).Cells(12).Value))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(dgw2.Rows(s).Cells(5).Value))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(dgw2.Rows(s).Cells(6).Value))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(dgw2.Rows(s).Cells(9).Value))
+                                cmd.Parameters.AddWithValue("@d15", Trim(dgw2.Rows(s).Cells(10).Value))
                                 cmd.Connection = con
                                 cmd.ExecuteNonQuery()
                                 con.Close()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
-                        End If
-                    Next
+                        Next
+                    End If
                 End If
 
                 If ticketTag <> "" Then
@@ -3897,17 +3902,38 @@ Public Class frmPOS
         End If
     End Sub
 
-    Private Sub btnKeyboard_Click(sender As Object, e As EventArgs) Handles btnKeyboard.Click
-        Dim old As Long
-        If Environment.Is64BitOperatingSystem Then
-            If Wow64DisableWow64FsRedirection(old) Then
-                Process.Start(osk)
-                Wow64EnableWow64FsRedirection(old)
-            End If
-        Else
-            Process.Start(osk)
-        End If
-    End Sub
+    'Private Sub txtGrandTot_TextChanged(sender As Object, e As EventArgs) Handles txtGrandTot.TextChanged
+    '    If toNumber(txtGrandTot.Text) >= 0 Then
+    '        If Val(txtSCDiscPer.Text) > 0 Then
+    '            Dim dicper As Double = toNumber(txtSCDiscPer.Text) / 100
+    '            Dim dschk As Double = toNumber(toNumber(lblSubTotal.Text) * dicper)
+    '            If dschk <= toNumber(lblSubTotal.Text) Then
+    '                txtSCAmount.Text = toMoney(dschk)
+    '            End If
+    '            Dim grnd As Double = toNumber(toNumber(lblGrandTotal.Text) - toNumber(txtSCAmount.Text) - toNumber(txtDiscAmt.Text))
+    '            If toNumber(grnd) < 0 Then
+
+    '            Else
+    '                txtGrandTot.Text = toMoney(grnd)
+    '            End If
+    '            If Trim(txtCash.Text) <> "" Then
+    '                txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+    '            Else
+    '                txtChange.Text = ""
+    '            End If
+    '        Else
+    '            txtSCDiscPer.Text = "0"
+    '            txtSCAmount.Text = "0"
+    '            txtGrandTot.Text = toMoney(lblGrandTotal.Text) - toNumber(txtSCAmount.Text) - toNumber(txtDiscAmt.Text)
+    '            If Trim(txtCash.Text) <> "" Then
+    '                txtChange.Text = toMoney(toNumber(txtCash.Text) - Val(toNumber(txtGrandTot.Text)))
+    '            Else
+    '                txtChange.Text = ""
+    '            End If
+    '        End If
+    '    End If
+    'End Sub
+
 
     Private Sub CheckButton1_CheckedChanged(sender As Object, e As EventArgs) Handles chkSC.CheckedChanged
         If chkSC.Checked = True Then
@@ -3936,6 +3962,54 @@ Public Class frmPOS
         txtCash.SelectAll()
         FocusText = txtCash
     End Sub
+
+    Private Sub txtDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiscPer.KeyPress
+        Dim validChars As String = "0123456789."
+        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
+        If e.KeyChar = vbCr Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtSCDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSCDiscPer.KeyPress
+        Dim validChars As String = "0123456789."
+        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
+        If e.KeyChar = vbCr Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtCash_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCash.KeyPress
+        Dim validChars As String = "0123456789."
+        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
+        If e.KeyChar = vbCr Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtOSCANo_LostFocus(sender As Object, e As EventArgs) Handles txtOSCANo.Leave
+        If Trim(txtOSCANo.Text) <> "" Then
+            With frmCustomDialog13
+                .frm = "frmPOS3"
+                .Label2.Text = "Enter SC/PWD Name"
+                .btnKeyboard.Visible = True
+                .ShowDialog()
+            End With
+        End If
+    End Sub
+
+    Private Sub txtDiscPer_LostFocus(sender As Object, e As EventArgs) Handles txtDiscPer.Leave
+        If toNumber(txtDiscPer.Text) > 0 Then
+            With frmCustomDialog13
+                .frm = "frmPOS4"
+                .Label2.Text = "Enter discount remarks"
+                .btnKeyboard.Visible = True
+                .ShowDialog()
+            End With
+        End If
+    End Sub
+
+#End Region
 
     Private Sub btnSplitAdd_Click(sender As Object, e As EventArgs) Handles btnSplitAdd.Click
         If dgw1.Rows.Count > 0 Then
@@ -4133,52 +4207,15 @@ Public Class frmPOS
         End If
     End Sub
 
-    Private Sub txtDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDiscPer.KeyPress
-        Dim validChars As String = "0123456789."
-        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
-        If e.KeyChar = vbCr Then
-            e.Handled = True
+    Private Sub btnKeyboard_Click(sender As Object, e As EventArgs) Handles btnKeyboard.Click
+        Dim old As Long
+        If Environment.Is64BitOperatingSystem Then
+            If Wow64DisableWow64FsRedirection(old) Then
+                Process.Start(osk)
+                Wow64EnableWow64FsRedirection(old)
+            End If
+        Else
+            Process.Start(osk)
         End If
     End Sub
-
-    Private Sub txtSCDiscPer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSCDiscPer.KeyPress
-        Dim validChars As String = "0123456789."
-        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
-        If e.KeyChar = vbCr Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtCash_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCash.KeyPress
-        Dim validChars As String = "0123456789."
-        e.Handled = Not (validChars.IndexOf(e.KeyChar) > -1 OrElse e.KeyChar = Convert.ToChar(Keys.Back))
-        If e.KeyChar = vbCr Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtOSCANo_LostFocus(sender As Object, e As EventArgs) Handles txtOSCANo.Leave
-        If Trim(txtOSCANo.Text) <> "" Then
-            With frmCustomDialog13
-                .frm = "frmPOS3"
-                .Label2.Text = "Enter SC/PWD Name"
-                .btnKeyboard.Visible = True
-                .ShowDialog()
-            End With
-        End If
-    End Sub
-
-    Private Sub txtDiscPer_LostFocus(sender As Object, e As EventArgs) Handles txtDiscPer.Leave
-        If toNumber(txtDiscPer.Text) > 0 Then
-            With frmCustomDialog13
-                .frm = "frmPOS4"
-                .Label2.Text = "Enter discount remarks"
-                .btnKeyboard.Visible = True
-                .ShowDialog()
-            End With
-        End If
-    End Sub
-
-#End Region
-
 End Class

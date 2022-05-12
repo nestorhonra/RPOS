@@ -9,7 +9,7 @@ Public Class frmTablesList
         If frm = "frmPOS" Then
             cmdText1 = "SELECT R.TableNo, R.BkColor FROM R_Table AS R WHERE R.Status='Activate' AND R.TableNo NOT IN (SELECT TableNo FROM RestaurantPOS_OrderInfoKOT WHERE isPaid = 0)"
         ElseIf frm = "frmRoom" Then
-            cmdText1 = "SELECT room_no, '' AS BkColor FROM db_hotel.tbl_rooms"
+            cmdText1 = "SELECT R.room_no, '' AS BkColor FROM db_hotel.tbl_rooms AS R LEFT JOIN db_hotel.tbl_booking as B ON R.id = B.roomname WHERE B.check_in_status = 1 AND B.check_out_status IS NULL"
         End If
 
         cmd = New SqlCommand(cmdText1)
