@@ -648,7 +648,7 @@ Public Class frmPOS
                                 '    ticketTag = ticketTag & ";" & ticketID.ToString
                                 'End If
                                 Do While (rdr.Read())
-                                    dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)) - toNumber(rdr(19).ToString), toNumber(rdr(5)), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)), chkbill.Text, toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(ticketID), "0")
+                                    dgwList.Rows.Add(toNumber(rdr(0)), Trim(rdr(2)), toNumber(rdr(3)), toNumber(rdr(4)) - toNumber(rdr(19).ToString), toNumber(rdr(5)) - toNumber(rdr(20).ToString), toNumber(rdr(12)), toNumber(rdr(13)), toNumber(rdr(6)), toNumber(rdr(7)), toNumber(rdr(14)) - toNumber(rdr(20).ToString), chkbill.Text, toNumber(rdr(10)), toNumber(rdr(11)), toNumber(rdr(8)), toNumber(rdr(9)), toNumber(ticketID), "0")
                                 Loop
                             End If
                         End If
@@ -959,7 +959,7 @@ Public Class frmPOS
                                             cmd.Parameters.AddWithValue("@d3", d_qty)
                                             rdr = cmd.ExecuteReader()
                                             If rdr.Read Then
-                                                MsgBox(toNumber(rdr(0)))
+                                                'MsgBox(toNumber(rdr(0)))
                                                 newID = toNumber(rdr(0))
                                                 If Not rdr Is Nothing Then
                                                     rdr.Close()
@@ -3250,6 +3250,33 @@ Public Class frmPOS
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
+                            Try
+                                con = New SqlConnection(cs)
+                                con.Open()
+                                Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
+                                cmd = New SqlCommand(cb3)
+                                cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
+                                cmd.Parameters.AddWithValue("@d2", Trim(dgw2.Rows(i).Cells(1).Value))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(dgw2.Rows(i).Cells(2).Value))
+                                cmd.Parameters.AddWithValue("@d4", toNumber(dgw2.Rows(i).Cells(3).Value))
+                                cmd.Parameters.AddWithValue("@d5", toNumber(dgw2.Rows(i).Cells(4).Value))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(dgw2.Rows(i).Cells(7).Value))
+                                cmd.Parameters.AddWithValue("@d7", toNumber(dgw2.Rows(i).Cells(8).Value))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(dgw2.Rows(i).Cells(13).Value))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(dgw2.Rows(i).Cells(14).Value))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(dgw2.Rows(i).Cells(11).Value))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(dgw2.Rows(i).Cells(12).Value))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(dgw2.Rows(i).Cells(5).Value))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(dgw2.Rows(i).Cells(6).Value))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(dgw2.Rows(i).Cells(9).Value))
+                                cmd.Parameters.AddWithValue("@d15", Trim(dgw2.Rows(i).Cells(10).Value))
+                                cmd.Connection = con
+                                cmd.ExecuteNonQuery()
+                                con.Close()
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                            End Try
+
                         Next
                         For x As Integer = 0 To dgwList.Rows.Count - 1
                             Dim opd As Integer = toNumber(dgwList.Rows(x).Cells(0).Value)
@@ -3266,34 +3293,10 @@ Public Class frmPOS
                                 Catch ex As Exception
                                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                                 End Try
-                                Try
-                                    con = New SqlConnection(cs)
-                                    con.Open()
-                                    Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
-                                    cmd = New SqlCommand(cb3)
-                                    cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
-                                    cmd.Parameters.AddWithValue("@d2", Trim(dgwList.Rows(x).Cells(1).Value))
-                                    cmd.Parameters.AddWithValue("@d3", toNumber(dgwList.Rows(x).Cells(2).Value))
-                                    cmd.Parameters.AddWithValue("@d4", toNumber(dgwList.Rows(x).Cells(3).Value))
-                                    cmd.Parameters.AddWithValue("@d5", toNumber(dgwList.Rows(x).Cells(4).Value))
-                                    cmd.Parameters.AddWithValue("@d6", toNumber(dgwList.Rows(x).Cells(7).Value))
-                                    cmd.Parameters.AddWithValue("@d7", toNumber(dgwList.Rows(x).Cells(8).Value))
-                                    cmd.Parameters.AddWithValue("@d8", toNumber(dgwList.Rows(x).Cells(13).Value))
-                                    cmd.Parameters.AddWithValue("@d9", toNumber(dgwList.Rows(x).Cells(14).Value))
-                                    cmd.Parameters.AddWithValue("@d10", toNumber(dgwList.Rows(x).Cells(11).Value))
-                                    cmd.Parameters.AddWithValue("@d11", toNumber(dgwList.Rows(x).Cells(12).Value))
-                                    cmd.Parameters.AddWithValue("@d12", toNumber(dgwList.Rows(x).Cells(5).Value))
-                                    cmd.Parameters.AddWithValue("@d13", toNumber(dgwList.Rows(x).Cells(6).Value))
-                                    cmd.Parameters.AddWithValue("@d14", toNumber(dgwList.Rows(x).Cells(9).Value))
-                                    cmd.Parameters.AddWithValue("@d15", Trim(dgwList.Rows(x).Cells(10).Value))
-                                    cmd.Connection = con
-                                    cmd.ExecuteNonQuery()
-                                    con.Close()
-                                Catch ex As Exception
-                                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
-                                End Try
+
                             End If
                         Next
+
                     End If
                 Else
                     For x As Integer = 0 To dgwList.Rows.Count - 1
@@ -3311,39 +3314,35 @@ Public Class frmPOS
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
-
-                        End If
-                    Next
-                    If dgw2.Rows.Count > 0 Then
-                        For s As Integer = 0 To dgw2.Rows.Count - 1
                             Try
                                 con = New SqlConnection(cs)
                                 con.Open()
                                 Dim cb3 As String = "INSERT INTO RestaurantPOS_OrderedProductBillKOT (BillID,Dish,Rate,Quantity,Amount,VATPer,VATAmount,STPer,STAmount,SCPer,SCAmount,DiscountPer,DiscountAmount,TotalAmount,TableNo) VALUES(@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13,@d14,@d15)"
                                 cmd = New SqlCommand(cb3)
                                 cmd.Parameters.AddWithValue("@d1", Trim(txtBillNo.Text))
-                                cmd.Parameters.AddWithValue("@d2", Trim(dgw2.Rows(s).Cells(1).Value))
-                                cmd.Parameters.AddWithValue("@d3", toNumber(dgw2.Rows(s).Cells(2).Value))
-                                cmd.Parameters.AddWithValue("@d4", toNumber(dgw2.Rows(s).Cells(3).Value))
-                                cmd.Parameters.AddWithValue("@d5", toNumber(dgw2.Rows(s).Cells(4).Value))
-                                cmd.Parameters.AddWithValue("@d6", toNumber(dgw2.Rows(s).Cells(7).Value))
-                                cmd.Parameters.AddWithValue("@d7", toNumber(dgw2.Rows(s).Cells(8).Value))
-                                cmd.Parameters.AddWithValue("@d8", toNumber(dgw2.Rows(s).Cells(13).Value))
-                                cmd.Parameters.AddWithValue("@d9", toNumber(dgw2.Rows(s).Cells(14).Value))
-                                cmd.Parameters.AddWithValue("@d10", toNumber(dgw2.Rows(s).Cells(11).Value))
-                                cmd.Parameters.AddWithValue("@d11", toNumber(dgw2.Rows(s).Cells(12).Value))
-                                cmd.Parameters.AddWithValue("@d12", toNumber(dgw2.Rows(s).Cells(5).Value))
-                                cmd.Parameters.AddWithValue("@d13", toNumber(dgw2.Rows(s).Cells(6).Value))
-                                cmd.Parameters.AddWithValue("@d14", toNumber(dgw2.Rows(s).Cells(9).Value))
-                                cmd.Parameters.AddWithValue("@d15", Trim(dgw2.Rows(s).Cells(10).Value))
+                                cmd.Parameters.AddWithValue("@d2", Trim(dgwList.Rows(x).Cells(1).Value))
+                                cmd.Parameters.AddWithValue("@d3", toNumber(dgwList.Rows(x).Cells(2).Value))
+                                cmd.Parameters.AddWithValue("@d4", toNumber(dgwList.Rows(x).Cells(3).Value))
+                                cmd.Parameters.AddWithValue("@d5", toNumber(dgwList.Rows(x).Cells(4).Value))
+                                cmd.Parameters.AddWithValue("@d6", toNumber(dgwList.Rows(x).Cells(7).Value))
+                                cmd.Parameters.AddWithValue("@d7", toNumber(dgwList.Rows(x).Cells(8).Value))
+                                cmd.Parameters.AddWithValue("@d8", toNumber(dgwList.Rows(x).Cells(13).Value))
+                                cmd.Parameters.AddWithValue("@d9", toNumber(dgwList.Rows(x).Cells(14).Value))
+                                cmd.Parameters.AddWithValue("@d10", toNumber(dgwList.Rows(x).Cells(11).Value))
+                                cmd.Parameters.AddWithValue("@d11", toNumber(dgwList.Rows(x).Cells(12).Value))
+                                cmd.Parameters.AddWithValue("@d12", toNumber(dgwList.Rows(x).Cells(5).Value))
+                                cmd.Parameters.AddWithValue("@d13", toNumber(dgwList.Rows(x).Cells(6).Value))
+                                cmd.Parameters.AddWithValue("@d14", toNumber(dgwList.Rows(x).Cells(9).Value))
+                                cmd.Parameters.AddWithValue("@d15", Trim(dgwList.Rows(x).Cells(10).Value))
                                 cmd.Connection = con
+                                'MsgBox(Trim(dgwList.Rows(x).Cells(1).Value))
                                 cmd.ExecuteNonQuery()
                                 con.Close()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                             End Try
-                        Next
-                    End If
+                        End If
+                    Next
                 End If
 
                 If ticketTag <> "" Then
